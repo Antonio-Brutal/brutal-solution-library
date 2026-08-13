@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Training generator schematic: a dense edge-on manual block is chopped by a splitter comb into discrete procedure segments, switched through a crossbar lattice into four role lanes where rolling formers emit module capsules under one isometric generator enclosure, a check gate hangs below every lane with the safety-critical one doubled, a single lime-ringed node where the operations lead approves the publish, and one long return arc running backwards over the whole machine into the head of the manual">
+  <defs>
+    <radialGradient id="sop-to-training-generator-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="sop-to-training-generator-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="sop-to-training-generator-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#sop-to-training-generator-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="sop-to-training-generator-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#sop-to-training-generator-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="sop-to-training-generator-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#sop-to-training-generator-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#sop-to-training-generator-vig)"/>
+
+  <!-- the manual: a dense edge-on block, deliberately unreadable -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 46 156 V 500" opacity="0.8"/>
+    <path d="M 46 160 H 148 M 46 170 H 128 M 46 180 H 152 M 46 190 H 136 M 46 200 H 146 M 46 210 H 124 M 46 220 H 150 M 46 230 H 140 M 46 240 H 132 M 46 250 H 152 M 46 260 H 138" opacity="0.72"/>
+    <path d="M 46 270 H 126 M 46 280 H 148 M 46 290 H 134 M 46 300 H 152 M 46 310 H 130 M 46 320 H 144 M 46 330 H 122 M 46 340 H 150 M 46 350 H 138 M 46 360 H 128 M 46 370 H 146" opacity="0.5"/>
+    <path d="M 46 380 H 134 M 46 390 H 152 M 46 400 H 126 M 46 410 H 148 M 46 420 H 136 M 46 430 H 124 M 46 440 H 150 M 46 450 H 132 M 46 460 H 144 M 46 470 H 128 M 46 480 H 148 M 46 490 H 138" opacity="0.72"/>
+    <path d="M 158 152 V 504" opacity="0.3" stroke-dasharray="3 6"/>
+  </g>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(96,224)"/>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(74,336)"/>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(112,428)"/>
+
+  <!-- strands lifting out of the block toward the splitter comb -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 152 186 C 190 190, 206 206, 232 214" opacity="0.75"/>
+    <path d="M 152 250 C 192 250, 206 258, 232 262" opacity="0.6"/>
+    <path d="M 152 306 C 192 306, 208 308, 232 310" opacity="0.85"/>
+    <path d="M 152 366 C 192 366, 208 358, 232 358" opacity="0.6"/>
+    <path d="M 152 448 C 194 444, 210 420, 232 406" opacity="0.75"/>
+  </g>
+
+  <!-- layer 1a: the splitter comb chopping continuous prose into discrete units -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 234 186 V 474" stroke-width="1.4"/>
+    <path d="M 242 194 V 466" stroke-width="1" opacity="0.45"/>
+    <path d="M 224 198 H 252 M 224 222 H 252 M 224 246 H 252 M 224 270 H 252 M 224 294 H 252" stroke-width="1" opacity="0.75"/>
+    <path d="M 224 318 H 252 M 224 342 H 252 M 224 366 H 252 M 224 390 H 252 M 224 414 H 252 M 224 438 H 252 M 224 462 H 252" stroke-width="1" opacity="0.75"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2" stroke-dasharray="11 7">
+    <path d="M 254 214 H 334" opacity="0.85"/>
+    <path d="M 254 262 H 334" opacity="0.7"/>
+    <path d="M 254 310 H 334" opacity="0.9"/>
+    <path d="M 254 358 H 334" opacity="0.7"/>
+    <path d="M 254 406 H 334" opacity="0.8"/>
+  </g>
+  <use xlink:href="#sop-to-training-generator-swoosh" transform="translate(300,310)"/>
+
+  <!-- layer 1b: crossbar lattice switching each unit into a role lane -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M 336 214 L 478 330"/>
+    <path d="M 336 262 L 478 378"/>
+    <path d="M 336 310 L 478 426"/>
+    <path d="M 336 406 L 478 290"/>
+    <path d="M 336 358 L 478 242"/>
+    <path d="M 336 310 L 478 194"/>
+  </g>
+  <g fill="#f8fafc" stroke="none" opacity="0.85">
+    <circle cx="395" cy="262" r="3"/><circle cx="365" cy="286" r="3"/><circle cx="424" cy="286" r="3"/>
+    <circle cx="395" cy="310" r="3"/><circle cx="365" cy="334" r="3"/><circle cx="424" cy="334" r="3"/>
+    <circle cx="395" cy="358" r="3"/><circle cx="454" cy="310" r="3"/>
+  </g>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(424,286)"/>
+
+  <!-- four role lanes -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 478 194 C 492 198, 496 206, 508 210" opacity="0.75"/>
+    <path d="M 478 290 H 508" opacity="0.75"/>
+    <path d="M 478 378 C 492 376, 496 372, 508 370" opacity="0.75"/>
+    <path d="M 478 426 C 492 432, 496 444, 508 450" opacity="0.75"/>
+    <path d="M 508 210 H 880" opacity="0.3"/>
+    <path d="M 508 290 H 880" opacity="0.3"/>
+    <path d="M 508 370 H 880" opacity="0.3"/>
+    <path d="M 508 450 H 880" opacity="0.3"/>
+  </g>
+
+  <!-- layer 2: rolling formers between guide rails, emitting module capsules -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M 508 196 H 570 M 508 224 H 570"/>
+    <path d="M 508 276 H 570 M 508 304 H 570"/>
+    <path d="M 508 356 H 570 M 508 384 H 570"/>
+    <path d="M 508 436 H 570 M 508 464 H 570"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <ellipse cx="540" cy="210" rx="9" ry="13"/>
+    <ellipse cx="540" cy="290" rx="9" ry="13"/>
+    <ellipse cx="540" cy="370" rx="9" ry="13"/>
+    <ellipse cx="540" cy="450" rx="9" ry="13"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <rect x="590" y="200" width="58" height="20" rx="10" opacity="0.9"/>
+    <rect x="662" y="200" width="58" height="20" rx="10" opacity="0.72"/>
+    <rect x="734" y="200" width="58" height="20" rx="10" opacity="0.55"/>
+    <rect x="590" y="280" width="58" height="20" rx="10" opacity="0.9"/>
+    <rect x="662" y="280" width="58" height="20" rx="10" opacity="0.72"/>
+    <rect x="734" y="280" width="58" height="20" rx="10" opacity="0.55"/>
+    <rect x="590" y="360" width="58" height="20" rx="10" opacity="0.9"/>
+    <rect x="662" y="360" width="58" height="20" rx="10" opacity="0.72"/>
+    <rect x="734" y="360" width="58" height="20" rx="10" opacity="0.55"/>
+    <rect x="590" y="440" width="58" height="20" rx="10" opacity="0.9"/>
+    <rect x="662" y="440" width="58" height="20" rx="10" opacity="0.72"/>
+    <rect x="734" y="440" width="58" height="20" rx="10" opacity="0.55"/>
+  </g>
+
+  <!-- the one isometric element: the generator core over the second lane -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="574" y="252" width="228" height="76" stroke-width="1.3"/>
+    <path d="M 574 252 L 600 228 L 828 228 L 802 252 Z" stroke-width="1.3"/>
+    <path d="M 802 252 L 828 228 L 828 304 L 802 328 Z" stroke-width="1.3"/>
+    <path d="M 808 322 L 822 310 M 808 300 L 822 288 M 808 278 L 822 266" stroke-width="1" opacity="0.3"/>
+  </g>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(619,290)"/>
+
+  <!-- citation threads: every capsule tethered to a line of the manual -->
+  <g stroke="#f8fafc" fill="none" stroke-width="0.8" opacity="0.28">
+    <path d="M 596 200 C 500 164, 300 158, 154 184"/>
+    <path d="M 668 380 C 540 428, 300 434, 154 402"/>
+    <path d="M 740 460 C 600 516, 300 512, 154 456"/>
+  </g>
+
+  <!-- layer 3: a check gate hanging below every lane; the safety-critical lane doubled -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 856 210 V 241" opacity="0.6"/>
+    <path d="M 856 241 L 867 252 L 856 263 L 845 252 Z" stroke-width="1.1"/>
+    <path d="M 856 290 V 321" opacity="0.6"/>
+    <path d="M 856 321 L 867 332 L 856 343 L 845 332 Z" stroke-width="1.1"/>
+    <path d="M 856 370 V 401" opacity="0.6"/>
+    <path d="M 856 401 L 867 412 L 856 423 L 845 412 Z" stroke-width="1.1"/>
+    <path d="M 856 450 V 476" opacity="0.6"/>
+    <path d="M 856 476 L 872 492 L 856 508 L 840 492 Z" stroke-width="1.4"/>
+    <path d="M 856 484 L 864 492 L 856 500 L 848 492 Z" stroke-width="1" opacity="0.7"/>
+  </g>
+
+  <!-- the four lanes converge on one publish rail -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 880 210 C 916 216, 930 300, 956 326" opacity="0.8"/>
+    <path d="M 880 290 C 916 294, 934 318, 956 328" opacity="0.8"/>
+    <path d="M 880 370 C 916 366, 934 342, 956 332" opacity="0.8"/>
+    <path d="M 880 450 C 916 444, 930 360, 956 334" opacity="0.8"/>
+    <path d="M 956 330 H 986" stroke-width="1.4"/>
+  </g>
+
+  <!-- the one human-decision node: nothing publishes without it -->
+  <circle cx="1012" cy="330" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#sop-to-training-generator-glow)" opacity="0.7"/>
+  <circle cx="1012" cy="330" r="24" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="1012" cy="330" r="14" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 1004 325 H 1020" fill="none" stroke="#d8f999" stroke-width="1.5"/>
+  <path d="M 1004 335 H 1014" fill="none" stroke="#d8f999" stroke-width="1.5" opacity="0.7"/>
+  <text x="1012" y="386" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">ops lead approves</text>
+
+  <!-- published to the floor -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 1036 324 C 1078 314, 1116 306, 1166 306"/>
+    <path d="M 1036 330 H 1166"/>
+    <path d="M 1036 336 C 1078 346, 1116 354, 1166 354"/>
+    <path d="M 1166 300 v 12 M 1166 324 v 12 M 1166 348 v 12" opacity="0.6"/>
+  </g>
+  <use xlink:href="#sop-to-training-generator-swoosh" transform="translate(1120,330)"/>
+
+  <!-- the currency loop: the only line that runs backwards -->
+  <path d="M 1156 282 C 1136 140, 920 100, 620 100 L 300 100 C 184 100, 124 116, 98 144" stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.7"/>
+  <use xlink:href="#sop-to-training-generator-pulseDeep" transform="translate(600,100)"/>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(462,100)"/>
+  <use xlink:href="#sop-to-training-generator-pulse" transform="translate(342,100)"/>
+  <text x="472" y="80" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">regenerated</text>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 407 448 V 552"/>
+    <path d="M 690 524 V 552"/>
+  </g>
+  <text x="100" y="534" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">manual</text>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="407" y="576">by role</text>
+    <text x="690" y="576">modules</text>
+  </g>
+</svg>

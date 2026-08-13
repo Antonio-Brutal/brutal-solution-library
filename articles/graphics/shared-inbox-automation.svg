@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Shared-inbox triage and automation schematic">
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="pulseDeep">
+      <circle r="7" fill="#9de500" opacity="0.9" filter="url(#glow)"/>
+      <circle r="2.6" fill="#d8f999"/>
+    </g>
+    <g id="swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- one wide inbox channel: every tenant email, one address, one stream -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <path d="M -10 283 C 90 278, 170 276, 254 284" opacity="0.85"/>
+    <path d="M -10 357 C 90 362, 170 366, 254 358" opacity="0.85"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="0.8">
+    <rect x="11" y="304" width="8" height="12" rx="1" opacity="0.42"/>
+    <rect x="41" y="319" width="8" height="12" rx="1" opacity="0.65"/>
+    <rect x="71" y="305" width="8" height="12" rx="1" opacity="0.56"/>
+    <rect x="101" y="323" width="8" height="12" rx="1" opacity="0.55"/>
+    <rect x="131" y="311" width="8" height="12" rx="1" opacity="0.59"/>
+    <rect x="161" y="302" width="8" height="12" rx="1" opacity="0.42"/>
+    <rect x="191" y="301" width="8" height="12" rx="1" opacity="0.45"/>
+    <rect x="221" y="319" width="8" height="12" rx="1" opacity="0.4"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(60,320)"/>
+  <use xlink:href="#pulse" transform="translate(178,313)"/>
+  <text x="50" y="252" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">shared inbox</text>
+
+  <!-- urgency gate: one bright pulse breaks for the express rail -->
+  <g stroke="#f8fafc" fill="none">
+    <ellipse cx="272" cy="320" rx="7" ry="40" stroke-width="1.2" opacity="0.75"/>
+    <path d="M 272 282 C 300 288, 320 305, 336 317" stroke-width="1.2"/>
+    <path d="M 272 358 C 300 352, 320 335, 336 323" stroke-width="1.2"/>
+    <ellipse cx="338" cy="320" rx="3.2" ry="8" stroke-width="1" opacity="0.85"/>
+    <path d="M 342 320 L 366 320" stroke-width="1.2"/>
+    <path d="M 366 310 L 380 320 L 366 330 Z" stroke-width="1.2"/>
+  </g>
+  <text x="330" y="372" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">urgency</text>
+
+  <!-- express rail: the one urgent pulse, flagged in minutes, skipping the sort -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3" opacity="0.9">
+    <path d="M 374 314 C 388 230, 404 130, 458 92 C 510 68, 760 66, 990 70 C 1020 72, 996 100, 1000 122"/>
+  </g>
+  <use xlink:href="#pulseDeep" transform="translate(760,67)"/>
+  <g stroke="#bbf451" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M 988 134 L 978 126"/>
+    <path d="M 1012 134 L 1022 126"/>
+    <path d="M 1000 112 L 1000 100"/>
+  </g>
+  <use xlink:href="#pulseDeep" transform="translate(1000,144)"/>
+
+  <!-- entity resolution: sender, name, unit converge on one match -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="440" y="252" width="140" height="136" rx="3" stroke-width="1" opacity="0.55"/>
+    <path d="M 400 320 L 458 320" stroke-width="1.2"/>
+    <circle cx="460" cy="320" r="2.5" fill="#f8fafc" stroke="none" opacity="0.9"/>
+    <path d="M 462 318 C 468 300, 470 285, 475 285" stroke-width="1" opacity="0.8"/>
+    <path d="M 462 320 L 475 320" stroke-width="1" opacity="0.8"/>
+    <path d="M 462 322 C 468 340, 470 355, 475 355" stroke-width="1" opacity="0.8"/>
+    <path d="M 475 275 h 13 a 10 10 0 0 1 0 20 h -13 z" stroke-width="1.1"/>
+    <path d="M 475 310 h 13 a 10 10 0 0 1 0 20 h -13 z" stroke-width="1.1"/>
+    <path d="M 475 345 h 13 a 10 10 0 0 1 0 20 h -13 z" stroke-width="1.1"/>
+    <path d="M 499 285 L 517 285" stroke-width="1" opacity="0.7"/>
+    <path d="M 499 320 L 517 320" stroke-width="1" opacity="0.7"/>
+    <path d="M 499 355 L 517 355" stroke-width="1" opacity="0.7"/>
+    <path d="M 524 278 l 7 7 -7 7 -7 -7 z" stroke-width="1.1"/>
+    <path d="M 524 313 l 7 7 -7 7 -7 -7 z" stroke-width="1.1"/>
+    <path d="M 524 348 l 7 7 -7 7 -7 -7 z" stroke-width="1.1"/>
+    <path d="M 531 285 C 550 285, 560 285, 580 285" stroke-width="1" opacity="0.8"/>
+    <path d="M 531 320 L 580 320" stroke-width="1" opacity="0.8"/>
+    <path d="M 531 355 C 550 355, 560 355, 580 355" stroke-width="1" opacity="0.8"/>
+    <circle cx="450" cy="264" r="1.6" fill="#f8fafc" stroke="none" opacity="0.5"/>
+    <circle cx="568" cy="264" r="1.6" fill="#f8fafc" stroke="none" opacity="0.5"/>
+    <circle cx="450" cy="376" r="1.6" fill="#f8fafc" stroke="none" opacity="0.5"/>
+    <path d="M 544 262 h 22" stroke-width="1" opacity="0.35"/>
+    <path d="M 454 300 v 14" stroke-width="1" opacity="0.35"/>
+  </g>
+  <!-- converge to one resolved identity -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <path d="M 580 285 C 605 292, 620 305, 638 316"/>
+    <path d="M 580 320 L 638 320"/>
+    <path d="M 580 355 C 605 348, 620 335, 638 324"/>
+  </g>
+  <circle cx="642" cy="320" r="2.6" fill="#f8fafc" stroke="none" opacity="0.9"/>
+  <use xlink:href="#pulse" transform="translate(610,306)"/>
+
+  <!-- fork: work-order nozzle above, draft-reply rail below -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 646 318 C 680 300, 720 250, 780 224" opacity="0.85"/>
+    <path d="M 646 322 C 680 350, 720 390, 776 408" opacity="0.85"/>
+  </g>
+
+  <!-- work orders: stamped into the maintenance system -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 780 224 C 825 210, 875 207, 936 207" stroke-width="1.2"/>
+    <ellipse cx="944" cy="207" rx="3.4" ry="8" stroke-width="1" opacity="0.85"/>
+    <ellipse cx="952" cy="207" rx="2.8" ry="6.5" stroke-width="1" opacity="0.6"/>
+    <path d="M 955 207 L 990 207" stroke-width="1.1"/>
+    <rect x="1000" y="182" width="86" height="50" rx="2" opacity="0.8"/>
+    <path d="M 1012 196 h 60" opacity="0.55"/>
+    <path d="M 1012 207 h 66" opacity="0.55"/>
+    <path d="M 1012 218 h 40" opacity="0.55"/>
+  </g>
+  <text x="1043" y="170" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">work orders</text>
+
+  <!-- draft replies: lime-ringed approval before anything is sent -->
+  <circle cx="800" cy="416" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="800" cy="416" r="24" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="800" cy="416" r="15" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 792 417 L 798 423 L 810 408" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="800" y="468" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">manager approves</text>
+
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 826 410 C 880 400, 960 398, 1058 400"/>
+    <path d="M 826 416 L 1058 416"/>
+    <path d="M 826 422 C 880 432, 960 434, 1058 432"/>
+    <path d="M 1058 396 v 8" opacity="0.6"/><path d="M 1058 412 v 8" opacity="0.6"/>
+    <path d="M 1058 428 v 8" opacity="0.6"/>
+  </g>
+  <use xlink:href="#swoosh" transform="translate(950,416)"/>
+  <text x="966" y="372" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">replies</text>
+
+  <!-- stage label -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 510 388 V 545"/>
+  </g>
+  <text x="510" y="568" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">entity resolution</text>
+</svg>

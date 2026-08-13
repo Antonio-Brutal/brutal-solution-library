@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630">
+  <title>Contract review copilot schematic: contract strands pass a clause-extraction comb, a playbook plate feeds a deviation comparator, flagged clauses flow through a lime-ringed lawyer-decides gate to a redlined document.</title>
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="45%" r="80%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5" fill="#bbf451" opacity="0.85" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- input contract pages -->
+  <g fill="none" stroke="#f8fafc" stroke-width="1.2">
+    <rect x="58" y="225" width="88" height="118" opacity="0.45"/>
+    <rect x="78" y="265" width="88" height="118" opacity="0.65"/>
+    <rect x="98" y="305" width="88" height="118" opacity="0.9"/>
+  </g>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.5">
+    <line x1="70" y1="243" x2="130" y2="243"/>
+    <line x1="90" y1="283" x2="150" y2="283"/>
+    <line x1="110" y1="330" x2="172" y2="330"/>
+    <line x1="110" y1="348" x2="178" y2="348"/>
+    <line x1="110" y1="366" x2="160" y2="366"/>
+    <line x1="110" y1="384" x2="170" y2="384"/>
+  </g>
+
+  <!-- clause strands -->
+  <g fill="none" stroke="#f8fafc" stroke-width="1">
+    <path d="M186,250 C240,240 270,280 330,310" opacity="0.5"/>
+    <path d="M186,290 C235,300 275,290 330,322" opacity="0.7"/>
+    <path d="M186,330 C240,345 270,315 330,336" opacity="0.55"/>
+    <path d="M186,350 C235,335 275,360 330,350" opacity="0.75"/>
+    <path d="M186,370 C240,385 272,350 330,362" opacity="0.6"/>
+    <path d="M186,395 C238,380 275,395 330,376" opacity="0.7"/>
+    <path d="M186,415 C245,430 280,400 330,390" opacity="0.5"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(230,253)"/>
+  <use xlink:href="#pulse" transform="translate(256,297)"/>
+  <use xlink:href="#pulse" transform="translate(283,326)"/>
+  <use xlink:href="#pulse" transform="translate(255,347)"/>
+  <use xlink:href="#pulse" transform="translate(283,359)"/>
+  <use xlink:href="#pulse" transform="translate(256,386)"/>
+  <use xlink:href="#pulse" transform="translate(240,418)"/>
+
+  <!-- extraction comb -->
+  <g stroke="#f8fafc" fill="none">
+    <line x1="300" y1="235" x2="342" y2="306" stroke-width="1" opacity="0.45"/>
+    <line x1="300" y1="455" x2="342" y2="394" stroke-width="1" opacity="0.45"/>
+    <line x1="344" y1="302" x2="344" y2="398" stroke-width="1.4" opacity="0.95"/>
+    <line x1="356" y1="302" x2="356" y2="398" stroke-width="1.4" opacity="0.95"/>
+    <g stroke-width="1" opacity="0.8">
+      <line x1="344" y1="302" x2="356" y2="302"/>
+      <line x1="344" y1="318" x2="356" y2="318"/>
+      <line x1="344" y1="334" x2="356" y2="334"/>
+      <line x1="344" y1="350" x2="356" y2="350"/>
+      <line x1="344" y1="366" x2="356" y2="366"/>
+      <line x1="344" y1="382" x2="356" y2="382"/>
+      <line x1="344" y1="398" x2="356" y2="398"/>
+    </g>
+  </g>
+
+  <!-- ordered clause channels -->
+  <g stroke="#f8fafc" stroke-width="1.2" opacity="0.85">
+    <line x1="356" y1="310" x2="520" y2="310"/>
+    <line x1="356" y1="326" x2="520" y2="326"/>
+    <line x1="356" y1="342" x2="520" y2="342"/>
+    <line x1="356" y1="358" x2="520" y2="358"/>
+    <line x1="356" y1="374" x2="520" y2="374"/>
+    <line x1="356" y1="390" x2="520" y2="390"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(430,342)"/>
+
+  <!-- playbook plate -->
+  <g fill="none" stroke="#f8fafc">
+    <path d="M520,96 L708,78 L728,148 L540,166 Z" stroke-width="1.3"/>
+    <g stroke-width="1" opacity="0.5">
+      <line x1="532" y1="112" x2="714" y2="95"/>
+      <line x1="536" y1="126" x2="718" y2="110"/>
+      <line x1="540" y1="140" x2="722" y2="125"/>
+      <line x1="544" y1="154" x2="726" y2="139"/>
+    </g>
+    <g stroke-width="1" opacity="0.65">
+      <line x1="570" y1="165" x2="570" y2="300"/>
+      <line x1="620" y1="158" x2="620" y2="292"/>
+      <line x1="670" y1="152" x2="670" y2="286"/>
+    </g>
+  </g>
+  <use xlink:href="#pulse" transform="translate(630,130)"/>
+  <use xlink:href="#pulse" transform="translate(620,225)"/>
+
+  <!-- deviation comparator: isometric enclosure -->
+  <g fill="none" stroke="#f8fafc" stroke-width="1.3">
+    <path d="M520,300 L700,300 L700,412 L520,412 Z"/>
+    <path d="M520,300 L556,278 L736,278 L700,300"/>
+    <path d="M700,300 L736,278 L736,390 L700,412"/>
+  </g>
+  <g fill="none" stroke="#f8fafc" stroke-width="0.9" opacity="0.85">
+    <path d="M560,312 L560,338 L592,325 Z"/>
+    <path d="M560,344 L560,370 L592,357 Z"/>
+    <path d="M560,376 L560,402 L592,389 Z"/>
+  </g>
+  <g fill="none" stroke="#f8fafc" opacity="0.45" stroke-width="0.8">
+    <line x1="592" y1="325" x2="628" y2="315"/>
+    <line x1="592" y1="357" x2="632" y2="352"/>
+    <line x1="592" y1="389" x2="636" y2="388"/>
+    <line x1="628" y1="315" x2="652" y2="308"/>
+    <line x1="652" y1="308" x2="676" y2="318"/>
+    <line x1="632" y1="352" x2="660" y2="345"/>
+    <line x1="660" y1="345" x2="680" y2="350"/>
+    <line x1="636" y1="388" x2="664" y2="382"/>
+    <line x1="628" y1="315" x2="632" y2="352"/>
+    <line x1="660" y1="345" x2="664" y2="382"/>
+    <line x1="676" y1="318" x2="680" y2="350"/>
+  </g>
+  <g fill="#f8fafc" opacity="0.8">
+    <circle cx="628" cy="315" r="2.5"/>
+    <circle cx="652" cy="308" r="2.5"/>
+    <circle cx="676" cy="318" r="2.5"/>
+    <circle cx="632" cy="352" r="2.5"/>
+    <circle cx="660" cy="345" r="2.5"/>
+    <circle cx="680" cy="350" r="2.5"/>
+    <circle cx="636" cy="388" r="2.5"/>
+    <circle cx="664" cy="382" r="2.5"/>
+  </g>
+
+  <!-- comparator exits, flagged clauses glow -->
+  <g stroke="#f8fafc" stroke-width="1.1" opacity="0.75">
+    <line x1="700" y1="310" x2="780" y2="310"/>
+    <line x1="700" y1="326" x2="780" y2="326"/>
+    <line x1="700" y1="342" x2="780" y2="342"/>
+    <line x1="700" y1="358" x2="780" y2="358"/>
+    <line x1="700" y1="374" x2="780" y2="374"/>
+    <line x1="700" y1="390" x2="780" y2="390"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(760,326)"/>
+  <use xlink:href="#pulse" transform="translate(760,358)"/>
+  <use xlink:href="#pulse" transform="translate(760,390)"/>
+
+  <!-- redline manifold -->
+  <g fill="none" stroke="#f8fafc" stroke-width="1">
+    <path d="M780,310 C830,310 860,340 900,344" opacity="0.6"/>
+    <path d="M780,326 C828,326 862,342 900,346" opacity="0.75"/>
+    <path d="M780,342 C830,342 865,346 900,348" opacity="0.6"/>
+    <path d="M780,358 C830,358 865,352 900,350" opacity="0.75"/>
+    <path d="M780,374 C828,374 862,356 900,352" opacity="0.6"/>
+    <path d="M780,390 C830,390 860,360 900,354" opacity="0.75"/>
+  </g>
+  <path d="M900,345 L932,346.5 L932,342 L946,349 L932,356 L932,351.5 L900,353 Z" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+  <path d="M900,345 L932,346.5 L932,342 L946,349 L932,356 L932,351.5 L900,353 Z" fill="#bbf451"/>
+
+  <!-- lawyer decides gate -->
+  <circle cx="972" cy="349" r="17" fill="none" stroke="#bbf451" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="972" cy="349" r="17" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <line x1="961" y1="349" x2="972" y2="349" stroke="#f8fafc" stroke-width="1.4"/>
+  <line x1="972" y1="349" x2="982" y2="340" stroke="#f8fafc" stroke-width="1.4"/>
+  <circle cx="972" cy="349" r="2" fill="#d8f999"/>
+
+  <!-- redlined output -->
+  <line x1="989" y1="349" x2="1032" y2="349" stroke="#f8fafc" stroke-width="1.2" opacity="0.9"/>
+  <rect x="1036" y="286" width="96" height="126" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.5">
+    <line x1="1050" y1="310" x2="1118" y2="310"/>
+    <line x1="1050" y1="328" x2="1112" y2="328"/>
+    <line x1="1050" y1="382" x2="1108" y2="382"/>
+    <line x1="1050" y1="400" x2="1090" y2="400"/>
+  </g>
+  <line x1="1050" y1="346" x2="1118" y2="346" stroke="#bbf451" stroke-width="2" filter="url(#glow)" opacity="0.8"/>
+  <line x1="1050" y1="346" x2="1118" y2="346" stroke="#bbf451" stroke-width="1.6"/>
+  <line x1="1050" y1="364" x2="1100" y2="364" stroke="#bbf451" stroke-width="2" filter="url(#glow)" opacity="0.8"/>
+  <line x1="1050" y1="364" x2="1100" y2="364" stroke="#bbf451" stroke-width="1.6"/>
+
+  <!-- labels -->
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
+    <text x="102" y="470" font-size="18" fill="#90a1b9">contracts</text>
+    <text x="350" y="470" font-size="20" fill="#f8fafc">clause extraction</text>
+    <text x="624" y="52" font-size="20" fill="#f8fafc">playbook</text>
+    <text x="628" y="470" font-size="20" fill="#f8fafc">deviation flagging</text>
+    <text x="972" y="398" font-size="18" fill="#f8fafc">lawyer decides</text>
+    <text x="1084" y="448" font-size="18" fill="#90a1b9">redlines</text>
+  </g>
+</svg>

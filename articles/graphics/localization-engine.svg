@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Schematic of a localization engine: interface strings leave a component grid with context tags clipped on and one stale string looping back into the trunk; nine language rails pass a single shared column of keyed glossary gates, a slot-verification bank and caliper jaws that enforce layout budgets, then are re-sorted by visibility so only the heaviest rails reach a lime-ringed native reviewer">  <defs>
+    <radialGradient id="localization-engine-vig" cx="52%" cy="46%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="localization-engine-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="localization-engine-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#localization-engine-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="localization-engine-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#localization-engine-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="localization-engine-swoosh">
+      <path d="M -20 -5.5 Q 7 -9 20 0 Q 7 9 -20 5.5 Q -7 0 -20 -5.5 Z" fill="#bbf451" filter="url(#localization-engine-glow)" opacity="0.68"/>
+      <path d="M -20 -5.5 Q 7 -9 20 0 Q 7 9 -20 5.5 Q -7 0 -20 -5.5 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#localization-engine-vig)"/>
+  <!-- layer 1: interface components; context captured, never asked for -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <rect x="44" y="92" width="74" height="28" opacity="0.8"/>
+    <rect x="132" y="88" width="46" height="18" opacity="0.5"/>
+    <rect x="194" y="96" width="56" height="36" opacity="0.8"/>
+    <rect x="38" y="148" width="54" height="20" opacity="0.8"/>
+    <rect x="106" y="142" width="90" height="30" opacity="0.8"/>
+    <rect x="208" y="150" width="40" height="40" opacity="0.8"/>
+    <rect x="54" y="208" width="66" height="24" opacity="0.8"/>
+    <rect x="138" y="204" width="42" height="26" opacity="0.8"/>
+    <rect x="194" y="214" width="58" height="18" opacity="0.5"/>
+  </g>
+  <path d="M 50 106 h 41 M 50 114 h 24 M 44 97 h 4 M 114 115 h 4 M 138 97 h 25 M 132 93 h 4 M 174 101 h 4 M 200 114 h 31 M 200 122 h 18 M 194 101 h 4 M 246 127 h 4 M 44 158 h 30 M 38 153 h 4 M 88 163 h 4 M 112 157 h 50 M 112 165 h 29 M 106 147 h 4 M 192 167 h 4 M 214 170 h 22 M 214 178 h 13 M 208 155 h 4 M 244 185 h 4 M 60 220 h 36 M 54 213 h 4 M 116 227 h 4 M 144 217 h 23 M 144 225 h 13 M 138 209 h 4 M 176 225 h 4 M 200 223 h 32 M 194 219 h 4 M 248 227 h 4" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.32"/>
+  <path d="M 236 150 L 248 162 M 228 150 L 248 170 M 220 150 L 248 178" fill="none" stroke="#90a1b9" stroke-width="1" opacity="0.75"/>
+  <path d="M 70 120 V 350 M 150 172 V 350 M 159 230 V 350 M 222 132 V 350 M 86 232 V 350 M 223 232 V 350" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <path d="M 72 302 L 89 302 L 95 311 L 89 320 L 72 320 Z"/>
+    <path d="M 152 302 L 169 302 L 175 311 L 169 320 L 152 320 Z"/>
+    <path d="M 161 302 L 178 302 L 184 311 L 178 320 L 161 320 Z"/>
+    <path d="M 224 302 L 241 302 L 247 311 L 241 320 L 224 320 Z"/>
+    <path d="M 88 302 L 105 302 L 111 311 L 105 320 L 88 320 Z"/>
+    <path d="M 225 302 L 242 302 L 248 311 L 242 320 L 225 320 Z"/>
+  </g>
+  <path d="M 77 311 h 8 M 166 311 h 8 M 93 311 h 8 M 158 307 v 8 M 164 307 v 8 M 230 307 v 8 M 236 307 v 8 M 231 307 v 8 M 237 307 v 8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.5"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(150,266)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(222,196)"/>
+  <!-- a changed source string re-enters the trunk and flags all nine -->
+  <path d="M 228 190 V 404 H 300 C 322 404, 326 374, 306 368 H 262 C 250 368, 246 360, 254 352" fill="none" stroke="#90a1b9" stroke-width="1" stroke-dasharray="4 3" opacity="0.9"/>
+  <path d="M 288 363 l -9 5 l 9 5" fill="none" stroke="#90a1b9" stroke-width="1"/>
+  <path d="M 60 350 L 356 350" fill="none" stroke="#f8fafc" stroke-width="1.4"/>
+  <path d="M 60 344 v 12" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <!-- splitter comb: one trunk becomes nine languages -->
+  <path d="M 356 172 V 492" fill="none" stroke="#f8fafc" stroke-width="1.3"/>
+  <path d="M 356 180 h 24 M 356 218 h 24 M 356 256 h 24 M 356 294 h 24 M 356 332 h 24 M 356 370 h 24 M 356 408 h 24 M 356 446 h 24 M 356 484 h 24" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.85"/>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 380 180 H 600" stroke-width="1.0" opacity="0.68"/>
+    <path d="M 380 218 H 600" stroke-width="1.9" opacity="0.9"/>
+    <path d="M 380 256 H 600" stroke-width="0.85" opacity="0.68"/>
+    <path d="M 380 294 H 600" stroke-width="1.5" opacity="0.9"/>
+    <path d="M 380 332 H 600" stroke-width="0.95" opacity="0.68"/>
+    <path d="M 380 370 H 600" stroke-width="2.2" opacity="0.9"/>
+    <path d="M 380 408 H 600" stroke-width="0.8" opacity="0.68"/>
+    <path d="M 380 446 H 600" stroke-width="0.9" opacity="0.68"/>
+    <path d="M 380 484 H 600" stroke-width="1.0" opacity="0.68"/>
+  </g>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 634 218 H 830" stroke-width="1.90" opacity="0.9"/>
+    <path d="M 634 256 H 830" stroke-width="0.85" opacity="0.68"/>
+    <path d="M 634 294 H 830" stroke-width="1.50" opacity="0.9"/>
+    <path d="M 634 332 H 830" stroke-width="0.66" opacity="0.68"/>
+    <path d="M 634 370 H 830" stroke-width="2.20" opacity="0.9"/>
+    <path d="M 634 408 H 830" stroke-width="0.80" opacity="0.68"/>
+    <path d="M 634 446 H 830" stroke-width="0.63" opacity="0.68"/>
+    <path d="M 634 484 H 830" stroke-width="1.00" opacity="0.68"/>
+  </g>
+  <!-- layer 2: one versioned ruleset, the same keyed gate in every language -->
+  <path d="M 490 164 V 500" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.55"/>
+  <path d="M 484 164 h 12 M 484 196 h 12 M 484 202 h 12 M 484 234 h 12 M 484 240 h 12 M 484 272 h 12 M 484 278 h 12 M 484 310 h 12 M 484 316 h 12 M 484 348 h 12 M 484 354 h 12 M 484 386 h 12 M 484 392 h 12 M 484 424 h 12 M 484 430 h 12 M 484 462 h 12 M 484 468 h 12 M 484 500 h 12" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.35"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.9">
+    <path d="M 468 167 L 468 175 L 481 175 L 481 170 M 468 193 L 468 185 L 481 185 L 481 190 M 512 167 L 512 175 L 499 175 L 499 170 M 512 193 L 512 185 L 499 185 L 499 190 M 468 205 L 468 213 L 481 213 L 481 208 M 468 231 L 468 223 L 481 223 L 481 228 M 512 205 L 512 213 L 499 213 L 499 208 M 512 231 L 512 223 L 499 223 L 499 228 M 468 243 L 468 251 L 481 251 L 481 246 M 468 269 L 468 261 L 481 261 L 481 266 M 512 243 L 512 251 L 499 251 L 499 246 M 512 269 L 512 261 L 499 261 L 499 266"/>
+    <path d="M 468 281 L 468 289 L 481 289 L 481 284 M 468 307 L 468 299 L 481 299 L 481 304 M 512 281 L 512 289 L 499 289 L 499 284 M 512 307 L 512 299 L 499 299 L 499 304 M 468 319 L 468 327 L 481 327 L 481 322 M 468 345 L 468 337 L 481 337 L 481 342 M 512 319 L 512 327 L 499 327 L 499 322 M 512 345 L 512 337 L 499 337 L 499 342 M 468 357 L 468 365 L 481 365 L 481 360 M 468 383 L 468 375 L 481 375 L 481 380 M 512 357 L 512 365 L 499 365 L 499 360 M 512 383 L 512 375 L 499 375 L 499 380"/>
+    <path d="M 468 395 L 468 403 L 481 403 L 481 398 M 468 421 L 468 413 L 481 413 L 481 418 M 512 395 L 512 403 L 499 403 L 499 398 M 512 421 L 512 413 L 499 413 L 499 418 M 468 433 L 468 441 L 481 441 L 481 436 M 468 459 L 468 451 L 481 451 L 481 456 M 512 433 L 512 441 L 499 441 L 499 436 M 512 459 L 512 451 L 499 451 L 499 456 M 468 471 L 468 479 L 481 479 L 481 474 M 468 497 L 468 489 L 481 489 L 481 494 M 512 471 L 512 479 L 499 479 L 499 474 M 512 497 L 512 489 L 499 489 L 499 494"/>
+  </g>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,180)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,218)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,256)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,294)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,332)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,370)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,408)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,446)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(462,484)"/>
+  <path d="M 518 294 C 534 276, 556 278, 558 292 C 560 308, 544 316, 524 306" fill="none" stroke="#90a1b9" stroke-width="1"/>
+  <path d="M 532 310 l 10 -2 l -5 -9" fill="none" stroke="#90a1b9" stroke-width="1"/>
+  <use xlink:href="#localization-engine-pulseDeep" transform="translate(556,288)"/>
+  <!-- layer 3: the character budget as a hard requirement -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2" opacity="0.9">
+    <path d="M 598 160 L 612 164 L 632 164 M 632 160 v 8 M 598 200 L 612 196 L 632 196 M 632 192 v 8 M 598 198 L 612 212 L 632 212 M 632 208 v 8 M 598 238 L 612 224 L 632 224 M 632 220 v 8 M 598 236 L 612 251 L 632 251 M 632 247 v 8 M 598 276 L 612 261 L 632 261 M 632 257 v 8"/>
+    <path d="M 598 274 L 612 287 L 632 287 M 632 283 v 8 M 598 314 L 612 301 L 632 301 M 632 297 v 8 M 598 312 L 612 327 L 632 327 M 632 323 v 8 M 598 352 L 612 337 L 632 337 M 632 333 v 8 M 598 350 L 612 362 L 632 362 M 632 358 v 8 M 598 390 L 612 378 L 632 378 M 632 374 v 8"/>
+    <path d="M 598 388 L 612 404 L 632 404 M 632 400 v 8 M 598 428 L 612 412 L 632 412 M 632 408 v 8 M 598 426 L 612 441 L 632 441 M 632 437 v 8 M 598 466 L 612 451 L 632 451 M 632 447 v 8 M 598 464 L 612 478 L 632 478 M 632 474 v 8 M 598 504 L 612 490 L 632 490 M 632 486 v 8"/>
+  </g>
+  <path d="M 642 300 v 8 M 642 312 v 8 M 654 300 v 8 M 654 312 v 8 M 642 432 v 8 M 642 444 v 8 M 654 432 v 8 M 654 444 v 8" fill="none" stroke="#90a1b9" stroke-width="1.1" opacity="0.85"/>
+  <path d="M 634 180 C 676 178, 696 164, 712 148" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.9"/>
+  <circle cx="726" cy="140" r="11" fill="none" stroke="#f8fafc" stroke-width="1.3" opacity="0.9"/>
+  <path d="M 726 129 v 22 M 715 140 h 22" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.4"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(684,167)"/>
+  <!-- variable slots verified: present, ordered, and grammatical -->
+  <path d="M 688 209 L 682 209 L 682 227 L 688 227 M 764 209 L 770 209 L 770 227 L 764 227 M 688 247 L 682 247 L 682 265 L 688 265 M 764 247 L 770 247 L 770 265 L 764 265 M 688 285 L 682 285 L 682 303 L 688 303 M 764 285 L 770 285 L 770 303 L 764 303 M 688 323 L 682 323 L 682 341 L 688 341 M 764 323 L 770 323 L 770 341 L 764 341 M 688 361 L 682 361 L 682 379 L 688 379 M 764 361 L 770 361 L 770 379 L 764 379 M 688 399 L 682 399 L 682 417 L 688 417 M 764 399 L 770 399 L 770 417 L 764 417 M 688 437 L 682 437 L 682 455 L 688 455 M 764 437 L 770 437 L 770 455 L 764 455 M 688 475 L 682 475 L 682 493 L 688 493 M 764 475 L 770 475 L 770 493 L 764 493" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.8"/>
+  <path d="M 706 214 v 8 M 726 214 v 8 M 746 214 v 8 M 706 252 v 8 M 726 252 v 8 M 746 252 v 8 M 706 290 v 8 M 726 290 v 8 M 746 290 v 8 M 706 328 v 8 M 726 328 v 8 M 746 328 v 8 M 706 366 v 8 M 726 366 v 8 M 746 366 v 8 M 706 404 v 8 M 726 404 v 8 M 706 442 v 8 M 726 442 v 8 M 746 442 v 8 M 706 480 v 8 M 726 480 v 8 M 746 480 v 8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.55"/>
+  <path d="M 742 436 v 12" fill="none" stroke="#90a1b9" stroke-width="1.4" opacity="0.9"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(726,332)"/>
+  <!-- layer 4: re-sorted by how many people will see the string -->
+  <path d="M 830 370 C 866 370, 874 206, 908 206" fill="none" stroke="#f8fafc" stroke-width="2.20" opacity="0.9"/>
+  <path d="M 830 218 C 866 218, 874 236, 908 236" fill="none" stroke="#f8fafc" stroke-width="1.90" opacity="0.9"/>
+  <path d="M 830 294 C 866 294, 874 266, 908 266" fill="none" stroke="#f8fafc" stroke-width="1.50" opacity="0.9"/>
+  <path d="M 830 484 C 866 484, 874 330, 908 330" fill="none" stroke="#f8fafc" stroke-width="1.00" opacity="0.6"/>
+  <path d="M 830 332 C 866 332, 874 366, 908 366" fill="none" stroke="#f8fafc" stroke-width="0.66" opacity="0.6"/>
+  <path d="M 830 446 C 866 446, 874 402, 908 402" fill="none" stroke="#f8fafc" stroke-width="0.63" opacity="0.6"/>
+  <path d="M 830 256 C 866 256, 874 438, 908 438" fill="none" stroke="#f8fafc" stroke-width="0.85" opacity="0.6"/>
+  <path d="M 830 408 C 866 408, 874 474, 908 474" fill="none" stroke="#f8fafc" stroke-width="0.80" opacity="0.6"/>
+  <path d="M 830 166 V 498" fill="none" stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45"/>
+  <path d="M 908 166 V 498" fill="none" stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.3"/>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 908 206 C 942 206, 952 224, 974 240" stroke-width="1.6"/>
+    <path d="M 908 236 C 940 236, 952 244, 974 248" stroke-width="1.4"/>
+    <path d="M 908 266 C 940 266, 952 262, 974 256" stroke-width="1.2"/>
+  </g>
+  <path d="M 908 330 H 938" fill="none" stroke="#f8fafc" stroke-width="0.9" opacity="0.65"/>
+  <path d="M 946 330 l 8 -8 l 8 8 l -8 8 Z" fill="none" stroke="#f8fafc" stroke-width="1.1"/>
+  <path d="M 954 322 V 314 M 950 314 h 8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <path d="M 962 326 C 978 320, 988 302, 992 280" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.85"/>
+  <circle cx="1000" cy="250" r="26" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#localization-engine-glow)" opacity="0.7"/>
+  <circle cx="1000" cy="250" r="26" fill="none" stroke="#bbf451" stroke-width="1.7"/>
+  <circle cx="1000" cy="250" r="16" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 992 251 L 998 257 L 1010 242" fill="none" stroke="#d8f999" stroke-width="1.7"/>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 1026 236 H 1146" stroke-width="1.3"/>
+    <path d="M 1026 250 H 1146" stroke-width="1.1"/>
+    <path d="M 1026 264 H 1146" stroke-width="1"/>
+    <path d="M 1146 229 v 14 M 1146 243 v 14 M 1146 257 v 14" stroke-width="1" opacity="0.6"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.65">
+    <path d="M 908 366 H 1096"/>
+    <path d="M 908 402 H 1096"/>
+    <path d="M 908 438 H 1096"/>
+    <path d="M 908 474 H 1096"/>
+    <path d="M 1096 358 L 1124 366 L 1096 374 Z M 1096 394 L 1124 402 L 1096 410 Z M 1096 430 L 1124 438 L 1096 446 Z M 1096 466 L 1124 474 L 1096 482 Z" stroke-width="1.1"/>
+    <path d="M 1124 366 h 26 M 1124 402 h 26 M 1124 438 h 26 M 1124 474 h 26" opacity="0.7"/>
+  </g>
+  <use xlink:href="#localization-engine-pulse" transform="translate(1086,236)"/>
+  <use xlink:href="#localization-engine-swoosh" transform="translate(1076,264) rotate(2)"/>
+  <!-- every reviewer edit returns to the shared ruleset -->
+  <path d="M 996 224 C 986 146, 936 82, 838 78 L 600 78 C 542 78, 500 104, 490 164" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.6"/>
+  <path d="M 764 78 l 11 -5 l 0 10 Z M 636 78 l 11 -5 l 0 10 Z" fill="#90a1b9" stroke="none" opacity="0.85"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(914,104)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(700,78)"/>
+  <use xlink:href="#localization-engine-pulse" transform="translate(536,100)"/>
+  <text x="1000" y="306" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">native reviewer approves</text>
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 168 534 V 552"/>
+    <path d="M 490 534 V 552"/>
+    <path d="M 700 534 V 552"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="168" y="576">strings and context</text>
+    <text x="490" y="576">glossary</text>
+    <text x="700" y="576">fit</text>
+  </g>
+</svg>

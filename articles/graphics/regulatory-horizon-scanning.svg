@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Regulatory horizon-scanning schematic: distant source beacons funnel into a change-detection comparator where an old and new version overlay and the delta glows lime, deltas route through an impact-mapping lattice, an officer-confirms node sits before the fan-out, and the signal reaches distinct owner terminals with deadline nodes">
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="beacon">
+      <circle r="2.5" fill="#f8fafc"/>
+      <path d="M -6 -6 A 9 9 0 0 1 -6 6" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.55"/>
+      <path d="M -10 -10.5 A 15 15 0 0 1 -10 10.5" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.35"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- distant source beacons -->
+  <use xlink:href="#beacon" transform="translate(66,150)"/>
+  <use xlink:href="#beacon" transform="translate(86,218)"/>
+  <use xlink:href="#beacon" transform="translate(60,286)"/>
+  <use xlink:href="#beacon" transform="translate(90,354)"/>
+  <use xlink:href="#beacon" transform="translate(64,422)"/>
+  <use xlink:href="#beacon" transform="translate(84,490)"/>
+  <text x="46" y="104" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">sources</text>
+
+  <!-- strands converge toward change detection -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 82 150 C 160 160, 250 220, 290 288" opacity="0.55"/>
+    <path d="M 100 218 C 165 224, 250 260, 290 300" opacity="0.8"/>
+    <path d="M 76 286 C 160 290, 250 306, 290 312" opacity="0.5"/>
+    <path d="M 104 354 C 165 350, 250 330, 290 322" opacity="0.85"/>
+    <path d="M 80 422 C 160 414, 250 356, 290 332" opacity="0.55"/>
+    <path d="M 98 490 C 165 478, 250 370, 290 340" opacity="0.65"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(173,234) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(164,294) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(174,345) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(165,399) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(172,450) scale(0.6)"/>
+
+  <!-- collection funnel -->
+  <g stroke="#f8fafc" fill="none">
+    <ellipse cx="300" cy="320" rx="8" ry="56" stroke-width="1.2" opacity="0.75"/>
+    <path d="M 300 264 C 332 272, 354 296, 364 312" stroke-width="1.3"/>
+    <path d="M 300 376 C 332 368, 354 344, 364 328" stroke-width="1.3"/>
+    <path d="M 304 286 C 330 292, 346 302, 358 314" stroke-width="1" opacity="0.4"/>
+    <path d="M 304 354 C 330 348, 346 338, 358 326" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="366" cy="320" rx="3.5" ry="9" stroke-width="1.1" opacity="0.85"/>
+    <ellipse cx="374" cy="320" rx="3" ry="7.5" stroke-width="1" opacity="0.6"/>
+    <path d="M 376 320 L 420 320" stroke-width="1.3"/>
+  </g>
+
+  <!-- change-detection comparator -->
+  <rect x="420" y="250" width="190" height="140" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.5"/>
+  <g stroke="#62748e" fill="none" stroke-width="1" opacity="0.3" stroke-dasharray="2 5">
+    <path d="M 515 250 V 390"/>
+    <path d="M 565 250 V 390"/>
+  </g>
+  <path d="M 420 320 C 460 318, 495 312, 515 298 C 535 286, 560 286, 590 292" stroke="#62748e" stroke-width="1.2" stroke-dasharray="3 4" fill="none" opacity="0.85"/>
+  <path d="M 420 320 C 460 323, 495 328, 515 340 C 535 352, 560 350, 590 320" stroke="#f8fafc" stroke-width="1.2" fill="none" opacity="0.9"/>
+  <ellipse cx="540" cy="318" rx="45" ry="48" fill="#bbf451" opacity="0.16" filter="url(#glow)"/>
+  <g stroke="#bbf451" stroke-width="1.2" opacity="0.8" fill="none">
+    <path d="M 512 296 L 518 342"/>
+    <path d="M 566 288 L 562 322"/>
+  </g>
+  <use xlink:href="#pulseDeep" transform="translate(540,317)"/>
+
+  <!-- delta continues to impact mapping -->
+  <path d="M 590 320 L 650 320" stroke="#f8fafc" stroke-width="1.3" fill="none"/>
+  <use xlink:href="#pulseDeep" transform="translate(622,320) scale(0.75)"/>
+
+  <!-- impact-mapping lattice -->
+  <rect x="650" y="230" width="200" height="180" fill="none" stroke="#f8fafc" stroke-width="1.3" opacity="0.8"/>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.35">
+    <path d="M 690 230 V 410"/><path d="M 730 230 V 410"/><path d="M 770 230 V 410"/><path d="M 810 230 V 410"/>
+    <path d="M 650 275 H 850"/><path d="M 650 320 H 850"/><path d="M 650 365 H 850"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(710,297) scale(0.85)"/>
+  <use xlink:href="#pulse" transform="translate(790,342) scale(0.85)"/>
+  <use xlink:href="#pulse" transform="translate(670,387) scale(0.85)"/>
+  <path d="M 650 297 H 710" stroke="#bbf451" stroke-width="1" opacity="0.4" fill="none"/>
+  <path d="M 710 297 L 790 342" stroke="#bbf451" stroke-width="1" opacity="0.3" fill="none" stroke-dasharray="2 4"/>
+
+  <!-- connector to officer node -->
+  <path d="M 850 320 L 896 320" stroke="#f8fafc" stroke-width="1.3" fill="none"/>
+
+  <!-- lime-ringed node: officer confirms -->
+  <circle cx="920" cy="320" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="920" cy="320" r="24" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="920" cy="320" r="15" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 912 321 L 918 327 L 930 312" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="920" y="376" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">officer confirms</text>
+
+  <!-- fan-out to distinct owner terminals -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 944 308 C 1000 270, 1040 210, 1080 162" opacity="0.85"/>
+    <path d="M 944 316 C 1000 300, 1040 282, 1080 266" opacity="0.85"/>
+    <path d="M 944 324 C 1000 340, 1040 360, 1080 374" opacity="0.85"/>
+    <path d="M 944 332 C 1000 372, 1040 438, 1080 480" opacity="0.85"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(1010,222) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(1020,288) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(1020,352) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(1010,418) scale(0.7)"/>
+
+  <!-- owner terminals with deadline nodes -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <rect x="1080" y="139" width="76" height="44"/>
+    <rect x="1080" y="243" width="76" height="44"/>
+    <rect x="1080" y="353" width="76" height="44"/>
+    <rect x="1080" y="463" width="76" height="44"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.7">
+    <line x1="1092" y1="153" x2="1144" y2="153"/><line x1="1092" y1="167" x2="1128" y2="167"/>
+    <line x1="1092" y1="257" x2="1144" y2="257"/><line x1="1092" y1="271" x2="1128" y2="271"/>
+    <line x1="1092" y1="367" x2="1144" y2="367"/><line x1="1092" y1="381" x2="1128" y2="381"/>
+    <line x1="1092" y1="477" x2="1144" y2="477"/><line x1="1092" y1="491" x2="1128" y2="491"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <circle cx="1166" cy="161" r="6"/>
+    <path d="M 1166 161 V 156 M 1166 161 L 1170 161"/>
+    <circle cx="1166" cy="265" r="6"/>
+    <path d="M 1166 265 V 260 M 1166 265 L 1170 265"/>
+    <circle cx="1166" cy="375" r="6"/>
+    <path d="M 1166 375 V 370 M 1166 375 L 1170 375"/>
+    <circle cx="1166" cy="485" r="6"/>
+    <path d="M 1166 485 V 480 M 1166 485 L 1170 485"/>
+  </g>
+  <text x="1118" y="565" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">owners</text>
+
+  <!-- stage labels -->
+  <path d="M 515 390 V 435" stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.4" fill="none"/>
+  <path d="M 750 410 V 435" stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.4" fill="none"/>
+  <text x="515" y="458" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">change detection</text>
+  <text x="750" y="458" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">impact mapping</text>
+</svg>

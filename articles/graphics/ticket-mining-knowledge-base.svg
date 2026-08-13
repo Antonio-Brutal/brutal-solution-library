@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: a dense archive field of resolved tickets split by a dashed tenancy divider, threads clipped by a redaction comb and braided into five trunks, an isometric synthesis chamber trailing hairline provenance threads back to individual archive nodes, a comb of tines with one bent stale tine and an unresolved contradiction circle, and a single lime-ringed owner-publishes gate before five cited output lines">
+  <defs>
+    <radialGradient id="ticket-mining-knowledge-base-vig" cx="50%" cy="44%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="ticket-mining-knowledge-base-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="ticket-mining-knowledge-base-glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="ticket-mining-knowledge-base-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#ticket-mining-knowledge-base-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="ticket-mining-knowledge-base-pulseSmall">
+      <circle r="4" fill="#bbf451" opacity="0.7" filter="url(#ticket-mining-knowledge-base-glow)"/>
+      <circle r="1.5" fill="#d8f999"/>
+    </g>
+    <g id="ticket-mining-knowledge-base-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#ticket-mining-knowledge-base-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ticket-mining-knowledge-base-vig)"/>
+
+  <!-- layer 1: the archive field -->
+  <g stroke="#62748e" fill="none" stroke-width="1" opacity="0.16">
+    <path d="M 44 142 H 306 M 44 180 H 306 M 44 218 H 306 M 44 256 H 306 M 44 294 H 306 M 44 332 H 306 M 44 370 H 306 M 44 408 H 306 M 44 446 H 306 M 44 484 H 306"/>
+    <path d="M 56 130 V 496 M 92 130 V 496 M 128 130 V 496 M 164 130 V 496 M 200 130 V 496 M 236 130 V 496 M 272 130 V 496 M 304 130 V 496"/>
+  </g>
+  <path d="M 54 150 h 0.5 M 90 144 h 0.5 M 126 158 h 0.5 M 160 148 h 0.5 M 60 192 h 0.5 M 96 186 h 0.5 M 132 198 h 0.5 M 166 190 h 0.5 M 52 232 h 0.5 M 88 240 h 0.5 M 124 228 h 0.5 M 158 236 h 0.5 M 58 276 h 0.5 M 94 268 h 0.5 M 130 280 h 0.5 M 164 272 h 0.5 M 54 318 h 0.5 M 90 326 h 0.5 M 126 312 h 0.5 M 160 320 h 0.5 M 60 360 h 0.5 M 96 354 h 0.5 M 132 366 h 0.5 M 166 358 h 0.5 M 52 402 h 0.5 M 88 396 h 0.5 M 124 408 h 0.5 M 158 400 h 0.5 M 58 444 h 0.5 M 94 438 h 0.5 M 130 450 h 0.5 M 164 442 h 0.5 M 54 484 h 0.5 M 90 478 h 0.5 M 126 490 h 0.5 M 160 482 h 0.5" stroke="#f8fafc" stroke-width="3.4" stroke-linecap="round" opacity="0.34"/>
+  <path d="M 198 152 h 0.5 M 232 146 h 0.5 M 266 160 h 0.5 M 300 150 h 0.5 M 204 194 h 0.5 M 238 188 h 0.5 M 272 200 h 0.5 M 302 192 h 0.5 M 196 234 h 0.5 M 230 242 h 0.5 M 264 230 h 0.5 M 298 238 h 0.5 M 202 278 h 0.5 M 236 270 h 0.5 M 270 282 h 0.5 M 300 274 h 0.5 M 198 320 h 0.5 M 232 328 h 0.5 M 266 314 h 0.5 M 300 322 h 0.5 M 204 362 h 0.5 M 238 356 h 0.5 M 272 368 h 0.5 M 302 360 h 0.5 M 196 404 h 0.5 M 230 398 h 0.5 M 264 410 h 0.5 M 298 402 h 0.5 M 202 446 h 0.5 M 236 440 h 0.5 M 270 452 h 0.5 M 300 444 h 0.5 M 198 486 h 0.5 M 232 480 h 0.5 M 266 492 h 0.5 M 300 484 h 0.5" stroke="#f8fafc" stroke-width="3.4" stroke-linecap="round" opacity="0.4"/>
+  <path d="M 126 158 h 0.5 M 94 268 h 0.5 M 160 320 h 0.5 M 88 396 h 0.5 M 232 146 h 0.5 M 270 282 h 0.5 M 238 356 h 0.5 M 264 410 h 0.5 M 232 480 h 0.5 M 196 234 h 0.5" stroke="#f8fafc" stroke-width="4.2" stroke-linecap="round" opacity="0.85"/>
+  <path d="M 54 150 L 90 144 M 96 186 L 132 198 M 88 240 L 124 228 M 94 268 L 130 280 M 90 326 L 126 312 M 96 354 L 132 366 M 88 396 L 124 408 M 198 152 L 232 146 M 236 270 L 270 282 M 230 398 L 264 410 M 204 362 L 238 356 M 202 446 L 236 440" stroke="#f8fafc" stroke-width="0.7" opacity="0.22" fill="none"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(232,188)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(264,314)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(198,404)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(300,240)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(120,444)"/>
+  <text x="48" y="100" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">closed tickets</text>
+
+  <!-- client tenancy boundary: no thread crosses it -->
+  <path d="M 182 118 V 512" stroke="#62748e" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.8" fill="none"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="0.8" opacity="0.35">
+    <path d="M 90 144 C 130 150, 150 160, 174 168 M 94 268 C 130 264, 152 258, 174 252 M 88 396 C 128 400, 152 404, 174 408 M 126 490 C 148 486, 162 478, 174 470 M 160 320 C 168 318, 172 314, 174 308"/>
+    <path d="M 176 162 v 12 M 176 246 v 12 M 176 302 v 12 M 176 402 v 12 M 176 464 v 12" opacity="0.8"/>
+  </g>
+
+  <!-- threads sweep out of the field -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 300 150 C 320 150, 322 168, 330 182" opacity="0.6"/>
+    <path d="M 302 192 C 318 194, 324 200, 330 206" opacity="0.8"/>
+    <path d="M 298 238 C 316 236, 324 232, 330 230" opacity="0.5"/>
+    <path d="M 300 274 C 318 268, 324 260, 330 254" opacity="0.75"/>
+    <path d="M 266 314 C 300 310, 320 292, 330 282" opacity="0.55"/>
+    <path d="M 300 322 C 316 318, 324 314, 330 310" opacity="0.85"/>
+    <path d="M 302 360 C 318 356, 324 348, 330 340" opacity="0.6"/>
+    <path d="M 298 402 C 316 396, 324 384, 330 372" opacity="0.75"/>
+    <path d="M 300 444 C 318 438, 324 420, 330 404" opacity="0.5"/>
+    <path d="M 266 492 C 300 486, 322 458, 330 436" opacity="0.7"/>
+  </g>
+
+  <!-- redaction comb: teeth clip a segment out of every thread -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 330 164 V 452" stroke-width="1.2" opacity="0.8"/>
+    <path d="M 330 172 h 10 M 330 186 h 10 M 330 200 h 10 M 330 214 h 10 M 330 228 h 10 M 330 242 h 10 M 330 256 h 10 M 330 270 h 10 M 330 284 h 10 M 330 298 h 10 M 330 312 h 10 M 330 326 h 10 M 330 340 h 10 M 330 354 h 10 M 330 368 h 10 M 330 382 h 10 M 330 396 h 10 M 330 410 h 10 M 330 424 h 10 M 330 438 h 10" stroke-width="0.9" opacity="0.5"/>
+  </g>
+
+  <!-- braiding rosette: same fix twists together, different causes stay apart -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 346 182 C 410 182, 448 240, 520 240" opacity="0.7"/>
+    <path d="M 346 206 C 410 206, 448 202, 520 202" opacity="0.85"/>
+    <path d="M 346 230 C 410 230, 448 278, 520 278" opacity="0.55"/>
+    <path d="M 346 254 C 410 254, 448 240, 520 240" opacity="0.75"/>
+    <path d="M 346 282 C 412 282, 448 202, 520 202" opacity="0.5"/>
+    <path d="M 346 310 C 410 310, 448 278, 520 278" opacity="0.8"/>
+    <path d="M 346 340 C 410 340, 448 378, 520 378" opacity="0.6"/>
+    <path d="M 346 372 C 410 372, 448 340, 520 340" opacity="0.75"/>
+    <path d="M 346 404 C 410 404, 448 378, 520 378" opacity="0.5"/>
+    <path d="M 346 436 C 412 436, 448 340, 520 340" opacity="0.7"/>
+  </g>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(400,206)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(476,340)"/>
+  <path d="M 520 202 H 560 M 520 240 H 560 M 520 278 H 560 M 520 340 H 560 M 520 378 H 560" stroke="#f8fafc" stroke-width="1.9" fill="none"/>
+  <path d="M 543 284 V 334 M 537 290 L 543 284 L 549 290 M 537 328 L 543 334 L 549 328" stroke="#f8fafc" stroke-width="0.9" opacity="0.6" fill="none"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(542,240)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(542,378)"/>
+
+  <!-- layer 2: isometric synthesis chamber -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <rect x="560" y="196" width="150" height="200"/>
+    <path d="M 560 196 L 592 168 L 742 168 L 710 196 Z"/>
+    <path d="M 710 196 L 742 168 L 742 368 L 710 396 Z"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.28">
+    <path d="M 716 388 L 736 370 M 716 356 L 736 338 M 716 324 L 736 306 M 716 292 L 736 274 M 716 260 L 736 242"/>
+    <path d="M 568 190 L 592 172 M 616 190 L 640 172 M 664 190 L 688 172"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <rect x="590" y="222" width="92" height="13" opacity="0.85"/>
+    <rect x="590" y="254" width="92" height="13" opacity="0.7"/>
+    <rect x="590" y="286" width="92" height="13" opacity="0.85"/>
+    <rect x="590" y="318" width="92" height="13" opacity="0.6"/>
+    <path d="M 598 228 h 46 M 598 260 h 60 M 598 292 h 38 M 598 324 h 54" stroke-width="0.8" opacity="0.45"/>
+    <path d="M 682 222 l 10 -7 M 682 235 l 10 -7 M 692 215 v 13" stroke-width="0.8" opacity="0.35"/>
+  </g>
+  <path d="M 560 202 h 0.6 M 560 240 h 0.6 M 560 278 h 0.6 M 560 340 h 0.6 M 560 378 h 0.6" stroke="#f8fafc" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- provenance threads running back to individual archive nodes -->
+  <g stroke="#f8fafc" fill="none" stroke-width="0.7" opacity="0.26">
+    <path d="M 600 172 C 500 92, 300 100, 216 164"/>
+    <path d="M 640 170 C 520 78, 292 118, 238 234"/>
+    <path d="M 680 170 C 540 70, 262 96, 200 318"/>
+    <path d="M 716 172 C 580 74, 300 190, 270 400"/>
+  </g>
+
+  <!-- synthesised articles heading for the throat -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.9">
+    <path d="M 742 210 C 800 210, 850 288, 892 300"/>
+    <path d="M 742 250 C 806 250, 852 292, 892 300"/>
+    <path d="M 742 290 C 810 290, 856 296, 892 300"/>
+    <path d="M 742 330 C 806 330, 852 308, 892 300"/>
+    <path d="M 742 370 C 800 370, 850 312, 892 300"/>
+  </g>
+  <use xlink:href="#ticket-mining-knowledge-base-pulseSmall" transform="translate(820,266)"/>
+
+  <!-- layer 3: freshness tines and a contradiction left open -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 790 369 V 404" stroke-width="1" opacity="0.6"/>
+    <path d="M 748 404 H 892" stroke-width="1.2" opacity="0.8"/>
+    <path d="M 752 404 V 462 M 768 404 V 462 M 784 404 V 462 M 800 404 V 462 M 816 404 V 462 M 832 404 V 462 M 880 404 V 462" stroke-width="0.9" opacity="0.6"/>
+    <path d="M 848 404 C 848 428, 856 444, 864 462" stroke-width="1.2"/>
+    <path d="M 890 424 L 916 446 M 890 468 L 916 446" stroke-width="1" opacity="0.7"/>
+    <circle cx="921" cy="446" r="5.5" stroke-width="1" opacity="0.8"/>
+  </g>
+  <use xlink:href="#ticket-mining-knowledge-base-pulse" transform="translate(864,466)"/>
+
+  <!-- throat, escalation stub, and the single human gate -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.55">
+    <path d="M 878 268 L 906 292"/>
+    <path d="M 878 332 L 906 308"/>
+  </g>
+  <g stroke="#90a1b9" fill="none" stroke-width="1" opacity="0.75">
+    <path d="M 886 288 C 890 240, 906 214, 926 206"/>
+    <circle cx="932" cy="204" r="5.5"/>
+  </g>
+  <path d="M 906 300 H 933 M 987 300 H 1012" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <circle cx="960" cy="300" r="27" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#ticket-mining-knowledge-base-glowBig)" opacity="0.75"/>
+  <circle cx="960" cy="300" r="27" fill="none" stroke="#bbf451" stroke-width="1.8"/>
+  <circle cx="960" cy="300" r="16" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.7"/>
+  <circle cx="960" cy="300" r="3.6" fill="#d8f999"/>
+  <text x="952" y="374" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">owner publishes</text>
+
+  <!-- cited answers out -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 1012 300 C 1046 300, 1050 220, 1084 220 H 1164"/>
+    <path d="M 1012 300 C 1046 300, 1050 260, 1084 260 H 1164"/>
+    <path d="M 1012 300 H 1164"/>
+    <path d="M 1012 300 C 1046 300, 1050 340, 1084 340 H 1164"/>
+    <path d="M 1012 300 C 1046 300, 1050 380, 1084 380 H 1164"/>
+    <path d="M 1164 212 v 16 M 1164 252 v 16 M 1164 292 v 16 M 1164 332 v 16 M 1164 372 v 16" opacity="0.6"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="0.7" opacity="0.22">
+    <path d="M 1136 220 C 1080 128, 880 116, 746 166"/>
+    <path d="M 1120 260 C 1060 146, 900 138, 748 174"/>
+    <path d="M 1104 340 C 1040 176, 900 158, 752 180"/>
+  </g>
+  <use xlink:href="#ticket-mining-knowledge-base-pulse" transform="translate(1104,220)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-pulse" transform="translate(1104,380)"/>
+  <use xlink:href="#ticket-mining-knowledge-base-swoosh" transform="translate(1112,300)"/>
+  <text x="1050" y="444" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">cited answers</text>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45" fill="none">
+    <path d="M 430 470 V 546"/>
+    <path d="M 636 424 V 546"/>
+    <path d="M 826 490 V 546"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="430" y="568">clustering</text>
+    <text x="636" y="568">synthesis</text>
+    <text x="826" y="568">freshness</text>
+  </g>
+</svg>

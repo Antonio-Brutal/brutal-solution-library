@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Lead qualification schematic: an undifferentiated swarm of inbound is drawn through a tapered intake and a splitter comb into five parallel tracks, a raised bank of enrichment satellites clips evidence ticks onto them with one feeder deliberately stopping short and leaving a value unknown, a comparator ladder weighs each criterion against a single reference column on a balance beam, a manifold splitter routes three gated ports onward while the lowest curves through an open holding coil and rejoins, and every outbound line crosses one lime-ringed node where the rep approves before the drafting nozzles">
+  <defs>
+    <radialGradient id="lead-qualification-agent-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="lead-qualification-agent-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="lead-qualification-agent-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#lead-qualification-agent-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="lead-qualification-agent-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#lead-qualification-agent-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="lead-qualification-agent-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#lead-qualification-agent-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#lead-qualification-agent-vig)"/>
+
+  <!-- undifferentiated inbound: identical marks, tangled strands, nothing to sort by -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.55">
+    <path d="M 30 140 C 54 126, 74 148, 98 132"/>
+    <path d="M 52 190 C 76 210, 104 188, 132 204"/>
+    <path d="M 26 250 C 50 236, 66 264, 92 252"/>
+    <path d="M 96 296 C 120 280, 140 302, 160 290"/>
+    <path d="M 34 344 C 58 362, 86 338, 112 354"/>
+    <path d="M 62 410 C 86 394, 108 416, 136 400"/>
+    <path d="M 28 462 C 54 478, 80 454, 106 470"/>
+    <path d="M 74 508 C 98 494, 122 514, 148 500"/>
+  </g>
+  <g fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.7">
+    <circle cx="44" cy="172" r="2.6"/><circle cx="88" cy="160" r="2.6"/>
+    <circle cx="128" cy="164" r="2.6"/><circle cx="50" cy="220" r="2.6"/>
+    <circle cx="106" cy="236" r="2.6"/><circle cx="144" cy="252" r="2.6"/>
+    <circle cx="68" cy="284" r="2.6"/><circle cx="130" cy="330" r="2.6"/>
+    <circle cx="40" cy="312" r="2.6"/><circle cx="94" cy="378" r="2.6"/>
+    <circle cx="150" cy="368" r="2.6"/><circle cx="56" cy="432" r="2.6"/>
+    <circle cx="116" cy="446" r="2.6"/><circle cx="42" cy="500" r="2.6"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.45">
+    <path d="M 120 168 C 152 178, 172 190, 188 206"/>
+    <path d="M 148 244 C 168 252, 180 258, 192 268"/>
+    <path d="M 160 300 C 176 300, 182 300, 194 300"/>
+    <path d="M 148 366 C 168 358, 180 350, 192 338"/>
+    <path d="M 124 442 C 154 430, 174 416, 188 400"/>
+  </g>
+  <use xlink:href="#lead-qualification-agent-pulse" transform="translate(80,236)"/>
+  <use xlink:href="#lead-qualification-agent-pulse" transform="translate(126,398)"/>
+  <text x="88" y="98" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">inbound</text>
+
+  <!-- tapered intake -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 186 196 C 220 224, 240 274, 252 293" stroke-width="1.3"/>
+    <path d="M 186 412 C 220 384, 240 334, 252 311" stroke-width="1.3"/>
+    <path d="M 194 240 C 222 260, 240 284, 250 295" stroke-width="1" opacity="0.4"/>
+    <path d="M 194 368 C 222 348, 240 324, 250 309" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="256" cy="302" rx="4" ry="12" stroke-width="1.1" opacity="0.85"/>
+    <ellipse cx="264" cy="302" rx="3.2" ry="9" stroke-width="1" opacity="0.6"/>
+  </g>
+  <use xlink:href="#lead-qualification-agent-swoosh" transform="translate(228,302)"/>
+
+  <!-- splitter comb: the swarm resolved into ordered parallel tracks -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 266 302 H 284" stroke-width="1.2"/>
+    <path d="M 288 236 V 368" stroke-width="1.4"/>
+    <path d="M 280 248 H 296 M 280 274 H 296 M 280 300 H 296 M 280 326 H 296 M 280 352 H 296" stroke-width="1" opacity="0.75"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 296 248 H 566" opacity="0.85"/>
+    <path d="M 296 274 H 566" opacity="0.65"/>
+    <path d="M 296 300 H 566" opacity="0.9"/>
+    <path d="M 296 326 H 566" opacity="0.65"/>
+    <path d="M 296 352 H 566" opacity="0.85"/>
+  </g>
+  <use xlink:href="#lead-qualification-agent-pulse" transform="translate(400,248)"/>
+  <use xlink:href="#lead-qualification-agent-pulse" transform="translate(510,352)"/>
+
+  <!-- layer 1: raised satellites clipping evidence onto the tracks; one gap left unknown -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <circle cx="330" cy="152" r="7"/><circle cx="382" cy="152" r="7"/>
+    <circle cx="434" cy="152" r="7"/><circle cx="486" cy="152" r="7"/>
+    <circle cx="534" cy="152" r="7"/>
+    <path d="M 320 136 H 340 M 372 136 H 392 M 424 136 H 444 M 476 136 H 496 M 524 136 H 544" opacity="0.55"/>
+  </g>
+  <path d="M 330 159 V 242 M 382 159 V 268 M 434 159 V 294 M 486 159 V 300 M 534 159 V 346" stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.3"/>
+  <path d="M 330 240 V 256 M 382 266 V 282 M 434 292 V 308 M 534 344 V 360" stroke="#f8fafc" fill="none" stroke-width="1.8" opacity="0.95"/>
+  <circle cx="486" cy="326" r="4.5" fill="none" stroke="#62748e" stroke-width="1.2"/>
+
+  <!-- layer 2: the comparator — criterion ladder weighed against one reference column -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 578 186 V 428" stroke-width="1.4"/>
+    <path d="M 566 248 H 578 M 566 274 H 578 M 566 300 H 578 M 566 326 H 578 M 566 352 H 578" stroke-width="1" opacity="0.7"/>
+    <path d="M 578 196 H 638" stroke-width="1.1" opacity="0.9"/>
+    <path d="M 578 226 H 624" stroke-width="1.1" opacity="0.65"/>
+    <path d="M 578 256 H 644" stroke-width="1.1" opacity="0.9"/>
+    <path d="M 578 286 H 618" stroke-width="1.1" opacity="0.65"/>
+    <path d="M 578 316 H 640" stroke-width="1.1" opacity="0.9"/>
+    <path d="M 578 346 H 626" stroke-width="1.1" opacity="0.65"/>
+    <path d="M 578 376 H 636" stroke-width="1.1" opacity="0.9"/>
+    <path d="M 578 406 H 616" stroke-width="1.1" opacity="0.5"/>
+    <circle cx="638" cy="196" r="2.6" opacity="0.8"/>
+    <circle cx="644" cy="256" r="2.6" opacity="0.8"/>
+    <circle cx="640" cy="316" r="2.6" opacity="0.8"/>
+    <circle cx="636" cy="376" r="2.6" opacity="0.8"/>
+  </g>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 690 178 V 436" stroke-width="1.4"/>
+    <path d="M 696 184 V 430" stroke-width="1" opacity="0.45"/>
+    <path d="M 680 206 H 690 M 680 252 H 690 M 680 298 H 690 M 680 344 H 690 M 680 390 H 690" stroke-width="1" opacity="0.7"/>
+  </g>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 632 284 L 708 316" stroke-width="1.4"/>
+    <path d="M 663 322 L 679 322 L 671 304 Z" stroke-width="1.2"/>
+    <path d="M 632 284 V 268 M 708 316 V 300" stroke-width="1" opacity="0.6"/>
+    <circle cx="632" cy="266" r="3.4" opacity="0.9"/>
+    <circle cx="708" cy="298" r="3.4" opacity="0.9"/>
+  </g>
+  <use xlink:href="#lead-qualification-agent-pulse" transform="translate(632,284)"/>
+  <!-- evidence threads arcing back over the flow to the satellites that supplied them -->
+  <g stroke="#f8fafc" fill="none" stroke-width="0.8" opacity="0.22">
+    <path d="M 638 196 C 616 148, 556 124, 492 138"/>
+    <path d="M 644 256 C 612 146, 518 114, 440 134"/>
+    <path d="M 640 316 C 598 156, 476 106, 386 132"/>
+  </g>
+
+  <!-- layer 3: manifold splitter with four gated ports -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 696 306 C 716 308, 726 300, 740 300" stroke-width="1.2"/>
+    <path d="M 752 206 V 420" stroke-width="1.4"/>
+    <path d="M 740 300 H 752" stroke-width="1.2"/>
+    <path d="M 752 214 H 780 M 752 264 H 780 M 752 314 H 780" stroke-width="1.1"/>
+    <path d="M 752 414 H 780" stroke-width="1.1" opacity="0.7"/>
+    <path d="M 780 206 L 780 222 L 800 206 L 800 222 Z" stroke-width="1.1"/>
+    <path d="M 780 256 L 780 272 L 800 256 L 800 272 Z" stroke-width="1.1"/>
+    <path d="M 780 306 L 780 322 L 800 306 L 800 322 Z" stroke-width="1.1"/>
+    <path d="M 780 406 L 780 422 L 800 406 L 800 422 Z" stroke-width="1.1" opacity="0.7"/>
+  </g>
+
+  <!-- three routed ports rejoin the outbound line -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 800 214 C 836 220, 856 268, 878 288" opacity="0.85"/>
+    <path d="M 800 264 C 836 270, 858 284, 878 291" opacity="0.85"/>
+    <path d="M 800 314 C 836 312, 858 300, 878 294" opacity="0.85"/>
+    <path d="M 878 292 H 898" stroke-width="1.4"/>
+  </g>
+
+  <!-- the nurture queue: an open holding coil that circles once and rejoins, never a dead end -->
+  <path d="M 800 414 C 836 422, 852 450, 834 474 C 816 500, 774 496, 764 472 C 754 448, 776 428, 804 438 C 834 448, 850 412, 866 342 C 872 318, 882 298, 898 294" stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.65"/>
+  <use xlink:href="#lead-qualification-agent-pulseDeep" transform="translate(782,490)"/>
+
+  <!-- the one human-decision node: nothing reaches the right edge without crossing it -->
+  <circle cx="924" cy="292" r="25" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#lead-qualification-agent-glow)" opacity="0.7"/>
+  <circle cx="924" cy="292" r="25" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <path d="M 936 292 L 930 302.4 L 918 302.4 L 912 292 L 918 281.6 L 930 281.6 Z" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.8"/>
+  <circle cx="924" cy="292" r="2.4" fill="#d8f999" stroke="none"/>
+  <text x="924" y="360" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">rep approves</text>
+
+  <!-- layer 4: the drafting nozzle bank and clean first-touch ribbons -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 949 292 H 972"/>
+    <path d="M 972 292 C 986 290, 990 240, 1002 232"/>
+    <path d="M 972 292 H 1002"/>
+    <path d="M 972 292 C 986 294, 990 344, 1002 352"/>
+    <path d="M 1002 222 L 1030 232 L 1002 242 Z" stroke-width="1.2"/>
+    <path d="M 1002 282 L 1030 292 L 1002 302 Z" stroke-width="1.2"/>
+    <path d="M 1002 342 L 1030 352 L 1002 362 Z" stroke-width="1.2"/>
+    <path d="M 1030 232 H 1166"/>
+    <path d="M 1030 292 H 1166"/>
+    <path d="M 1030 352 H 1166"/>
+    <path d="M 1166 226 v 12 M 1166 286 v 12 M 1166 346 v 12" opacity="0.6"/>
+  </g>
+  <use xlink:href="#lead-qualification-agent-swoosh" transform="translate(1112,292)"/>
+  <use xlink:href="#lead-qualification-agent-pulse" transform="translate(1076,232)"/>
+
+  <!-- what a draft may never become: a capped stub with a clean gap and no pulse past it -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path d="M 1012 366 C 1026 396, 1038 414, 1062 418 L 1084 418" opacity="0.85"/>
+    <path d="M 1084 412 V 424" opacity="0.5"/>
+  </g>
+  <path d="M 1104 404 V 432" stroke="#f8fafc" stroke-width="2.6" opacity="0.9"/>
+  <text x="1080" y="462" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">no pricing</text>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 420 420 V 552"/>
+    <path d="M 640 456 V 552"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="420" y="576">enrichment</text>
+    <text x="640" y="576">icp</text>
+  </g>
+</svg>

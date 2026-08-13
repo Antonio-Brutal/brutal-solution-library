@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: five company clusters each drawn with a different internal pattern feed their own mapping combs, which normalise irregular strands onto one shared extruded chart-of-accounts grid, then a definition-beam stage and a tethered narrative ribbon lead to a lime-ringed operating partner reviews gate held shut by an exception latch, with the finished pack drawn as a stack of plates beyond it">
+  <defs>
+    <radialGradient id="portfolio-reporting-automation-vig" cx="50%" cy="44%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="portfolio-reporting-automation-glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="portfolio-reporting-automation-glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="portfolio-reporting-automation-pulse">
+      <circle r="5" fill="#bbf451" opacity="0.85" filter="url(#portfolio-reporting-automation-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+    <g id="portfolio-reporting-automation-pulseDeep">
+      <circle r="6" fill="#9de500" opacity="0.85" filter="url(#portfolio-reporting-automation-glow)"/>
+      <circle r="2.2" fill="#d8f999"/>
+    </g>
+    <g id="portfolio-reporting-automation-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#portfolio-reporting-automation-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#portfolio-reporting-automation-vig)"/>
+
+  <!-- five sets of books, each kept differently -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.85">
+    <rect x="44" y="76" width="92" height="60"/>
+    <rect x="44" y="176" width="92" height="60"/>
+    <rect x="44" y="276" width="92" height="60"/>
+    <rect x="44" y="376" width="92" height="60"/>
+    <rect x="44" y="476" width="92" height="60"/>
+  </g>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.85" fill="none">
+    <line x1="68" y1="84" x2="68" y2="128"/>
+    <line x1="90" y1="84" x2="90" y2="128"/>
+    <line x1="112" y1="84" x2="112" y2="128"/>
+    <line x1="52" y1="106" x2="128" y2="106"/>
+    <path d="M56,212 C70,198 82,224 96,208 C104,199 114,214 124,204"/>
+    <path d="M60,284 C82,296 82,318 60,330"/>
+    <path d="M80,282 C106,296 106,318 80,332"/>
+    <path d="M100,280 C128,296 128,318 100,334"/>
+    <path d="M52,428 L68,428 L68,412 L88,412 L88,396 L108,396 L108,384 L128,384"/>
+    <line x1="52" y1="528" x2="80" y2="484"/>
+    <line x1="74" y1="528" x2="102" y2="484"/>
+    <line x1="96" y1="528" x2="124" y2="484"/>
+  </g>
+  <g fill="#90a1b9" opacity="0.9">
+    <circle cx="64" cy="192" r="2.4"/>
+    <circle cx="110" cy="224" r="2.4"/>
+    <circle cx="84" cy="402" r="2.4"/>
+  </g>
+
+  <!-- irregular strands into each company's own mapping comb -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M136,96 C172,96 200,88 232,88" opacity="0.85"/>
+    <path d="M136,124 C172,124 200,120 232,120" opacity="0.6"/>
+    <path d="M136,192 C172,192 200,188 232,188" opacity="0.85"/>
+    <path d="M136,224 C172,224 200,220 232,220" opacity="0.6"/>
+    <path d="M136,290 C172,290 200,288 232,288" opacity="0.85"/>
+    <path d="M136,318 C172,318 200,304 232,304" opacity="0.6"/>
+    <path d="M136,412 C172,412 200,420 232,420" opacity="0.85"/>
+    <path d="M136,496 C172,496 200,488 232,488" opacity="0.85"/>
+  </g>
+  <use href="#portfolio-reporting-automation-pulse" x="182" y="93"/>
+  <use href="#portfolio-reporting-automation-pulse" x="196" y="310"/>
+  <use href="#portfolio-reporting-automation-pulse" x="176" y="492"/>
+
+  <!-- mapping combs: irregular in, one pitch out -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <line x1="252" y1="78" x2="252" y2="134"/>
+    <line x1="252" y1="178" x2="252" y2="234"/>
+    <line x1="252" y1="278" x2="252" y2="334"/>
+    <line x1="252" y1="378" x2="252" y2="434"/>
+    <line x1="252" y1="478" x2="252" y2="534"/>
+  </g>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.7">
+    <line x1="232" y1="88" x2="252" y2="88"/>
+    <line x1="232" y1="104" x2="252" y2="104"/>
+    <line x1="232" y1="120" x2="252" y2="120"/>
+    <line x1="232" y1="188" x2="252" y2="188"/>
+    <line x1="232" y1="204" x2="252" y2="204"/>
+    <line x1="232" y1="220" x2="252" y2="220"/>
+    <line x1="232" y1="288" x2="252" y2="288"/>
+    <line x1="232" y1="304" x2="252" y2="304"/>
+    <line x1="232" y1="320" x2="252" y2="320"/>
+    <line x1="232" y1="388" x2="252" y2="388"/>
+    <line x1="232" y1="404" x2="252" y2="404"/>
+    <line x1="232" y1="420" x2="252" y2="420"/>
+    <line x1="232" y1="488" x2="252" y2="488"/>
+    <line x1="232" y1="504" x2="252" y2="504"/>
+    <line x1="232" y1="520" x2="252" y2="520"/>
+  </g>
+
+  <!-- normalised onto one shared chart of accounts -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.8">
+    <path d="M254,94 C312,94 340,216 392,224"/>
+    <path d="M254,118 C312,118 340,238 392,246"/>
+    <path d="M254,194 C316,194 344,262 392,268"/>
+    <path d="M254,218 C316,218 344,284 392,290"/>
+    <path d="M254,294 C316,294 344,308 392,312"/>
+    <path d="M254,318 C316,318 344,330 392,334"/>
+    <path d="M254,406 C316,406 344,360 392,356"/>
+    <path d="M254,506 C312,506 340,388 392,378"/>
+  </g>
+
+  <!-- the common chart of accounts: one extruded bed -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="392" y="200" width="244" height="200" stroke-width="1.3"/>
+    <path d="M392,200 L418,178 L662,178 L636,200 Z" stroke-width="1.3"/>
+    <path d="M636,200 L662,178 L662,378 L636,400 Z" stroke-width="1.3"/>
+    <g stroke-width="1" opacity="0.55">
+      <line x1="392" y1="250" x2="636" y2="250"/>
+      <line x1="392" y1="300" x2="636" y2="300"/>
+      <line x1="392" y1="350" x2="636" y2="350"/>
+      <line x1="440" y1="200" x2="440" y2="400"/>
+      <line x1="488" y1="200" x2="488" y2="400"/>
+      <line x1="536" y1="200" x2="536" y2="400"/>
+      <line x1="584" y1="200" x2="584" y2="400"/>
+    </g>
+  </g>
+  <use href="#portfolio-reporting-automation-pulse" x="440" y="250"/>
+  <use href="#portfolio-reporting-automation-pulse" x="536" y="300"/>
+  <use href="#portfolio-reporting-automation-pulse" x="488" y="350"/>
+
+  <!-- unmapped accounts flagged upward onto the exception rail -->
+  <g stroke="#90a1b9" fill="none" stroke-width="1.2" stroke-dasharray="4 4">
+    <rect x="488" y="200" width="48" height="50"/>
+    <rect x="584" y="200" width="52" height="50"/>
+  </g>
+  <g stroke="#90a1b9" fill="none" stroke-width="1" opacity="0.85">
+    <line x1="512" y1="200" x2="512" y2="150"/>
+    <line x1="610" y1="200" x2="610" y2="150"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M500,150 L1014,150"/>
+    <path d="M1014,150 L1014,264"/>
+    <path d="M998,268 L1030,268" stroke-width="1.8"/>
+  </g>
+  <use href="#portfolio-reporting-automation-pulseDeep" x="700" y="150"/>
+  <use href="#portfolio-reporting-automation-swoosh" x="880" y="150"/>
+
+  <!-- one definition set weighs every company's numbers, then drafts the narrative -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M662,230 C682,230 690,270 706,270" opacity="0.85"/>
+    <path d="M662,300 C682,300 690,300 706,300" opacity="0.85"/>
+    <path d="M662,368 C682,368 690,332 706,332" opacity="0.85"/>
+    <line x1="706" y1="270" x2="962" y2="270" stroke-width="1.2"/>
+    <line x1="706" y1="300" x2="962" y2="300" stroke-width="1.2"/>
+    <line x1="706" y1="332" x2="962" y2="332" stroke-width="1.2"/>
+    <path d="M722,282 L736,282 L729,270 Z" stroke-width="1.1"/>
+    <path d="M722,312 L736,312 L729,300 Z" stroke-width="1.1"/>
+    <path d="M722,344 L736,344 L729,332 Z" stroke-width="1.1"/>
+    <line x1="729" y1="264" x2="729" y2="350" stroke-width="1" opacity="0.45"/>
+    <line x1="830" y1="286" x2="962" y2="286" opacity="0.5"/>
+    <line x1="830" y1="316" x2="962" y2="316" opacity="0.5"/>
+  </g>
+
+  <!-- every figure tethered to the detail beneath it, one gap declared -->
+  <g stroke="#90a1b9" fill="none" stroke-width="1" opacity="0.75">
+    <line x1="850" y1="332" x2="850" y2="424"/>
+    <line x1="880" y1="332" x2="880" y2="452"/>
+    <rect x="839" y="424" width="22" height="16"/>
+    <rect x="869" y="452" width="22" height="16"/>
+  </g>
+  <g stroke="#62748e" fill="none" stroke-width="1" stroke-dasharray="3 4" opacity="0.85">
+    <line x1="910" y1="332" x2="910" y2="480"/>
+    <rect x="899" y="480" width="22" height="16"/>
+  </g>
+  <use href="#portfolio-reporting-automation-pulse" x="790" y="286"/>
+  <use href="#portfolio-reporting-automation-pulse" x="866" y="316"/>
+
+  <!-- assembly into the review gate -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M962,270 C974,270 978,294 988,298"/>
+    <path d="M962,300 L988,300"/>
+    <path d="M962,332 C974,332 978,306 988,302"/>
+  </g>
+  <circle cx="1014" cy="300" r="20" fill="#bbf451" opacity="0.45" filter="url(#portfolio-reporting-automation-glowBig)"/>
+  <circle cx="1014" cy="300" r="24" fill="none" stroke="#bbf451" stroke-width="1.5"/>
+  <circle cx="1014" cy="300" r="15" fill="#050608" stroke="#f8fafc" stroke-width="1"/>
+  <path d="M1007,300 L1013,306 L1023,292" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+
+  <!-- the pack -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <line x1="1038" y1="300" x2="1050" y2="300"/>
+    <rect x="1050" y="294" width="96" height="14"/>
+    <rect x="1056" y="276" width="96" height="14" opacity="0.85"/>
+    <rect x="1062" y="258" width="96" height="14" opacity="0.7"/>
+    <rect x="1068" y="240" width="96" height="14" opacity="0.55"/>
+    <rect x="1074" y="222" width="96" height="14" opacity="0.4"/>
+  </g>
+
+  <!-- stage tie-lines -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M514,408 V556"/>
+    <path d="M790,344 V556"/>
+  </g>
+
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif">
+    <text x="252" y="578" font-size="20" fill="#f8fafc" text-anchor="middle">mapping</text>
+    <text x="514" y="578" font-size="20" fill="#f8fafc" text-anchor="middle">common chart</text>
+    <text x="790" y="578" font-size="20" fill="#f8fafc" text-anchor="middle">narrative</text>
+    <text x="1168" y="368" font-size="18" fill="#90a1b9" text-anchor="end">operating partner reviews</text>
+    <text x="44" y="56" font-size="19" fill="#90a1b9">books</text>
+    <text x="1110" y="200" font-size="18" fill="#90a1b9" text-anchor="middle">pack</text>
+  </g>
+</svg>

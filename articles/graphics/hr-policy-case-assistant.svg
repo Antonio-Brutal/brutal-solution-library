@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: employee questions converge on a classifier prism where a distinctly marked sensitive channel climbs away above all machinery to a lime-ringed terminal reserved for an HR partner, while the routine path enters a retrieval lattice fed by a stack of jurisdiction-layered policy plates and leaves as one cited answer rail carrying a citation tag tethered back to the plate it came from">
+  <defs>
+    <radialGradient id="hr-policy-case-assistant-vig" cx="50%" cy="44%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="hr-policy-case-assistant-glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="hr-policy-case-assistant-glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="hr-policy-case-assistant-pulse">
+      <circle r="5" fill="#bbf451" opacity="0.85" filter="url(#hr-policy-case-assistant-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+    <g id="hr-policy-case-assistant-pulseDeep">
+      <circle r="6" fill="#9de500" opacity="0.85" filter="url(#hr-policy-case-assistant-glow)"/>
+      <circle r="2.2" fill="#d8f999"/>
+    </g>
+    <g id="hr-policy-case-assistant-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#hr-policy-case-assistant-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#hr-policy-case-assistant-vig)"/>
+
+  <!-- incoming questions -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M-10,150 C86,158 178,214 246,238" opacity="0.5"/>
+    <path d="M-10,182 C90,188 182,226 246,246" opacity="0.8"/>
+    <path d="M-10,214 C94,216 186,238 246,254" opacity="0.55"/>
+    <path d="M-10,246 C90,248 184,254 246,262" opacity="0.85"/>
+    <path d="M-10,278 C96,278 188,270 246,272" opacity="0.6"/>
+    <path d="M-10,310 C92,308 184,286 246,280" opacity="0.8"/>
+    <path d="M-10,342 C96,338 188,300 246,288" opacity="0.5"/>
+    <path d="M-10,374 C90,368 182,314 246,296" opacity="0.75"/>
+  </g>
+  <use href="#hr-policy-case-assistant-pulse" x="94" y="186"/>
+  <use href="#hr-policy-case-assistant-pulse" x="164" y="226"/>
+  <use href="#hr-policy-case-assistant-pulse" x="120" y="308"/>
+  <use href="#hr-policy-case-assistant-pulse" x="196" y="284"/>
+  <use href="#hr-policy-case-assistant-pulse" x="212" y="252"/>
+
+  <!-- classifier prism: sensitive splits from routine before any machinery -->
+  <g stroke="#f8fafc" fill="none">
+    <ellipse cx="252" cy="268" rx="7" ry="42" stroke-width="1.2" opacity="0.8"/>
+    <path d="M262,236 L320,268 L262,300 Z" stroke-width="1.2"/>
+    <line x1="286" y1="248" x2="286" y2="288" stroke-width="1" opacity="0.45" stroke-dasharray="3 4"/>
+    <line x1="270" y1="252" x2="278" y2="252" stroke-width="1" opacity="0.6"/>
+    <line x1="270" y1="284" x2="278" y2="284" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- sensitive channel: double-marked, climbs clear of every mechanism -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <path d="M314,258 C346,244 352,180 354,120 L940,120"/>
+    <path d="M322,264 C352,252 358,184 360,126 L940,126" opacity="0.75"/>
+  </g>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.8">
+    <line x1="420" y1="116" x2="420" y2="130"/>
+    <line x1="510" y1="116" x2="510" y2="130"/>
+    <line x1="600" y1="116" x2="600" y2="130"/>
+    <line x1="690" y1="116" x2="690" y2="130"/>
+    <line x1="780" y1="116" x2="780" y2="130"/>
+    <line x1="870" y1="116" x2="870" y2="130"/>
+  </g>
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path d="M735,128 L735,168"/>
+    <path d="M725,172 L745,172" stroke-width="1.6"/>
+  </g>
+  <use href="#hr-policy-case-assistant-pulseDeep" x="640" y="123"/>
+  <use href="#hr-policy-case-assistant-pulseDeep" x="836" y="123"/>
+
+  <!-- the one human terminal -->
+  <circle cx="966" cy="123" r="20" fill="#bbf451" opacity="0.45" filter="url(#hr-policy-case-assistant-glowBig)"/>
+  <circle cx="966" cy="123" r="24" fill="none" stroke="#bbf451" stroke-width="1.5"/>
+  <circle cx="966" cy="123" r="15" fill="#050608" stroke="#f8fafc" stroke-width="1"/>
+  <circle cx="966" cy="123" r="3.4" fill="#d8f999"/>
+
+  <!-- jurisdiction-layered policy plates -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <path d="M100,530 L250,530 L286,500 L136,500 Z"/>
+    <path d="M100,530 L100,537 L250,537 L250,530"/>
+    <path d="M100,504 L250,504 L286,474 L136,474 Z"/>
+    <path d="M100,504 L100,511 L250,511 L250,504"/>
+    <path d="M100,452 L250,452 L286,422 L136,422 Z"/>
+    <path d="M100,452 L100,459 L250,459 L250,452"/>
+    <path d="M100,426 L250,426 L286,396 L136,396 Z"/>
+    <path d="M100,426 L100,433 L250,433 L250,426"/>
+  </g>
+  <g stroke="#90a1b9" fill="none" stroke-width="1" opacity="0.4">
+    <path d="M100,478 L250,478 L286,448 L136,448 Z"/>
+    <path d="M100,478 L100,485 L250,485 L250,478"/>
+  </g>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.85">
+    <line x1="262" y1="410" x2="270" y2="404"/>
+    <line x1="262" y1="436" x2="270" y2="430"/>
+    <line x1="262" y1="488" x2="270" y2="482"/>
+    <path d="M296,392 L304,392 L304,536 L296,536" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- index threads: corpus into the lattice underside -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.42">
+    <path d="M286,396 C360,392 430,404 470,412"/>
+    <path d="M286,422 C376,418 460,412 510,412"/>
+    <path d="M286,448 C392,446 494,420 550,412"/>
+    <path d="M286,474 C410,472 530,428 590,412"/>
+  </g>
+
+  <!-- confidentiality boundary around the retrieval surface -->
+  <rect x="436" y="196" width="280" height="230" fill="none" stroke="#62748e" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+
+  <!-- routine path into the lattice -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M322,272 C372,272 404,294 448,300" opacity="0.9"/>
+    <path d="M396,286 L396,300" opacity="0.6"/>
+    <path d="M410,289 L410,303" opacity="0.6"/>
+    <circle cx="452" cy="300" r="3.5" opacity="0.9"/>
+    <path d="M455,299 L482,252" opacity="0.55"/>
+    <path d="M455,300 L482,312" opacity="0.55"/>
+    <path d="M455,301 L482,372" opacity="0.55"/>
+  </g>
+
+  <!-- retrieval lattice -->
+  <g stroke="#f8fafc" fill="none" stroke-width="0.9" opacity="0.5">
+    <path d="M482,252 L546,228"/>
+    <path d="M482,252 L546,288"/>
+    <path d="M482,312 L546,288"/>
+    <path d="M482,312 L546,348"/>
+    <path d="M482,372 L546,348"/>
+    <path d="M482,372 L546,396"/>
+    <path d="M546,228 L610,252"/>
+    <path d="M546,288 L610,252"/>
+    <path d="M546,288 L610,312"/>
+    <path d="M546,348 L610,312"/>
+    <path d="M546,348 L610,372"/>
+    <path d="M546,396 L610,372"/>
+    <path d="M610,252 L672,288"/>
+    <path d="M610,312 L672,288"/>
+    <path d="M610,312 L672,344"/>
+    <path d="M610,372 L672,344"/>
+  </g>
+  <g fill="#050608" stroke="#f8fafc" stroke-width="1">
+    <circle cx="482" cy="252" r="3.4"/>
+    <circle cx="482" cy="312" r="3.4"/>
+    <circle cx="482" cy="372" r="3.4"/>
+    <circle cx="546" cy="228" r="3.4"/>
+    <circle cx="546" cy="288" r="3.4"/>
+    <circle cx="546" cy="348" r="3.4"/>
+    <circle cx="546" cy="396" r="3.4"/>
+    <circle cx="610" cy="252" r="3.4"/>
+    <circle cx="610" cy="312" r="3.4"/>
+    <circle cx="610" cy="372" r="3.4"/>
+    <circle cx="672" cy="288" r="3.4"/>
+    <circle cx="672" cy="344" r="3.4"/>
+  </g>
+  <use href="#hr-policy-case-assistant-pulse" x="546" y="288"/>
+  <use href="#hr-policy-case-assistant-pulse" x="610" y="312"/>
+  <use href="#hr-policy-case-assistant-pulse" x="672" y="288"/>
+
+  <!-- one cited answer leaves -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M672,288 C692,288 700,298 716,300" opacity="0.9"/>
+    <path d="M672,344 C692,344 700,304 716,300" opacity="0.6"/>
+    <line x1="716" y1="300" x2="1046" y2="300" stroke-width="1.3"/>
+  </g>
+
+  <!-- citation tag tethered to the clause it came from -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <line x1="866" y1="300" x2="866" y2="332" opacity="0.7"/>
+    <path d="M840,332 L892,332 L892,362 L840,362 L832,347 Z" stroke-width="1.1"/>
+    <g opacity="0.55">
+      <line x1="846" y1="341" x2="882" y2="341"/>
+      <line x1="846" y1="349" x2="874" y2="349"/>
+      <line x1="846" y1="357" x2="882" y2="357"/>
+    </g>
+  </g>
+  <path d="M866,364 C884,432 878,486 806,506 C660,548 420,552 292,508" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.38"/>
+  <use href="#hr-policy-case-assistant-pulse" x="612" y="536"/>
+
+  <!-- no policy found: drops out to a human inbox instead of improvising -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path d="M958,300 L958,368" opacity="0.9"/>
+    <circle cx="958" cy="378" r="7" opacity="0.9"/>
+    <line x1="948" y1="392" x2="968" y2="392" opacity="0.5"/>
+    <line x1="952" y1="400" x2="964" y2="400" opacity="0.35"/>
+  </g>
+
+  <!-- ordered output rails -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M1046,300 C1056,300 1058,278 1070,278" opacity="0.8"/>
+    <path d="M1046,300 L1070,300" opacity="0.9"/>
+    <path d="M1046,300 C1056,300 1058,322 1070,322" opacity="0.8"/>
+    <line x1="1070" y1="278" x2="1146" y2="278"/>
+    <line x1="1070" y1="300" x2="1146" y2="300"/>
+    <line x1="1070" y1="322" x2="1146" y2="322"/>
+  </g>
+  <g fill="#f8fafc">
+    <circle cx="1152" cy="278" r="2.5"/>
+    <circle cx="1152" cy="300" r="2.5"/>
+    <circle cx="1152" cy="322" r="2.5"/>
+  </g>
+  <use href="#hr-policy-case-assistant-swoosh" x="1002" y="300"/>
+
+  <!-- stage tie-lines -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M200,548 V572"/>
+    <path d="M576,438 V572"/>
+  </g>
+
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif">
+    <text x="200" y="596" font-size="20" fill="#f8fafc" text-anchor="middle">jurisdiction layers</text>
+    <text x="576" y="596" font-size="20" fill="#f8fafc" text-anchor="middle">cited retrieval</text>
+    <text x="966" y="176" font-size="18" fill="#90a1b9" text-anchor="middle">hr partner only</text>
+    <text x="52" y="122" font-size="19" fill="#90a1b9">questions</text>
+    <text x="1108" y="242" font-size="18" fill="#90a1b9" text-anchor="middle">cited answer</text>
+  </g>
+</svg>

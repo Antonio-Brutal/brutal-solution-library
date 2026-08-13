@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/antonio.marques/Documents/Claude Projects/Brutal Articles/.claude/serve.py", "8747"],
+      "port": 8747,
+      "url": "http://localhost:8747"
+    }
+  ]
+}

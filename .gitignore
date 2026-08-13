@@ -1,0 +1,4 @@
+.DS_Store
+dist/
+*.log
+# these are build outputs, regenerate with build/build.py

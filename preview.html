@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brutal.ai — 15 Articles: Graphics & Videos</title>
+<style>
+  :root { --bg:#050608; --ink:#f8fafc; --muted:#90a1b9; --lime:#bbf451; --line:#1e293b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif; }
+  header { padding:48px 40px 24px; border-bottom:1px solid var(--line); }
+  h1 { margin:0 0 8px; font-size:28px; font-weight:700; letter-spacing:-0.02em; }
+  header p { margin:0; color:var(--muted); font-size:15px; }
+  .count { color:var(--lime); }
+  main { padding:32px 40px 80px; display:grid; gap:56px; max-width:1400px; }
+  article { border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .head { padding:18px 22px; border-bottom:1px solid var(--line); display:flex;
+          justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  .head h2 { margin:0; font-size:17px; font-weight:600; }
+  .slug { color:var(--muted); font-size:12px; font-family:ui-monospace,Menlo,monospace; }
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+  .cell { padding:20px; }
+  .cell + .cell { border-left:1px solid var(--line); }
+  .label { color:var(--muted); font-size:11px; text-transform:lowercase;
+           letter-spacing:0.14em; margin-bottom:12px; }
+  img, video { width:100%; display:block; border-radius:4px; background:#000; }
+  @media (max-width:1000px){ .pair{grid-template-columns:1fr} .cell+.cell{border-left:0;border-top:1px solid var(--line)} }
+</style>
+</head>
+<body>
+<header>
+  <h1>Brutal.ai — 15 articles</h1>
+  <p><span class="count">15</span> hero graphics and <span class="count">15</span> videos. Videos are silent, 5 seconds, 720p.</p>
+</header>
+<main id="grid"></main>
+<script>
+const items = [
+ ["invoice-matching-engine","AI Invoice Ingestion & Three-Way Matching"],
+ ["support-triage-engine","Support Triage & Draft-Reply Engine"],
+ ["rfp-response-engine","RFP & Tender Response Engine"],
+ ["contract-review-copilot","Contract Review Copilot"],
+ ["claims-document-intelligence","Claims Document Intelligence"],
+ ["catalog-enrichment-engine","Product Catalog Enrichment Engine"],
+ ["meeting-to-crm-pipeline","Meeting-to-CRM Pipeline"],
+ ["conversation-qa-full-coverage","100% Conversation QA"],
+ ["shared-inbox-automation","Shared-Inbox Automation"],
+ ["financial-close-automation","Financial Close Copilot"],
+ ["field-service-reporting","Voice-to-Report Field Documentation"],
+ ["analytics-agent-slack","Governed Analytics Agent in Slack"],
+ ["sop-knowledge-assistant","SOP Knowledge Assistant"],
+ ["candidate-screening-engine","High-Volume Candidate Screening"],
+ ["regulatory-horizon-scanning","Regulatory Horizon Scanning"],
+];
+document.getElementById('grid').innerHTML = items.map(([slug,title],i)=>`
+<article>
+  <div class="head"><h2>${String(i+1).padStart(2,'0')}. ${title}</h2><span class="slug">${slug}</span></div>
+  <div class="pair">
+    <div class="cell"><div class="label">hero graphic</div>
+      <img src="articles/graphics/${slug}.svg" alt="${title} schematic"></div>
+    <div class="cell"><div class="label">video</div>
+      <video src="articles/media/${slug}.mp4" poster="articles/media/${slug}-poster.jpg"
+             controls loop muted playsinline preload="metadata"></video></div>
+  </div>
+</article>`).join('');
+</script>
+</body>
+</html>

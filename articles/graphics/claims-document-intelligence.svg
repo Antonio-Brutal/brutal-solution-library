@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Claims document intelligence schematic: scattered document and photo strands funnel into an isometric evidence-extraction enclosure, align against a policy-terms grid for coverage cross-check, and condense into one brief rail terminating at an open lime-ringed node where the adjuster decides and the system never does">
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- faint registration texture in the dead corners -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.3">
+    <path d="M 1112 76 h 12 M 1118 70 v 12"/>
+    <path d="M 200 596 h 12 M 206 590 v 12"/>
+  </g>
+
+  <!-- input strands: documents (solid) and photos (dashed) arriving scattered -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 88 C 90 98, 186 190, 250 260" opacity="0.5"/>
+    <path d="M -10 122 C 100 118, 192 206, 250 268" opacity="0.8" stroke-dasharray="5 4"/>
+    <path d="M -10 156 C 96 162, 194 220, 250 276" opacity="0.45"/>
+    <path d="M -10 190 C 104 184, 200 234, 250 284" opacity="0.7"/>
+    <path d="M -10 224 C 92 232, 202 246, 250 292" opacity="0.55" stroke-dasharray="5 4"/>
+    <path d="M -10 258 C 100 250, 204 258, 250 300" opacity="0.75"/>
+    <path d="M -10 296 C 104 302, 206 306, 250 308" opacity="0.85"/>
+    <path d="M -10 340 C 96 334, 204 322, 250 316" opacity="0.5"/>
+    <path d="M -10 380 C 108 372, 206 336, 250 324" opacity="0.7" stroke-dasharray="5 4"/>
+    <path d="M -10 420 C 94 428, 202 348, 250 332" opacity="0.45"/>
+    <path d="M -10 458 C 102 448, 204 356, 250 340" opacity="0.65"/>
+    <path d="M -10 496 C 108 484, 206 364, 250 346" opacity="0.5" stroke-dasharray="5 4"/>
+    <path d="M -10 532 C 98 518, 202 370, 250 352" opacity="0.6"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(92,122)"/>
+  <use xlink:href="#pulse" transform="translate(168,214)"/>
+  <use xlink:href="#pulse" transform="translate(138,298)"/>
+  <use xlink:href="#pulse" transform="translate(208,318)"/>
+  <use xlink:href="#pulse" transform="translate(108,424)"/>
+  <use xlink:href="#pulse" transform="translate(188,358)"/>
+  <text x="50" y="74" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">claim file</text>
+
+  <!-- intake normalization: funnel then uniform ticks -->
+  <g stroke="#f8fafc" fill="none">
+    <ellipse cx="252" cy="313" rx="8" ry="56" stroke-width="1.2" opacity="0.75"/>
+    <path d="M 252 257 C 284 265, 306 289, 316 305" stroke-width="1.3"/>
+    <path d="M 252 369 C 284 361, 306 337, 316 321" stroke-width="1.3"/>
+    <path d="M 256 279 C 282 285, 298 295, 310 307" stroke-width="1" opacity="0.4"/>
+    <path d="M 256 347 C 282 341, 298 331, 310 319" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="318" cy="313" rx="3.5" ry="9" stroke-width="1.1" opacity="0.85"/>
+    <ellipse cx="326" cy="313" rx="3" ry="7.5" stroke-width="1" opacity="0.6"/>
+  </g>
+  <g stroke="#bbf451" stroke-width="1.4" opacity="0.7">
+    <path d="M 344 302 V 324"/>
+    <path d="M 356 302 V 324"/>
+    <path d="M 368 302 V 324"/>
+    <path d="M 380 302 V 324"/>
+  </g>
+  <path d="M 329 313 L 400 313" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+
+  <!-- extraction taps: photos / estimates / police report / FNOL feeding the enclosure -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 418 150 h 22" opacity="0.65"/><path d="M 429 150 V 236" opacity="0.55"/>
+    <ellipse cx="429" cy="238" rx="5" ry="2.5" opacity="0.6"/>
+    <path d="M 456 138 h 22" opacity="0.65"/><path d="M 467 138 V 230" opacity="0.55"/>
+    <ellipse cx="467" cy="232" rx="5" ry="2.5" opacity="0.6"/>
+    <path d="M 494 146 h 22" opacity="0.65"/><path d="M 505 146 V 236" opacity="0.55"/>
+    <ellipse cx="505" cy="238" rx="5" ry="2.5" opacity="0.6"/>
+    <path d="M 532 154 h 22" opacity="0.65"/><path d="M 543 154 V 230" opacity="0.55"/>
+    <ellipse cx="543" cy="232" rx="5" ry="2.5" opacity="0.6"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(467,188)"/>
+
+  <!-- evidence extraction: isometric enclosure with a fact-mesh inside -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <path d="M 400 258 L 540 258 L 540 370 L 400 370 Z"/>
+    <path d="M 400 258 L 426 236 L 566 236 L 540 258 Z"/>
+    <path d="M 540 258 L 566 236 L 566 348 L 540 370 Z"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.3">
+    <path d="M 546 340 L 562 326"/>
+    <path d="M 546 316 L 562 302"/>
+    <path d="M 546 292 L 562 278"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.4">
+    <path d="M 420 283 L 470 283"/><path d="M 420 283 L 470 314"/>
+    <path d="M 420 314 L 470 283"/><path d="M 420 314 L 470 345"/>
+    <path d="M 420 345 L 470 314"/><path d="M 420 345 L 470 345"/>
+    <path d="M 470 283 L 520 314"/><path d="M 470 314 L 520 283"/>
+    <path d="M 470 314 L 520 345"/><path d="M 470 345 L 520 314"/>
+  </g>
+  <g fill="#f8fafc" opacity="0.8">
+    <circle cx="420" cy="283" r="2.5"/><circle cx="420" cy="314" r="2.5"/><circle cx="420" cy="345" r="2.5"/>
+    <circle cx="470" cy="283" r="2.5"/><circle cx="470" cy="314" r="2.5"/><circle cx="470" cy="345" r="2.5"/>
+    <circle cx="520" cy="283" r="2.5"/><circle cx="520" cy="314" r="2.5"/><circle cx="520" cy="345" r="2.5"/>
+  </g>
+  <!-- citations: faint pointers back to the source strands -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="1 4" opacity="0.4">
+    <path d="M 420 283 C 390 270, 370 260, 350 250"/>
+    <path d="M 420 345 C 390 356, 370 364, 350 372"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(470,314)"/>
+
+  <!-- policy document, feeds the coverage grid from above -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <rect x="660" y="122" width="70" height="88"/>
+  </g>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.6">
+    <path d="M 672 142 L 718 142"/>
+    <path d="M 672 158 L 712 158"/>
+    <path d="M 672 174 L 718 174"/>
+    <path d="M 672 190 L 704 190"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.55">
+    <path d="M 678 210 C 678 232, 686 244, 692 254"/>
+    <path d="M 700 210 C 700 236, 700 244, 700 254"/>
+    <path d="M 722 210 C 722 232, 714 244, 708 254"/>
+  </g>
+
+  <!-- evidence feeds the coverage cross-check grid; pulses align against policy terms -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.8">
+    <path d="M 566 278 C 590 278, 604 278, 622 278"/>
+    <path d="M 566 314 L 622 314"/>
+    <path d="M 566 350 C 590 350, 604 350, 622 350"/>
+  </g>
+
+  <g stroke="#62748e" stroke-width="1" opacity="0.55">
+    <path d="M 616 258 L 622 258"/>
+    <path d="M 616 390 L 622 390"/>
+  </g>
+  <rect x="622" y="258" width="176" height="132" fill="none" stroke="#f8fafc" stroke-width="1.3"/>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.4">
+    <path d="M 666 258 V 390"/>
+    <path d="M 710 258 V 390"/>
+    <path d="M 754 258 V 390"/>
+    <path d="M 622 291 H 798"/>
+    <path d="M 622 324 H 798"/>
+    <path d="M 622 357 H 798"/>
+  </g>
+  <g>
+    <circle cx="688" cy="275" r="6" fill="#bbf451" opacity="0.7" filter="url(#glow)"/>
+    <rect x="684" y="271" width="8" height="8" fill="#bbf451"/>
+    <circle cx="732" cy="308" r="6" fill="#bbf451" opacity="0.7" filter="url(#glow)"/>
+    <rect x="728" y="304" width="8" height="8" fill="#bbf451"/>
+    <circle cx="776" cy="341" r="6" fill="#bbf451" opacity="0.7" filter="url(#glow)"/>
+    <rect x="772" y="337" width="8" height="8" fill="#bbf451"/>
+    <circle cx="644" cy="374" r="6" fill="#bbf451" opacity="0.6" filter="url(#glow)"/>
+    <rect x="640" y="370" width="8" height="8" fill="#bbf451"/>
+  </g>
+
+  <!-- condense into one clean brief rail -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 798 278 C 840 278, 862 302, 892 312" opacity="0.85"/>
+    <path d="M 798 314 L 892 313" opacity="0.9"/>
+    <path d="M 798 350 C 840 350, 862 322, 892 314" opacity="0.85"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(858,313)"/>
+  <text x="892" y="270" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">brief</text>
+  <path d="M 892 313 L 960 313" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <use xlink:href="#swoosh" transform="translate(1000,313)"/>
+  <path d="M 1030 313 L 1052 313" stroke="#f8fafc" stroke-width="1.2" fill="none" opacity="0.9"/>
+
+  <!-- adjuster decides: an OPEN lime-ringed node; the system stops here -->
+  <path d="M 1064 292 A 24 24 0 1 1 1084 292" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#glow)" opacity="0.7"/>
+  <path d="M 1064 292 A 24 24 0 1 1 1084 292" fill="none" stroke="#bbf451" stroke-width="1.8"/>
+  <circle cx="1074" cy="313" r="14" fill="none" stroke="#f8fafc" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+  <circle cx="1074" cy="313" r="1.6" fill="#f8fafc" opacity="0.5"/>
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 3" opacity="0.4">
+    <path d="M 1060 285 L 1050 272"/>
+    <path d="M 1088 285 L 1098 272"/>
+  </g>
+  <text x="1074" y="364" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">adjuster decides</text>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 288 398 V 545"/>
+    <path d="M 470 398 V 545"/>
+    <path d="M 710 398 V 545"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="288" y="568">intake</text>
+    <text x="470" y="568">evidence</text>
+    <text x="710" y="568">coverage check</text>
+  </g>
+</svg>

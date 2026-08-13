@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Analytics agent schematic: plain-language questions drop into a generator chamber sitting atop a wide governed semantic-layer lattice; answered questions exit as chart clusters; one flagged question loops through a data-team-defines node back into the lattice, adding new definitions">
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+    <g id="litcell">
+      <circle r="5" fill="#bbf451" opacity="0.65" filter="url(#glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- questions dropping in from above -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 605 46 C 600 90, 610 150, 608 205" opacity="0.55"/>
+    <path d="M 635 60 C 640 100, 630 160, 634 208" opacity="0.8"/>
+    <path d="M 665 40 C 660 90, 668 150, 664 206" opacity="0.5"/>
+    <path d="M 695 55 C 700 95, 692 155, 696 210" opacity="0.75"/>
+    <path d="M 725 48 C 720 92, 728 152, 724 207" opacity="0.55"/>
+    <path d="M 750 65 C 755 100, 748 158, 752 212" opacity="0.65"/>
+    <path d="M 620 78 C 618 106, 622 150, 621 209" opacity="0.4"/>
+    <path d="M 740 42 C 742 88, 738 148, 739 206" opacity="0.45"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(605,118) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(695,132) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(725,108) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(665,204) scale(0.6)"/>
+  <use xlink:href="#pulse" transform="translate(750,209) scale(0.6)"/>
+  <text x="470" y="72" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">questions</text>
+
+  <!-- generator chamber: isometric enclosure, governed SQL generation -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <rect x="550" y="232" width="210" height="108"/>
+    <path d="M 550 232 L 578 206 L 788 206 L 760 232 Z"/>
+    <path d="M 760 232 L 788 206 L 788 314 L 760 340 Z"/>
+    <path d="M 766 306 L 782 290" stroke-width="1" opacity="0.3"/>
+    <path d="M 766 282 L 782 266" stroke-width="1" opacity="0.3"/>
+    <path d="M 766 258 L 782 242" stroke-width="1" opacity="0.3"/>
+  </g>
+  <!-- neural mesh inside chamber -->
+  <g stroke="#f8fafc" stroke-width="0.9" opacity="0.38" fill="none">
+    <path d="M 585 258 L 655 290"/><path d="M 585 290 L 655 258"/>
+    <path d="M 585 290 L 655 322"/><path d="M 585 322 L 655 290"/>
+    <path d="M 655 258 L 725 290"/><path d="M 655 290 L 725 258"/>
+    <path d="M 655 290 L 725 322"/><path d="M 655 322 L 725 290"/>
+  </g>
+  <g fill="#050608" stroke="#f8fafc" stroke-width="1.1">
+    <circle cx="585" cy="258" r="4"/><circle cx="585" cy="290" r="4"/><circle cx="585" cy="322" r="4"/>
+    <circle cx="655" cy="258" r="4"/><circle cx="655" cy="290" r="4"/><circle cx="655" cy="322" r="4"/>
+    <circle cx="725" cy="258" r="4"/><circle cx="725" cy="290" r="4"/><circle cx="725" cy="322" r="4"/>
+  </g>
+  <text x="530" y="296" text-anchor="end" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">governed sql</text>
+
+  <!-- lattice feeds the chamber from below -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 575 340 L 575 430" opacity="0.55"/>
+    <path d="M 615 340 L 615 430" opacity="0.75"/>
+    <path d="M 655 340 L 655 430" opacity="0.5"/>
+    <path d="M 695 340 L 695 430" opacity="0.75"/>
+    <path d="M 735 340 L 735 430" opacity="0.55"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(615,388) scale(0.65)"/>
+  <use xlink:href="#pulse" transform="translate(695,388) scale(0.65)"/>
+
+  <!-- answered questions exit as chart clusters -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 788 250 C 850 240, 900 225, 965 219" opacity="0.85"/>
+    <path d="M 788 290 C 850 295, 900 300, 965 300" opacity="0.85"/>
+    <path d="M 788 330 C 850 340, 900 380, 965 399" opacity="0.85"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(868,238) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(868,297) scale(0.7)"/>
+  <use xlink:href="#pulse" transform="translate(868,362) scale(0.7)"/>
+  <use xlink:href="#swoosh" transform="translate(930,222) rotate(-6) scale(0.6)"/>
+
+  <!-- chart cluster A -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <line x1="965" y1="228" x2="1035" y2="228"/>
+    <rect x="970" y="210" width="8" height="18"/>
+    <rect x="985" y="198" width="8" height="30"/>
+    <rect x="1000" y="206" width="8" height="22"/>
+    <rect x="1015" y="194" width="8" height="34"/>
+  </g>
+  <!-- chart cluster B -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <line x1="965" y1="318" x2="1035" y2="318"/>
+    <rect x="970" y="292" width="8" height="26"/>
+    <rect x="985" y="304" width="8" height="14"/>
+    <rect x="1000" y="286" width="8" height="32"/>
+    <rect x="1015" y="298" width="8" height="20"/>
+  </g>
+  <!-- chart cluster C -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <line x1="965" y1="408" x2="1035" y2="408"/>
+    <rect x="970" y="388" width="8" height="20"/>
+    <rect x="985" y="372" width="8" height="36"/>
+    <rect x="1000" y="392" width="8" height="16"/>
+    <rect x="1015" y="380" width="8" height="28"/>
+  </g>
+
+  <!-- wide governed lattice: the semantic layer -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3" opacity="0.8">
+    <rect x="140" y="430" width="880" height="120"/>
+  </g>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.35">
+    <path d="M 228 430 V 550"/><path d="M 316 430 V 550"/><path d="M 404 430 V 550"/>
+    <path d="M 492 430 V 550"/><path d="M 580 430 V 550"/><path d="M 668 430 V 550"/>
+    <path d="M 756 430 V 550"/><path d="M 844 430 V 550"/><path d="M 932 430 V 550"/>
+    <path d="M 140 470 H 1020"/><path d="M 140 510 H 1020"/>
+  </g>
+  <!-- freshly subdivided cell where new definitions land -->
+  <path d="M 976 510 V 550" stroke="#9de500" stroke-width="1.2" opacity="0.6" fill="none"/>
+
+  <!-- governed metric definitions lit across the lattice -->
+  <use xlink:href="#litcell" transform="translate(184,450)"/>
+  <use xlink:href="#litcell" transform="translate(360,450)"/>
+  <use xlink:href="#litcell" transform="translate(536,490)"/>
+  <use xlink:href="#litcell" transform="translate(712,450)"/>
+  <use xlink:href="#litcell" transform="translate(888,490)"/>
+  <use xlink:href="#litcell" transform="translate(272,530)"/>
+  <use xlink:href="#litcell" transform="translate(448,490)"/>
+  <use xlink:href="#litcell" transform="translate(624,530)"/>
+  <use xlink:href="#litcell" transform="translate(800,490)"/>
+  <use xlink:href="#litcell" transform="translate(360,530)"/>
+  <use xlink:href="#litcell" transform="translate(536,450)"/>
+
+  <!-- two freshly added definitions from this month's feedback loop -->
+  <circle cx="954" cy="530" r="5" fill="#9de500" opacity="0.75" filter="url(#glow)"/>
+  <circle cx="954" cy="530" r="1.8" fill="#d8f999"/>
+  <circle cx="998" cy="530" r="5" fill="#9de500" opacity="0.75" filter="url(#glow)"/>
+  <circle cx="998" cy="530" r="1.8" fill="#d8f999"/>
+
+  <text x="580" y="592" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">semantic layer</text>
+  <text x="976" y="592" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">new definitions</text>
+
+  <!-- flagged pulse loops from output back through the data team -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path d="M 1030 222 C 1075 260, 1095 340, 1080 458" opacity="0.85"/>
+    <path d="M 1080 504 C 1055 525, 1025 540, 998 548" opacity="0.85"/>
+  </g>
+  <use xlink:href="#pulseDeep" transform="translate(1082,335) scale(0.75)"/>
+
+  <!-- lime-ringed node: data team defines -->
+  <circle cx="1080" cy="482" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="1080" cy="482" r="24" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="1080" cy="482" r="15" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 1072 483 L 1078 489 L 1090 474" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="1080" y="528" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">data team defines</text>
+</svg>

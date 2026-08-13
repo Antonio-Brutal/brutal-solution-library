@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: programme, finance and field-note strands meet a comparator whose flagged discrepancy is held in a side loop rather than dissolved, a comb snaps loose notes into evenly spaced ticks, a manifold fans the merged flow into four unequal funder channels with one isometric enclosure, and a wide ribbon of narrative rules drops tethers to source tiles before a balance interlock and a lime-ringed programme-lead gate release one clean line to the funder">
+  <defs>
+    <radialGradient id="funder-report-automation-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="funder-report-automation-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="funder-report-automation-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#funder-report-automation-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="funder-report-automation-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#funder-report-automation-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="funder-report-automation-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#funder-report-automation-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#funder-report-automation-vig)"/>
+
+  <!-- inputs: programme records, finance ledger, field notes -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 112 C 80 118, 140 132, 210 146" opacity="0.65"/>
+    <path d="M -10 144 C 84 150, 142 150, 210 152" opacity="0.85"/>
+    <path d="M -10 176 C 80 182, 140 166, 210 158" opacity="0.5"/>
+    <path d="M -10 246 C 82 252, 142 262, 210 266" opacity="0.5"/>
+    <path d="M -10 278 C 86 282, 144 274, 210 272" opacity="0.85"/>
+    <path d="M -10 310 C 82 314, 142 288, 210 278" opacity="0.65"/>
+    <path d="M -10 396 C 60 386, 96 414, 150 400 C 206 386, 268 412, 344 398" opacity="0.7"/>
+    <path d="M -10 432 C 60 444, 96 416, 150 430 C 206 444, 272 420, 344 414" opacity="0.5"/>
+    <path d="M -10 468 C 60 456, 98 484, 152 468 C 206 452, 272 444, 344 430" opacity="0.8"/>
+    <path d="M -10 504 C 62 514, 100 486, 154 500 C 208 514, 274 456, 344 446" opacity="0.55"/>
+  </g>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(108,126)"/>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(111,277)"/>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(109,299)"/>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(76,400)"/>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(241,448)"/>
+
+  <!-- comparator: two sources converge on a junction, the discrepancy is held in a side loop -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 212 150 C 268 156, 302 176, 330 204" stroke-width="1.2"/>
+    <path d="M 212 272 C 268 266, 302 246, 330 220" stroke-width="1.2"/>
+    <path d="M 253 168 L 261 150" stroke-width="1" opacity="0.6"/>
+    <path d="M 277 178 L 286 160" stroke-width="1" opacity="0.6"/>
+    <path d="M 253 254 L 261 272" stroke-width="1" opacity="0.6"/>
+    <path d="M 277 245 L 286 263" stroke-width="1" opacity="0.6"/>
+    <path d="M 342 200 l 12 12 -12 12 -12 -12 z" stroke-width="1.2"/>
+    <path d="M 342 226 L 342 246" stroke-width="1" opacity="0.8"/>
+    <circle cx="328" cy="262" r="17" stroke-width="1.1" opacity="0.9"/>
+    <path d="M 341 274 C 358 274, 372 246, 384 220" stroke-width="1" opacity="0.7"/>
+    <path d="M 356 212 L 470 212" stroke-width="1.3"/>
+    <path d="M 470 212 C 512 212, 522 262, 562 296" stroke-width="1.3"/>
+  </g>
+  <use xlink:href="#funder-report-automation-pulseDeep" transform="translate(328,245)"/>
+
+  <!-- field-note comb: loose notes snapped into evenly spaced ticks -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 350 384 V 462" stroke-width="1.2" opacity="0.9"/>
+    <g stroke-width="1" opacity="0.65">
+      <path d="M 350 390 h 14"/>
+      <path d="M 350 404 h 14"/>
+      <path d="M 350 418 h 14"/>
+      <path d="M 350 432 h 14"/>
+      <path d="M 350 446 h 14"/>
+      <path d="M 350 458 h 14"/>
+    </g>
+    <path d="M 372 430 L 530 430" stroke-width="1.2"/>
+    <g stroke-width="1" opacity="0.7">
+      <path d="M 384 424 v 12"/>
+      <path d="M 408 424 v 12"/>
+      <path d="M 432 424 v 12"/>
+      <path d="M 456 424 v 12"/>
+      <path d="M 480 424 v 12"/>
+      <path d="M 504 424 v 12"/>
+      <path d="M 524 424 v 12"/>
+    </g>
+    <path d="M 530 430 C 552 428, 552 330, 562 302" stroke-width="1.2"/>
+    <circle cx="566" cy="298" r="3.5" stroke-width="1.1"/>
+  </g>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(432,430)"/>
+  <use xlink:href="#funder-report-automation-pulse" transform="translate(504,430)"/>
+
+  <!-- funder template map: four channels of unequal width and pitch -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 570 295 C 600 292, 606 190, 700 186 L 742 186" stroke-width="1.6"/>
+    <path d="M 570 298 C 612 298, 640 278, 700 276 L 742 276" stroke-width="1.2"/>
+    <path d="M 570 300 C 612 304, 640 326, 700 330 L 742 330" stroke-width="0.9"/>
+    <path d="M 570 302 C 610 312, 640 380, 700 390 L 742 390" stroke-width="1.4"/>
+  </g>
+  <g stroke="#f8fafc" fill="none">
+    <rect x="622" y="254" width="82" height="44" stroke-width="1.3"/>
+    <path d="M 622 254 L 646 230 L 728 230 L 704 254 Z" stroke-width="1.3"/>
+    <path d="M 704 254 L 728 230 L 728 274 L 704 298 Z" stroke-width="1.3"/>
+    <path d="M 710 292 L 722 280" stroke-width="1" opacity="0.3"/>
+    <path d="M 630 266 h 66" stroke-width="1" opacity="0.4"/>
+    <path d="M 630 288 h 48" stroke-width="1" opacity="0.4"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.7">
+    <path d="M 746 176 v 20"/>
+    <path d="M 758 176 v 20"/>
+    <path d="M 770 176 v 20"/>
+    <path d="M 746 266 v 20"/>
+    <path d="M 752 266 v 20"/>
+    <path d="M 758 266 v 20"/>
+    <path d="M 764 266 v 20"/>
+    <path d="M 770 266 v 20"/>
+    <path d="M 748 320 v 20"/>
+    <path d="M 770 320 v 20"/>
+    <path d="M 746 380 v 20"/>
+    <path d="M 756 380 v 20"/>
+    <path d="M 766 380 v 20"/>
+  </g>
+
+  <!-- narrative ribbon, every figure tethered to a source tile -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.8">
+    <path d="M 772 186 C 786 190, 786 236, 794 244"/>
+    <path d="M 772 276 L 794 272"/>
+    <path d="M 772 330 C 786 330, 786 320, 794 314"/>
+    <path d="M 772 390 C 786 388, 786 348, 794 342"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 794 244 h 191" opacity="0.8"/>
+    <path d="M 794 258 h 166" opacity="0.6"/>
+    <path d="M 794 272 h 191" opacity="0.8"/>
+    <path d="M 794 286 h 174" opacity="0.6"/>
+    <path d="M 794 300 h 191" opacity="0.8"/>
+    <path d="M 794 314 h 152" opacity="0.6"/>
+    <path d="M 794 328 h 191" opacity="0.8"/>
+    <path d="M 794 342 h 180" opacity="0.6"/>
+    <path d="M 794 356 h 191" opacity="0.8"/>
+    <path d="M 985 244 V 356" opacity="0.5"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.55">
+    <path d="M 807 356 V 470"/>
+    <path d="M 861 356 V 470"/>
+    <path d="M 915 356 V 470"/>
+  </g>
+  <path d="M 969 356 V 470" stroke="#62748e" fill="none" stroke-width="1" stroke-dasharray="3 4" opacity="0.8"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.75">
+    <rect x="790" y="470" width="34" height="22"/>
+    <rect x="844" y="470" width="34" height="22"/>
+    <rect x="898" y="470" width="34" height="22"/>
+    <path d="M 796 478 h 20" opacity="0.5"/>
+    <path d="M 850 484 h 16" opacity="0.5"/>
+  </g>
+  <rect x="952" y="470" width="34" height="22" fill="none" stroke="#62748e" stroke-width="1" stroke-dasharray="3 4" opacity="0.8"/>
+
+  <!-- figures weighed against the accounts; the line stays broken until it balances -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 985 272 C 993 274, 995 284, 1000 290" stroke-width="1.1"/>
+    <path d="M 985 300 C 993 298, 995 294, 1000 290" stroke-width="1.1"/>
+    <path d="M 1000 290 L 1026 290" stroke-width="1.3"/>
+    <path d="M 1042 290 L 1084 290" stroke-width="1.3"/>
+    <path d="M 1026 281 v 18" stroke-width="1.2"/>
+    <path d="M 1042 281 v 18" stroke-width="1.2"/>
+    <path d="M 1024 268 L 1034 246 L 1044 268 Z" stroke-width="1.1"/>
+    <path d="M 1030 268 v 8" stroke-width="1" opacity="0.7"/>
+    <path d="M 1000 242 L 1068 234" stroke-width="1.3"/>
+    <path d="M 1002 243 v 16" stroke-width="1" opacity="0.8"/>
+    <path d="M 1066 235 v 16" stroke-width="1" opacity="0.8"/>
+    <path d="M 990 259 h 24" stroke-width="1.1"/>
+    <path d="M 990 259 C 995 270, 1009 270, 1014 259" stroke-width="1" opacity="0.7"/>
+    <path d="M 1054 251 h 24" stroke-width="1.1"/>
+    <path d="M 1054 251 C 1059 262, 1073 262, 1078 251" stroke-width="1" opacity="0.7"/>
+  </g>
+
+  <!-- programme lead gate -->
+  <circle cx="1112" cy="290" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#funder-report-automation-glow)" opacity="0.7"/>
+  <circle cx="1112" cy="290" r="24" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="1112" cy="290" r="14" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 1104 291 L 1110 298 L 1121 283" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <path d="M 1136 290 L 1146 290"/>
+    <path d="M 1146 282 L 1178 288 L 1178 292 L 1146 298 Z"/>
+  </g>
+  <use xlink:href="#funder-report-automation-swoosh" transform="translate(1158,290)"/>
+  <use xlink:href="#funder-report-automation-swoosh" transform="translate(462,212)"/>
+
+  <!-- labels -->
+  <text x="52" y="88" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">programme data</text>
+  <text x="52" y="368" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">field notes</text>
+  <text x="1178" y="200" text-anchor="end" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">funder</text>
+  <text x="1088" y="360" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="17" fill="#90a1b9">programme lead signs</text>
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45" fill="none">
+    <path d="M 310 524 V 552"/>
+    <path d="M 680 410 V 552"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="310" y="578">reconciliation</text>
+    <text x="680" y="578">template map</text>
+  </g>
+</svg>
