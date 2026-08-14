@@ -1,57 +1,75 @@
-# A Catalog Enrichment Engine That Turns Supplier Chaos Into Products People Can Find
+# The Two Catalog Fields No Confidence Score Is Allowed to Fill
 
-> How we built an AI enrichment pipeline for a long-tail marketplace ingesting hundreds of thousands of SKUs from thousands of small suppliers, and why the same approach matters for any business whose product data arrives from sources it doesn't control.
+> Why a marketplace enrichment engine had to split its category schema into attributes a model may infer and attributes only a supplier may declare.
 
 ![Flow diagram: supplier feeds pass through feed normalization, attribute extraction, category-aware copy, and a confidence gate; high-confidence items publish to the live catalog while low-confidence items route to human review](graphics/catalog-enrichment-engine.svg)
 
-## The problem: search can't sell what it can't read
+## Dozens of fields per category, and two that no model may fill
 
-Most marketplaces don't have a traffic problem. They have a *findability* problem.
+A category schema on a long-tail marketplace runs to dozens of attributes, and a confidence gate can govern almost all of them. Material, dimensions, colour, finish, compatibility: each is an inference from evidence, each can be scored, and each can be routed to a human when the score is low. Two kinds of field break the model entirely, because they are not inferences at all. Manufacturer identity and the product identifier are statements somebody is legally accountable for.
 
-Our customer is a European long-tail marketplace carrying hundreds of thousands of SKUs from thousands of small suppliers — workshops, importers, specialist distributors, family firms that have been making the same excellent thing for decades. That supplier base is the entire commercial thesis: depth and variety the big platforms can't match. It is also, commercially speaking, a data disaster. Product information arrived however each supplier happened to keep it: spreadsheets with invented column headers, onboarding forms filled in to the halfway mark, exports from inventory software that predates the smartphone. Titles read like internal stock codes — "BRKT SS 40MM V2" — because to the supplier, that is what the product is called. Materials, dimensions, colors, and compatibility notes were missing, buried somewhere in a free-text description, or simply wrong.
+Under the EU General Product Safety Regulation, in application since December 2024, every product offered for sale online must display the manufacturer's name, postal address and electronic address, and where the manufacturer sits outside the EU, the name and address of the EU-established responsible person. A listing missing those details is a non-compliant offer, and the marketplace is the party making the offer. No score, however high, changes who is accountable for the statement.
 
-It's worth being precise about what this costs, because "messy product data" sounds cosmetic. It isn't. Search and conversion live or die on structured attributes. Faceted filters run on attribute fields. Ranking runs on titles. Recommendations, comparison views, and every ounce of organic search visibility run on structure. When a shopper filters for solid oak and the material field is blank — even though "oak" sits in the third sentence of the description — that product ceases to exist for that shopper. It doesn't rank, it doesn't filter, it doesn't convert. The marketplace was paying real money to bring visitors in, then hiding a meaningful share of its own inventory from them.
+We learned this from our own confidence gate working exactly as designed. Reading a supplier's spec sheet, the engine extracted a manufacturer name and postal address at high confidence and pushed the listing live. The extraction was accurate. That name really was printed on the sheet. It belonged to the distributor, who was neither the manufacturer nor the responsible person, and there was nothing in the document, the score or the pipeline that could have caught it. Nothing was wrong with the reading. The field simply is not an inference.
 
-The manual fix was a merchandising team you could fit around one table, working item by item: open the spreadsheet, decode the columns, search the web to establish what the product actually is, rewrite the title, fill in the attributes, assign a category. Conscientious work with hopeless arithmetic. The backlog ran to tens of thousands of SKUs and grew every week, because supplier onboarding never pauses to let cleanup catch up.
+## One EAN, eleven sizes, and the deduplication that ate a product line
 
-One reframing shaped the entire project: enrichment is not cleanup work. It is revenue work. Every attribute filled is a product becoming visible in searches where it was invisible before. The merchandisers weren't tidying a database. They were stocking shelves.
+The same rebuild surfaced a second failure with the same root cause, this time in the product identifier. Deduplication had merged an eleven-size range into a single product, because the supplier had printed one EAN across all eleven sizes and our matching logic trusted it. Ten configurations disappeared from the catalog, and the merge looked like a clean win in every quality metric we had.
 
-## What we built
+GS1 allocation rules are unambiguous on this point: a GTIN identifies one specific product configuration, and it must change when the declared net content or the form of the product changes. A supplier who reuses one EAN across a size range is not being sloppy about a reference number. They are asserting that eleven different products are one product, and every downstream system that believes them inherits the assertion.
 
-We built an enrichment engine that sits between supplier chaos and the live catalog. Whatever arrives — a spreadsheet, a half-filled form, an export from software nobody will admit to still running — is normalized into one canonical schema. From there, the engine extracts structured attributes from titles, descriptions, and product images; writes category-appropriate, search-optimized copy in the marketplace's own voice; and then does something most pipelines skip entirely: it judges its own output. High-confidence enrichments publish automatically. Low-confidence ones go to a human, with the machine's evidence attached.
-
-That judgment step is the heart of the system. Nothing goes live on blind faith, and no merchandiser spends a minute on an item the machine has solid grounds to be confident about.
+That single reused identifier corrupts matching, deduplication and the compliance record simultaneously, which is what makes it worth naming as a distinct failure mode. Matching sends the wrong offers into the same product page. Deduplication destroys the range. The compliance record then attaches one set of manufacturer details to eleven products that may not share them.
 
 <img src="motion/catalog-enrichment-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Whatever the supplier sends becomes one uniform structure. Confidence decides which rail it takes.*
 
-## How it works
+## Inferable, attested, and the line between them
 
-### Layer 1: Feed normalization — whatever arrives becomes one schema
+We split the category schema in two, and the split is now the central structure of the engine. Inferable attributes flow through the confidence gate as before: extracted from titles, descriptions and product images, scored, published automatically when the score clears a per-category threshold, and routed to a merchandiser with the evidence attached when it does not. Attested attributes are populated only by a supplier declaration captured during onboarding.
 
-Every supplier speaks a different dialect. The first layer is a translator: it inspects whatever file a supplier sends, works out which fields correspond to which concepts — this column is a price, this one is an EAN, this half-abbreviated header means delivery time — and maps everything into a single canonical product schema. Classic ETL pipelines break here, because there is no stable format to write a parser against; thousands of suppliers means thousands of slowly mutating formats, and the format changes the day after you finish the parser. A language model that reads the file the way a patient human would, proposes a mapping, and hands that mapping to deterministic validation absorbs the variance without leaving behind a graveyard of brittle parsing rules.
+Attested attribute: a product field whose correctness rests on somebody taking responsibility for it rather than on evidence present in the data. Attested attributes are collected by declaration, never inferred, and no confidence score may stand in for the declaration.
 
-### Layer 2: Attribute extraction from titles, descriptions, and images
+Publication is blocked when an attested attribute is missing, regardless of how confident the engine is about everything else on the listing. An item can have a perfect material extraction, clean dimensions, a category assignment nobody would argue with and copy ready to ship, and it still will not go live without a declared manufacturer and a declared identifier. Aggregate confidence has no vote in that decision.
 
-Most of the missing data was never actually missing. It was unstructured — scattered through descriptions, compressed into cryptic titles, plainly visible in photographs. The extraction layer reads all of it together and fills the attribute schema defined for the product's category: material, dimensions, color, finish, compatibility — whatever that category's shoppers actually filter on. Images earn their place here; for furniture and homeware especially, the photo regularly completed or contradicted the text. Every extracted attribute carries a value, a confidence score, and the evidence it was drawn from. That evidence trail is what makes review fast later: a human checking "material: oak — from image and description" is verifying, not researching.
+On attested fields the engine's job shrinks to two things: detecting contradictions and chasing. It compares the declaration against everything else it can read, so a declared manufacturer that appears nowhere on the spec sheet, or an EAN already declared against a different product, raises a discrepancy for a human. It never fills the gap itself.
 
-### Layer 3: Category-aware copy that sounds like one brand
+We refuse to infer any attribute that a regulator, a customer or a court would read as the marketplace making a statement about a product's identity or safety. Confidence is not evidence and a score is not a signature. We also refuse to back-fill an attribute from a competing listing or a web search result, however tempting the coverage gain, because borrowing a rival's spec sheet imports their error and their liability along with their data.
 
-A power tool page should not read like a cushion page. The copy layer generates titles and descriptions from templates defined per category — what leads, which specifications must appear, what length converts — all governed by one set of brand tone rules, so thousands of suppliers stop sounding like thousands of suppliers. Crucially, copy is generated *from* the structured attributes, never alongside them. The text can only claim what extraction has established, which means a generated description cannot invent a feature the product doesn't have. Search copy that lies is a returns problem wearing a marketing hat.
+## Copy may only claim what the attributes already establish
 
-### Layer 4: The confidence gate — publish, or ask a human
+Generated copy is written from the structured attributes, never alongside them, so the text cannot claim a property the record does not hold. Titles and descriptions are produced from per-category templates that decide what leads, which specifications must appear and how long the description runs, all governed by one set of tone rules so that thousands of suppliers stop sounding like thousands of suppliers.
 
-Automation earns trust by knowing when to stop. Every enriched SKU receives an aggregate confidence score, and the publishing threshold is tuned per category, because the cost of a mistake is not uniform: a mislabeled cable color is an annoyance, while a wrong load-bearing attribute on children's furniture is a genuinely serious problem. The large majority of items clear that bar and publish automatically, untouched. The remainder lands in a review queue ordered by expected impact, each item presenting the machine's proposal next to its evidence. The merchandiser's role shifts from doing the enrichment to deciding whether the enrichment is correct — faster work, and frankly more interesting work. Every correction feeds back into the system, sharpening extraction and recalibrating the thresholds it publishes against.
+The constraint matters most on the fields that carry legal weight. A description that names a manufacturer, asserts a certification or implies a safety standard is making the same kind of statement as the attested field, and it is doing it in prose where no gate is watching. Copy generation reads only from the validated attribute record, which means an undeclared manufacturer cannot leak into a sentence because the model saw the name once in a source document.
 
-## Why this generalizes
+Search copy that lies is a returns problem wearing a marketing hat, and on regulated categories it is a withdrawal notice waiting to happen.
 
-The customer is a marketplace, but the shape of the problem is everywhere: revenue that depends on product data produced by people whose tools and incentives you don't control.
+## Chasing a supplier is a product feature, not an admission of defeat
 
-Retailers ingesting supplier feeds live this daily — every drop-ship program is a catalog-quality lottery drawn fresh with each new vendor, and the merchandising team is always the house that loses. B2B distributors often hold the hardest version: legacy catalogs where products are named by part number, the attributes live in a long-retired product manager's memory, and the new e-commerce front end can't find half of what is physically sitting in the warehouse. Classifieds platforms face the same mechanics with individual sellers — nobody can force a private seller to fill in a listing form properly, but every listing that becomes findable converts better, and the platform captures that lift at scale.
+The chase is engineered as carefully as the extraction, because a blocked listing is worthless until somebody fills the gap. Missing attested fields generate a supplier request that names the exact field, explains what the regulation requires, and offers the declaration as a form rather than an email thread. Requests are batched per supplier, ordered by how much catalog value is blocked behind them, and tracked until the declaration arrives.
 
-In every case the pipeline is the same four layers: normalize, extract, generate, gate. What changes is the schema, the tone rules, and where each category's confidence threshold sits. The architecture doesn't care whether the chaos comes from a supplier, a legacy system, or the general public.
+Merchandisers work the exception queue rather than the catalog. Their job is deciding whether a proposed enrichment is correct and pursuing the declarations that unblock revenue, and the queue is ordered by expected impact so the day starts with the products that matter. Every correction they make feeds back into extraction and recalibrates the thresholds each category publishes against.
 
-## Is your search hiding half your inventory?
+The system may not publish a listing with a missing attested attribute, may not populate one from any source other than a supplier declaration, and may not decide whether a declaration is truthful. It flags contradictions and escalates them. A human decides what a supplier's paperwork actually means, and the supplier remains accountable for what it says.
 
-If product data arrives in whatever format your suppliers feel like sending, and your team is fixing it one row at a time, the backlog is not going to fix itself — and every un-enriched SKU is a product your customers cannot find. We build engines that turn that arithmetic around. Tell us what your catalog chaos looks like.
+## Common questions
+
+### If the model is confident enough, why not let it fill in the manufacturer?
+
+Because confidence measures how well a fact is supported by the document, not whether the document is authoritative. Our engine once extracted a manufacturer name and address at high confidence and was correct about the text: the name belonged to the distributor. Manufacturer identity under the EU General Product Safety Regulation is a statement of accountability, and only the supplier can make it.
+
+### What happens to listings that are missing manufacturer or responsible person details?
+
+They do not publish. Publication is blocked on any missing attested attribute regardless of aggregate confidence, and the item enters a supplier chase queue with the specific field named. For an existing catalog, the same rule is applied as a sweep: listings without the required details are identified, prioritised by trading volume, and chased before they are quietly delisted.
+
+### Can you fill our gaps from other listings of the same product?
+
+No, and we would push back if asked. Back-filling from a competitor's listing or a web result imports their error and their liability into your catalog, and it produces a compliance record whose ultimate source is an unaccountable third party. Inferable attributes come from the supplier's own material. Attested attributes come from the supplier's declaration.
+
+### Our suppliers reuse EANs across size ranges. How much does that actually cost?
+
+More than it looks. A GTIN identifies one product configuration and must change when the declared net content or form changes, so a reused EAN tells every downstream system that a whole range is one product. Deduplication merges the range and destroys most of it, matching misroutes offers, and the compliance record attaches one manufacturer statement to products that may not share it.
+
+## How many of your live listings could name their manufacturer today?
+
+If the answer involves a search across supplier emails, the gap is a compliance exposure sitting on your live catalog rather than a data-quality backlog. We build enrichment engines that separate what a model may infer from what a supplier must declare, and that block publication rather than guessing. Tell us what arrives in your supplier feeds.

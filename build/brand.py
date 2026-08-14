@@ -149,3 +149,41 @@ def render_article(md_text, slug, asset_prefix=""):
              f'<p class="subtitle">{subtitle}</p>'
              f'<div class="prose">{body}</div>{cta_html}')
     return inner, title, subtitle
+
+
+def build_schema(title, subtitle, slug, cust, cat, body_html):
+    """Article + FAQPage JSON-LD. AI answer engines lean on structured data when
+    deciding what to cite, and the FAQ block is the most quotable part of the page."""
+    import json as _json, re as _re
+
+    faqs = []
+    m = _re.search(r"<h2[^>]*>Common questions</h2>(.*?)(?=<h2|\Z)", body_html, _re.S | _re.I)
+    if m:
+        block = m.group(1)
+        for q, a in _re.findall(r"<h3[^>]*>(.*?)</h3>\s*<p>(.*?)</p>", block, _re.S):
+            faqs.append({
+                "@type": "Question",
+                "name": _re.sub(r"<[^>]+>", "", q).strip(),
+                "acceptedAnswer": {"@type": "Answer",
+                                   "text": _re.sub(r"<[^>]+>", "", a).strip()},
+            })
+
+    graph = [{
+        "@type": "Article",
+        "headline": title,
+        "description": subtitle,
+        "about": {"@type": "Thing", "name": cat},
+        "audience": {"@type": "Audience", "audienceType": cust},
+        "image": f"https://brutal.ai/images/blog/{slug}.png",
+        "author": {"@type": "Organization", "name": "Brutal.ai", "url": "https://brutal.ai"},
+        "publisher": {"@type": "Organization", "name": "Brutal.ai", "url": "https://brutal.ai"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": f"https://brutal.ai/en/blog/{slug}"},
+        "inLanguage": "en",
+    }]
+    if faqs:
+        graph.append({"@type": "FAQPage", "mainEntity": faqs})
+
+    return ('<script type="application/ld+json">'
+            + _json.dumps({"@context": "https://schema.org", "@graph": graph},
+                          ensure_ascii=False, separators=(",", ":"))
+            + "</script>")

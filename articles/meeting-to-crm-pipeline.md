@@ -1,63 +1,85 @@
-# A Meeting-to-CRM Pipeline That Records What Was Actually Said
+# The Meeting Pipeline That Catches the Scope You Just Gave Away
 
-> How we built a meeting-to-CRM pipeline for a professional services firm, and why the same approach matters for any team that sells through conversations.
+> In professional services the same sentence in the same client call is a pipeline signal and an unbilled-work risk at once, and a pipeline that only writes to CRM fields books the opportunity while losing the margin.
 
 ![Flow diagram: client calls flow through ingestion, structured extraction and CRM field mapping; the deal owner approves each update in one click before it reaches the CRM, with a follow-up draft produced alongside](graphics/meeting-to-crm-pipeline.svg)
 
-## Pipeline reviews run on fiction
+## Minute thirty-four, and nobody uses the word scope
 
-The CRM got updated on Friday afternoons. That single fact explains almost everything about the commercial operations of the firm we built this system for: a mid-sized professional services firm, consultants and partners spread across several offices, whose fee-earners collectively held hundreds of client calls a month. They talked to clients all week — discovery conversations, scoping calls, steering meetings that quietly turned commercial. Then, on Friday afternoon, whoever still had energy opened the CRM and tried to reconstruct the week from memory.
+Thirty-four minutes into a steering meeting, the client asks for something that is not in the contract, and everyone present experiences it as a good moment. The phrasing is casual: while your team is in the source systems anyway, could you look at the German entity too. The engagement manager says of course, we can pick that up. Two people have just agreed to a piece of work, warmly, without either of them using the word scope.
 
-Most firms don't have a CRM discipline problem. They have a *physics* problem: nobody can remember Tuesday by Friday. The budget range the client mentioned in passing. The new stakeholder who joined late and asked pointed questions about procurement. The next step everyone agreed to and nobody wrote down. By the time fingers reached the keyboard, days after the call, those details weren't degraded. They were gone, replaced by a general impression that the call "went well."
+That exchange is two commercial events wearing one coat. It is a pipeline signal, because a client asking for more is a client with appetite and probably budget. It is also the moment a fixed-fee engagement starts leaking, because the German entity is not in the deliverables list.
 
-The consequences surfaced every Monday. Deal stages reflected optimism rather than events. Close dates were negotiating positions. Forecast meetings were arguments between partners whose recollections disagreed and could not be checked against anything, because nothing had been recorded close to the moment it happened. The pipeline review ran on fiction — polite, confident, well-formatted fiction.
+On a fixed-fee engagement, work that falls outside the deliverables listed in the statement of work has to be captured as a change request before it is performed. Once it has been performed it is unbilled work in progress, and work in progress that ages past the engagement's billing milestone gets written off far more often than it gets invoiced. Firms measure the whole cycle, from effort spent to cash collected, as lock-up, counted in days.
 
-The standard fix fails too. More mandatory fields, stricter Monday reminders, a stern memo about data quality — all of it asks the most expensive people in the firm to do more data entry. They won't. Candidly, they shouldn't.
+In professional services this is structural rather than occasional, because a client meeting is delivery and origination at the same time.
 
-## What we built
+## Four extraction categories, and the expensive one was missing
 
-A meeting-to-CRM pipeline. Every recorded client call flows into it; the system extracts what was actually said — stakeholders, budget signals, next steps, risks — maps those facts onto the firm's CRM fields, and proposes updates that the deal owner approves in one click from Slack or email. It drafts the follow-up message while it's at it. The system never writes to the CRM on its own authority. Its job is to turn conversations into structured, cited proposals, and to make confirming them nearly effortless.
+Stakeholders, budget signals, next steps, risks. Those were the four categories in the extraction schema we built first, the standard set that every meeting tool ships with, and not one of them caught the sentence above. It ran for weeks against real client conversations, the partners liked it, the CRM stopped being reconstructed from memory on Friday afternoons, and it never once surfaced the thing that was actually costing the firm money.
+
+A scope expansion does not sound like a budget signal. It sounds like agreement. Phrases such as of course, no problem and we can fold that in are not risk language, they are rapport, and a classifier looking for hesitation, competitors and procurement delays files them under nothing at all.
+
+So we added an extractor that does not run against generic categories. It runs against the engagement's own statement of work: the deliverables list, the stated assumptions, the exclusions, parsed once at kickoff and attached to the account. Every request, assumption and agreement voiced in a conversation is tested against that specific document, and anything landing outside it is flagged as a scope delta.
+
+Scope delta: a request, assumption or agreement voiced in a client conversation that falls outside the deliverables listed in that engagement's statement of work. A scope delta is an unbilled-work risk and a pipeline signal at the same time, and it is recorded before it is classified as either.
+
+The ordering in that definition is the whole design. Record first, classify second, because the classification is a commercial judgment and the record is a fact.
 
 <img src="motion/meeting-to-crm-pipeline.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *What was actually said lifts out of the conversation and settles into the record.*
 
-## How it works
+## The consultant usually opens the gap, not the client
 
-### Layer 1: Ingestion from wherever the conversation happened
+The first weeks of scope-delta alerts produced a finding nobody enjoyed: the extractor fired far more often on the consultant's words than on the client's. Clients ask for things, which is free and expected and creates no obligation. The gap opens when somebody on the firm's side agrees, and the person opening it was usually the one saying of course, we can pick that up.
 
-Client conversations don't happen in one place, so the pipeline doesn't assume one. Video calls arrive with recordings and transcripts from the conferencing platform; phone calls come in through the firm's recording setup; in-person meetings enter as voice notes or typed debriefs. Everything is normalized into the same shape: a transcript with identified speakers, a timestamp, and — critically — a match against the CRM. The system resolves which account and which opportunity a conversation belongs to before anything else happens, and asks the owner when it isn't sure rather than guessing.
+That finding is exactly why the system does not classify what it finds. A flagged sentence can be a change request the firm should raise this week, deliberate goodwill on an account the partner is protecting, or something already covered by an assumption the extractor read too literally. Telling those apart needs the pitch, the relationship history and the renewal date, none of which live in a transcript.
 
-### Layer 2: Structured extraction, not summaries
+The system is not permitted to decide whether a scope delta is billable, to raise a change request, to move an opportunity's stage or value in the CRM, or to send anything to a client. It proposes the sentence with its surrounding context to the engagement lead, and the engagement lead decides. Approving a proposed CRM update takes one click from Slack or email; dismissing it takes one click too, and a dismissal is logged as an answer rather than as silence.
 
-A summary is prose about a call. An extraction is a set of claims you can act on. The pipeline pulls out the specific categories that move deals: stakeholders (who attended, their role, how they leaned), budget signals (figures mentioned, hedges attached to them, who said them), next steps (what was agreed, who owns it, by when), and risks (a competitor named, a hesitation about timing, a procurement process nobody had mentioned before).
+## A quote with coordinates, or a debrief that admits what it is
 
-Every extracted claim carries a citation back to the transcript passage that supports it. If the system reports that the client mentioned a budget range, the sentence where they said it is one click away. Nothing enters the pipeline as an impression; everything enters as a quote with coordinates.
+Recording a client call is not a free input, and consent rewrote part of this system. Across several European jurisdictions all-party consent is the legal baseline for recording a conversation, and in Germany recording another person's non-public spoken word without consent is a criminal offence under §201 StGB rather than a policy matter. One of the firm's markets could not be recorded at all.
 
-Extraction is also where restraint matters. The system does not score sentiment, grade the consultant's performance, or speculate about intent. It captures what was said, by whom, about the things that move a deal — and leaves interpretation to the people who were in the room.
+Typed debriefs therefore became a first-class input rather than a degraded fallback. A consultant writes what was asked and what was agreed, in the same structure the extractor uses on transcripts, and the extractor runs on that text.
 
-### Layer 3: CRM mapping with one-click human confirmation
+Every extracted claim then carries a provenance grade, because the two inputs are not equally strong. A verbatim claim links to a transcript timestamp. A recalled claim links to a debrief, with the author and the time it was written. A citation never claims to be verbatim when it is recalled, which matters the moment a scope delta becomes a change-request conversation: here is the recording at thirty-four minutes is a different conversation from our manager's note says this was discussed.
 
-Extracted facts are then mapped onto the firm's actual CRM fields, and this is where the design choice that matters most lives: the system proposes, the human disposes. The deal owner receives a compact card in Slack or email — "move close date out a quarter, because the client said procurement won't start until January; add this stakeholder; log this next step" — with the supporting quotes attached. Approving takes one click. Editing or dismissing is barely slower.
+## Lock-up is the number this system actually moves
 
-The human role shifts from data entry to verdicts. That's not a compromise we accepted reluctantly; it's the point. The consultant on the call has context no transcript captures — irony, history, the thing said after the recording stopped. Their one click is what turns a machine proposal into a firm's record. And because approval is nearly free, it actually happens, the same day, not Friday.
+Lock-up is the number this system moves, and CRM hygiene is a side effect. The honest description of the change is narrow: a scope delta surfaces within a day of the conversation, while the change request can still be raised before the work is performed, instead of surfacing months later at the write-off review, when the only remaining options are absorbing it or invoicing for work the client thought was included.
 
-### Layer 4: Follow-up drafting
+Pipeline reviews changed too, in a less comfortable direction. When the record is built from what was said, engagements expanding without paperwork show up as expanding, and deals with no agreed next step across three consecutive calls show up as stalled.
 
-Shortly after a call ends, the owner also receives a drafted follow-up message: what was discussed, what was agreed, who owns which next step, by when — all grounded in the transcript, written in the firm's tone. The consultant edits and sends it; nothing is sent automatically. The clients started noticing the difference before the partners did. A same-day follow-up that accurately reflects the meeting is rare enough to read as competence.
+This approach is wrong for one common case, and it is worth naming. If the firm sells time and materials against an approved rate card with no enumerated deliverables, there is no boundary for a sentence to fall outside, and the scope-delta extractor has nothing to run against. A plain meeting extractor is the right tool there, and the effort belongs in timesheet discipline instead.
 
-## The CRM becomes a record, not a recollection
+## Why the scope alert never becomes a performance metric
 
-The compound effect took months to show. Pipeline reviews changed character: instead of arguing about what a client probably meant, partners read what the client actually said, cited and dated. Handovers stopped depending on the departing consultant's memory. New joiners inherited deals with an actual history attached. The Friday-afternoon ritual disappeared, not because anyone banned it, but because there was nothing left to reconstruct.
+Scope-delta data is never a performance metric, and we will not build the version where it is. An alert is visible to the fee-earner who was on the call and to the engagement lead. It is not aggregated into an individual scorecard, it does not roll up into a leaderboard, and it never reaches a partner dashboard.
 
-There's a subtler benefit, too. When the record is built from transcripts, it stops flattering anyone. Deals that were quietly dying showed up as quietly dying — call after call with no next step agreed is a fact, not a feeling. That kind of honesty is uncomfortable for a week and invaluable for a forecast.
+The reason is operational rather than sentimental. The moment an alert can be used against the person whose sentence triggered it, that person stops recording calls, stops writing debriefs, and starts describing meetings in language vague enough to survive review. The system's only input is people willingly putting conversations into it, and a metric that punishes candour dries the input up within a month.
 
-## Why this generalizes
+The firm's partners asked, reasonably, whether the system could rank consultants by how much scope they gave away. It could. We said no, and built the aggregate view at the level where the fix lives instead: which engagement types generate the most deltas, and which statements of work carry assumptions loose enough to argue about.
 
-Any business whose pipeline is built out of conversations has this exact gap between the call and the keyboard. Agencies live in it: account leads spend all week in client meetings where scope quietly grows and renewal risk quietly builds, and almost none of it reaches a system. B2B sales teams live in it at larger scale — the difference between their best rep and their average one is often not selling skill but logging discipline, and this removes logging from the equation. Investment teams live in it too: a partner's Tuesday call with a founder *is* the diligence record, and it deserves better than a bullet point written from memory the following week.
+## Common questions
 
-In every case the shape is identical: conversations are the source of truth, the system of record is downstream of human memory, and memory is the weakest link in the chain. Replace memory with transcripts, keep humans on the approval, and the record starts telling the truth.
+### Can this work if we are not allowed to record client calls?
 
-## How much of your CRM is fiction?
+Yes, and one of our markets required it. Typed debriefs are a supported input, structured the same way as transcripts, and the extractor runs on them identically. The difference appears in provenance: claims from debriefs are graded as recalled rather than verbatim, so nobody ever quotes a recollection back to a client as though it were a recording.
 
-If your pipeline reviews run on what people remember rather than what clients said, you already know the answer. We build the pipeline that closes the gap between the conversation and the record. Tell us how your team logs its calls.
+### How is this different from a meeting notetaker that syncs to the CRM?
+
+A notetaker summarises a call against generic categories. This tests every request and agreement against your engagement's own statement of work, so it flags sentences that create unbilled work rather than only sentences that sound commercial. The output is a proposed CRM update and a scope delta, each with a citation, and neither is written without a human approving it.
+
+### What do you need from us before it can run?
+
+Three things, and all of them already exist. The statements of work for live engagements, including deliverables, assumptions and exclusions. The CRM field definitions you actually use rather than the ones in the manual. And a named engagement lead per account who receives the scope deltas and decides what each one is.
+
+### Will consultants see alerts about their own calls?
+
+They see every alert from their own conversations, first, before anyone else. That is deliberate. Scope-delta data goes to the fee-earner and the engagement lead only, is never aggregated into an individual scorecard, and never appears on a partner dashboard, because a system people are afraid of is a system people stop feeding.
+
+## How much scope did your firm agree to last quarter without writing it down?
+
+If the answer lives in the memories of the people who were on those calls, it is not recoverable and it is not billable. We build the pipeline that catches the sentence on the day it is said, cites it, and puts the commercial decision in front of the person who is allowed to make it. Tell us how your engagements handle change requests today.

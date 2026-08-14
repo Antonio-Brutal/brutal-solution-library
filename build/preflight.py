@@ -12,9 +12,21 @@ FORBIDDEN = ["TODO", "TBD", "FIXME", "XXX", "placeholder", "PLACEHOLDER",
              "GRAPHIC_EMBED", "VIDEO_EMBED", "exact figure", "replace with",
              "Lorem ipsum", "[ ]"]
 
+# Voice failures. The em dash is banned outright; the rest are the phrases that make
+# writing read as machine-produced. See REWRITE-BRIEF.md.
+BANNED_VOICE = ["—", "It's not just", "Here's the thing", "The truth is",
+                "Let's be honest", "Make no mistake", "In today's", "In an era of",
+                "It's important to note", "It's worth noting", "delve", "leverage",
+                "seamless", "game-changer", "supercharge", "unlock the power",
+                "They have a *", "human role shifts", "revolutioni"]
+
+HEADINGS = {}
+
+
 def main():
     files = sorted(glob.glob(os.path.join(ART, "*.md")))
     problems = []
+    HEADINGS.clear()
 
     for p in files:
         name = os.path.basename(p)
@@ -23,6 +35,27 @@ def main():
         for tok in FORBIDDEN:
             if tok in s:
                 problems.append(f"{name}: forbidden token {tok!r}")
+
+        for tok in BANNED_VOICE:
+            n = s.count(tok)
+            if n:
+                label = "em dash" if tok == "—" else repr(tok)
+                problems.append(f"{name}: banned phrasing {label} x{n}")
+
+        # citability: the FAQ block is the most quotable part of the page
+        if "## Common questions" not in s:
+            problems.append(f"{name}: no '## Common questions' FAQ block")
+        else:
+            faq = s.split("## Common questions", 1)[1]
+            faq = faq.split("\n## ", 1)[0]
+            qs = re.findall(r"^### .+$", faq, re.M)
+            if not (3 <= len(qs) <= 4):
+                problems.append(f"{name}: FAQ has {len(qs)} questions, expected 3-4")
+
+        # heading reuse across the corpus is what made the library read as one article
+        for h in re.findall(r"^## (.+)$", s, re.M):
+            if h.strip() != "Common questions":
+                HEADINGS.setdefault(h.strip(), []).append(name)
 
         if "<!--" in s:
             problems.append(f"{name}: HTML comment present")
@@ -38,7 +71,7 @@ def main():
             if re.search(r"#[0-9a-fA-F]{6}|opacity|viewBox|px\b|stroke", a):
                 problems.append(f"{name}: alt text contains design-brief detail")
             if len(a) > 400:
-                problems.append(f"{name}: alt text {len(a)} chars — too long to be read aloud")
+                problems.append(f"{name}: alt text {len(a)} chars, too long to be read aloud")
             if not a.strip():
                 problems.append(f"{name}: empty alt text")
 
@@ -46,8 +79,8 @@ def main():
             problems.append(f"{name}: does not open with '# ' title")
         if "\n> " not in s:
             problems.append(f"{name}: no '> ' subtitle line")
-        if "## How it works" not in s:
-            problems.append(f"{name}: missing '## How it works'")
+        if len(re.findall(r"^## ", s, re.M)) < 4:
+            problems.append(f"{name}: fewer than 4 top-level sections")
 
         # every referenced asset must exist
         refs = re.findall(r"!\[[^\]]*\]\(([^)]+)\)", s) + re.findall(r'(?:src|poster)="([^"]+)"', s)
@@ -64,8 +97,13 @@ def main():
         prose = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", s)
         prose = re.sub(r"<[^>]+>", "", prose)
         w = len(prose.split())
-        if not (1100 <= w <= 1600):
-            problems.append(f"{name}: prose word count {w} outside 1100-1600")
+        if not (1250 <= w <= 1800):
+            problems.append(f"{name}: prose word count {w} outside 1250-1800")
+
+    for h, users in sorted(HEADINGS.items()):
+        if len(users) > 1:
+            problems.append(f"heading reused across {len(users)} articles: {h!r} ({', '.join(users[:4])}"
+                            + (", ..." if len(users) > 4 else "") + ")")
 
     print(f"preflight: {len(files)} articles checked")
     if problems:

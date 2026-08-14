@@ -1,53 +1,71 @@
-# An AI System That Reads the Claim File So the Adjuster Can Decide It
+# Somebody Else's Name Is Buried in Every Claim File You Close
 
-> How we built claims document intelligence for a regional property and casualty insurer, and why the same approach matters for any operation where decisions wait on reading.
+> Why we built the subrogation signal into a claims document intelligence system at intake, and why it is walled off from the coverage view by design.
 
-![Flow diagram: scattered claim documents and photos funnel through intake and an evidence-extraction lattice, align against a policy-terms grid for coverage cross-check, and condense into one brief rail that ends at an open node — the adjuster decides, the system never does](graphics/claims-document-intelligence.svg)
+![Flow diagram: scattered claim documents and photos funnel through intake and an evidence-extraction lattice, align against a policy-terms grid for coverage cross-check, and condense into one brief rail that ends at an open node: the adjuster decides, the system never does](graphics/claims-document-intelligence.svg)
 
-## Adjusters are paid to decide. They spend their days reading.
+## Somebody else should be paying, and the file already names them
 
-A claims file is a pile of paper wearing a case number. First notice of loss forms, photos of the damage, contractor repair estimates, police reports, medical bills, correspondence — all of it arriving as unstructured attachments in whatever shape the policyholder, the body shop, or the police department happened to produce.
+A claim file usually names the third party whose failure caused the loss. Systems built to read for damage and coverage position go straight past that name. Subrogation is the insurer's right, after indemnifying its policyholder, to pursue the responsible party in the policyholder's name, and it is the only part of a claim file that can return money rather than spend it.
 
-The customer that brought us this problem is a regional property and casualty insurer handling thousands of claims a month. Their adjusters are experienced, licensed professionals whose job is judgment: what does the policy cover, is this estimate reasonable, does the evidence hold together. But a typical claim file runs to dozens of documents, and before an adjuster can exercise any judgment, someone has to read all of it — find the damage description buried in the FNOL narrative, pull the line amounts out of a photographed repair estimate, cross-reference the police report's account against the policyholder's. By the insurer's own reckoning, its adjusters spent more of their working hours reading and re-reading documents than doing anything else, and the backlog grew every time a storm rolled through. The re-reading matters as much as the reading: documents trickle in over days or weeks, so an adjuster returns to the same file again and again, rebuilding the mental picture from scratch on each visit.
+That right is preserved or destroyed in the first days of a file, which is exactly when nobody is looking for it. Recovery depends on identifying the responsible party, preserving the physical evidence such as the failed appliance or the burst hose before remediation removes it, and not having signed the right away in advance. Commercial leases and construction contracts routinely carry waiver-of-subrogation clauses that extinguish it outright, and the limitation clock against the third party runs from the date of the loss, not from the day the insurer pays.
 
-Most insurers describe this as a claims capacity problem and respond by hiring more adjusters. It isn't a capacity problem. It is a *preparation* problem. The decision itself — covered or not, pay this much or contest — takes an experienced adjuster minutes once the facts are assembled. What consumes the hours is assembling the facts. And assembling facts from documents is precisely what AI now does well, while deciding claims is precisely what it should not do.
+Our client was a regional property and casualty insurer handling thousands of claims a month, with experienced licensed adjusters whose job is judgment: what the policy covers, whether an estimate is reasonable, whether the evidence holds together. A claim file runs to dozens of documents arriving over days or weeks, so before any judgment happens someone has to read all of it, and then read it again each time a new attachment lands. Recovery was not on that reading list.
 
-## What we built
+## Adjusters read for coverage; recovery hides in the sentences they skip
 
-We built a claims document intelligence system that reads everything so the adjuster reads only what matters. It normalizes the intake — every attachment, every format — extracts the evidence from each document, cross-checks the claim against the actual policy terms, and assembles an adjuster brief in which every single statement cites the source document it came from.
+We built the adjuster brief around coverage and quantum, which is what adjusters ask for, and the recovery signal stayed invisible for months. The brief was good at its stated job. It normalised every attachment, extracted the facts a coverage decision runs on, cross-checked the loss against the policy in force on the date of loss, and footnoted every statement to its source. None of that surfaces a recovery, because a recovery is not a field on a form.
 
-One design principle governed the whole build, and we held to it without exception: the system never decides a claim. It does not approve, deny, or reserve. It prepares the decision, completely, and puts a human in front of it. This is not a limitation we tolerated; it is the architecture we chose. Claims decisions carry regulatory weight, contractual weight, and human weight. The correct role for the machine is to make the decider faster and better informed — the human role shifts from excavating the file to judging it.
+The signals we were missing were unremarkable pieces of text that a coverage reader has no reason to stop on. A throwaway sentence in the first notice of loss narrative saying a plumber had been out the week before. A named manufacturer's part on a line of a repair estimate. A photograph that happens to show the neighbouring unit. Each one is trivial in isolation and each one is a potential defendant.
+
+The extraction that mattered turned out to be relational rather than field-level, which is why we added a party graph. Every person and company the documents mention is captured as a node, with their role and the document that ties them to the cause of loss, so the plumber in the narrative, the manufacturer on the estimate line and the neighbour in the photograph become connected entities rather than stray strings in three unrelated files.
 
 <img src="motion/claims-document-intelligence.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Scattered evidence becomes one cited brief. The final node stays open: the adjuster decides.*
 
-## How it works
+## The party graph, and why it never touches the coverage view
 
-### Layer 1: Intake normalization
+Recovery potential never appears anywhere in the coverage view, and that separation is enforced in code rather than written into a style guide. An adjuster who knows a loss might be recoverable has a reason to pay a marginal claim, because the money looks likely to come back. That is a contaminated coverage decision even when it reaches the right answer, and it is the kind of contamination a regulator, a reinsurer or a bad-faith claim will eventually ask about.
 
-Everything that arrives — emailed photos, scanned FNOL forms, faxed police reports, PDFs from repair networks, voicemail transcriptions — is converted into a single normalized claim file. Each item is classified by type, deduplicated, timestamped, and attached to the right claim even when the sender forgot the claim number and referenced a name and a date instead. Nothing is discarded and nothing is retyped. The adjuster stops being the person who reconstructs the file from an inbox; the file assembles itself as evidence arrives.
+So the party graph and the coverage flags are separate surfaces with separate access, and neither one feeds the other. The recovery surface is read by the subrogation team, who are the people the information is useful to and the people whose incentives it does not distort. The coverage surface shows the adjuster the policy, the evidence and the open questions, and shows nothing at all about who else might end up paying.
 
-### Layer 2: Evidence extraction
+Building the wall in code costs more than agreeing to a convention, and the cost is the point. Conventions decay under deadline pressure, and a surface that merely omits recovery today will have a helpful recovery badge on it within two release cycles.
 
-Each normalized document is mined for the facts a claims decision runs on. From photos: what is damaged, how severely, and whether the visible damage is consistent with the described cause of loss. From repair estimates: line items, labor rates, and totals — even when the estimate is a photograph of a printout on a contractor's clipboard. From police reports: parties, location, the reporting officer's account. From the FNOL: the policyholder's narrative and its stated timeline. Every extracted fact carries two things — a confidence score, and a pointer to the exact document and passage it came from. Weak extractions are flagged as weak, never silently smoothed over.
+## Evidence has a shorter shelf life than the claim
 
-### Layer 3: Coverage cross-check
+Some facts stop existing long before the claim closes, so extracting them at intake is the only chance you get. Once the burst hose is in a skip there is nothing left to test, and no amount of later reading recovers it. That is why the system fires an evidence-preservation alert before the remediation invoice arrives, triggered by the mitigation vendor's own paperwork rather than by anyone remembering.
 
-Facts alone don't frame a decision; the policy does. This layer reads the claim against the policyholder's actual policy — the specific form, endorsements, limits, deductibles, and exclusions in force on the date of loss, not a generic product description. It surfaces the questions an adjuster would otherwise dig for: the loss date sits inside the policy period; water damage of this type touches this exclusion; the estimate total crosses this sub-limit. The output is deliberately framed as flags and citations, not conclusions. The system says "this exclusion may apply, here is the clause, here is the evidence that triggered the flag" — and stops there. Deciding whether the exclusion actually applies is the adjuster's job, and the system is built so it cannot creep into it.
+Recovery-critical fact: a fact whose evidentiary value expires before the claim closes, such as the identity of a third party, a preserved component, a scene photograph, or a contract clause waiving subrogation. Recovery-critical facts must be extracted at intake, because by the time the claim settles they no longer exist.
 
-### Layer 4: The adjuster brief
+The waiver clause deserves its own mention, because it expires in the opposite direction. A waiver of subrogation in a commercial lease or a construction contract kills the recovery on day one, and finding it in week six means the file has spent six weeks investigating a claim against a party who can never be pursued. The system reads the contract documents in the file for waiver language at intake and marks the claim accordingly, which is as often a saving as it is an opportunity.
 
-Everything converges into a single brief: what happened, what the evidence shows, what the policy says, and where the open questions are — with every statement footnoted to its source document, so verification is one click rather than a search through the whole stack of attachments. Inconsistencies get their own section: the estimate that includes a room no photo shows, the police report timeline that disagrees with the FNOL. The brief is ready almost as soon as the last document lands. And because claims evolve, the brief evolves with them: when a supplementary estimate or a late police report arrives, the brief updates and marks what changed, so each return visit to a file starts from an accurate picture instead of a stale one. The adjuster opens the file and starts where they used to finish: at the judgment.
+## Every line footnoted, no line concluded
 
-## Why this generalizes
+Every statement in the brief cites the document and passage it came from, and no statement in it reaches a conclusion. Coverage output is deliberately framed as flags with citations: this exclusion may apply, here is the clause, here is the evidence that triggered the flag. Whether the exclusion actually applies is the adjuster's call, and the system is built so it cannot drift into making it.
 
-Strip away the insurance vocabulary and the shape is this: decisions of consequence, made by trained professionals, throttled by the reading of heterogeneous documents. That shape is everywhere.
+The system never decides a claim. It does not approve or deny, it never sets or moves a reserve, and it does not draft a denial or a reservation-of-rights letter. Those are the outputs that carry regulatory weight, contractual weight and human weight, and an automated first draft of a denial letter is an automated first draft of a bad-faith exhibit.
 
-Warranty processing is the nearest neighbor — claims, receipts, photos of failed parts, coverage terms, and technicians spending their time on paperwork triage instead of failure analysis. Travel insurance runs the same loop with booking confirmations, medical certificates, and airline correspondence. Lending operations may be the largest instance of all: underwriters reading bank statements, pay slips, and contracts to assemble a credit picture before the credit decision — which, like the claims decision, should stay human.
+There is a version of this problem where the party graph is not worth building. If your book is predominantly first-party losses with no realistic third party, small motor claims settled between insurers under a knock-for-knock arrangement, then coverage and quantum extraction is the whole job. Property losses from escape of water, fire, product failure and contractor damage are the opposite case, and those are the files where a name in a first notice of loss narrative is worth more than the rest of the extraction combined.
 
-In every one of these, the automation target is the same and so is the boundary. Automate the reading, the extraction, and the cross-checking. Keep the decision with a person, and hand that person a brief where every fact shows its source. Businesses that draw the line there get the speed of automation and keep the accountability of human judgment — and their professionals finally spend their hours on the work they were hired for.
+## Common questions
 
-## Watching a claims backlog grow?
+### Will the system tell our adjusters which claims are worth pursuing for recovery?
 
-If your adjusters — or underwriters, or warranty teams — spend most of their day reading documents instead of making the decisions you actually pay them for, the reading can be lifted off them without taking the decision away from them. We build systems like this end to end, from intake to brief. Tell us.
+No. Adjusters see coverage, evidence and open questions, and never see recovery potential, because knowing a loss may be recoverable gives an adjuster a reason to pay a marginal claim. The party graph is a separate surface with separate access, used by the subrogation team. The separation is enforced in code, not by policy or training.
+
+### How early does the recovery signal have to be captured?
+
+At intake, and in practice within the first days of the file. The responsible party is usually named in the first notice of loss narrative or the first repair estimate, and the physical evidence is destroyed by remediation, which starts fast. The limitation clock against a third party runs from the loss date, not from the day you indemnify your policyholder.
+
+### Can it set reserves, or issue a denial or reservation-of-rights letter?
+
+None of those. The system prepares decisions and never makes them: no approvals, no denials, no reserve movements, no drafted correspondence that states a coverage position. It assembles the file, cites every fact to its source document, flags the questions an adjuster would otherwise dig for, and stops. A licensed human decides and signs.
+
+### Our subrogation work is outsourced to a recovery vendor. Does this still help?
+
+It usually helps more. Vendors are handed files after the coverage decision, by which point the hose is gone and the scene photographs were never taken. Referring a file with a party graph, preserved evidence and a checked waiver position changes what the vendor can actually pursue, and the referral itself can be triggered at intake rather than at closure.
+
+## What is leaking out of your files before anyone opens them?
+
+If your adjusters are reading for coverage, and nothing in your intake is reading for the third party who should be paying, recoveries are expiring quietly in files that look well handled. We build the reading layer that catches them, with the recovery surface kept away from the coverage decision on purpose. Tell us what your first week on a file looks like.

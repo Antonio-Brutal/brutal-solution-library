@@ -1,67 +1,85 @@
-# An Agent That Qualifies Inbound Before a Rep Opens the Email
+# An Inbound Agent That Refuses to Route a Lead Two Partners Can Claim
 
-> How we built an inbound qualification agent for a B2B industrial manufacturer, and why the same approach matters for any company whose best lead is currently sitting unread in a shared inbox.
+> How we built inbound qualification for a channel-sold industrial manufacturer, and why arbitrating who owns an enquiry is harder, and more expensive to get wrong, than scoring it.
 
 ![Flow diagram: inbound leads pass through enrichment into a scoring lattice defined by the sales team, then route to the right rep with a drafted first touch awaiting approval](graphics/lead-qualification-agent.svg)
 
-## The problem: the good lead arrives looking exactly like the bad ones
+## Everyone buys enrichment first, and enrichment was never the bottleneck
 
-Most B2B sales teams don't have a lead-volume problem. They have a *sorting* problem.
+The first thing almost every inbound project buys is enrichment, and enrichment was never the bottleneck. Sector, headcount band, site locations, hiring signals: all of it is available, most of it is a commodity, and none of it answers the question that actually holds an industrial enquiry up for four days, which is who is allowed to contact this person.
 
-Our customer manufactures industrial equipment sold into factories and processing plants across Europe — long sales cycles, technical buyers, deals that are specified over months and installed over quarters. Their inbound channel is a contact form, a general sales address, and a stream of trade-show scans. What arrives through it is a name, a company, and one sentence of free text.
+Our customer manufactures industrial equipment sold into factories and processing plants across Europe, largely through distributors and integrators. Inbound arrives as a contact form, a general sales address and a stream of trade-show scans, and what it contains is a name, a company and one sentence of free text.
 
-That sentence is the entire problem. "Interested in your equipment" might be a student writing a dissertation, a competitor doing research, a supplier hoping to sell them something, or a maintenance engineer at a large processing group who has been told to replace a production line this financial year. All four look identical in the inbox. The only way to tell them apart is to research the company — website, sector, plant locations, recent announcements — which is a solid quarter-hour of tab-opening nobody does dozens of times a week.
+Scoring that sentence is the easy half, and it is the half everybody demonstrates. The hard layer is arbitration: working out which parties hold a contractual claim to the enquiry, and refusing to decide when two claims overlap.
 
-So the sorting happened by proxy, badly. Reps skimmed for a recognizable company name, and anything from a domain nobody knew went to the bottom — in industrial markets a specific and expensive error, because the recognizable names are often mature accounts and the unfamiliar ones are frequently the manufacturer expanding capacity. Meanwhile leads sat for days — the rep who could have answered was travelling, or it was unclear whose territory the lead belonged to, and an unclear owner means no owner.
+## A registered deal is a contract, and a web form does not know that
 
-The cost is not the wasted hours. It is that the response arrives long after the moment of intent has passed. Someone who filled in a form on Tuesday afternoon was, at that moment, actively comparing suppliers. By Friday they are further along, with someone else. In a market where one line replacement anchors a multi-year relationship, arriving fourth is the same as not arriving.
+Deal registration is the mechanism that makes routing contractual. In industrial and technical channels a distributor or integrator registers an opportunity with the manufacturer and receives margin protection and exclusivity on that end customer for a defined window, commonly 60 to 180 days, renewable on evidence of activity.
 
-## What we built
+An inbound web enquiry from an end customer inside a live registration belongs contractually to the registering partner. Sending it to a direct rep is a breach of the channel agreement, not a sales decision, and the partner discovers it at the worst possible moment, when their own customer mentions that the manufacturer called them directly.
 
-An agent that processes every inbound lead the moment it arrives: enriching it from public sources, scoring it against an ideal customer profile the sales team wrote themselves, routing it to the right rep by rules the sales leadership owns, and drafting a first-touch reply for that rep to review and send.
+That is why routing sits above scoring in this system rather than after it. A lead's score changes what you say to them. A lead's claim changes who is permitted to say anything at all.
 
-The design principle we insisted on is that the sales team owns the judgment and the agent owns the legwork. The ICP is not a model artifact or a learned propensity score. It is a plain-language document the head of sales and the regional leads wrote, that anyone can read, and that any of them can edit on a Tuesday afternoon and see take effect immediately. When a score looks wrong, the answer is never "that's what the model thinks." It is a specific criterion, in a document with an author, that a human can argue with and change.
+Channel-safe routing: routing that assigns an inbound enquiry only when exactly one party holds a contractual claim to it, and escalates to a named human duty desk whenever two or more claims overlap, where a claim is any of an assigned territory, a live deal registration, an existing account ownership, or a key-account exception.
 
-And the agent never disqualifies anyone. Low-scoring leads are not deleted, hidden or silently binned; they go to a visible nurture queue that any rep can search and pull from. The machine sorts. People decide.
+## Email domains are not companies: how account resolution broke
+
+For a while, resolving an account meant matching the sender's email domain against CRM accounts, and that looked like a solved problem. Corporate group structure is where it came apart, and the failures it produced were channel breaches rather than mere noise.
+
+Three shapes broke it. Subsidiaries invoice and email under their own domains, so they looked like strangers. Several plants of one group shared a single group IT domain, so they looked like one company. Two acquired businesses still used their pre-acquisition domains. Enquiries from plants belonging to a registered account routed direct, which is the breach. Enquiries from independent companies sharing a shared-services domain were suppressed as duplicates, which is the same error running silently.
+
+We rebuilt resolution to key on legal entity plus physical site, using company registration and VAT numbers together with the site address from the enrichment layer. Corporate group relationships are held separately, as an explicit account-family graph that a named human owns and edits.
+
+Any edge the graph cannot evidence is not inferred. The lead goes to the duty desk labelled as an unresolved group relationship, and a person either adds the edge with its evidence, which fixes every future enquiry from that group, or decides this one instance by hand. Guessing a group edge is how a system converts a data problem into a partner problem.
 
 <img src="motion/lead-qualification-agent.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Fit and intent are scored against an ICP the sales team wrote, not one the model invented.*
 
-*Raw inbound is enriched, weighed against the sales team's own criteria, and routed — with the rep approving every word that goes out.*
+## Fit and intent are two questions, and merging them costs you the patient accounts
 
-## How it works
+Fit and intent are scored separately and never averaged into one number, because averaging them hides the two cases that matter. A perfect-fit plant with a vague enquiry is a relationship to build over quarters, and a single blended score buries it below the noise. A poor-fit company with an urgent, specific request is frequently somebody else's opportunity, and a blended score promotes it.
 
-### Layer 1: Enrichment from public sources
+Fit is scored against a plain-language ICP document with named authors: the sectors this equipment suits, the production characteristics that make it work, the plant scale below which the economics fail, the geographies where an installation can actually be serviced. The head of sales and the regional leads wrote it, any of them can edit it on a Tuesday, and the edit takes effect immediately.
 
-The moment a lead lands, the agent builds a picture of the company behind the email domain: what it makes, which sector it operates in, roughly how large it is, where its sites are, whether it has announced an expansion, what it has been hiring for. Job postings are unusually informative in industrial markets — a plant advertising for process technicians is a plant preparing to run more line time.
+We refuse to build a scoring model trained on closed-won history. That history encodes the reps' existing habit of working leads from company names they recognised, and a model fitted to it launders that bias into a number nobody can contest. In industrial markets the bias is specifically expensive, because the recognisable names are often mature accounts and the unfamiliar domain is frequently the plant adding a line this year.
 
-Two rules govern this layer. Everything comes from sources a rep could have opened themselves, and every enriched field carries its link, so a rep can check the claim in one click. And unknown is a permitted value. When the agent cannot establish a company's sector or size with confidence, the field stays empty and says so. An enrichment layer that guesses is worse than no enrichment layer, because it manufactures confidence in a score built on top of it.
+Every score itemises its reasoning criterion by criterion with the enrichment evidence attached, so the disagreement a rep has is with a sentence in a document rather than with a model.
 
-### Layer 2: Fit and intent scoring against an ICP the sales team wrote
+## Unknown is a value the agent is allowed to return
 
-Fit is scored against the ICP document: the sectors this equipment suits, the production characteristics that make it a fit, the plant scale below which the economics don't work, the geographies where the company can actually service an installation. Intent is scored separately, from the lead's own words and behavior — the specificity of the enquiry, whether a timeline or a technical requirement is mentioned, whether they asked about a particular product line.
+Unknown is a permitted output at every layer, and the layers are built to prefer it over a plausible guess. An enrichment field the agent cannot establish stays empty and says so, because an enrichment layer that guesses manufactures confidence in every score built on top of it. An account it cannot resolve to a legal entity and site is labelled unresolved. A claim it cannot arbitrate goes to a person.
 
-Keeping the two apart matters. A perfect-fit company with a vague enquiry is a relationship to build patiently. A poor-fit company with an urgent, specific request is often someone else's opportunity, and knowing that early is worth as much as a qualified lead. Every score itemizes its reasoning criterion by criterion, with the enrichment evidence attached, so a rep reads why in seconds rather than trusting a number.
+The agent also never disqualifies anyone. Low-scoring leads are not deleted, hidden or quietly binned. They go to a visible nurture queue that any rep can search and pull from, because the cost of a wrong disqualification is invisible and permanent, while the cost of a low-priority lead sitting in a queue is a few seconds of somebody's attention.
 
-### Layer 3: Routing by rules the sales leadership owns
+The agent is not permitted to decide certain things, and each boundary is enforced structurally rather than by instruction. It may not resolve a channel conflict, may not disqualify a lead, may not create or edit an account-family edge, may not override or extend a deal registration, and may not send anything to anyone.
 
-Routing is the least glamorous layer and the one that recovered the most value. The agent applies the rules the business already has: territory, product line, existing account ownership, distributor and channel-conflict rules, key-account exceptions. It applies them consistently, in seconds, at three in the morning and during the trade-show week when everyone is out of the office.
+## What a first-touch email is forbidden to promise
 
-It does not invent routing rules, and it does not resolve genuine ambiguity. When a lead could legitimately belong to two territories, or touches an account another team already works, it goes to a human duty desk with the conflict spelled out. Guessing an owner in an organization with channel partners is how you damage a partner relationship, and no amount of speed is worth that.
+A first-touch draft may promise a conversation and nothing else. The rep receives a reply written in their own voice, referencing what the enrichment established, answering the specific question asked, and proposing a concrete next step. Most of the work of a good first response is having read up on the company, and that reading is already done. The rep edits and presses send, and nothing leaves without that press.
 
-### Layer 4: First-touch drafting, with hard limits on what a draft may say
+The drafting layer runs under a prohibition list enforced by architecture rather than by tone. It has no connection to the pricing system, and it may not quote a price, commit a lead time, confirm a technical specification, or make any statement about compliance or certification. In industrial sales those sentences are commercial commitments and in some markets contractual ones, and the moment a first touch becomes a quotation it belongs to a human with the authority to make that promise.
 
-The rep receives a drafted reply written in their own voice, referencing what the enrichment established, answering the specific question asked, and proposing a concrete next step. Most of the work of a good first response is having read up on the company, and that reading is already done.
+Where a partner holds the claim, the draft is addressed to the partner rather than to the end customer, and it carries the enquiry, the enrichment and the registration reference. The end customer gets their answer from the company that registered them, which is what the channel agreement says should happen.
 
-The rep edits and sends. Nothing is ever sent automatically — not to a lead, not to a partner, not to anyone. And the drafting layer operates under an explicit prohibition list that is enforced structurally, not stylistically: it has no access to the pricing system, and it may not quote a price, commit a lead time, confirm a technical specification, or make any statement about compliance or certification. In industrial sales those sentences are commercial commitments, and in some markets contractual ones. A first-touch email is an invitation to a conversation; the moment it becomes a quotation it belongs to a human with the authority to make that promise. So we built it so that it cannot accidentally become one.
+## Common questions
 
-## Why this generalizes
+### How does the agent know a partner has already registered this deal?
 
-The pattern is any business where inbound is high in volume, wildly mixed in quality, and expensive to research one lead at a time. Specialty chemicals and laboratory equipment distributors run exactly this funnel, with the same problem that the unfamiliar domain is often the best account. Commercial construction and engineering services firms field enquiries where the sorting question — is this project real, is it funded, is it in our region — is answerable from public information nobody has time to gather. Freight and logistics providers quoting inbound shipping requests face the same mix of serious buyers and idle enquiries arriving through one form.
+It reads your deal registration records as a claim on the end customer, keyed to legal entity and site rather than to email domain, and it checks the window and its renewal state. Inside a live registration the enquiry routes to the registering partner. Where a registration is expired, expiring or disputed, the agent stops and a human duty desk decides.
 
-In every one of them the same division works. The agent does the reading, the enrichment and the routing at machine speed and machine consistency. The sales team writes the definition of a good customer, keeps it visible, and makes every call that touches a relationship or a commitment.
+### What happens when two partners both claim the same account?
 
-## Is your best inbound lead sitting unread right now?
+Nothing automatic. Overlapping claims are exactly the case this system is built to refuse, so the lead goes to a named duty desk with both claims spelled out: registration dates, territory assignment, account ownership and the evidence behind each. Speed on that decision is worth considerably less than the partner relationship a wrong answer damages.
 
-If your reps are sorting inbound by which company names they recognize, the leads worth the most are the ones being ignored longest. We build qualification agents around an ICP your sales team writes and can edit, with routing rules you own and every outbound word approved by a person. Tell us what your inbound looks like on a normal Monday.
+### Why not train a scoring model on our closed-won deals?
+
+Because that history records which leads your reps chose to work, and they worked the company names they recognised. A model fitted to it reproduces that habit as a number nobody can argue with. We score against an ICP document your sales leaders wrote and signed, which they can edit on a Tuesday afternoon and see take effect the same day.
+
+### Will it email our leads automatically?
+
+No. Every draft waits for a rep to read it and press send. The drafting layer has no access to the pricing system and may not quote a price, commit a lead time, confirm a specification or make a compliance claim, because in industrial sales those are commitments rather than sentences. A first touch invites a conversation and stops there.
+
+## Who owns the enquiry that landed in your form this morning?
+
+If answering that takes two days and a thread of people checking with each other, the delay is arbitration rather than qualification, and the price of getting it wrong is a partner reading your reply to their own customer. We build inbound agents that route only on an unambiguous claim and escalate every overlap to a named person. Tell us how your channel agreement handles a web form.

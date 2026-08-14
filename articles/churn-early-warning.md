@@ -1,75 +1,91 @@
-# An Early-Warning System That Names the Reason a Subscriber Is Leaving
+# A Churn Model That Learned the Wrong Lesson From a Price Rise
 
-> How we built a churn early-warning and save-action engine for a subscription media company, and why the same approach matters for any business that only learns about a decision when someone clicks cancel.
+> Why our best-calibrated risk score was confidently wrong about an entire market, and what changed when we stopped asking one number to describe two unrelated processes.
 
 ![Flow diagram: product and billing signals feed a risk-scoring lattice that emits reason codes; each reason routes to a different save action, and outcomes return to retrain the selector](graphics/churn-early-warning.svg)
 
-## The problem: by the time they reach the cancel button, the decision is weeks old
+## An accurate score, wired to the one action that already existed
 
-Most subscription businesses don't have a churn problem. They have a *lead time* problem.
+Our customer is a subscription media company operating across several European markets, with a subscriber base in the millions and a mix of monthly and annual plans, and they already had a churn dashboard. Monthly, with cohort curves and breakdowns by plan and tenure, accurate and well built, describing decisions that had finished weeks earlier. We built a score to catch those decisions while they were still forming.
 
-Our customer is a subscription media company operating across several European markets, with a subscriber base in the millions and a mix of monthly and annual plans. They were not flying blind. There was a churn dashboard, refreshed monthly, with cohort curves and a breakdown by plan and tenure. It was accurate, well built, and useless for changing anything, because everything on it had already happened.
+A score fixes the timing and leaves everything else exactly where it was. It tells you who is at risk this week rather than which cohort decayed last quarter, but if the only action wired to it is the discount that already sits at the cancel door, an earlier score simply buys the same blunt thing sooner and hands money to people who were staying anyway.
 
-The one real intervention was the cancel flow: a discount offered at the door to anyone who got that far. It saved some people. It also handed money to subscribers who were going to stay anyway, and to subscribers who came back a month later for the same discount now that they knew it existed. And it did nothing at all for the far larger group who never opened the cancel flow — who quietly stopped watching, let the renewal run once or twice out of inertia, and disappeared.
+Someone whose playback stutters on the living-room TV every evening does not want money off. Someone who opens the app, searches, finds nothing and closes it again wants to be shown the thing they would actually watch, which no score produces on its own.
 
-The deeper issue was that the discount was the only tool. Someone whose app stutters on their living-room TV does not need money off. Someone who searches, finds nothing they want, and closes the app does not need money off either — they need to be shown the thing they'd actually watch. Offering a discount to both is the retention equivalent of prescribing one pill for every symptom: expensive when it works, useless when it doesn't, and either way it teaches you nothing.
+Ours was well calibrated. It was also confidently wrong about a whole market.
 
-Everything else was a quarterly campaign segmented by tenure and plan — the two attributes with least to do with whether someone is currently enjoying the product.
+## A price rise disturbs the SCA exemption, and the model learns the wrong lesson
 
-## What we built
+The score flagged a large risk cohort that had decided nothing at all. Their renewals were failing because a price change had disturbed the payment path the subscriptions relied on, and the model was reading those failures as cancellations.
 
-We built an early-warning engine that scores every subscriber daily for risk of cancelling and — this is the part that matters — attaches the reason to the score. A number alone is not actionable. "At risk, engagement decayed after a series finished" and "at risk, hit playback errors three evenings running" are different problems with different responses.
+Under PSD2 strong customer authentication, the first payment of a recurring series is authenticated by the cardholder, and subsequent merchant-initiated transactions at a fixed amount ride an exemption path that does not require the subscriber to be present. Change the recurring amount and that assumption is disturbed. Issuers may soft-decline, or push an authentication challenge to a cardholder who is nowhere near the app, and the transaction fails on a card that is entirely valid.
 
-Those responses come from a fixed catalogue of save actions that humans wrote and humans own. The system chooses among them by reason and expected effect. It does not invent them. There is no path by which the model composes a new commercial offer, adjusts a price, or writes to a customer in terms nobody approved.
+What the model had actually learned was that a price change predicts a payment failure, not that a price change predicts a cancellation. Acting on it would have posted retention discounts to subscribers who wanted to keep paying us and needed a card re-authentication prompt instead, which is both expensive and slightly insulting in the same message.
 
-Three boundaries are architectural rather than procedural, because money and trust are involved. Discount depth and eligibility live in a policy layer set by the retention lead and finance, enforced outside the model, readable as plain text by anyone who asks. Cancelling is never made harder for a high-risk subscriber; the score influences what we offer, never what we obstruct. And some situations are excluded from targeting entirely — an open complaint, a bereavement notification, an accessibility case — because a save offer is the wrong thing to send then, and the only way to guarantee it is to make those subscribers unreachable by the selector.
+We removed payment failures from the behavioural target entirely.
+
+Involuntary churn is a payments event, not a retention event. The subscriber has made no decision, and the correct intervention is a credential update rather than an offer. Any churn model that includes failed payments in its target is estimating two unrelated processes with one number.
+
+Involuntary churn now runs as a separate deterministic pipeline keyed on the decline code returned by the issuer. A do-not-honour, an insufficient-funds and an authentication-required decline call for three different messages sent on three different schedules, and none of the three is an offer.
+
+## Six reason codes, because six families of response
+
+The behavioural score carries a reason code from a deliberately short vocabulary: engagement decay, content fit, technical friction, price and value, seasonal pattern, and billing failure, which is raised by the payments pipeline rather than by the model. A hundred fine-grained reasons would be more faithful to the model and useless to the people acting on it.
+
+Each code is a sentence a human can agree or disagree with, and each routes to a different family of response. That is the constraint that sets the length of the list: six responses, six codes, and no code without an owner.
+
+The signals behind them come from product telemetry and billing, measured against each subscriber's own baseline rather than a global average. Someone who watches one evening a week has not disengaged; someone who watched five evenings and now watches one has. Content seasonality is modelled explicitly for the same reason: a subscriber who follows one returning series is waiting between seasons, not decaying, and a programme that cannot see the difference spends its budget on people who were never leaving.
 
 <img src="motion/churn-early-warning.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Risk surfaces with a reason code, and the reason decides which save action fires.*
 
-*Behaviour becomes signal, signal becomes a reason, and the reason chooses the action.*
+## Risk tells you who is leaving; uplift tells you who stays because you acted
 
-## How it works
+The action selector is trained to estimate uplift rather than risk, because those two questions have different answers. Risk ranks the people most likely to leave. Uplift estimates the people who stay because we did something, and the population that is both at risk and persuadable is much smaller than most retention programmes assume. The gap between the two is where the wasted spend lives.
 
-### Layer 1: Signal assembly from product telemetry and billing
+The catalogue it chooses from holds actions of very different costs: a personalised surface of what to watch next, a heads-up that a followed series is returning, technical outreach with a device fix, a plan-fit suggestion such as annual billing or an ad-supported tier, a card-update prompt, a human callback for high-value subscribers, and, last and most constrained, a discount.
 
-The engine assembles a daily picture of each subscriber from two families of signal. From the product: session frequency and depth, starts versus completions, how far into the catalogue someone browses, device mix, notification engagement, and searches that end in nothing being played — one of the strongest "there's nothing here for me" signals in the dataset. From billing: card expiry dates, failed payment attempts, plan changes, and exposure to an upcoming price change.
+The model never composes an action. It selects from a catalogue that humans wrote and humans own, and adding an action, widening a discount band or opening a new segment to contact is a decision with a name attached to it. Discount depth and eligibility live in a policy layer set by the retention lead and finance, enforced outside the model and readable as plain text by anyone who asks.
 
-Two design decisions did most of the work. First, everything is measured against the subscriber's own baseline, not a global average. Someone who watches one evening a week has not disengaged; someone who watched five and now watches one has. Second, content seasonality is modelled explicitly. A subscriber who only ever watches one returning series is not decaying between seasons — they are waiting, and treating that as risk is how a retention budget gets spent on people who were never going anywhere.
+## Doing nothing is a first-class action
 
-Failed payments are separated out completely. Involuntary churn is a different animal with a different fix, and folding it into a behavioural score buries a problem that a card-update prompt solves outright.
+Doing nothing sits in the catalogue as an option the selector picks frequently and deliberately, not as the absence of a decision. A programme that must always act will always find a reason to act, and the cost of that lands on the people who were happiest.
 
-### Layer 2: Risk scoring with reason codes
+Some situations are removed from targeting altogether: an open complaint, a bereavement notification, an accessibility case. A save offer is the wrong thing to send into any of those, and the only reliable way to guarantee it is not sent is to make those subscribers invisible to the selector rather than to trust a rule further down the chain.
 
-The model predicts the probability of cancellation inside a defined window. Alongside it come human-readable reason codes, derived from the signals driving that subscriber's score and mapped to a deliberately short vocabulary: engagement decay, content fit, technical friction, price and value, billing failure, seasonal pattern.
+## The score changes the offer and never the exit
 
-The vocabulary is short on purpose. A hundred fine-grained reasons would be more faithful to the model and useless to the people acting on it. Six route cleanly to six families of response, and each is a sentence a human can agree or disagree with.
+No risk score in this system alters the friction of leaving. It may change what we offer. It may never change what we obstruct, and no experiment is ever run on a slower cancellation path.
 
-Calibration matters more than ranking here. A ranked list tells you who is most at risk; a calibrated probability tells you whether anyone is at enough risk to be worth spending on today.
+Germany makes the floor explicit. Since July 2022, section 312k BGB has obliged providers of continuing-obligation contracts to offer a clearly labelled cancellation button leading directly to a confirmation page, which bounds what a save flow is legally allowed to do. We hold the rule globally as an engineering constraint rather than as a German market configuration, because a rule that exists in one market's settings file will eventually be switched off in another by someone chasing a quarterly number.
 
-### Layer 3: Action selection — not everyone gets a discount
+## The holdout is permanent, not a launch experiment
 
-The catalogue holds responses of very different costs: a personalised "here's what you'd like next" surface, a heads-up that a followed series is returning, a technical outreach with a device fix, a plan-fit suggestion such as annual billing or an ad-supported tier, a card-update prompt, a human callback for high-value subscribers, and — last, and constrained — a discount.
+A randomised holdout runs continuously inside every reason code, and a share of at-risk subscribers receives nothing at all. Without it, a retention programme takes credit for everyone who was never going to leave, which is the most common way these systems flatter themselves into irrelevance.
 
-The selector optimises expected retained value net of the cost of acting, conditioned on the reason code, and it is trained to estimate uplift rather than risk. Risk tells you who is leaving; uplift tells you who will stay *because* you acted. Those populations overlap far less than most retention programmes assume, and the gap between them is where the wasted spend lives.
+Outcomes are measured on retained tenure and value over months rather than on whether someone was still subscribed the following Tuesday. Discount actions carry cannibalisation tracking, so a save granted to someone who was never at risk shows up as the cost it is.
 
-Doing nothing is a first-class action, chosen frequently and deliberately. The policy layer sits above all of it as hard constraints the model cannot optimise around: contact frequency caps, channel rules, eligibility, discount bands.
+The retention lead reads the weekly outcome review and holds the pen on the catalogue. The selector may reweight among approved actions on its own evidence, and it may not write a new one.
 
-### Layer 4: Outcome measurement that retrains the selector
+## Common questions
 
-A randomised holdout is permanent, not a launch-phase experiment. A share of at-risk subscribers receive nothing, in every reason code, so the counterfactual is measured rather than assumed. Without it, a retention programme takes credit for everyone who was never going to leave — the most common way these systems flatter themselves into irrelevance.
+### If failed payments come out of the churn model, where do they go?
 
-Outcomes are measured on retained tenure and value over months, not on whether someone stayed until next Tuesday. Discount actions carry cannibalisation tracking, so a save on someone who was never at risk shows up as the cost it is.
+Into a deterministic pipeline keyed on the issuer's decline code, with no scoring involved. Expiry and authentication-required declines get a credential-update prompt, insufficient-funds declines get retry scheduling around typical pay dates, and hard declines get a card-change request. Most recovery here is plumbing rather than persuasion, and mixing it into a behavioural model buries a problem a prompt solves outright.
 
-The retention lead reads the weekly outcome review and holds the pen on the catalogue. The selector may reweight among approved actions on its own evidence. Adding an action, widening a discount band, or opening a new segment to contact is a decision made by a named human. The machine tunes within the rules; humans write the rules.
+### Isn't the cancel screen the cheapest place to intervene?
 
-## Why this generalizes
+It is the latest place, which usually makes it the most expensive. By the time someone opens the cancel flow the decision is typically weeks old and the only remaining lever is price, so you pay full discount to people who had already decided and to people who never needed it. Earlier reasons admit cheaper answers, including answers that cost nothing.
 
-The shape is any subscription business where behaviour precedes the decision by weeks and the only recorded event is the cancellation itself. Telecoms and broadband run it almost identically, with network quality data standing in for playback errors and a save desk instead of a cancel flow. B2B software has the same architecture with different signals — seat activation, admin logins, integration health — and reason codes that route to a customer success manager or a product bug rather than an offer. Insurance renewal books are the same picture again, where the reason decides whether a renewal needs a coverage conversation or nothing at all.
+### How do we know the programme works and is not just claiming credit?
 
-The discipline is identical everywhere: predict early, attach the reason, choose the cheapest action that addresses it, and measure against a holdout that tells you the truth.
+The permanent holdout. A share of at-risk subscribers in every reason code receives no action, so retention is measured against a live counterfactual rather than against a pre-period or a hand-picked comparison group. Any programme without a holdout can only report the outcomes of people it chose to contact, which is not evidence of effect.
 
-## Only finding out when they click cancel?
+### Can we still test our cancellation flow?
 
-If your churn reporting is monthly and your only save tool is a discount, you are paying full price for the bluntest intervention at the latest possible moment. We build early-warning systems that name the reason, route to a human-owned set of actions, and prove their effect against a holdout. Tell us what your cancel flow looks like today.
+You can test clarity, layout, wording and the accuracy of what is shown at cancellation, and you should. What is not on the table is testing friction: extra steps, hidden buttons, delays or a mandatory call. That boundary is enforced in the engineering rules rather than in a market configuration file, so it cannot be quietly relaxed later.
+
+## What happens in your product in the three weeks before someone cancels?
+
+If the honest answer is that nobody knows, the discount at the door is doing work that earlier signals could do more cheaply. We build early-warning systems that separate payments failures from decisions, name a reason with an owner, and prove their effect against a permanent holdout. Tell us what your cancel flow looks like today and what it is allowed to do.

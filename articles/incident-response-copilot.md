@@ -1,69 +1,87 @@
-# An Incident Copilot That Reads the Logs While Your Engineers Fight the Fire
+# The Incident Copilot We Built Cannot Touch Production, By Design
 
-> How we built an incident-response copilot for a fintech engineering organization, and why the same approach matters for any team running systems people depend on around the clock.
+> How we built an incident-response copilot for a European payments and lending business, and why the regulatory clock starts at a moment somebody has to decide on rather than at the first alert.
 
 ![Flow diagram: alerts, deploys and logs converge onto one incident timeline; runbooks are retrieved with citations back to the events that summoned them, and the remediation branch ends at a closed valve the system cannot cross](graphics/incident-response-copilot.svg)
 
-## The problem: the first minutes of an incident go to assembly, not repair
+## What a supervisor can still test, months later
 
-Most engineering teams don't have an incident problem. They have a *context assembly* problem.
+Ask a regulated European payments firm to show, months after the night in question, that it reported an incident inside the window the law gave it. The proof is a timestamp. A good summary saves an on-call engineer some scrolling; a timestamp made while the incident was still running is the thing a supervisor can test.
 
-Our customer runs payments and lending infrastructure across several European markets: dozens of services, a permanent on-call rotation, and the uptime expectations that come with holding other people's money. The engineers are good and the tooling is modern. Every serious incident still began the same way — a page at an unkind hour, followed by an entirely manual reconstruction of reality.
+Our customer runs payments and lending infrastructure across several European markets: dozens of services, a permanent on-call rotation, and the obligations that come with holding other people's money. The copilot sits in the incident channel and does the assembly work continuously. It pulls alerts, metrics movements, deploys, feature-flag changes, infrastructure events and log anomalies into one record, retrieves runbooks with citations and edit dates, keeps a rolling account of what is known and what has been tried, and drafts the first postmortem when the incident closes.
 
-That reconstruction looks like this. The alert says error rates are climbing on one service. The engineer opens the dashboard, then the log platform, then the deploy history, then the feature-flag console, then the channel where somebody mentioned two hours ago that a dependency was being upgraded. None of those systems know about each other. The engineer is the join key. Somewhere in that sequence sits the fact that explains everything — a config change, an expired certificate, a partner API quietly returning malformed responses — and the only way to find it is to check all seven places while holding the result in your head.
+All of that is convenience, and a competent engineer could do every part of it more slowly. The one thing nobody can do afterwards is record what happened while it was happening, from the systems it happened to, which is why we treat the timeline as the product.
 
-Then there are the runbooks. They existed, and they were genuinely good, written by people who had been through it before. They were also spread across a wiki, a repository, and a folder somebody exported once. Searching for the right one under pressure is its own small crisis, and the worst outcome is not failing to find it. It is finding the version that stopped being true two migrations ago.
+## Four hours from classification, and classification is a human judgement
 
-Meanwhile, the person running the incident has a second full-time job: telling everyone else what is happening. Support needs to know what to say to customers. Compliance needs to know whether this is reportable, and in payments, reportable comes with a clock attached. Executives want a sentence they can repeat. So the most context-loaded person in the room stops thinking about the outage in order to write status updates, and the quality of both jobs drops.
+DORA gives a financial entity four hours from the moment an incident is classified as major to submit its initial notification, and in any case no more than 24 hours from becoming aware of it. Regulation (EU) 2022/2554 then requires an intermediate report within 72 hours and a final report within a month.
 
-The postmortem is the last casualty. Days later, somebody reconstructs the timeline from memory and a channel scrollback that reads like a group chat during a house fire — because that is what it was. The most valuable artifact of the whole incident is the sequence of what actually happened, and it is the one that decays fastest.
+Classification against the criteria is itself a human determination: clients and financial counterparts affected, data losses, geographical spread, duration and service downtime, criticality of the services involved. The legally significant instant is therefore neither the first alert nor the resolution. It is the moment somebody decided that the word major applied.
 
-## What we built
+That decision is usually taken hours after the fire, from evidence that exists only if something recorded it while the fire was burning. GDPR Article 33 runs its own separate 72-hour clock on a different trigger over the same night, so one bad evening can sit inside two regulatory timelines that started at two different moments.
 
-A copilot that sits in the incident channel and does the assembly work continuously, from the first alert to the published postmortem. It pulls alerts, metrics, log anomalies, deploys and flag changes into a single timeline. It retrieves the runbooks that match what it is seeing, with citations. It maintains a rolling summary of what is known, what is not, and what has already been tried. It drafts the status updates. When the incident closes, it writes the first postmortem draft from the timeline it recorded rather than from anyone's recollection.
+## Ingestion time is not event time, and under load the difference reorders the story
 
-One rule defines the architecture: the copilot never takes remediation actions. It cannot restart a service, roll back a deploy, flip a feature flag, scale a cluster, or fail over a region. That is not a policy written into a prompt — it is a property of the credentials it holds. Every integration is read-only, so there is no write path to production, and therefore no instruction, no jailbreak and no clever chain of reasoning that can produce one. Every action taken during an incident is taken by a named human who chose to take it.
+Ingestion lag is negligible on a calm day and a real quantity when every service in the estate is retrying at once. The timeline we built ran on ingestion time, which is correct roughly always and catastrophically wrong exactly when it matters. Under the load of a real incident the log platform's lag stretched, the reconstructed timeline showed the error spike beginning after the deploy that had in fact preceded it, and two further events came back in the wrong order entirely.
 
-We are firm about this because the failure modes are not symmetrical. A copilot that summarizes badly costs an engineer a minute of attention. A copilot that acts badly turns a degraded service into an outage, during the exact window when the humans are too busy to notice what it did.
+A copilot that quietly rearranges causality during an outage is worse than no copilot, because engineers act on order. The sentence "the errors started before the deploy" sends three people to look at the upstream dependency, and it was not true.
+
+We rebuilt on event time. Every entry now carries three values: the emitting system's own clock, the time our platform ingested it, and the observed lag between the two.
+
+A regulatory incident timeline is one in which every entry carries the emitting system's own clock, the ingestion time, and the observed lag between them. Anything that silently normalises timestamps onto a single axis is a narrative, not evidence.
+
+Use a single axis when the timeline will only ever be read by the people fixing the thing, because it is easier to scan. Do not use it when the same artefact reaches a supervisor, an internal auditor or a lawyer, because one axis asserts an ordering the underlying data cannot support.
+
+## We display clock skew instead of hiding it
+
+We show clock skew as a field rather than correcting for it, because correcting for it means guessing. Once we were on event time, a partner's API gateway turned out to be running several seconds off ours, and the honest fix was not to pick a winner between the two clocks. We stopped normalising clocks at all and started displaying the offset beside the entries it affects.
+
+The rule we settled on is narrow and holds everywhere: the copilot may present two timestamps and their sources, and may never assert an order. "The gateway logged its first 5xx at its own 14:02:11, our deploy service recorded completion at its own 14:02:09, and the measured offset between those clocks is about four seconds" is a sentence an engineer can act on and a compliance officer can defend. "The deploy caused the errors" is not.
 
 <img src="motion/incident-response-copilot.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Runbooks and log signals converge into a live picture. The copilot never touches remediation.*
 
-*Signals converge into one timeline, runbooks arrive with citations, and every action stays with a human.*
+## Read-only credentials are the safety argument
 
-## How it works
+Every credential the copilot holds is read-only, and that is the whole safety argument rather than a paragraph in a prompt. There is no write path to production, so no instruction, no injected log line and no chain of reasoning can produce one. Your security team verifies the property by reading the permission grants rather than by trusting a description of model behaviour.
 
-### Layer 1: Signal aggregation into one timeline
+That matters most during an incident, because incidents are when log lines carry arbitrary text from customers and partners, and when the humans in the channel are too busy to audit what a tool just did.
 
-The moment an incident is declared, the copilot begins assembling a chronological record: alert transitions, error-rate and latency movements, deployments and rollbacks, configuration and feature-flag changes, infrastructure events, and the log anomalies it detects against each service's normal shape. Everything carries a timestamp, a source, and a link back to the system it came from.
+The copilot is not permitted to decide certain things, and the boundary is architectural rather than editorial. It cannot restart a service, roll back a deploy, flip a feature flag, scale a cluster or fail over a region. It cannot post to the status page or send an external word to anyone. It cannot open, close or amend a regulatory notification. It cannot classify an incident.
 
-This is deliberately mechanical work, and it is exactly the work humans do worst under adrenaline. The copilot is not diagnosing here. It is answering the question every incident actually starts with — what changed, and when — before anyone has to ask it out loud.
+## Contributing factors are written as questions, because a timeline shows correlation
 
-### Layer 2: Runbook retrieval with citations
+The postmortem draft states contributing factors as open questions, never as findings, because a machine reading a timeline can see correlation and has no standing to assert cause. A typical line reads: the deploy completed two seconds before the first 5xx by wall clock, with a four-second offset between the two clocks, so the order is not established from this evidence; was it causal?
 
-Against that live picture, the copilot retrieves the runbooks and past incident records that match the symptoms, and it surfaces them the way a good colleague would: the relevant section, quoted, with a link to the source and the date it was last edited. Age is displayed as prominently as content, because a two-year-old runbook is a hypothesis, not an instruction.
+The engineers who ran the incident own the analysis and the action items. What changes is their starting point: instead of rebuilding a sequence from scrollback and memory, they begin from a record made at the time, with its uncertainties still visible, and spend those hours arguing about why.
 
-When nothing matches, it says nothing matches. The copilot does not compose plausible-sounding recovery steps out of general knowledge about distributed systems, and it never generates a command for someone to paste into production. Retrieval is grounded in the organization's own documented procedures or it does not happen — an invented runbook step is the most dangerous sentence this system could possibly produce.
+## Who is allowed to say the word major
 
-### Layer 3: Live incident summarization and drafted updates
+A named compliance officer says it, and the copilot's job is to make that person's decision faster and better evidenced rather than to pre-empt it. It assembles an evidence pack against each DORA classification criterion and presents each one as an open question with the underlying entries attached: which clients were affected and across which window, whether data losses are evidenced or merely suspected, which markets saw degradation, how long the service was down and by whose clock.
 
-The copilot maintains a running summary in three parts: what we know, what we don't, and what has been tried. Engineers joining thirty minutes late read that instead of scrolling. It also drafts the outbound communications — the customer-facing status note, the internal update, the escalation summary — each written for its audience and grounded only in the recorded timeline.
+A machine that classifies an incident as major has effectively initiated a regulatory filing. A machine that classifies one as not major has effectively suppressed one. Both are decisions carrying a named person's professional accountability, and neither becomes safer because the machine is usually right.
 
-Nothing leaves the room without approval. The incident commander reviews and sends every external update, and the compliance team makes every regulatory notification decision. The copilot can point out that an event looks like it may meet a reporting threshold, and it does, early. It never makes that determination. In a regulated environment, the difference between flagging a possible obligation and deciding one is the entire distinction between a helpful tool and an unauthorized filing.
+What it does instead is timestamp the human decision as it is made, with the evidence that was in front of the person at that moment. The four-hour clock runs from classification, and classification is otherwise the worst-recorded fact of the entire night.
 
-### Layer 4: A postmortem drafted from the timeline that actually happened
+## Common questions
 
-When the incident is resolved, the copilot produces the first postmortem draft: the reconstructed sequence, detection and mitigation moments, customer impact as evidenced in the data, and the open questions the timeline raises. It writes contributing factors as questions rather than conclusions — "the deploy at this time preceded the error spike; was it causal?" — because a machine reading a timeline can spot correlation and has no business asserting cause.
+### Can the copilot file our DORA initial notification for us?
 
-The engineers who ran the incident own the analysis, the conclusions and the action items. What changes is where they start. Instead of spending the first two hours rebuilding a timeline from scrollback, they start from an accurate record and spend that time thinking about why. The human role shifts from reconstructing what happened to judging what it means.
+No. It assembles the evidence against each classification criterion, shows which timeline entries support each one, and then waits. A named compliance officer classifies the incident and files the notification. The copilot records the timestamp of that classification and the evidence behind it, because the four-hour clock runs from that moment and nothing else in the night is harder to reconstruct afterwards.
 
-## Why this generalizes
+### Does it need write access to any of our production systems?
 
-Nothing here is specific to payments. The pattern is: systems that must stay up, signals scattered across tools that don't talk to each other, institutional knowledge in documents nobody can find under pressure, and an obligation to explain yourself afterwards. That is e-commerce platform operations through peak trading, where every minute of degradation is measurable and the postmortem goes to the board. It is telecom network operations, where the timeline is the regulatory artifact. It is hospital IT and clinical systems, where the stakes of an unattended automated action are the reason a read-only copilot is the only responsible design.
+No, and we will not build it with any. Every integration is read-only, which makes the safety property something your own security team can verify from the permission grants rather than something we assert about model behaviour. It reads alerts, metrics, logs, deploys and flags, and it drafts. Every action and every published word comes from a person.
 
-In all of them, the same division of labor holds. The machine reads everything, remembers precisely, and drafts. The humans diagnose, decide, act, and speak.
+### How do you handle timestamps from systems we do not control, like a partner gateway?
 
-## Still writing postmortems from memory?
+We display the offset rather than correcting it. Each entry carries the emitting system's clock, our ingestion time and the measured skew where one can be established, and third-party entries are labelled as third-party clocks. The copilot may show two timestamps side by side with their sources, and is not permitted to assert which of the two events happened first.
 
-If your incidents begin with twenty minutes of tab-opening and end with a timeline nobody can fully reconstruct, the assembly work is already automatable — and it is the part your engineers should never have been doing at 3am. We build incident copilots read-only by design, with every action and every external word left to a human. Tell us what your last bad night looked like.
+### What happens when the log platform itself is degraded during the incident?
+
+The timeline records the gap instead of smoothing it away. Ingestion lag is a displayed field, so a period of stretched lag appears as stretched lag rather than as a quiet reordering of events. Where the copilot has no evidence for a moment, it says so, which is a usable and defensible statement in a postmortem.
+
+## What time did your last incident actually start?
+
+If the answer comes from a channel scrollback and somebody's memory, you are reconstructing a regulatory artefact from the two least reliable sources in the building. We build incident copilots read-only, on event time, with clock skew shown rather than hidden, and with classification left to the person accountable for it. Tell us what your last bad night looked like and who had to write it up afterwards.

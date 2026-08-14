@@ -1,69 +1,81 @@
-# QA That Reads Every Conversation, Not One in Fifty
+# QA That Scores Every Conversation Without Guessing How Anyone Felt
 
-> How we built full-coverage conversation QA for an outsourced contact center running support for several consumer brands, and why the same approach matters for any operation where conversations carry quality or compliance risk.
+> Scoring every conversation is legally possible only if the rubric never infers a state of mind, which is why the incumbent scorecard had to be rewritten into observable conduct before a single call could be scored.
 
 ![Flow diagram: a broad sheet of every conversation across voice, chat, and email flows into a scoring lattice fed from above by the rubric as code; scored pulses collect into per-team coaching channels on the right, while a calibration loop below routes through a lime-ringed node where humans audit the scorer and feed refinements back into the lattice.](graphics/conversation-qa-full-coverage.svg)
 
-## The problem: quality management by lottery
+## The scorecard arrived with a criterion we are not allowed to build
 
-Most contact centers don't have a quality problem. They have a *visibility* problem.
+The first criterion on the client's scorecard was agent demonstrates empathy, and in an EU workplace that criterion cannot be built as written. The EU AI Act prohibits AI systems used to infer the emotions of natural persons in the workplace, with narrow medical and safety exceptions, and the prohibition has applied since February 2025. Scoring an agent's vocal tone to reach a conclusion about their emotional state sits squarely inside it. Checking whether a scripted disclosure was read aloud does not.
 
-Our customer is an outsourced contact center — a BPO running customer support for several consumer brands, handling tens of thousands of conversations a month across voice, chat, and email. Like almost every operation of its kind, quality assurance worked by sampling: a QA team you could fit around one table pulled conversations more or less at random, listened or read, and scored each one by hand against the client's scoring rubric. Sampling landed where sampling always lands: about one conversation in fifty. The other forty-nine were never read by anyone except the agent and the customer.
+The first scorer translated empathy into an evaluable criterion by scoring vocal tone and sentiment across the call. It worked. It calibrated closely against the human analysts, the QA team recognised its judgments as their own, and legal killed it before it left pilot.
 
-Think about what lives in the conversations nobody reads. The agent who quietly mishandles every cancellation request, and won't appear in a sample for weeks. The compliance disclosure a client contractually requires on every call — certified as "monitored" on the strength of a sample that thin. The new refund policy that half the floor misunderstood, invisible until the complaints arrive. Coaching built on a handful of random data points per agent per month. And feedback that lands weeks after the conversation happened, when neither the agent nor anyone else remembers the call.
+The constraint has company. In Germany, deploying automated performance monitoring across a contact centre floor also requires a works council agreement under the co-determination rules, which means the rubric, the scoring method and the escalation path are negotiated with employee representatives before the first conversation is scored. Neither of these is a compliance box after the build. They are inputs to the design, and treating them as inputs is cheaper than treating them as discoveries.
 
-Sampling was never a methodology. It was a compromise with the cost of human reading, and everyone in the industry has quietly agreed to pretend otherwise. For a BPO the stakes are doubled: quality scores are contractual, clients audit them, and a quality miss discovered by the client before the operator is how accounts get lost.
+## Rewriting empathy into something you can point at
 
-## What we built
+Every criterion was rewritten as a test that can be failed by pointing at a specific utterance, and the product got better rather than worse. Empathy became four questions with answers you can see in a transcript: did the agent name the customer's stated problem back to them, did they acknowledge the impact the customer stated, did they interrupt while the customer was describing it, did they use the customer's own words for what went wrong.
 
-We built a system that ingests every conversation across every channel, scores each one against the same rubric the analysts used, attaches cited evidence to every score, and turns the results into coaching digests for every agent and team — continuously, not quarterly.
+Observable-conduct criterion: a QA rubric criterion that can be passed or failed by pointing to a specific utterance or its absence, with no inference about anyone's emotional or mental state. If a criterion cannot be failed by citation, it cannot be scored.
 
-The QA analysts did not disappear from this picture. They moved up a level. Instead of sampling conversations, they now audit the scorer: reviewing machine-scored conversations, catching disagreements, and refining the rubric until human and machine judgments converge. Sampling became calibration. It is the same expertise, pointed at a far more leveraged target.
+Agent disputes changed character overnight. You sounded cold is unarguable and therefore unfair, and every agent who has been told it knows there is no answer that helps. You did not acknowledge the stated impact, here is the utterance where the customer stated it, is arguable, and an arguable score can be resolved in minutes by two people looking at the same line.
+
+The rubric is versioned like code, with a date and a diff, and every score records the rubric version that produced it. When a client changes a scorecard, criteria change deliberately and old scores remain readable against the rules that existed when they were given.
 
 <img src="motion/conversation-qa-full-coverage.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Every conversation carries a pulse, not a sampled few. The loop underneath is calibration.*
 
-## How it works
+## Full coverage has a hole in it, and PCI put it there
 
-### Layer 1: Transcript ingestion across channels
+Coverage of the payment compliance criterion dropped to zero the day pause-and-resume went live, and it took a week to understand why. PCI DSS pause-and-resume suppresses recording while the customer reads out card details, which is correct and non-negotiable, and it means every payment call has a hole in the audio precisely where the payment compliance criteria live. The system had nothing to score and, worse, was quietly scoring the absence as a pass.
 
-Voice calls are transcribed with speaker separation, so the system knows who said what and when. Chat logs and email threads are normalized into the same canonical conversation format, because a scoring rubric shouldn't care which channel a conversation happened on. Each conversation is joined with its metadata — brand, agent, queue, handle time, outcome codes, customer satisfaction score where one exists — producing one clean, queryable record per conversation.
+We rebuilt that criterion around the evidence that legally can exist. The telephony platform emits suppression events with timestamps, so the system knows when recording stopped, when it resumed, and how long the gap ran. Around the gap sit the agent's own utterances: the announcement that recording is pausing, the instruction to enter the digits, the confirmation on the other side. The criterion is scored from the suppression event log plus the surrounding utterances, and the score states plainly that the interval itself was not heard.
 
-This layer sounds mundane and is anything but. Every downstream judgment inherits its quality from the transcript. Getting speaker attribution right, handling crosstalk, stitching a chat that dropped and resumed — this is the unglamorous engineering that decides whether the scores can be trusted at all.
+Full coverage is therefore a claim with a boundary, and we would rather write the boundary down than let a client assume it away. Every conversation is scored on every criterion that can be evidenced. Where evidence cannot exist, the report says so, with the reason, instead of producing a number that looks like the others.
 
-### Layer 2: The rubric as code
+## One in fifty was never a methodology
 
-Every client scorecard already existed — as a PDF written for human interpretation. "Agent demonstrates empathy." "Agent follows the identification procedure." Useful guidance for a trained analyst; useless as a specification.
+Sampling one conversation in fifty was never a methodology, it was a compromise with the cost of human reading. A QA team you could fit around one table pulled conversations more or less at random from tens of thousands a month across voice, chat and email, scored them by hand, and the rest were read by nobody but the agent and the customer.
 
-We translated the client's scorecard — every criterion on it — into evaluable form: each one with a precise definition, explicit pass and fail conditions, worked examples, and documented edge cases, all agreed line by line with the QA team. The process surfaced ambiguities that had quietly caused analyst disagreement for years. What counts as a greeting on chat? Does empathy require specific phrasing or acknowledged emotion? Writing the rubric as code forced answers to questions the PDF allowed everyone to skip.
+The consequences are predictable and they are all the same shape. An agent who mishandles cancellations will not appear in a sample for weeks. A disclosure the client contractually requires on every call gets certified as monitored on the strength of a sliver. A misunderstood refund policy spreads across a floor and surfaces as complaints rather than as scores.
 
-The rubric is versioned. When a client changes their scorecard, the criteria change deliberately, with a date and a diff — and every score records which rubric version produced it.
+Reading everything changes which questions the operation can ask. Not how did this agent do, which a sample can gesture at, but which criterion is failing across the whole floor since Tuesday, and did it start when the policy changed.
 
-### Layer 3: Scoring with cited evidence
+## Calibration is a contract term, not a nice-to-have
 
-Every conversation is scored on every criterion — and no score is allowed to exist without evidence. A passing empathy score links to the exact utterance where the agent acknowledged the customer's frustration. A failed compliance criterion links to the precise moment in the call where the mandatory disclosure should have happened and didn't. Click the score, land on the moment.
+Calibration is written into the contract because in a BPO the quality score is a deliverable the client audits. Every week the analysts review a slice of machine-scored conversations, weighted deliberately toward low-confidence scores and disputed ones. Disagreements are logged and traced to a cause: the transcript was wrong, the criterion was ambiguous, or the scorer was wrong. Each cause has a different fix, and the ambiguous-criterion fixes improve every future score.
 
-This rule — no naked scores — is what makes the system auditable rather than oracular. An agent who disputes a score doesn't argue with a number; they look at the cited moment and the criterion definition, and the disagreement resolves in minutes. It is also what makes the scores actionable for compliance: a critical fail now pages a team lead within minutes of the conversation ending, with the evidence attached, instead of surfacing in a report weeks later.
+The analysts did not become redundant, they moved up a level, and the specific work is auditing the scorer rather than reading conversations. That work has an output the old sampling never produced: a documented agreement rate between human and machine per criterion, per rubric version, which is what the client's auditor actually asks for.
 
-### Layer 4: Coaching digests
+No machine score enters an HR process without a human analyst reviewing that specific conversation. Not a sample of similar conversations, that one. The system is not permitted to trigger a performance process, alter an agent's ranking, or close a compliance failure on its own authority.
 
-Raw scores at full coverage would drown everyone. So the system distills them. Each agent gets a short weekly digest: what improved, the one recurring miss that matters most, and two or three cited examples from their own conversations to review. Team leads get the aggregate view — which criteria the team struggles with, which agents are trending down before it becomes a problem, which new policy is being fumbled across the whole floor rather than by one person.
+## What the client brand does not get to see
 
-Coaching conversations changed shape. They used to start from one sampled call and a debate about whether it was representative. They now start from a pattern across a month of an agent's actual work, with the receipts attached.
+Client brands do not receive individual agent rankings, and that refusal has survived every commercial conversation about it. A client buys an outcome from a BPO: adherence rates, compliance coverage, trend lines, the criteria that are failing and what is being done about them. A client does not buy the right to manage somebody else's employees, and handing over a name-level leaderboard quietly transfers an employment relationship the contract never mentioned.
 
-### Layer 5: Calibration — humans audit the scorer
+Two more refusals sit alongside it. We do not build emotion inference about employees, which is the legal line and also the reason the rubric improved. And we do not score customer sentiment as an agent outcome, because a customer can be furious at a policy the agent executed perfectly, and paying agents to soothe people about decisions they did not make is a rubric that punishes honesty.
 
-Every week, the QA analysts review a slice of machine-scored conversations — a few hundred a month, deliberately weighted toward low-confidence scores and disputed ones. Where the analyst disagrees with the machine, the disagreement is logged and traced back: was the transcript wrong, was the criterion ambiguous, was the model wrong? Each root cause has a fix, and most fixes are rubric refinements that improve every future score.
+This is the wrong system for one buyer in particular. If the real purpose of a quality programme is to rank agents against each other for stack ranking, none of this will feel satisfying, because observable-conduct criteria produce a lot of pass results and refuse to manufacture differentiation that the conversations do not contain.
 
-The human role shifts from reading conversations to deciding whether the reader can be trusted. A handful of analysts sampling a sliver of the traffic could never see the operation. The same handful, calibrating a scorer that reads everything, effectively can.
+## Common questions
 
-## Why this generalizes
+### Is it legal to have AI score every employee conversation in the EU?
 
-Any operation where conversations carry risk or coaching value has this same shape. Internal support teams that gave up on QA entirely because they never had analysts to begin with. Sales organizations that want every discovery call scored for methodology adherence and risky claims, not just the deals that closed. And regulated industries — collections, insurance, financial advice — where conversation monitoring is legally mandatory and sampling has always been an uncomfortable compromise that everyone hoped a regulator wouldn't examine too closely.
+Scoring conduct is legal. Inferring emotion is not: the EU AI Act prohibits AI systems used to infer the emotions of natural persons in the workplace, with narrow medical and safety exceptions, and that has applied since February 2025. Rubric criteria must therefore be observable conduct, and in Germany a works council agreement is also required before automated performance monitoring is deployed.
 
-Anywhere humans review a sample because reviewing everything was impossible, the constraint has quietly disappeared. The rubric, the evidence discipline, and the calibration loop are what turn that raw capability into something an operation can actually run on.
+### What happens on payment calls where the recording is paused?
 
-## What's hiding in the forty-nine you never read?
+Those seconds are never scored from audio, because under PCI DSS pause-and-resume the audio does not exist. The system uses the telephony platform's suppression event log, which timestamps when recording stopped and resumed, plus the agent's utterances either side of the gap. The score states that the suppressed interval was not heard rather than treating silence as compliance.
 
-Every sampled QA program is an admission that most of what your customers experience goes unexamined. We build scoring systems that read everything, cite their evidence, and keep your analysts in charge of the judging. Tell us.
+### Do we still need our QA analysts?
+
+Yes, and their week changes rather than shrinks. They stop reading a random sliver and start auditing the scorer: reviewing low-confidence and disputed scores, tracing disagreements to transcript errors, ambiguous criteria or scoring errors, and refining the rubric. That produces the documented human-machine agreement rate per criterion that your client's auditor asks for and sampling never generated.
+
+### Can our client see how individual agents are ranked?
+
+No. Clients receive adherence and compliance results, trends, failing criteria and remediation plans. Individual agent rankings stay inside the operator, because the client bought an outcome rather than the right to manage your employees. Machine scores also never enter an HR process without a human analyst reviewing that specific conversation first.
+
+## What is in the forty-nine conversations nobody read this week?
+
+Every sampled quality programme is a quiet admission that most of what your customers experienced went unexamined, and most operators only find out which parts mattered when a client's auditor finds them first. We build scoring systems that read everything they are legally allowed to read, cite the utterance behind every score, and keep your analysts in charge of the judging. Tell us what your current scorecard asks for.

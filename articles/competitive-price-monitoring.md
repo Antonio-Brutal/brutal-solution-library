@@ -1,26 +1,34 @@
-# A Price Monitoring Engine That Recommends the Move, Not Just the Alert
+# A Price Monitoring Engine That Prices the Move Against the Next Thirty Days
 
-> How we built competitive price monitoring with margin-aware recommendations for a consumer electronics retailer, and why the same approach matters for any business whose competitors reprice faster than its people can react.
+> Why a tactical price match costs a European electronics retailer two things rather than one, and how we made the second cost visible before anyone approves the move.
 
 ![Flow diagram: competitor listings are clamped into matched pairs, unmatched ones held aside; matched lines pass a margin-aware recommendation stage bounded by a floor no line crosses, then a pricing-committee gate](graphics/competitive-price-monitoring.svg)
 
-## The problem: alerts are cheap, matched products are not
+## Thirty days, not one afternoon: what a price cut actually costs
 
-Most retailers don't have a price monitoring problem. They have a *matching* problem.
+A price match you hold for three days governs what you may advertise for the next thirty. That is the number that reframes competitive pricing, and it is not a margin number.
 
-Our customer is a consumer electronics retailer trading across several European markets, with a catalogue in the tens of thousands of active SKUs — televisions, laptops, headphones, and the long tail of cables, mounts and chargers that nobody writes a strategy for and everybody sells. Their competitors reprice continuously, some several times a day and algorithmically, on products whose own price had not been looked at since the last range review.
+Under the Omnibus Directive (EU) 2019/2161, which amends the Price Indication Directive 98/6/EC, any announced price reduction must state the prior price, and the prior price is defined as the lowest price the trader applied during at least the previous 30 days. Match a rival on Tuesday, restore the shelf price on Friday, and the discount you can lawfully announce three weeks later is measured from Tuesday's number rather than from the price the line sat at for most of the month.
 
-They were not flying blind. They had bought a monitoring tool, and it produced alerts — a great many alerts. The problem was what an alert actually meant. "A competitor is cheaper on this television" is only useful if it is the same television: same panel generation, same model year, same regional model code, same bundle, sold by the retailer itself rather than a marketplace seller with two units left and no warranty. None of that is guaranteed by the product name. Manufacturers ship near-identical variants under names that differ by a single character. Retailers rename products for their own site search. Bundles hide a free soundbar inside a headline price.
+Our customer sells consumer electronics across several European markets, with a catalogue in the tens of thousands of active SKUs: televisions, laptops, headphones, and the long tail of cables, mounts and chargers nobody writes a strategy for. Competitors reprice continuously and algorithmically; the retailer's own prices were revisited when a category manager had an afternoon free.
 
-So the category managers did the matching themselves. Every week: a spreadsheet export, a dozen browser tabs, hours confirming that the cheap listing really was the same product — and more hours discovering it wasn't. By the time the comparison was trustworthy the market had moved on, and moves got made on whatever someone had time to check rather than where the margin at stake was largest.
+They were not flying blind. They had bought a monitoring tool and it produced alerts in quantity. An alert asserts that somebody is cheaper. It does not establish that the two listings are the same product, and it does not know that the line is earmarked for a headline offer in five weeks.
 
-Then the quieter cost. When gross margin moved at the end of a quarter, nobody could reconstruct why. The prices had changed; the reasons had lived in conversations. A price change is not a number. It is a decision, and a decision with no recorded reason is indistinguishable from a mistake.
+So the category managers did the work by hand: a spreadsheet export, a dozen browser tabs, hours confirming that the cheap listing really was the same box, and more hours discovering it was not. Moves got made where somebody had time to check, not where the money was.
 
-## What we built
+## The same television is frequently not the same television
 
-We built an engine that maintains a verified map between the retailer's catalogue and competitor listings, collects prices against that map continuously, and produces a short daily list of recommended moves. Every recommendation carries three things: what the market is doing, what the move does to margin, and a written rationale a category manager can agree or disagree with.
+Matching absorbed more engineering than pricing did, because a comparison between two products that are not the same product is worse than no comparison at all. Manufacturers ship near-identical variants under names that differ by a single character. Retailers rename products for their own site search. A bundle hides a free soundbar inside a headline price. A marketplace seller with two units and no warranty is not the market.
 
-One rule shaped the whole architecture. The engine recommends; the pricing committee decides. Price is a commercial decision with consequences the model cannot see — a vendor rebate agreement, a promotion three weeks out, a deliberate choice to hold a headline price on a hero product and make the margin on accessories. The committee can delegate a narrow band of routine moves to run automatically, defines that band itself in writing, and can revoke it in an afternoon. Everything else waits for a person.
+The matcher runs several signals together: global trade item numbers where they exist and can be trusted, manufacturer part numbers including the regional suffixes that separate a model sold in one market from the identical-looking model sold in another, titles normalised against retailer decoration, specifications recovered from listing text and structured attributes and product images, and a distribution check, because a price far outside the observed range is usually a bad match rather than a bargain.
+
+Every candidate match carries a confidence score and the evidence behind it. Confident matches enter the live map; ambiguous ones land in a category manager's queue as a side-by-side comparison showing which attributes agree and which do not. Those judgments train the matcher, so the queue shrinks as the catalogue grows. Variants and bundles are modelled as related listings with a stated difference rather than forced into a binary.
+
+## What a price is, once you strip the page around it
+
+The number printed on a product page is not the price, so the engine records the mechanics wrapped around it: delivery cost, whether the retailer or a third-party seller is behind the listing, stock status, and whether the number depends on a bundle, a cashback claim, a trade-in, a multibuy or a membership. A cheaper price on an out-of-stock line is not competition.
+
+Everything is stored as history, which is what turns a feed into a picture: who moves first, who follows, which prices hold for months and which oscillate hourly. History is also what makes the thirty-day question answerable, because a rolling minimum cannot be reconstructed from a snapshot.
 
 <img src="motion/competitive-price-monitoring.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -28,46 +36,50 @@ One rule shaped the whole architecture. The engine recommends; the pricing commi
 
 *Listings converge into verified pairs, margin context joins the flow, and every move passes a human gate before it reaches the shelf edge.*
 
-## How it works
+## The reference-price ledger we had to add after we lost a campaign
 
-### Layer 1: Catalogue matching across retailers
+Same-day margin was the whole of the first recommender's arithmetic, unit margin before set against unit margin after, with a volume assumption attached. Every move it scored was judged as though the cost of a price cut ended the day it was made. It was correct, and it was blind.
 
-This is the hard part, and the part every "just scrape competitor prices" pitch skips. Two retailers selling the identical box describe it differently, and that difference decides whether a recommendation is sound or nonsense.
+Coming into a peak trading period, the promotions team found that the announceable discount on a block of accessory lines had collapsed. Dozens of small matches the engine had recommended over the preceding weeks had each reset that line's thirty-day low, and the campaign built on those lines no longer had a legal headline. The engine had recommended its way out of a campaign, one defensible move at a time.
 
-Matching runs on several signals at once. Global trade item numbers where they exist and can be trusted, which on marketplace listings is less often than you would like. Manufacturer part numbers, including the regional suffixes that separate a model sold in one market from the identical-looking model sold in another. Titles normalized against retailer decoration. Specifications pulled from listing text, structured attributes and product images. And a plausibility check, because a price far outside the observed distribution is usually a bad match rather than a bargain.
+We added a reference-price ledger, one per SKU per market, carrying the rolling thirty-day minimum applied price. It is a constraint inside the recommender rather than a report somebody reads afterwards, and the promotions calendar can declare blackout windows in which no competitive match may be recommended on a line earmarked for a headline offer. Every recommendation now carries two costs: margin per unit, and reference-price headroom consumed.
 
-Every candidate match carries a confidence score and the evidence behind it. Confident matches enter the live map automatically. Ambiguous ones land in a category manager's queue as a side-by-side comparison — two listings, the attributes that agree, the attributes that don't — where confirming or rejecting takes seconds. Those judgments feed back into the matcher, so the queue shrinks instead of growing with the catalogue.
+Reference-price debt is the advertised-discount headroom that a tactical price cut consumes. Because a promotional reduction must be announced against the lowest price applied in the preceding 30 days, a match made today reduces the discount that can lawfully be announced on that line for the next month, whether or not the margin recovers.
 
-Variants and bundles are modelled explicitly rather than forced into a binary: "same product plus a soundbar" is a related listing with a stated difference, not a match. And one rule is absolute — an unverified match never produces a recommendation. A confident recommendation built on a different product is how a category loses margin for a quarter.
+## Why we will not aim the engine at a named competitor
 
-### Layer 2: Price collection and what a price actually is
+We refuse to build an automatic follower rule that targets a named competitor's price. Commercially, a rule like that makes you the reactive party in a spiral you have no mechanism to stop. Legally, automated alignment on an identified rival's price is the pattern competition authorities have already acted against in online retail, and we will not ship an architecture whose defence rests on nobody at the two companies ever having spoken to each other.
 
-Collection runs continuously against the verified map, but the number printed on a page is not the price. The system records delivery cost, who is actually selling — the retailer or a third-party marketplace seller — stock status, and the mechanics wrapped around the number: bundle, cashback, trade-in, member price. A cheaper price on an out-of-stock product is not competition. A seller clearing three units is not the market.
+The engine recommends and the pricing committee decides. The committee can delegate a band of routine moves, defines that band in writing, and can revoke it in an afternoon. The delegated band is deliberately narrow and boring: small moves on accessory lines, inside the margin floor, on human-confirmed matches, outside any blackout window.
 
-Everything is stored as history, which is what turns a feed into a picture: who moves first, who follows, which prices hold for months and which oscillate hourly. That context is what separates a durable shift from noise.
+What the system may not decide is fixed in the architecture rather than in a policy document. It cannot set a price. It cannot cross a margin floor or touch a protected line. It cannot recommend a move on a match no human has confirmed, and it cannot recommend a move on a line the promotions calendar has closed.
 
-### Layer 3: Margin-aware recommendation
+## Do nothing, with a written reason, is a first-class output
 
-Here the retailer's own numbers join: landed cost, vendor rebates, freight and handling, the returns rate that quietly differs by category, stock cover, and the elasticity assumptions the commercial team will stand behind. Recommendations are generated against explicit policy — the margin floor per category, the position to hold against each named competitor, and the protected lines that do not move on competitive pressure at all.
+"Do nothing" is a recommendation the engine produces deliberately, with its reasoning attached, and it is frequently the right one. A competitor undercutting you on a line where you hold the range, the stock and the service has told you something about their inventory position, not about your price.
 
-The output is ordered by what the moves are worth, not by how loud the alert was. Each shows current price, recommended price, what the relevant competitors are doing and for how long, margin per unit before and after, and a rationale written to be argued with.
+The daily list is ordered by what the moves are worth rather than by how loud the alert was. Each entry shows the current price, the recommended price, what the relevant competitors have been doing and for how long, margin per unit before and after, reference-price headroom consumed, and a rationale written to be argued with. The committee approves, adjusts, or rejects with a reason, and the decision is recorded against the evidence that was on screen at the time.
 
-"Do nothing" is a first-class recommendation. A competitor undercutting you on a product where you hold the range, the stock and the service is frequently not a reason to move. The engine will not recommend a price below the floor, will not chase an outlier seller, and will not walk a whole category downward. Racing to the bottom is the easiest thing an automated repricer does, and the hardest to undo.
+That record is the most durable output of the system. When gross margin moves at the end of a quarter, the story is reconstructable move by move with a reason attached to each one, and pricing stops being folklore living in three people's memories.
 
-### Layer 4: The pricing committee gate
+## Common questions
 
-Category managers own the recommendations for their range. The pricing committee — commercial lead, category managers, finance — works the list on a fixed rhythm: approve, adjust, or reject with a reason, recorded with the evidence that was on screen at the time.
+### Can this reprice our catalogue automatically overnight?
 
-That record turns out to be the most valuable output of the system. When margin moves, the story is reconstructable move by move, reason attached to each one. Pricing stops being folklore.
+Only inside a band your pricing committee writes and can withdraw the same day. The default is a recommendation a person approves. A competitor-triggered follower rule is something we decline to build: it makes you the reactive party in a price spiral, and automated alignment on a named rival's price attracts competition-law scrutiny.
 
-The boundaries are architectural, not advisory. The engine cannot cross a margin floor, cannot touch a protected line, cannot act on a match no human has confirmed, and cannot move a product covered by a vendor agreement it was never told about. The delegated automatic band is deliberately unglamorous: small moves on accessories, inside the floor, on human-confirmed matches. Everything else goes to the committee, and the human role shifts from rebuilding the comparison to judging the recommendation.
+### How is this different from the price monitoring tool we already pay for?
 
-## Why this generalizes
+Monitoring tools tell you a competitor is cheaper. This tells you whether it is the same product, what the move does to unit margin, and how much advertised-discount headroom the move consumes under the thirty-day prior-price rule. The output is a short ranked list of decisions with reasoning, not a feed of alerts.
 
-Nothing here is specific to televisions. The pattern is comparable goods sold against visible competitors, where "the same product" is hard to establish and margin varies line by line. Online grocery and drugstore retail lives it daily: pack sizes, multibuys and own-label near-equivalents make matching harder than electronics, not easier. Auto parts and industrial distribution is the matching problem in its purest form — OEM and aftermarket equivalence across catalogues never designed to agree. Hotel and travel rate management is the same architecture with different attributes, where room type, board basis and cancellation terms decide whether two rates are comparable at all.
+### What happens outside the EU, where the prior-price rule is different?
 
-In each case the move is the same. Stop buying alerts. Build the verified map, put margin in the loop, and make every price change carry its reasoning.
+The ledger stays and the constraint changes shape. Jurisdictions outside the EU regulate reference pricing through advertising and consumer protection rules with different lookback periods and evidence standards. The engine holds a rolling minimum per market and applies each market's rule to it, so the same move can be free in one country and expensive in another.
 
-## Repricing from a spreadsheet somebody rebuilds every Monday?
+### How long before the recommendations are worth acting on?
 
-If your competitive comparison takes days to assemble and hours to trust, you are pricing against last week's market with this week's costs. We build these engines matching-first and approval-first: verified products, margin in the loop, and a human committee that owns every move. Tell us what your catalogue looks like.
+Matching quality decides that, not model tuning. Confident matches on well-identified categories are usable early; the long tail of accessories takes a few weeks of category managers confirming or rejecting queued comparisons. Reference-price ledgers need a month of collected history before the thirty-day floor is real rather than inferred.
+
+## What did your last quarter of price moves actually cost you?
+
+If you cannot answer that in margin and in advertised-discount headroom, you are running a pricing function on half its arithmetic. We build these engines matching-first and approval-first, with the promotional consequence of every move priced alongside the commercial one. Tell us what your catalogue and your promotional calendar look like.

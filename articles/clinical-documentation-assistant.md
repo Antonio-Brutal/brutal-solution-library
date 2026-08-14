@@ -1,71 +1,85 @@
-# A Documentation Assistant That Drafts the Note and Waits for the Clinician
+# The Note Assistant That Will Not Write a Number the Clinician Did Not Say
 
-> How we built pre-visit summarization and structured note drafting for a physiotherapy clinic chain, and why the same approach matters for any practice where the record is a legal document.
+> How we built session capture and structured note drafting for a physiotherapy clinic chain, and why the binding constraint turned out to be arithmetic rather than fluency.
 
 ![Flow diagram: intake and session capture feed a note drafted to the clinic template, which stops at a clinician sign-off node; no path continues into the record without it](graphics/clinical-documentation-assistant.svg)
 
-## The problem: the note gets written twice, and the second time is at night
+## Twenty to seven in the evening, nine notes still to write
 
-Most clinics don't have a documentation problem. They have a *re-entry* problem.
+The treatment rooms are empty, the last patient left forty minutes ago, and a physiotherapist is at a terminal with nine notes still to write. Each one has to carry the numbers that session produced: goniometric range of motion at a named joint, a score on a validated outcome instrument, the sets, repetitions and load prescribed for the coming week. By this hour those numbers are competing with eight other patients' numbers, and the ones that survive are the ones that were easy to remember.
 
-Our customer is a physiotherapy clinic chain running dozens of sites, with clinicians seeing patients back to back from early morning to early evening. Before each appointment, the information that would make the session better already exists. The patient filled in an intake questionnaire the night before. A referral letter arrived as a scanned PDF. Previous session notes sit in the record, written by three clinicians across two sites. Reading all of that properly takes longer than the gap between two appointments.
+Our customer is a physiotherapy chain running dozens of sites, with clinicians booked back to back from early morning to early evening. Notes written from memory at the end of a day do not fail evenly. Prose survives fatigue and digits do not, so the subjective paragraph still reads well at nine at night while the objective field quietly becomes "as before, progressing well".
 
-So clinicians do what clinicians everywhere do. They skim the top of the intake form, rely on memory and a two-line handover, and promise themselves they will read the referral later. Then the session runs, and the note has to be written. Typing during the session means looking at a screen while a patient describes their pain — bad care, and bad data, because you capture what is easy to type rather than what matters. Typing afterwards means competing with the next patient, already in the waiting room. So the notes pile up and get written in the evening, from memory, hours after the thing they describe.
+In physiotherapy the load-bearing content of a note is numeric, and that changes what a documentation assistant has to be good at. Fluency is cheap and mostly irrelevant here. The binding constraint is that a number may only enter the record if a clinician actually said it, exactly as they said it.
 
-Everything about that is expensive. Detail decays fast; a note written at nine at night is a summary of a summary. Structure drifts, because a tired clinician writes the shortest note that will pass, and the fields that matter for continuity and for reimbursement are the first to collapse into "as before, progressing well." And the clinicians themselves — the scarce, hard-to-hire resource the entire business runs on — spend the tail of every working day doing data entry.
+## The number is the note: outcome measures and why prose fails a payer
 
-## What we built
+Physiotherapy records are built on validated outcome measures, each with a published minimal clinically important difference. The Numeric Pain Rating Scale, the Oswestry Disability Index and the Patient-Specific Functional Scale are the instruments a reviewer expects to find, and each carries a threshold below which a change in score is noise rather than progress.
 
-We built an assistant that does the reading and the typing, and nothing else.
+Continued treatment authorisation and payer scrutiny turn on documented change against those instruments between dated timepoints. A note saying the patient is improving is therefore worthless both clinically and commercially, while a dated instrument score is not. One is an impression; the other is evidence a reviewer can set beside the same patient six weeks earlier.
 
-Before the appointment, it reads the intake questionnaire, the referral, and the previous notes, and produces a short pre-visit summary the clinician can absorb in the time it takes to walk from the door to the treatment table. During the session, with the patient's consent, it captures what is said. Afterwards, it drafts a structured note into the clinic's own template — same fields, same order, same vocabulary — and puts that draft in front of the clinician for review.
+Reading whether a change crosses the minimal clinically important difference is clinical interpretation, and it belongs in the assessment, written by the clinician. That line governs everything downstream: capturing a score is transcription, and judging what the score means is practice.
 
-Then it stops. The draft is not a record. It is a proposal, sitting in a holding area outside the patient file, and it stays there until a named clinician reads it, edits whatever needs editing, and signs it. Nothing the system produces enters the medical record without that signature. The system does not diagnose, does not grade severity, does not suggest a treatment plan, and does not decide what happens next. It writes down what the clinician did and said, in the format the clinic requires, and waits.
+## Maybe about one twenty became 120 degrees, and that is a fabricated measurement
+
+The first drafting layer we built produced a clean objective line reading "knee flexion 120 degrees" from a session in which the clinician said flexion looked better than last time, maybe about one twenty. Nobody typed that figure. A model rounded a hedge into a measurement and formatted it correctly, which made it indistinguishable from every true measurement in the file.
+
+That is a fabricated measurement in a document admissible in a negligence claim. The clinician who signs the note owns it, and the note now asserts a goniometric reading that was never taken.
+
+Speech recognition made it worse in precisely the wrong range. Fifteen and fifty collide. One twenty and one twenty-five collide. Digits are where transcription is least reliable and where the record is least forgiving, so a drafting model that smooths transcription noise into plausible clinical values is producing confident fiction in the only fields anyone will litigate over.
 
 <img src="motion/clinical-documentation-assistant.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *The note is drafted from the session. Nothing reaches the record without the clinician.*
 
-## How it works
+## Verbatim-only fields, and the confirm tap that replaced fluency
 
-### Layer 1: The data boundary, drawn before anything else
+We split numbers away from prose entirely, and stopped treating a measurement as text to be generated.
 
-We designed the data handling before we designed a single feature, because in a clinical setting that ordering is the whole difference between a system a clinic can adopt and one its legal counsel will refuse.
+Verbatim-only field: a record field the assistant may populate solely with words the clinician actually spoke, reproduced exactly, with the source audio segment attached. Measurements, outcome-measure scores and exercise prescriptions are verbatim-only fields, and a hedged, inferred or averaged value leaves them blank rather than filled.
 
-The rules are architectural, not policy documents. Patient data stays inside the clinic's own processing environment. Recordings are transient — captured, transcribed, destroyed on a fixed schedule, never accumulated into a corpus. Nothing patient-identifiable trains a model. Access follows the same clinical need-to-know rules the record system already enforces, so the assistant cannot show a clinician anything they could not open themselves. Consent is captured per session and genuinely revocable: withdraw it and capture stops, the audio goes, and the clinician writes the note the old way with no penalty.
+A numeric value now enters a measurement field only when it matches a spoken-number pattern carrying an explicit unit or a named instrument, as in "knee flexion one hundred and twenty degrees" or "Oswestry forty-two". It renders in the draft as a quotation with the audio segment attached for playback, and it stays outside the structured field until the clinician taps to confirm it.
 
-Every one of those constraints is enforced in the pipeline, not in a training slide. That is why this is Layer 1 and not an appendix.
+Hedged values never populate a measurement field at all. About, roughly, maybe and looked like send the phrase into the subjective narrative as reported speech, where it belongs, and leave the objective field empty. A blank field asks a question. A fluent one closes it.
 
-### Layer 2: Pre-visit intake summarization
+The confirm tap is deliberate friction, and it is cheaper than it sounds. A clinician listening to two seconds of their own voice before a value lands in a chart is the least expensive verification available, and it is the only one aimed at the thing that matters, which is whether the number is true.
 
-The pre-visit summary is short by design — a clinician reading a screen for ninety seconds is not going to read a page. It pulls together the intake form, the referral, and previous sessions, and surfaces the handful of things that change how the next thirty minutes should go: mechanism of injury, the reported pain pattern, current medication and relevant history, what was tried last time and how the patient responded.
+## The A in SOAP is not ours to write
 
-Every line is traceable. Tap a statement and you see its source — this sentence from the intake form, that one from the referral letter, this from a note written three weeks ago. The assistant does not interpret the clinical picture and does not flag concerns; it assembles what is already on file so the clinician arrives having read it, rather than intending to.
+The assistant drafts subjective, objective and plan, and leaves the assessment blank by design. Clinical reasoning is the part of the note that carries liability and the part a fluent model is most eager to supply, so we refuse to generate it.
 
-### Layer 3: In-session capture that doesn't compete with the patient
+We also refuse to compute change scores and refuse to flag whether a change crosses a minimal clinically important difference. Both are trivial to build. Both would put a clinical judgement in front of a tired clinician as a pre-filled default at the exact moment they are least likely to argue with it.
 
-Capture runs in the background, with visible consent and an obvious stop. There is no screen to look at, nothing to click, no prompts, no live suggestions — a clinician glancing at a monitor mid-session is precisely the behavior we set out to remove. The assistant is a passive listener, and the session belongs to the two people in the room.
+There is no bulk approve control, because bulk approval is how a signature becomes a formality. Unsigned drafts expire rather than accumulating into a queue somebody clears on a Friday afternoon.
 
-Clinicians can mark the record verbally, the way they already talk during a session. Stating what they are testing, what they observe, and what the patient reports is normal practice; it also gives the drafting layer clean anchors to build a structured note around. The best capture, it turns out, asks clinicians to change almost nothing about how they work.
+This architecture is wrong for some records, and the test is quick: ask which field a payer or an opposing solicitor reads first. If it is a narrative paragraph, a conventional drafting assistant is proportionate and verbatim-only fields are overhead. If it is a number, they are the minimum.
 
-### Layer 4: Structured drafting into the clinic's own template
+## Consent, retention, and audio that does not survive the day
 
-A generic clinical summary is useless to this business. The note has to land in the clinic's template, with its fields, in its house vocabulary, at the length its auditors and insurers expect.
+Session audio does not survive the drafting window. It is captured under per-session consent, transcribed, used to support the quotations a clinician confirms, and destroyed on a fixed schedule measured in hours rather than months. Nothing accumulates into a corpus, and nothing patient-identifiable trains a model.
 
-So the drafting layer maps the session onto that template field by field: subjective report, objective findings as stated by the clinician, treatment delivered, patient response, plan as the clinician described it. Where a field has no support in the session, the draft leaves it empty and says so. It never smooths a gap over with plausible clinical language — an invented range of motion is far worse than a blank one, because a blank field asks a question and a fluent one closes it. Measurements and exercise prescriptions carry through verbatim, or not at all.
+Consent is genuinely revocable rather than a checkbox at the top of a form. Withdraw it mid-session and capture stops, the audio goes, and the clinician writes the note the way they always did, with no partial draft left behind and no penalty.
 
-### Layer 5: Sign-off, and what the machine may not decide
+Everything else inherits the record system's existing rules. Patient data stays inside the clinic's own processing environment, access follows the clinical need-to-know the chart already enforces, and the assistant cannot surface anything a clinician could not open themselves. The signature is attributable and timestamped, and every clinician edit is retained, because edits are the most useful diagnostic we have: they show exactly which fields the drafting layer is worst at.
 
-The review screen shows three things: the draft, the source of each statement, and the fields left blank. The clinician edits freely and signs. The signature is attributable and timestamped — the record shows a human author who takes responsibility for the content, with the assistant's involvement logged behind it.
+## Common questions
 
-Unsigned drafts expire rather than linger. There is no bulk approve, because a bulk approve button is how sign-off quietly becomes a formality. And the boundary is enforced in the system, not merely discouraged: the assistant does not write a diagnosis, does not propose or alter a treatment plan, does not modify a signed note, and does not push anything to a patient, a referrer, or an insurer. Every edit is retained, because edits show exactly where the drafting is weak.
+### Can it write the assessment if our clinicians ask it to?
 
-## Why this generalizes
+No, and it is not a configuration option. The assessment is where clinical reasoning and liability sit, and a pre-filled interpretation is hardest to argue with at the end of a long day. The assistant drafts subjective, objective and plan, then hands over a note with the interpretive section deliberately empty.
 
-The shape is any practice where a qualified professional produces a regulated record as a byproduct of skilled work with a person in front of them. Dental groups have this problem with an even more rigid chart structure. Veterinary chains have it with a talkative owner and a patient who says nothing. Occupational health and community care providers have it with the added burden that their notes go to third parties who each want a different format.
+### What happens when a number is mumbled or the transcription is wrong?
 
-In every case, the same division of labor holds. The machine reads what already exists and writes down what happened. The clinician decides what it means, what to do about it, and whether the record is true. That last decision is not a checkbox on the way to automation. It is the point.
+The field stays blank and the draft says so. A value reaches a measurement field only when it matches a spoken-number pattern with an explicit unit or named instrument and the clinician confirms it against the audio segment. Ambiguous audio produces an empty field with a prompt, never a plausible substitute.
 
-## Are your clinicians writing notes at nine at night?
+### How long do you keep the session audio?
 
-If the people you hired for their clinical judgment are spending the end of every day on data entry, the documentation is the bottleneck — not the caseload. We build these systems boundary-first: patient data handled as an architectural constraint, and no note in the record without a clinician's signature. Tell us what your template looks like.
+Hours, not months. Audio exists to support the quotations a clinician confirms, so it is destroyed on a fixed schedule once the note is signed or the draft expires. It never accumulates into a training corpus, and it stays inside the clinic's own processing environment for its whole short life.
+
+### Does this really save time if every number needs a tap?
+
+Yes, because the tap replaces recall rather than typing. The expensive part of an evening note is reconstructing a session from memory across nine patients. Confirming a value you spoke four hours ago against two seconds of your own audio takes moments, and it is the step that produces a defensible objective field.
+
+## Are your clinicians reconstructing measurements from memory at nine at night?
+
+If the objective fields in your notes are filled in hours after the session ended, the numbers in your record are recollections wearing the clothes of measurements. We build these systems so a value enters a chart only when a clinician said it and confirmed it, and so the interpretation stays theirs. Tell us which fields your template treats as mandatory, and we will show you where the drafting stops.

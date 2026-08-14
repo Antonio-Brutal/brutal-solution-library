@@ -1,75 +1,83 @@
-# Funder Reports Drafted From the Work Itself, With Every Figure Traceable
+# Two Funders Ask the Same Question, and Both Answers Are Correct
 
-> How we built a grant-reporting engine for an international nonprofit running programs across several countries, and why the same approach matters for any organization that has to describe the same work to many different funders.
+> How we built a grant-reporting engine for an international nonprofit, and why we stopped storing a single canonical figure for anything.
 
 ![Flow diagram: programme data and field notes converge, then fan out through per-funder template mappings into drafted narratives whose figures remain traced back to source](graphics/funder-report-automation.svg)
 
-## The problem: the work is already documented, just never in the shape the funder wants
+## The warehouse with one true number, and why it lasted a single cycle
 
-Most nonprofits don't have a reporting problem. They have a *reformatting* problem.
+We built a warehouse holding one canonical figure per indicator, with each donor's report as a filtered view on top. Buried in that design is a claim about the world: that an indicator has one true value. The claim survived a single reporting cycle.
 
-Our customer is an international nonprofit delivering programs across a dozen countries, funded by a mix of institutional donors, government agencies, and private foundations. Grants arrive in different sizes, on different calendars, with different obligations — and every one ends in a document. Quarterly narratives. Annual reports. Interim reports triggered by a milestone. Final reports that release the last tranche of money.
+Our customer is an international nonprofit delivering programmes across a dozen countries on money from institutional donors, government agencies and private foundations. Every grant ends in a document: quarterly narratives, interim reports triggered by a milestone, final reports that release the last tranche. The material those documents need already exists, spread across a monitoring database, a finance ledger, and the field notes of the people who were there.
 
-The information those documents need already exists. Attendance and beneficiary records sit in the monitoring database. Spend against budget lines sits in the finance system. What actually happened — the school that flooded, the partner clinic that lost its nurse, the training that had to be rescheduled twice — sits in field notes, trip reports, and message threads written by the people who were there.
+The warehouse broke not on counting but on money and dates. A training paid in local currency, invoiced across an eligibility boundary and converted once at the bank rate on the payment date, disagreed with the donor's mandated rate and with the finance ledger at the same time. Because we had stored the converted value rather than the transaction, we could not reproduce either figure.
 
-None of it is in the shape any particular funder wants. One donor counts people "directly reached" and excludes anyone who attended a single session. Another wants the same activity disaggregated by age band and district. One reports on the grant anniversary, another on the calendar year, a third on a fiscal year that matches neither. Section headings differ, word limits differ, and the indicator that two funders both call "participation rate" is not the same number.
+That failure changed the primary object of the system. Two funders asking the same question about the same quarter are entitled to two different, equally correct numbers, because each grant agreement fixes its own indicator definition, eligibility window and currency convention. The number is not a stored value. It is a function evaluated from a contract against raw records.
 
-So every quarter, the best program people stop delivering programs and start writing documents. They open last period's report, copy the structure, hunt for figures across three systems, and reconcile numbers that disagree because the monitoring database counts registrations while finance counts payments. Deadlines are hard, and the pressure creates the real risk: a report is a contractual document, and a figure nobody can reconcile later is not an editing mistake. It is an audit finding.
+## Means of verification: the provenance column donors already made you fill in
 
-## What we built
+Every logframe obliges the grantee to declare a means of verification for each indicator, which means donors mandated a provenance column long before anyone called it data lineage. Attendance registers, signed training records, clinic registers, photographs of a delivered asset: the column exists, agreed, in the approved proposal.
 
-We built an engine that drafts each funder report from the underlying record of the work, against that funder's own template, with every figure carrying a link back to where it came from.
+Almost nobody populates it with anything actionable. It is completed once at design stage with a category name, and by reporting time the figure in the narrative has no link to the register that produced it. The obligation is discharged on paper and abandoned in practice.
 
-It assembles program data for the reporting period, structures the field notes into evidence attached to specific activities, maps everything onto the requesting funder's template and indicator definitions, and writes the narrative. What comes out is a complete draft in the funder's format — sections in their order, indicators under their definitions, narrative built from the actual events of the period — plus a reconciliation view showing where each number came from.
+We treated that column as the engine's output contract. Every figure in a draft carries the means of verification the grant agreement names, resolved down to actual records: which registers, over which dates, at which sites, entered by whom. Clicking the number opens the evidence. Nothing more elaborate was needed to make the reports auditable, because the donor had already specified what auditable meant.
 
-What it never does is assert something the record cannot support. If an indicator has no underlying data for the period, the draft says so rather than estimating. If two systems disagree, the draft surfaces the discrepancy instead of silently choosing the more flattering figure. And no report leaves the building on the engine's authority: the program lead signs the narrative, finance signs the figures, and the country director signs the document. The machine drafts. People attest.
+## Two correct answers to how many people you reached
+
+"People reached" is not one quantity, and an organisation reporting it as one is guessing which of its contracts it is breaching. One donor counts a person who attended a single session and another excludes them. One requires disaggregation by age band and district. One reports on the grant anniversary, another on the calendar year, a third on a fiscal year matching neither.
+
+Donor definition of record: the version of an indicator's calculation, disaggregation, eligibility window and exchange-rate convention that one specific grant agreement fixes. Under it, people reached is not a quantity in the organisation, it is a quantity in a contract, and two donors asking for it in the same quarter are asking two different questions.
+
+Indicator computations are therefore versioned definitions executed against raw participant records, not filters over a precomputed roll-up. When a donor revises its template mid-grant, the definition gains a new version with an effective date, and reports already submitted continue to reproduce under the version in force when they were signed.
+
+We refuse to build the consolidated cross-donor beneficiary total that executives ask for on day one. Summing figures computed under incompatible contractual definitions does not produce a bigger truth. It produces a number that is wrong for every reader and defensible to none.
 
 <img src="motion/funder-report-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Every funder wants it differently. The programme data underneath stays the same.*
 
-## How it works
+## InforEuro, the eligibility boundary, and the conversion we should never have stored
 
-### Layer 1: Assembling the program record
+European Commission grant agreements specify the conversion convention for costs incurred in other currencies, typically the InforEuro monthly accounting rate for the month of the expense rather than the bank rate on the date a payment cleared. Costs falling outside the eligibility period are ineligible regardless of when they were paid.
 
-The first layer builds a single reporting spine for a given period: activities delivered, participants recorded, locations, partners, and spend against budget lines, pulled from the monitoring database, the beneficiary system, and finance.
+Those two rules together are why a stored converted amount is a liability rather than a convenience. Conversion depends on the month the cost was incurred, eligibility depends on the same date, and the bank rate that actually hit the account depends on treasury timing no donor cares about. One stored figure cannot satisfy the ledger and the grant agreement at once.
 
-The hard part is not extraction, it is reconciliation. Program and finance systems count different things at different moments, and every organization has known seams where they diverge. We made those seams explicit. Where two sources describe the same activity and disagree, the assembly layer records both values and the reason for the gap — a workshop invoiced in one month and delivered in the next is a timing difference, not an error. The discrepancy travels with the figure into the draft, so the conversation happens before the report goes out rather than a year later with an auditor in the room.
+So we stopped storing converted amounts anywhere in the system. Every amount is held in its transaction currency with its transaction date, and conversion happens at render time under the requesting donor's stated convention. The reported figure travels with six things attached: source amount, currency, date, rate, rate source and result. Any reader can recompute it, and so can we, three years later, with an auditor in the room.
 
-### Layer 2: Structuring the field notes
+## Field notes are evidence, and three sentences stays three sentences
 
-Numbers describe scale. Field notes describe what happened, and they hold the reportable substance — why attendance dipped in March, the partnership that unlocked a new district, the equipment that never cleared customs.
+Numbers describe scale; field notes describe what happened, and they carry most of what a programme officer actually reads. Why attendance dipped in March. The partner clinic that lost its nurse. The equipment that never cleared customs.
 
-This layer turns that unstructured material into evidence. Trip reports, monitoring visits, partner updates, and the running notes staff write for themselves are parsed into discrete observations, each attached to an activity, place, and date, and tagged by what it explains: a delay, a deviation from plan, a risk, an outcome worth telling. Every observation keeps a pointer to the passage it came from and the person who wrote it.
+The engine parses trip reports, monitoring visits and partner updates into discrete observations, each attached to an activity, a place and a date, each keeping a pointer to the passage and the author it came from. If a programme officer wrote three sentences about a flooded school, three sentences is what the layer holds and three sentences is what the narrative may use.
 
-Nothing here is invented or embellished. If a program officer wrote three sentences about a flooded school, three sentences is what the layer holds. The drafting layer can only use what this one collected — which is the mechanism that keeps the narrative honest.
+The drafting layer can only use what the evidence layer collected, and that constraint is the whole mechanism keeping the narrative honest. Where a template asks for something the record does not contain, the draft leaves an explicit gap naming what is missing and who would know. An unanswered question is a task. A fluent paragraph of nothing is a liability.
 
-### Layer 3: The funder template map
+## Under-delivery reported is a conversation, under-delivery smoothed is a finding
 
-Every funder wants it differently, so we treated "differently" as configuration rather than as work.
+The machine drafts and people attest. The programme lead signs the narrative, because the question there is whether this is a truthful account of what was done. Finance signs the figures against the accounts, because that is a different question with different failure modes. Both approvals attach to a specific document version, and nothing exports until both are in place.
 
-Each funder has a template definition: required sections in the required order, word limits, the indicator set with each definition and disaggregation, the reporting period rule, the currency and exchange-rate convention, the mandatory annexes. Indicator definitions are the part that earns its keep. "People reached" is not one concept but several, and the map holds each funder's version as a real calculation over the assembled data rather than a note in a style guide.
+The engine has no submission rights of any kind. It does not send anything to a donor, does not estimate a missing indicator, does not resolve a discrepancy between programme and finance systems on its own, and does not soften an unflattering result into gentler language.
 
-When a funder revises its template — and they do — the change happens in one place, and every subsequent report for that donor follows it. The map is owned by the grants team, not by us. It is theirs to read, argue with, and correct.
+Where two sources disagree, both values travel into the draft with the reason for the gap. A workshop invoiced in one month and delivered in the next is a timing difference rather than an error, and saying so before submission turns it into a conversation with a programme officer. Discovering it a year later, during an audit, turns it into a finding. Reported under-delivery costs one difficult call; smoothed under-delivery costs the grant.
 
-### Layer 4: Drafting with every figure traced to source
+## Common questions
 
-Only now does anything get written. The drafting layer takes the assembled data, the structured evidence, and the funder's template, and produces the narrative section by section, at the required length, in the register that funder expects.
+### Can we get one total for people reached across all our donors?
 
-Every figure in the draft is linked. Click a number and you see the calculation, the indicator definition it was computed under, and the source records beneath it. Every qualitative claim points to the field note that supports it. Where the template asks for something the record does not contain, the draft leaves an explicit gap with a note naming what is missing and who would know — because an unanswered question is a task, while a fluent paragraph of nothing is a liability.
+Not from this engine, and the reason is contractual rather than technical. Each grant agreement fixes its own definition, eligibility window and disaggregation, so adding figures computed under incompatible rules produces a total that is wrong for every reader. We produce each donor's figure separately, each reproducible, each carrying the definition it was computed under.
 
-### Layer 5: Two signatures, and what the engine may never do
+### What happens when a donor changes its indicator definition mid-grant?
 
-Approval is split deliberately, because the failure modes are different. The program lead reviews the narrative — is this a truthful account of what we did — and the finance lead reviews the figures against the accounts. Both approvals are recorded against the specific version of the document, and the country director submits it. A report cannot be exported until both are in place.
+The definition gains a new version with an effective date. Reports drafted afterwards use the new version, while reports already signed continue to reproduce under the version in force when they were submitted. The grants team owns and edits those definitions directly, which matters when someone asks who decided what a number meant.
 
-The engine has no submission rights of any kind. It does not send anything to a funder, does not resolve a data discrepancy on its own, does not estimate a missing indicator, and does not smooth an unflattering result into softer language. Under-delivery reported honestly is a conversation with a program officer. Under-delivery papered over is a fraud finding, and no drafting speed is worth that trade.
+### How does it handle exchange rates across currencies?
 
-## Why this generalizes
+Amounts are stored in the currency and on the date of the transaction and never converted at rest. Conversion happens when a report renders, under the convention that donor's agreement specifies, such as the InforEuro monthly accounting rate for the month of the expense. Every converted figure carries its source amount, date, rate and rate source.
 
-The pattern is: one body of work, many external readers, each demanding a different shape and holding real leverage over you. Universities and research institutes live it — the same lab, the same year, reported to several grant bodies under conflicting rules. Corporate sustainability teams live it, restating the same operational data into competing disclosure frameworks. Public contractors and health providers live it, reporting delivery to ministries and commissioners under definitions they did not choose.
+### Does it write the narrative or only the numbers?
 
-In all of them, the writing is the visible cost and reconciliation is the real one. Build the traceable spine once, treat every reader's format as configuration, and the quarter stops being a writing season. It becomes a review.
+Both, but only from material staff already wrote. Field notes are parsed into dated observations tied to specific activities, and the narrative is assembled from those. Where the template asks for something nobody documented, the draft leaves a named gap rather than filling it, and the programme lead signs the result including any edits.
 
-## Does your team stop delivering programs every quarter to write about them?
+## Does reporting season pull your best people out of the field?
 
-If reporting season pulls your best people out of the field to hunt for numbers across three systems, the bottleneck is not writing — it is that nothing connects the work to the template. We build these engines traceable-first, with figures linked to source and human sign-off before anything reaches a funder. Tell us what your donors ask for.
+If your quarter is spent hunting figures across three systems and reconciling numbers that were never contractually meant to agree, the problem is that your figures were stored instead of computed. We build these engines so every reported number can be recomputed from raw records under the donor's own rules, years after submission, with its means of verification attached. Tell us what your donors ask for.

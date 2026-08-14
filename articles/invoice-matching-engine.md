@@ -1,57 +1,79 @@
-# An AI Engine That Reads, Matches, and Clears Supplier Invoices
+# An AI Engine That Reads Carrier Invoices and Works Out Who Owes What
 
-> How we built document ingestion and three-way matching for a mid-market European freight forwarder, and why the same approach matters for any business drowning in supplier paperwork.
+> How we built ingestion, charge allocation and matching for a mid-market European freight forwarder, and why allocation has to happen before any match can be attempted.
 
 ![Flow diagram: supplier invoices funnel through ingestion and extraction, then lock together with the purchase order and delivery record in a three-way match and post to the ledger; mismatches drop to a lime-ringed human-resolves node and rejoin the ledger](graphics/invoice-matching-engine.svg)
 
-## The typing problem hiding inside accounts payable
+## One invoice, fourteen house bills
 
-Freight is a paperwork business. Every container that moves generates a trail of documents from multiple parties, and someone has to reconcile all of it before anyone gets paid.
+One terminal handling charge on one carrier invoice covered fourteen consignments belonging to fourteen different customers. That single line is why line-level three-way matching, the technique that clears supplier paper in wholesale distribution, matched almost nothing when we first pointed it at freight.
 
-The customer that brought us this problem is a mid-market European freight forwarder moving tens of thousands of shipments a year. Each shipment produces supplier invoices from the carrier, the port or terminal, the customs broker, and often a warehouse or last-mile trucker on top. That adds up to thousands of supplier invoices a month, arriving in every format a supplier can invent: clean digital PDFs, scans of printouts, photographed pages attached to an email, spreadsheets with the totals in a different tab than the line items.
+Three-way matching is undefined for most carrier invoices. The classical version compares an invoice line against a purchase order line and a goods-receipt line. On carrier paper there is often no order line to compare against, because the charge was never ordered once and cannot be received once.
 
-A finance team you could fit around one table spent most of its working hours doing the same three things. Open the invoice and key it into the ERP. Find the purchase order it belongs to. Find the proof of delivery and check that what was billed is what was ordered and what actually arrived. Average handling time ran well into double-digit minutes per invoice — and that is before anything goes wrong. A carrier bills demurrage the PO never anticipated. A customs broker invoices in a different currency than the quote. A port authority references a vessel name instead of a shipment number. Every one of those becomes an email thread. And the invoices that were perfectly fine — the majority — sat in the same queue behind the problem cases. Suppliers called to chase payment. Month-end accruals were built on whatever had been keyed by the cutoff, which is to say, on a backlog.
+The structure behind that is the bill of lading hierarchy. A forwarder issues a House Bill of Lading to each shipper it books, then moves those consignments together under a single Master Bill of Lading with the ocean carrier. The carrier invoices the master. Costs, margins and customer commitments live at house level. A terminal handling line, a bunker surcharge, a customs inspection fee: each is one number on the master, covering many customers' goods.
 
-Most companies in this position believe they have an accounts payable problem. They don't. They have a *reading* problem. The accounting logic — does the invoice match the order and the delivery, within tolerance — is simple enough to write on a whiteboard. What consumes the team is extracting structured facts from unstructured paper, thousands of times a month. That is exactly the work modern AI is good at, and exactly the work humans are wasted on.
+Our customer is a mid-market European freight forwarder moving tens of thousands of shipments a year and taking in thousands of supplier invoices a month from carriers, terminals, customs brokers and hauliers. They arrive as clean PDFs, as scans of printouts, as photographs pasted into an email body, as spreadsheets with the totals on a different tab from the line items.
 
-## What we built
+Extraction is the easy half. Reading a skewed scan and returning supplier identity, invoice number, currency, charge codes, container numbers and totals, with a confidence score on every field and low-confidence fields flagged rather than guessed, is ordinary engineering now. The hard half is deciding which of those fourteen shipments owe what share of the charge, and how much of it the forwarder can bill onward.
 
-We built an invoice matching engine that sits between the inbox and the ERP. It ingests every supplier document regardless of format, extracts the commercial facts with an explicit confidence score on each field, and runs three-way matching against purchase orders and delivery records under the customer's own tolerance rules. Invoices that match flow straight through to posting and payment scheduling. Invoices that don't land in an exceptions queue, where a human sees only the mismatch — not the whole document, not the whole hunt.
+## Free time is a contract, not a courtesy
 
-The finance team did not get smaller. It got reassigned. The people who used to key invoices now resolve exceptions, chase suppliers on genuine discrepancies, and tighten the tolerance rules — the judgment work that was always the actual job.
+Demurrage and detention are two different clocks with two different contractual allowances, and treating them as one charge type is the quickest way to approve money nobody owed. Demurrage accrues while a container sits inside the terminal past its free days. Detention accrues once the equipment has left the terminal and has not been returned. Both bill in escalating daily tiers, so the fourth day costs more than the first.
+
+Free time is written into the rate agreement or the service contract, usually per trade lane and often per equipment type. Validating a demurrage invoice therefore means rebuilding a timeline: gate-out, gate-in, free days consumed, weekends and holidays counted or not counted according to that contract, then the tier table applied to whatever spilled over. The invoice will show a total and a container number, and almost never the arithmetic.
+
+The engine treats that as a validation problem rather than a matching problem. It reconstructs the clock from container events, applies the free time recorded in the agreement, and either agrees with the carrier's figure or names the specific day and tier where the two accounts diverge. A dispute that says "your day four is our day two, here is the gate-out record" gets settled. One that says "this looks high" does not.
 
 <img src="motion/invoice-matching-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Documents converge, become structured facts, and clear against the order and the delivery. Only the exceptions divert.*
 
-## How it works
+## Allocation comes before matching, or nothing matches
 
-### Layer 1: Ingestion from anywhere
+We shipped strict line-level three-way matching, and on carrier paper it matched almost nothing. The terminal handling line covering fourteen house bills had no order behind it to match against, so it dropped into the exceptions queue, and so did every other consolidated charge. The queue we had built for the difficult cases filled up with the ordinary ones, which is the failure the queue existed to prevent.
 
-The system watches the same channels suppliers already use: the AP mailbox, the supplier portal, a scanner folder in the office. It accepts native PDFs, scans, images embedded in email bodies, and multi-invoice attachments that need splitting. There is no supplier onboarding step and no "please resubmit in the correct format" — a rule we consider non-negotiable, because the moment a system demands that suppliers change their behavior, adoption dies. Each document is classified on arrival: invoice, credit note, statement, or noise, and routed accordingly. Duplicates — the same invoice sent by email and again through the portal a week later — are caught at this layer, before they can be keyed twice or, worse, paid twice.
+We rebuilt the unit of matching. The atom is no longer the invoice line. It is a charge-to-shipment allocation, and an apportionment step now runs before any comparison happens, splitting each consolidated line across the house bills that carried it on the basis recorded in the rate agreement: per container, per TEU, per chargeable weight.
 
-### Layer 2: Extraction with confidence scores
+Allocation-first matching: before an invoice line can be matched at all, it must be resolved to the specific shipments that owe it, using an allocation basis recorded in the rate agreement. Matching then runs per shipment-charge, never per invoice line.
 
-Every classified invoice is converted into structured data: supplier identity, invoice number, currency, line items, tax treatment, and the references that tie it back to a shipment — booking numbers, container numbers, PO numbers, sometimes just a vessel and a date. The critical design decision is that every extracted field carries a confidence score. A crisp digital PDF from a major carrier extracts at high confidence across the board. A skewed scan of a handling fee from a small terminal operator might extract the total confidently but the reference number weakly. Low-confidence fields are flagged, not guessed. The system is honest about what it isn't sure of, which is what makes the downstream automation trustworthy.
+With the atoms right, comparison becomes tractable again. Each allocated shipment-charge is checked against the rate agreed for that lane, the accessorials the booking anticipated, and the events that prove the service happened. One carrier invoice can now be partly cleared and partly disputed: eleven allocations post and schedule for payment, three raise exceptions with the container numbers attached.
 
-### Layer 3: The matching engine
+## A charge with no purchase order is not automatically an error
 
-This is where the invoice meets the purchase order and the delivery record. The engine resolves the shipment even when the supplier's reference is indirect, then compares billed amounts against ordered amounts against delivered quantities. Tolerance rules are explicit and owned by the finance team: a currency rounding difference clears automatically, a small quantity variance on a bulk charge clears with a note, an unexpected surcharge does not clear at all. The rules live in configuration, not code, so the controllers tune them as they learn — tightening where leakage appears, loosening where the queue fills with trivia. Today the large majority of invoices match and post without a human touching them.
+A demurrage line can be entirely correct and still have no purchase order behind it, because it exists precisely because something went wrong. Nobody raises an order for a delay. Our first rule set treated a missing order reference as an exception, which meant the system flagged as suspect exactly the charges most likely to be valid.
 
-### Layer 4: The exceptions queue
+So "no purchase order reference" stopped meaning "error" and started meaning "route to whoever owns the delay". A demurrage allocation goes to the operations desk that ran the customs entry, not to the accounts payable clerk, because the question is not whether the charge matches an order. The question is who caused the delay and whether it is recoverable from the customer.
 
-Everything that fails to match lands in one queue, and the queue is the product as far as the team is concerned. Each exception shows the specific mismatch — this line, this amount, this missing delivery confirmation — alongside the source document, the PO, and the delivery record, already open side by side. The human decides: approve with justification, dispute with the supplier, or correct the extraction. Typical resolution takes minutes, because the investigation is already done. And every decision feeds back — approve the same surcharge from the same carrier a few times running, and the system proposes a tolerance rule so a person never sees it again.
+Recoverability is a contractual answer, so the engine looks it up rather than reasoning about it. The forwarder's own terms and the customer's rate card say who carries the cost when the consignee collects late and when an entry is held for inspection. The system proposes a treatment (recharge to the customer, absorb as cost of service, dispute with the carrier) and shows the clause and the event trail it relied on, so the person approving is reading evidence rather than a verdict.
 
-The human role shifts from processing every invoice to judging the ones that genuinely need judgment. That shift, not the extraction technology, is where the value lives.
+## Tolerances belong to the controller; recoverability belongs to the customer contract
 
-## Why this generalizes
+We refuse to allocate a charge on any basis that is not written into the rate agreement. No statistical apportionment, no even spread across containers because it is close enough, no argument that the variances wash out at group level. An allocation the forwarder cannot defend line by line to its own customer is worse than an exception, because it converts an accounts payable error into a customer invoice error, and the second one is read by someone who never agreed to it.
 
-Nothing in this architecture is specific to freight. The pattern — unstructured supplier documents on one side, structured commitments on the other, and a team of people manually bridging the two — appears anywhere a business buys from many suppliers who all invoice differently.
+Two further refusals shaped the build. We do not allow straight-through posting for any cost that is billable onward: it can be approved without argument, but a human sees the recharge before it reaches a customer account. We do not ask suppliers to change their formats as a condition of being paid, because coverage is the whole point and a system that demands supplier behaviour change never gets it.
 
-Construction is the obvious neighbor: subcontractor invoices, progress claims, and delivery dockets against project budgets and purchase orders, with variation claims playing the role of demurrage. Wholesale distribution runs the same loop at higher volume with supplier invoices against inbound goods receipts. Healthcare procurement adds a compliance layer — invoices matched not just to orders but to contracted pricing schedules — which is one more rule set in the matching engine, not a different system.
+Tolerance thresholds are configuration owned by the financial controller rather than code owned by us. Rounding on a currency conversion clears silently. A small variance on a weight-based charge clears with a note. An accessorial the booking never anticipated does not clear at all.
 
-In every case the three-way match is the easy part. The hard part is that the inputs arrive as paper, and companies solve it today by pointing salaried humans at it. Over the next few years, the businesses that automate the reading and reserve their people for the exceptions will run finance functions their competitors can't match on cost or on close speed.
+The system is not permitted to decide certain things. It cannot approve a disputed carrier charge, cannot create or change an allocation basis, cannot post a recharge to a customer account, and cannot release a payment. It allocates, validates, evidences and proposes; a controller approves, and the audit trail records which human agreed to what and against which clause.
 
-## Is your AP team buried in invoices?
+## Common questions
 
-If your finance team spends its days keying supplier documents and hunting for the PO that goes with them, the reading problem is solvable — without changing how a single supplier behaves. We build systems like this end to end, from the inbox to the ledger. Tell us.
+### Can this work when our carriers invoice at master bill level and we bill customers at house level?
+
+That gap is the reason the engine exists. Every consolidated invoice line is apportioned to the house bills underneath it before matching runs, using the basis in your rate agreement, so each shipment carries its own share of terminal handling and surcharges. Cost per house bill becomes visible the day the invoice arrives.
+
+### What happens when a charge has no allocation basis in the rate agreement?
+
+It stops and goes to a person. The engine will not invent a split, spread evenly or approximate, because an undefendable allocation becomes a wrong customer invoice later. A commercial owner either records the basis in the agreement, which fixes every future occurrence, or allocates this instance manually with a reason attached to the audit trail.
+
+### How does the system handle demurrage and detention disputes with the carrier?
+
+It rebuilds the clock. Using container events and the free-time allowance in your contract, it recalculates each day and tier, then either agrees with the carrier or produces the exact day where the two counts separate. Demurrage and detention are tracked as separate clocks, because they run against different free-time allowances and start at different moments.
+
+### Do our suppliers have to send invoices in a specific format?
+
+No, and we would refuse to build it that way. The engine reads native PDFs, scans, photographed pages, portal exports and multi-invoice attachments, classifies and de-duplicates them on arrival, and scores confidence field by field. Coverage matters more than tidiness: a supplier who cannot be onboarded is a supplier whose invoices go back to being keyed by hand.
+
+## Do you know which shipment paid for that surcharge?
+
+If your team can see what a carrier charged but not who owed it, the reconciliation problem sits in allocation rather than in reading. We build these engines allocation-first, against your own rate agreements, from the mailbox through to the ledger. Tell us what your carrier paper looks like.

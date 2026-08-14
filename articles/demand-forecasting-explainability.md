@@ -1,75 +1,85 @@
-# A Demand Forecast That Tells Buyers Why the Number Moved
+# The Forecast Moved, the Order Did Not
 
-> How we built an explainable replenishment engine for a specialty retail chain, and why the same approach matters for any business whose plan depends on a number an experienced human has to believe.
+> Why our first release of explainable replenishment changed nothing, and what happened when we started explaining the number the buyer was actually looking at.
 
 ![Flow diagram: demand signals converge into a forecasting core, each forecast leaves paired with an explanation of what moved it, and buyer overrides return along a feedback rail as training signal](graphics/demand-forecasting-explainability.svg)
 
-## The problem: a forecast nobody follows isn't a forecast
+## Monday morning, and the proposal is already open in a spreadsheet
 
-Most retailers don't have a forecast accuracy problem. They have a *trust* problem.
+By nine on a Monday, the weekly replenishment proposal has usually been exported into a spreadsheet, and that export is the most honest trust measurement a forecasting team will ever get.
 
-Our customer is a specialty retail chain — stores across several European markets, tens of thousands of active SKUs, and a category mix that swings hard with season, weather, and whatever happens to be going on in the street outside each shop. They weren't starting from nothing. A statistical forecast ran every week and produced a replenishment proposal for every store and every line. On backtests, it was good.
+Our customer is a specialty retail chain with stores across several European markets, tens of thousands of active SKUs, and a category mix that swings with season, weather and whatever is happening in the street outside each shop. A statistical forecast already ran every week and produced a proposed order for every store and every line. On backtests it was good. In the buying office it was a first draft, and some weeks it was a rounding error against the number a buyer typed in by hand.
 
-In practice, the buyers overrode it. Constantly. Some weeks the proposal was a starting point. Some weeks it was a rounding error against the number a buyer typed in by hand.
+The overrides were not the expensive part, because plenty of them were excellent. Forecast and override were saved as a single final quantity, so when a line sold out on day three or sat in the stockroom until markdown, nobody could say whose number had been wrong. Model error and buyer error were indistinguishable in the data, which meant neither of them ever got corrected.
 
-The buyers weren't being difficult. They were being rational. A proposal arrived as a bare quantity — this line, this store, this week — with nothing behind it. A buyer who has run a category for a decade knows things that number does not visibly contain: that this store's catchment empties out during the regional school holiday, that the figure looks low because last year's comparable week included a two-day closure, that the supplier is about to change pack sizes. Handed a number that explains nothing, an expert does the only sensible thing. They fall back on the model in their own head, which is at least interrogable.
+## The case pack is the real unit of demand
 
-The real cost wasn't the overrides. Plenty of them were excellent. The cost was that nobody could tell which ones. Forecast and override were saved as a single final quantity, so when a line sold out on day three or sat in the stockroom until markdown, the miss couldn't be attributed to anyone. Model error and human error were indistinguishable in the data, which meant neither got corrected. The buyers' local knowledge evaporated into a spreadsheet cell every Monday morning, and the model, cut off from the only feedback signal that carried real information, stayed exactly as good as the day it was installed.
+Store replenishment is quantised before anything leaves a warehouse. The proposed quantity is rounded up to the supplier's outer case, sometimes to an inner pack or a pallet layer, and floored by the planogram's presentation minimum: the number of facings the shelf has to hold to look stocked rather than picked over.
 
-## What we built
+Run that arithmetic and the consequence is uncomfortable for a modelling team. A forecast of 2.3 units, against a case of six and a facing minimum of two, ships exactly the same quantity as a forecast of 5.1. Accuracy gained at a grain finer than the order multiple changes nothing that physically moves, and category buyers understand this years before the data science team does.
 
-We built a replenishment engine that produces a forecast and, attached to it, a short plain-language account of why that number moved since last week. Not a feature-importance chart. A sentence a buyer can read in four seconds and either accept or argue with: this store is up because a regional school holiday starts Monday and last month's promotion lifted the baseline; this line is down because last year's comparable spike came from a one-off event we deliberately excluded.
+Actionable forecast error is the portion of forecast error that survives the order multiple. A model improvement that does not change the number of cases shipped is not an improvement, it is a backtest result.
 
-Then the system captures what the buyer does next. Accept, adjust, or reject — every override recorded against a structured reason, alongside the exact explanation the buyer was reading when they made the call. That capture isn't an audit feature bolted on for governance. It's the signal the whole loop runs on.
+## We explained the forecast; the buyer was looking at the order
 
-One boundary is architectural and doesn't move: the machine forecasts, humans commit money. Proposals inside agreed value and volume bands release on the buyer's weekly sign-off. Anything outside them — a new product with no history, a seasonal buy, a supplier minimum-order commitment, a quantity that would park serious working capital in one stockroom — needs a named human approval before it becomes a purchase order. No forecast buys inventory on its own.
+Buyers got their explanations and carried on overriding at exactly the same rate. Every forecast in that first release shipped with a decomposition rendered into plain language: how much of the week-on-week movement came from trend, from seasonality, from a promotion ending, from weather, from a regional holiday, or from a correction applied to the sales history itself.
+
+So a buyer read "demand up, regional school holiday starts Monday" directly above a proposed order identical to last week's. Two of those in a session and a reasonable person concludes the system is talking nonsense, then types their own number exactly as before.
+
+Both figures were correct. The explanation described the forecast, and the artefact on screen was the order, and everything that separates them happens silently after the explanation has been written. Case rounding and the presentation minimum absorbed the entire movement the sentence was boasting about.
+
+## Quantisation is a driver, and it deserves a sentence
+
+We regenerated explanations against the quantised order rather than the forecast, and promoted quantisation to a first-class driver with a sentence of its own: "demand up, order unchanged, both round to one case of six." That category of override effectively disappeared within a couple of planning cycles, because the argument on screen was finally an argument a buyer could have.
+
+We do not show buyers feature-importance charts. A SHAP plot is an instrument for the modelling team and an insult to a category buyer, and an explanation that names a driver the buyer cannot act on is worse than saying nothing, because it spends the credibility the system is trying to earn. Where no single driver dominates, the system says that instead of promoting the largest of several small contributions.
+
+Explanations also state their own weakness. A line with three weeks of history is described as a similarity-based guess with a wide range, because admitting the guesses is what buys belief in the numbers that are not guesses.
 
 <img src="motion/demand-forecasting-explainability.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *The forecast arrives with its reasoning attached, so a buyer can argue with it instead of ignoring it.*
 
-*Signals converge, the forecast forms, and the reason travels with the number all the way to the buyer.*
+## "The data looks wrong" meant the shelf and the system disagreed
 
-## How it works
+The override box offers a short structured reason list, and the reason code that taught us most was the vaguest one on it. Buyers choose from local event we know about, supplier issue, merchandising plan, price change coming, or the data looks wrong, plus free text if they want it.
 
-### Layer 1: Signal assembly
+"The data looks wrong" clustered by store, not by product, which is the signature of a place rather than a line. A stubborn buyer or a genuinely hard category would cluster the other way.
 
-Everything the forecast is allowed to know is assembled first, at the grain the decision is made: store, line, week. Sales history, obviously — but corrected, because sales are not demand. A line that sold nothing while it was out of stock didn't have zero demand, and a model trained on uncorrected history learns to starve the products that sell out.
+It traced to stock-record inaccuracy. The system believed there were four on the shelf, the shelf held none, and replenishment proposed nothing for a line that was selling. Buyers had been detecting phantom inventory by hand for years, one product at a time, with no way to tell anyone systematically. That reason code now feeds a cycle-count priority list for store operations rather than a model retrain, because the forecast was never the broken component.
 
-Around that sit the signals a buyer would think about unprompted: the price and promotion calendar, including promotions that have already run and are still lifting the baseline; weather history and forecast against each store's catchment; school and public holidays per region; a local events feed; product attributes, so a new line can borrow the shape of similar ones; supplier lead times, because a forecast the supply chain can't act on is trivia.
+## A reason code that keeps winning is a missing feature, not a stubborn human
 
-Every signal is stored with the timestamp at which it was actually knowable, so the model never trains on the future. And this layer matters for a second reason: a forecast can only be explained in terms of what it consumed. Signal assembly is the vocabulary the explanations are written in.
+Weeks after each planning round, outcomes sort the overrides into three piles: the ones that beat the model, the ones the model beat, and the ties. Buyers get an honest picture of where their instincts add margin and where they cost it, which is a conversation nobody could hold before because the evidence did not exist.
 
-### Layer 2: Forecasting at the grain of the decision
+We get a modelling backlog out of the same data. When "local event we know about" wins repeatedly in one region, the events feed is incomplete for that region, and the fix is a new signal rather than a training session about trusting the system.
 
-The model forecasts where the decision happens — store and line — then reconciles upward so category and chain plans agree with the sum of their parts. Underneath is an ensemble: a gradient-boosted model over the engineered signals, seasonal baselines for stable lines, and attribute-based similarity for products with no history of their own.
+This whole approach is wrong when the order multiple is one. Direct-to-consumer picking, where every unit ships individually, has no case pack and no facing minimum, so accuracy at a fine grain does move goods and the money belongs in the model rather than in the explanation. Ask what the smallest quantity you can physically order is before you fund another decimal place of accuracy.
 
-The output is a distribution, not a point. Buyers don't actually want the most likely number; they want to know what they're risking. A tight forecast and a wide one are different decisions even at the same midpoint.
+## Nothing here raises a purchase order
 
-### Layer 3: Explanation generation
+No forecast in this system commits working capital on its own. Proposals inside agreed value and volume bands release on a buyer's weekly sign-off, and everything outside those bands needs a named human approval before it becomes an order: new lines with no sales history, seasonal buys, supplier minimum-order commitments, and any quantity that would park serious stock in one stockroom.
 
-Every forecast is decomposed against last week's: how much of the movement came from trend, from seasonality, from a promotion ending, from weather, from a holiday, from a correction to the history itself. That decomposition is arithmetic, done on the model's own contributions.
+The machine proposes quantities and explains them. People commit money, and the record shows which person committed which quantity against which explanation, which is the same record that makes the override analysis possible in the first place.
 
-Only then does language get involved, to render the top handful of drivers into a sentence a human reads without effort. The language layer describes the decomposition. It never reasons about causes, and it can't cite a driver that isn't in the arithmetic — which is what keeps explanations from becoming plausible fiction.
+## Common questions
 
-Explanations also say when they don't know. A new product with three weeks of history is described as exactly that: a similarity-based guess with a wide range. Admitting the guesses is what buys credibility for the numbers that aren't.
+### Won't better explanations just give buyers better arguments for overriding?
 
-### Layer 4: Override capture and the loop back
+Overrides are not the enemy, unattributable overrides are. Once the proposal, the explanation, the override and the reason code are stored separately, every override becomes a measurable claim that either beat the model or did not. In practice the overrides that vanish first are the ones driven by confusion, and the ones that survive are the ones carrying real local knowledge.
 
-The buyer's screen shows the proposal, the explanation, the uncertainty, and an override box with a short structured reason list — local event we know about, supplier issue, merchandising plan, price change coming, the data looks wrong — plus free text. Picking a reason takes a second, which is the only way you ever get people to do it.
+### We already generate SHAP values. Isn't that explainability?
 
-Weeks later, outcomes sort those overrides into three piles: the ones that beat the model, the ones the model beat, and the ties. That produces two things. For buyers, an honest picture of where their instincts add value and where they cost margin — a conversation nobody could have had before, because the evidence didn't exist. For us, a modelling backlog: a reason code that keeps winning is a missing feature, not a stubborn human. When "local event we know about" wins repeatedly in one region, the event feed is incomplete, and the fix is a new signal in Layer 1 rather than a training session about trusting the system.
+Those are for you, not for the buying office. A feature-attribution chart explains a model's internal behaviour to someone who knows what a feature is. A buyer needs a sentence about the shipped order that names a cause they recognise and can contest, generated from arithmetic on the model's own contributions so it can never cite a driver that did not participate.
 
-The human role shifts from producing numbers to judging them — and then, as trust builds, from judging every number to judging the ones the system flags as uncertain or contested.
+### How do you tell a bad model from a bad stock record?
 
-## Why this generalizes
+By what the override reasons cluster on. Errors that cluster by product or category point at the model or its signals. Errors that cluster by store, across unrelated categories, point at the physical stock record in that store. The two need completely different fixes, and a single accuracy metric hides which one you have.
 
-Nothing here is specific to specialty retail. The shape is: a model producing decisions that a knowledgeable human can veto, where the human's veto contains information the model doesn't have and currently has nowhere to go.
+### Do buyers actually pick a reason code?
 
-Grocery and food distribution live in an extreme version of it, where over-forecasting spoils and under-forecasting empties a shelf a customer won't come back to. Industrial and spare-parts distribution runs the same loop with slower turns, costlier mistakes, and branch managers who override for reasons a central model never sees. Workforce scheduling in hospitality and healthcare is the same architecture with hours instead of units.
+They do when it takes one click and they see the result. The list is deliberately short, free text is always available, and the weekly outcome review shows buyers their own hit rate by reason. A reason code with no feedback loop attached is administrative work, and people are right to skip it.
 
-In every one of them, the winning system isn't the most accurate model. It's the one whose numbers get followed, and whose overrides make the next forecast better.
+## What does your Monday planning meeting actually argue about?
 
-## Do your planners trust the forecast enough to follow it?
-
-If your buyers export the proposal to a spreadsheet before acting on it, the forecast isn't the problem — the silence around it is. We build forecasting systems that explain themselves, capture the override, and treat human judgment as training data rather than interference. Tell us what your planning week looks like.
+If the argument is whether to believe the proposal, the forecast is not the thing to fix first. We build replenishment systems that explain the quantity a buyer is looking at, capture the override as structured evidence, and route what that evidence reveals to the team that owns it. Tell us what your planning week looks like, and we will tell you which part of it is worth automating.

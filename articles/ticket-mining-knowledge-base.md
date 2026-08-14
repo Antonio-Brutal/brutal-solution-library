@@ -1,24 +1,36 @@
-# A Knowledge Base Mined From Ten Years of Resolved Tickets
+# Mining Ten Years of Tickets Without Publishing Workarounds as Answers
 
-> How we built a self-maintaining knowledge base and a deflection assistant for an enterprise IT services provider, and why the same approach matters for any organization whose best answers are buried in closed tickets.
+> Why most of an enterprise service desk's resolution history records circumventions rather than fixes, and how we made a knowledge base that publishes the two under different promises.
 
 ![Flow diagram: an archive of closed tickets is clustered into article trunks, each tethered by provenance threads back to its source tickets; stale and contradictory entries divert to an owner before anything publishes](graphics/ticket-mining-knowledge-base.svg)
 
-## The problem: the answer exists, it just was never written down twice
+## Ten years of resolution notes is ten years of workarounds
 
-Most service desks don't have a knowledge problem. They have a *distillation* problem.
+A decade of resolution notes is overwhelmingly a record of workarounds, not fixes. Telling one from the other is the central engineering job in mining that archive, and everything else in the system exists to support it.
 
-Our customer is an enterprise IT services provider running service desks for large corporate clients across several countries. Their ticketing system holds a decade of history — millions of resolved tickets, each one a question somebody asked and an answer that actually worked. It is the most complete record of how their business solves problems, and nobody could use it.
+The distinction is not ours. In ITIL practice an incident record exists to restore service and a problem record exists to remove cause. When a problem's root cause is established and a temporary circumvention is documented, the pair becomes a known error and lives in a known error database alongside the change that will eventually remove it. Service desk resolution notes are therefore mostly known-error workarounds typed under an SLA clock, and they inherit an expiry that the note itself never states.
 
-The official knowledge base, meanwhile, was a few hundred articles produced during a documentation push years earlier. Many described systems that had since been replaced, policies that had since changed, and steps that no longer matched the console anyone was looking at. Engineers stopped trusting it, so they stopped searching it. They searched raw ticket history instead, or asked the one colleague who remembered — which meant the knowledge base decayed further, because nothing rots faster than documentation nobody reads.
+Our customer runs service desks for large corporate clients across several countries, and their ticketing system holds a decade of history: millions of resolved tickets, each one a question somebody asked and an answer that worked at the time. It is the most complete account of how the business solves problems, and nobody could use it.
 
-The costs compound quietly. The same incident gets solved from scratch by three engineers in three months, each spending an hour rediscovering what a fourth engineer wrote down in a resolution note in 2019. Expertise concentrates in individuals, which is fine until they take annual leave and lovely until they resign. New engineers take months to become useful, not because the work is hard but because the map is in other people's heads. And writing articles is always the task that loses: it competes with a live queue, and the live queue always wins.
+The official knowledge base was a few hundred articles produced during a documentation push years earlier. Many described systems since decommissioned, policies since changed, and steps that no longer matched the console anyone was looking at. Engineers stopped trusting it, so they stopped searching it, so it decayed further.
 
-## What we built
+A workaround published as an answer is a specific and delayed hazard. It carries no expiry, so it survives the fix that made it unnecessary, and it will eventually be applied by a competent engineer to a system where restarting that service or clearing that cache does real harm. The article was never wrong. It was right in 2019, about a machine that no longer exists.
 
-We built a system that reads the resolution history, finds the problems that genuinely recur, drafts a knowledge article for each one with links back to the tickets behind every step, watches for articles going stale or contradicting each other, and answers questions from the published set with citations.
+## We clustered on the symptom and produced articles that were right one time in three
 
-The boundary is simple and it holds everywhere. The machine drafts; a named human publishes. Every article has an owner — a senior engineer in that domain — who approves it before it can be seen by anyone and stays on record as the person accountable for it. Nothing synthesized reaches an engineer or an end user without that signature.
+Clustering on the reported symptom demos beautifully. That was our first pipeline, and its clusters were clean and convincing; the drafts underneath them were dangerous.
+
+One cluster labelled around a VPN connection failure contained three unrelated causes: an expired device certificate, a split-tunnel policy change, and exhaustion of a licence pool. The symptom text was near-identical across all of them because users describe the same failure the same way. Synthesis dutifully merged the steps into a single confident procedure that was correct for roughly a third of the tickets underneath it, and the draft read beautifully, which was the problem.
+
+We moved clustering onto the resolution signature instead: which configuration item was touched, which change record was linked, which console path or command family the engineer used, and whether the note pointed back at a prior ticket. Symptom text became a label on the cluster, not the key it was formed on. A second pass now splits any cluster whose fix families diverge, so three causes wearing one symptom become three articles rather than one confident average.
+
+## Known error, workaround, permanent fix: three different promises
+
+Every draft carries a field stating whether its steps restore service or remove cause, and that field is printed at the top of the published article rather than buried in metadata.
+
+An article that removes cause is published as a fix and reviewed on an ordinary cycle. An article that restores service is published as a workaround, tied to the known error it circumvents, and given a review date pinned to the change record that will retire it. When that change closes, the article is queued for its owner with the change attached, so the retirement of a workaround is an event rather than an oversight nobody scheduled.
+
+Reading the archive properly means separating what the user reported from what actually fixed it, and the real signal is scattered across comments, internal notes, attachments and linked change records. A note reading "same as last time, applied the workaround" is a pointer, and the system follows it rather than treating it as content.
 
 <img src="motion/ticket-mining-knowledge-base.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -26,48 +38,50 @@ The boundary is simple and it holds everywhere. The machine drafts; a named huma
 
 *Resolutions cluster into recurring problems, synthesis pulls them into drafts with provenance, and nothing publishes without an owner's approval.*
 
-## How it works
+## Step-level provenance changes the question the reviewer is answering
 
-### Layer 1: Resolution mining and clustering
+Provenance attached to each step, rather than to the article, is what makes review a technical act instead of a proofread.
 
-The first job is reading a ticket properly, which means separating what the user reported from what actually fixed it. Resolution notes are written in haste for the person closing the ticket, and the real signal is scattered across comments, internal notes, attachments and linked change records. A note reading "same as last time, applied the workaround" is a pointer, not an answer, and the system has to follow it.
+Step-level provenance means every individual step in a published article names the source tickets whose resolutions produced it, so the reviewing owner is asked whether they agree with eleven specific resolutions rather than whether the article reads plausibly. Provenance attached to the article as a whole is a citation. Provenance attached to each step is a review.
 
-Before anything is synthesized, everything is redacted: credentials, tokens, hostnames, personal data, and client-identifying details. Tenancy is enforced structurally — knowledge mined from one client's tickets never reaches another client's assistant unless it is generic and has been explicitly approved for the shared library. In a multi-client service business that is not a nice-to-have, it is the contract.
+The machine drafts and a named human publishes. Every article has an owner, a senior engineer in that domain, who approves it before anyone can see it and stays on record as the person accountable. Where a cluster contains genuine disagreement between resolutions, the draft says so and puts the choice to the owner instead of smoothing it into a false consensus.
 
-Clustering then groups tickets by problem and fix rather than by keyword. This distinction is the whole layer. One symptom with three different underlying causes must become three articles; collapsing them into one produces a document that is wrong two-thirds of the time and confidently so. Clusters are prioritized by how often they recur and how recently, so the drafting queue reflects what is actually costing the desk hours this quarter.
+Before anything is synthesised, credentials, tokens, hostnames, personal data and client-identifying details are removed. We refuse to build a single cross-client knowledge pool: knowledge mined inside one tenancy does not reach another tenancy, even when it reads as generic, until a named human promotes it into the shared library. In a multi-client service business that boundary is the contract, not a preference.
 
-### Layer 2: Article synthesis with provenance
+## Two articles disagree, and neither of us gets to break the tie
 
-Each cluster becomes a draft in the house structure: symptom, environment it applies to, cause, verified steps, how to confirm the fix worked, and when to escalate instead.
+When two published articles give conflicting instructions for the same symptom, the system opens a review task for both owners with the conflicting passages and the evidence behind each, and it does not pick a winner. Deciding which runbook is correct is an engineering judgment with operational consequences, and a system that resolves it silently will eventually be silently wrong.
 
-Every step cites the tickets it came from. Provenance is the entire game here, because it changes the review question. The owner is not asked "does this sound plausible?" — they are shown that these eleven tickets produced this step, and asked whether they agree. Where a cluster contains genuine disagreement, the draft says so and puts the choice to the owner rather than smoothing it into a false consensus.
+Decay is detected mostly through divergence: new resolutions in a cluster where engineers are visibly doing something other than what the published article says. Weaker signals sit behind it, including change records touching the systems an article covers, citations ageing, engineers quietly editing steps, and users who received a cited answer and came back anyway.
 
-Synthesis also tags steps that are privileged or destructive: restarting a production service, resetting credentials, editing a registry, deleting profile data. That tag is metadata carried by the article itself, and the layer above depends on it.
+Stale articles are demoted in the assistant's ranking and flagged to their owner, never deleted. Quiet deletion is how a good article that nobody had time to review disappears for good, and a demoted article is still recoverable by the person who knows whether it is true.
 
-### Layer 3: Freshness and contradiction detection
+## Privileged steps carry a tag, and the tag is enforced in routing
 
-A knowledge base is not a project, it is a population with a mortality rate. Articles die when a system is decommissioned, a client policy changes, or a vendor patch makes step four unnecessary. The system watches for that continuously.
+Steps that are privileged or destructive are tagged at synthesis: restarting a production service, resetting credentials, editing a registry, deleting profile data. The tag lives in the article metadata and is enforced by the routing logic, not by a prompt asking a model to be careful.
 
-The strongest signal is divergence: new resolutions in a cluster where engineers are doing something different from what the published article says. Others are softer — change records touching the systems an article covers, the article's own citations aging, engineers quietly editing steps, or users who received a cited answer and came back anyway.
+The assistant answers end users from published articles only, and it hands over the safe portion of a tagged article while opening a ticket to an engineer with the full article attached. We refuse to let it answer from raw ticket history when nothing published covers the question. In that case it says so, routes to a human, and reports what it searched.
 
-When two articles give conflicting instructions for the same symptom, the system does not pick a winner. It opens a review task for both owners with the conflicting passages and the evidence behind each. Deciding which runbook is correct is an engineering judgment with operational consequences, and a model that resolves it silently is a model that will eventually be silently wrong. Stale articles are flagged and demoted in the assistant's ranking, never deleted — quiet deletion is how a good article that nobody had time to review disappears forever.
+What the system may not decide is short and fixed. It cannot publish. It cannot promote knowledge across tenancies. It cannot choose between two contradicting articles. It cannot delete anything. Questions it could not answer become a ranked queue of knowledge gaps, which is the most honest content roadmap the organisation has, because it is built from what people actually asked.
 
-### Layer 4: A deflection assistant that cites its answers
+## Common questions
 
-The assistant answers from published articles only. If nothing published covers the question, it says so and routes to a human with a summary of the request and what it searched. There is no approximate answer, no improvised third option, no synthesis on the fly from raw tickets. An assistant that guesses about production systems is worse than no assistant at all.
+### Won't this just publish our outdated documentation faster?
 
-Every answer shows the articles it used, as links. End users click them more than anyone expected; engineers click them constantly, because for an engineer the citation is the real product.
+The opposite risk is the real one, which is why every article states whether it restores service or removes cause. Workarounds are tied to a known error and carry a review date pinned to the change that retires them. Nothing publishes without a named owner approving it, and drafts arrive with per-step citations they can check.
 
-The privileged tag from Layer 2 becomes an architectural boundary here. Steps marked privileged or destructive are never handed to an end user. The assistant gives the safe portion, then opens a ticket routed to an engineer with the full article attached. That rule lives in the article metadata and the routing logic, not in a prompt politely asking a model to be careful.
+### Can the assistant answer from ticket history when no article exists yet?
 
-Questions the assistant could not answer become a ranked queue of knowledge gaps. It is the most honest content roadmap the organization has ever had, because it is built from what people actually asked rather than from what someone assumed should be documented. The human role shifts from answering the same question repeatedly to owning the answer once.
+No, and that is deliberate. It answers from published articles only, with links to the articles it used. When nothing published covers the question it says so and routes to an engineer with a summary of the request and what it searched. Unpublished ticket history has not been reviewed, redacted, or checked for expiry.
 
-## Why this generalizes
+### How do you keep one client's knowledge out of another client's assistant?
 
-The pattern is any organization where doing the work already produces a written record of the fix. Field service for medical devices and industrial equipment is the same picture with different documents: decades of service reports describing symptoms, causes and repairs, sitting in a system used only for billing. Software companies run it inside their own support desks, where the answer to a customer's question was written last month in a thread nobody indexed. Internal shared service centres for HR, payroll and finance answer the same few hundred questions every year, with the correct answers scattered across a decade of email.
+Structurally, not by policy. Mining, synthesis and retrieval run inside a tenancy, and redaction removes client-identifying details before synthesis. Cross-tenancy reuse happens only when a named human promotes an article into a shared library and takes ownership of it. There is no single pooled index that a filter is asked to police at query time.
 
-In each case the archive is not a compliance artifact. It is a knowledge base that has already been written and never assembled — and assembling it is a machine's job, while standing behind it stays a person's.
+### What does this need from our engineers?
 
-## Sitting on a decade of tickets nobody can search?
+Review time from a handful of senior people, concentrated at the start. Their queue is ordered by how often a problem recurs and how recently, so the first articles reviewed are the ones costing the desk hours this quarter. Ongoing effort is mostly disposing of divergence flags and contradiction tasks, which arrive with the evidence attached.
 
-If your best documentation is a resolution note somebody typed at the end of a long shift, you already own the knowledge base — it just hasn't been written yet. We build these systems provenance-first, with a named owner behind every published article. Tell us what your ticket history looks like.
+## How much of your resolution history is a fix, and how much is a workaround still running?
+
+If nobody can answer that, your best documentation is a note somebody typed at the end of a long shift and nobody has read since. We build these systems provenance-first, with a named owner behind every published article and an expiry on every circumvention. Tell us what your ticket history looks like.

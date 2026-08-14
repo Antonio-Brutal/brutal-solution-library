@@ -83,6 +83,8 @@ PAGE = """<!doctype html>
 <meta property="og:image" content="{og}">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://brutal.ai/en/blog/{slug}">
+{schema}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>{css}</style></head>
@@ -113,9 +115,11 @@ def main():
             print("  !! missing", slug); continue
         src = open(p, encoding="utf-8").read()
         inner, real_title, desc = brand.render_article(src, slug, asset_prefix="../")
+        schema = brand.build_schema(real_title, desc, slug, cust, cat, inner)
         out = PAGE.format(title=htmlmod.escape(real_title), desc=htmlmod.escape(desc),
                           og="../media/%s-poster.jpg" % slug, css=CSS, inner=inner,
-                          cust=htmlmod.escape(cust), cat=htmlmod.escape(cat))
+                          cust=htmlmod.escape(cust), cat=htmlmod.escape(cat),
+                          schema=schema, slug=slug)
         open(os.path.join(DIST, "articles", slug + ".html"), "w", encoding="utf-8").write(out)
         built.append((i, slug, title, cust, cat))
 

@@ -1,65 +1,85 @@
-# How We Built a Regulatory Horizon-Scanning System for a Payments Fintech
+# A Horizon Scanner That Diffs Provisions, Not Files
 
-> How we built a regulatory horizon-scanning system for a payments fintech operating across multiple European markets, and why the same approach matters for any business whose rulebook is written by someone else.
+> How we built regulatory horizon scanning for a payments fintech licensed across several European markets, and why the change that moves your obligations is usually not a change to the law.
 
 ![Flow diagram: distant source beacons feed a change-detection comparator where an old and new version overlay and the difference glows lime, then an impact-mapping lattice routes the change and an officer confirms before it fans out to distinct owner terminals, each with a deadline](graphics/regulatory-horizon-scanning.svg)
 
-## One compliance officer, a rulebook in every market
+## The text that binds you arrives years after the law is passed
 
-One compliance officer. A spread of European jurisdictions. Dozens of official sources that publish whenever they feel like it. The payments fintech we worked with was licensed across multiple markets, which meant its rulebook was written and rewritten by a national regulator in each of them, plus the European supervisory authorities, plus the official journals where the actual legal text lands. One person tracked all of it: regulator newsletters, consultation papers, guideline updates, a browser folder of bookmarks, and a reading load that ran well into double-digit hours a week.
+Level 1 is the least useful place to watch. Under the Lamfalussy structure that organises European financial regulation, Level 1 is the regulation or directive, Level 2 is the delegated and implementing acts drafted as regulatory and implementing technical standards by the European Supervisory Authorities, and Level 3 is the guidelines, recommendations and Q&As. The operational detail that changes what a payments firm has to build lands at Level 2 or Level 3, years after the headline law passed and long after the trade press stopped covering it.
 
-Most regulated companies don't have a compliance problem. They have a *detection* problem. The controls were sound. The policies were current — as far as anyone knew. The weakness was upstream of all of it: knowing, reliably and promptly, when the rules had moved. And detection ran through a single person's reading stamina.
+The fintech we built this for is licensed across several European markets. Its rulebook is written by a national regulator in each of them, by the European supervisory authorities, and by the official journals where the legal text finally appears. One compliance officer tracked all of it through newsletters, consultation papers, guideline pages and a folder of bookmarks, at a reading load well into double-digit hours a week. She was good at it, which is exactly why nobody had ever questioned the arrangement.
 
-She was good at it. That was part of the problem. Because she was good at it, nobody worried about it, and because nobody worried about it, the process stayed what it was: one diligent professional scanning feeds and PDFs, always slightly afraid of the one she missed. Miss a consultation paper and the company loses its chance to shape a rule that will constrain the product for years. Miss a guideline update and a control drifts quietly out of date until an auditor — or worse, an incident — finds it.
+Reading was never the job. The job was what follows the reading: deciding which controls a change touches, who owns them, and the date by which something has to be true. Scanning was consuming the hours that assessment needed.
 
-There is a second cost, less visible. Reading is not actually the job. The job is what happens after the reading: deciding whether a change applies, which controls and policies it touches, who needs to act, and by when. The scanning was consuming exactly the hours that assessment and follow-through needed.
+## Level 3 changes your obligations without changing a document
 
-## What we built
+An answer in the ESAs' Single Rulebook Q&A can change how a rule is applied in practice without amending any published legal text at all. A row appears in a database, a supervisory expectation moves, and nothing a file monitor would recognise as a document has happened.
 
-We built a horizon-scanning system that monitors the official sources, detects what actually changed, explains each change in plain language, maps it to the internal controls, policies, and product features it touches, and routes it to a named owner with a deadline.
+That fact rules out an entire product category. Feed readers, newsletter digests and PDF watchers are built on the assumption that obligations arrive as documents with publication dates. Several of the most consequential Level 3 events are rows, timestamps and translations.
 
-The thesis fits in one sentence: the system turns regulatory change from a reading problem into a work-assignment problem. The compliance officer stopped being a human news feed. She now supervises a pipeline — reviewing the system's assessments and correcting its routing instead of producing everything from scratch — and the bulk of that reading time came back to her.
+So the system treats a Q&A entry as a first-class monitored object, with its own identifier, question text, answer text and revision history, and it links each entry to the provision it interprets. A changed answer routes exactly like an amendment to the article it concerns, because for the firm the consequence is the same.
 
-It is worth saying what the system is not. It does not interpret the law, and it does not decide what the company should do about a change — those calls stay with the humans who are qualified and accountable for them. It makes sure the right human sees the right change, with the right context, in time to act.
+## Hashing the PDF was noisier than the newsletters
+
+We started, as everyone does, with content hashing on the source URL, on the correct assumption that regulators replace PDFs in place. Regulators do precisely that: same URL, same filename, different text, no announcement.
+
+What we did not anticipate was the opposite failure. Many regulator pages embed a generated render timestamp, a session identifier or a rotating consultation banner, so the hash changed daily on pages where nothing substantive had moved. Within a fortnight the compliance officer was ignoring the system exactly as she had ignored the newsletters, and she was right to. Hashing produced more noise than the manual process it replaced.
+
+That failure set the standard the system is now held to. An alert that is wrong costs more than an alert that is late, because a person who has learned to dismiss your alerts will dismiss the true one at the same speed as the rest.
+
+## Diff the provision, not the file
+
+We rebuilt around structural extraction. Each instrument is parsed into its numbered provisions, articles and paragraphs, guideline numbers, Q&A identifiers, and the comparison runs provision by provision against the stored previous version. An alert reads "Article 12(3) amended, reporting window unchanged" instead of "file changed". Boilerplate churn stopped generating anything at all, because a render timestamp is not a provision.
+
+Provisions are also the join key to the business. A register links each provision to the internal artefacts that cite it: controls, policies, procedures and product features. When Article 12(3) moves, the system names the outsourcing register, the incident-response policy and the merchant-onboarding flow, per market, where the mapping differs by market. We built that register in working sessions with the compliance officer, who could already recite most of it from memory. Writing it down is what makes it survive a handover.
+
+Horizon scanning is not document monitoring. Document monitoring tells you a file changed. Horizon scanning tells you which provision changed, which internal control or policy cites that provision, who owns it, and the first date on which the company loses the ability to influence the outcome.
 
 <img src="motion/regulatory-horizon-scanning.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Change arrives from many sources, gets compared against what stood before, and lands on an owner.*
 
-## How it works
+## The comply-or-explain clock starts with the translations
 
-### Component 1: Source monitoring
+Under Article 16(3) of Regulation (EU) 1093/2010, national competent authorities must state within two months whether they comply with an EBA guideline, and that two-month window runs from publication of the official translations rather than from the English text. The operative date for a firm is therefore a translation date, published quietly, in a language section, on a page nobody has bookmarked.
 
-The system watches dozens of official sources: national regulator websites across every licensed market, official journals, European supervisory authority publications, and open consultation feeds. The engineering here is unglamorous and essential. Regulators do not publish tidy APIs. They replace PDFs at the same URL, restructure guideline pages without notice, and sometimes announce a substantive change only in a press release.
+The system watches translation publication per language and starts the clock from it, market by market. One guideline published in English can carry three different comply-or-explain deadlines across three licensed markets, and those dates decide when each national regulator's position becomes knowable to you.
 
-The monitoring layer checks these sources continuously, normalizes every publication into a common format, and deduplicates aggressively — the same amendment surfacing in two newsletters and one official journal is one item of work, not three. Nothing gets discarded silently; anything the system cannot classify lands in a review queue rather than a void.
+None of this is exotic to anyone who has lived it, and none of it is visible to a monitoring tool that treats the English PDF as the event.
 
-### Component 2: Change detection and summarization
+## The deadline worth routing on is the consultation closing date
 
-Finding new documents is the easy part. Knowing what changed is the hard part, and it is where the manual process bled the most hours. Regulators routinely republish a sixty-page guideline in order to amend two paragraphs, and the reader is left to find them.
+Every routed change carries a deadline, and the one we default to is the first date on which the company loses the ability to influence the outcome. For a consultation paper that is the closing date, not the eventual date of application. Once the consultation closes, the only remaining option is compliance.
 
-The system diffs each new version against the previous one and produces a plain-language summary of the difference — a summary of the *change*, not a summary of the document. "The updated guideline extends incident-reporting obligations from major incidents to significant near-misses; reporting windows are unchanged" is a sentence someone can act on. Every summary links back to the exact passages it came from, because a compliance officer should never be asked to take a machine's word for anything.
+Application dates, transposition deadlines and dates of entry into force still travel with the task, because implementation needs them, but they arrive as the second date rather than the first. A consultation closing in six weeks outranks a regulation applying in two years. A task list sorted the other way around is how firms end up complaining in public about rules they were invited to comment on.
 
-### Component 3: Impact mapping
+## We do not let it say whether a rule applies to us
 
-A summary is knowledge. Compliance runs on consequences. The third layer maintains a register that links regulatory topics to the internal artifacts they govern: controls, policies, procedures, and product features. When a change lands, the system maps it against the register and states the blast radius: this update touches the outsourcing register, the incident-response policy, and the merchant-onboarding flow in more than one market.
+The system states what changed and which internal artefacts cite the affected provision. It does not state whether a change applies to us, and it never answers the question "are we compliant with this?". An answer to that question is legal advice manufactured by a machine and handed to a person who is personally accountable for it.
 
-We built that register in working sessions with the compliance officer, and it deserves the same observation we make in most of our projects: the map already existed — in her head. She could tell you from memory which policy a given guideline fed. The register made that map explicit, which means it now survives holidays, handovers, and resignations.
+We also refuse auto-closure of tasks. A task does not close because a deadline passed, because a linked policy file was edited, or because the system inferred that somebody probably acted. A regulatory obligation is discharged by a named human recording what they did, or it is not discharged. The record that falls out of this, what arrived, who was told, what they did and when, is the artefact a supervisor asks to see.
 
-### Component 4: Owner routing with deadlines
+Every summary links back to the passages it came from, and the compliance officer reviews each assessment before it ships, confirming relevance, correcting the impact mapping and redirecting an owner when the register chose wrong. Her corrections update the register itself, so the mapping improves in the place where it is used rather than inside a model nobody can inspect.
 
-The last layer is where reading becomes work. Every relevant change becomes a task with a named owner and a deadline taken from the regulatory calendar itself — consultation closing dates, transposition deadlines, dates of entry into force. Assignment happens while the change is still news rather than at the next quarterly review, and every task is tracked to closure.
+## Common questions
 
-The compliance officer reviews each assessment before it ships: confirming relevance, adjusting the impact mapping, redirecting the owner if the system chose wrong. Her role shifts from reading everything to deciding whether the system's reading is correct. A side effect worth naming: the pipeline produces a complete audit trail — what arrived, who was told, what they did about it — which is precisely the kind of record regulators like to be shown.
+### How is this different from a regulatory newsletter or an alerting feed?
 
-## Why this generalizes
+A feed tells you that a document was published. This tells you that Article 12(3) changed, that your incident-response policy and merchant-onboarding flow cite it, who owns each of them, and the first date on which you lose the ability to influence the outcome. The unit of work is a provision mapped to an internal artefact, not an item to read.
 
-Nothing in this architecture is specific to payments. Medical device manufacturers track MDR guidance and notified-body communications across the same kind of ragged source landscape. Food producers track labeling and safety standards that shift country by country. Crypto platforms face a rulebook that is being written in real time, in public, across a dozen venues at once.
+### Will it tell us whether a new rule applies to our business?
 
-Any regulated business shares the shape: the rules are written elsewhere, published unevenly across many sources, and carry real consequences for the one you miss. The sources change, the register contents change — the system does not. And in most of these companies, detection is the unfunded function: teams are staffed to assess and remediate, while finding out lands by default on whoever reads the most newsletters.
+No, by design. Applicability is a legal judgement that a named, accountable person makes. A machine-manufactured answer would sit in your files looking authoritative while being nobody's professional opinion. The system hands that person the changed provision, the affected internal artefacts and the operative dates, so the judgement takes minutes instead of a day.
 
-Over the next few years, the gap between these two postures will widen. Companies that treat regulatory change as assigned, deadlined work will absorb it as routine; companies that treat it as reading will keep discovering changes at audit time, when the options are worst and the explanations are hardest.
+### Regulators publish badly. How do you cope with sources that have no API?
 
-## What's your plan for the regulatory change you haven't seen yet?
+By parsing structure rather than watching files. Instruments are broken into numbered provisions and compared provision by provision, so a replaced PDF at the same URL is handled and a rotating banner produces nothing. Q&A entries are monitored as objects with their own revision history, since a new answer changes practice without changing any document.
 
-If regulatory monitoring at your company is one diligent person and a folder of bookmarks, you have a single point of failure reading as fast as they can. We build the system that watches, explains, and assigns — so your experts spend their time on the response, not the reading. How does regulatory change reach your team today? Tell us.
+### Who closes a task once a change has been handled?
+
+A named human, always. The system will not close a task because a deadline passed or a policy file was edited. The owner records what they did, and that record becomes the audit trail: what arrived, who was informed, what action was taken and when. Auto-closure produces a clean board and an empty evidence file.
+
+## Which changed rows in a supervisory Q&A would reach you this month?
+
+If the answer is that somebody would probably notice eventually, your detection depends on one person's reading stamina and their holiday schedule. We build the layer that watches provisions, maps them to your controls and puts a date on them, so your experts spend their hours on the response. Tell us which sources you are trying to watch.

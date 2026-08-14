@@ -1,55 +1,83 @@
-# A Close Copilot That Reconciles the Numbers and Drafts the Story
+# A Close Copilot for a Business Where Nothing Is Supposed to Reconcile
 
-> How we built a financial close copilot for a multi-country hospitality group, and why the same approach matters for any multi-entity business.
+> How we built a financial close copilot for a multi-country hotel group, and why expected settlement, rather than amount matching, is the right basis for reconciliation in any business that collects its money through somebody else's platform.
 
 ![Flow diagram: parallel entity rails converge into a reconciliation enclosure where pairs lock; an unmatched rail drops through a siding to a lime-ringed controller-reviews node and rejoins, variance narratives draft from the matched data, and a sequential close checklist leads to the closed ledger, with an audit trail running underneath the whole flow](graphics/financial-close-automation.svg)
 
-## The close that never really ends
+## Nothing should match, and that is the point
 
-Month-end close is supposed to be an event. For most multi-entity businesses it is a season.
+In a hotel group, almost nothing on the bank statement is supposed to equal anything in the ledger. Room revenue posts on the night of stay. The cash for that night arrives days later, in a batch covering many guests, from a company that has already deducted its own commission. Build a reconciliation engine on matching amounts within a tolerance and it will flag the entire book, then flag hardest at the properties doing the most business.
 
-The customer that brought us this problem is a hospitality group operating dozens of properties across several countries, each property its own legal entity with its own bank accounts, its own property management system, and its own local tax quirks. Every month, the group finance team faced the same mountain: reconcile bank statements against the property management system against the general ledger, for every entity, in several currencies. Then explain the variances — why is food-and-beverage margin down at one property, why did payroll spike at another — before the consolidated numbers could go to leadership.
+The group that brought us this problem runs dozens of properties across several countries, each its own legal entity with its own bank accounts, its own property management system and its own local tax treatment. Every month the finance team tied bank to property management system to general ledger, entity by entity, in several currencies, then explained the movements before consolidated numbers went to leadership. The close ran for weeks.
 
-The close ran for weeks. Which meant the team spent the bulk of every month looking backward, assembling reconciliation spreadsheets and chasing property accountants for explanations. By the time leadership saw a variance, the month that caused it was already history. The group's most senior controllers — people hired for their judgment — spent the bulk of their time as ticket collectors: pull this statement, tie out that account, email this property manager again. And because the work was manual, it was also fragile. Every reconciliation lived in a spreadsheet on someone's drive, every explanation in an email thread, and every audit season began with an archaeology project to reconstruct how last year's numbers were actually assembled.
+A reconciliation engine for this industry has to model the deductions it expects before it can call anything a discrepancy. That is the whole design. The narratives, the checklist and the audit trail sit on top of that one decision.
 
-Most multi-entity businesses believe they have a reporting problem. They don't. They have an *assembly* problem. The numbers exist. The explanations exist, scattered across property managers' heads and inboxes. What takes weeks is the manual assembly of both into something an auditor and a CFO can trust. Assembly is mechanical. Mechanical work is automatable.
+## Two charts of accounts for the same night's revenue
 
-## What we built
+Every night's revenue in a hotel group carries two mappings at once. Internally the group reports on USALI departmental statements, the lodging industry's uniform system, where rooms, food and beverage, spa and the other operated departments each carry their own revenue and cost. Statutorily, each property's books sit under the accounting rules of the country it trades in, with a local chart of accounts and a local auditor. The same folio posting has to land correctly in both.
 
-We built a close copilot that runs the mechanical layer of the close continuously, not just at month-end. It matches transactions across bank feeds, the property management systems, and the ledger as they occur. It drafts the first version of every variance narrative — the actual prose explaining why a number moved — from the transaction detail underneath. It orchestrates the close checklist across every entity, so the team always knows what is done, what is blocked, and who owns the blocker. And it keeps a complete audit trail of every match, every adjustment, and every narrative revision.
+City and tourist taxes make the split concrete. The hotel collects them from the guest as agent for a municipality, so they are a liability from the moment they are charged and never revenue under either mapping. A tolerance-based matcher seeing a folio total on the bank and a smaller revenue figure in the ledger reports a break, when the difference is a tax the hotel is holding on somebody else's behalf.
 
-The controllers still close the books. But their role shifted from assembling the close to reviewing it — from building reconciliation spreadsheets to judging whether the system's reconciliation and its explanation are correct. That is the recurring pattern in everything we build: the human moves from doing the work to deciding whether the work is right.
+We carry both mappings on every posting rather than converting between them at period end. Reconciliation happens under the statutory books, because that is what the bank and the auditor see. Reporting happens under USALI, because that is what a general manager can act on.
+
+## Merchant model, agency model, and money that arrives late and short
+
+The gap between folio revenue and bank receipt is set by the distribution channel, and the channel is knowable in advance. Under the agency model, the hotel collects from the guest and the online travel agent invoices its commission afterwards, so the receipt matches the folio and the commission is a separate payable. Under the merchant model, the travel agent is merchant of record, collects from the guest itself, and remits net of commission days after checkout, batched across many stays.
+
+Under the merchant model the bank receipt therefore cannot equal folio revenue. It is short by a contracted commission, late by a settlement period, and spread across bookings that need not share a month. The difference is a cost of distribution rather than an error. Card acquiring adds a third calendar, settling net of interchange and scheme fees on the acquirer's cycle, so one night's business can reach the bank in three pieces on three days.
+
+The engine we shipped first matched on amount and date within a tolerance, and it drowned exactly the properties with the highest online travel agent mix. Every merchant remittance was one net figure spanning many stays, arriving in a settlement period that crossed the month boundary. Nothing matched, so everything became an exception, and the exception queue was longer than the manual process it was supposed to retire.
+
+We replaced amount matching with expected-settlement modelling. For each folio the engine derives what should land on the bank given the channel, the contracted commission rate, the payment method, the acquirer's interchange and the settlement calendar. It reconciles each batch against the sum of those expectations and attributes whatever is left over.
+
+Expected settlement is the amount a given folio or batch should produce on the bank once the contractually known deductions for its distribution channel, payment method and settlement calendar are applied. Reconciliation compares actuals against expected settlement rather than against gross revenue, and the residual is the finding.
 
 <img src="motion/financial-close-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Entity ledgers converge, matched pairs lock, and only the unreconciled drops to a controller.*
 
-## How it works
+## The residuals that matter are small and repeat
 
-### Layer 1: Transaction matching across bank, PMS, and ledger
+The residuals worth their own exception class are the small ones that recur, not the large ones that shout. A large break gets chased anyway: somebody notices a missing batch and telephones the acquirer. The dangerous residual is the one too small to argue about on any single booking.
 
-Every entity's bank feed, property management system, and general ledger stream into a matching engine that ties the three together at transaction level — tens of thousands of transactions per property per month: this card settlement batch equals these folio payments equals this ledger entry, net of fees. Hospitality makes this genuinely hard — a single guest stay can touch room revenue, city taxes, F&B, and a third-party booking commission, settled days apart across processors. The engine matches what it can with full confidence, flags what it can't, and — critically — does this daily. Unreconciled items surface within a day of occurring, not weeks after month-end, when the person who could explain them still remembers.
+Commission billed a fraction above the contracted rate is the clearest example. Per booking it is invisible, comfortably inside any tolerance. Across a year of bookings at a property with heavy third-party mix it is material, and it is precisely what an amount-matching engine is built to absorb. Contracted-rate drift became its own exception class, ranked by recurrence rather than by size, with the contract term and the applied rate shown side by side.
 
-### Layer 2: Variance narratives, first draft
+That gives a controller a sorting rule. A residual repeating across every batch from one partner is a contract question and goes to commercial. A residual appearing once at one property is an operational question and goes to the property accountant. Ranking by value would bury the first underneath the second.
 
-This is the layer that changed how the team works. When a line moves materially against budget or prior period, the system drafts the explanation a controller would otherwise have to construct by hand: F&B margin at a given property fell because banquet volume dropped while a fixed supplier contract kept costs flat — with the specific transactions and contracts cited underneath. The draft is grounded entirely in the matched data from Layer 1; the system writes down what the transactions show, and only what they show. Controllers edit, correct, or reject the draft. In the common case they confirm it and move on; in the interesting cases, the draft is the starting point for a real conversation with the property. Either way, no controller opens a blank document late at night anymore. Writing the first draft was always the slowest part of the close, because it required a human to go spelunking through the detail. Now the spelunking is done before the human arrives.
+## The narrative may say what moved; it may not say why
 
-### Layer 3: Close-checklist orchestration
+The copilot drafts the first version of every variance narrative, and the rule governing that draft is narrow. The draft may state what moved and cite the transactions underneath it. It may not state why unless the why is in the data.
 
-A close across dozens of entities is a project with hundreds of tasks per cycle, laced with dependencies: intercompany eliminations wait on entity-level reconciliations, consolidation waits on eliminations, the tax pack waits on everything. The copilot runs this as a live dependency graph. Every task has an owner, a state, and its upstream blockers made explicit. When a property accountant completes a reconciliation, everything downstream unblocks automatically and the next owner is notified. The group controller no longer discovers late in the cycle that one entity's bank reconciliation stalled in its first days — the graph shows it the moment it happens, and shows exactly what it is holding up.
+Attributing a fall in food and beverage margin to weaker banquet demand is a claim about the world. The copilot writes claims about the ledger only: this department's revenue fell, these cancelled event bookings account for most of the movement, this supplier contract held costs flat. Everything past that boundary is emitted as a question addressed to a named property accountant, with the transactions attached.
 
-### Layer 4: The audit trail
+Two things the copilot is not permitted to do at all. It may not post a journal; every adjustment is proposed to a human with its evidence and takes effect only when that human posts it. And it may not net a residual to suspense to make a reconciliation look clean, which is the most tempting shortcut in automated close and the one that would destroy everything underneath it.
 
-Everything the system does is recorded: which transactions were matched and under what rule, which narrative was drafted from which data, who edited it, who approved it, and when. When the auditors arrive, the answer to "how do you know this number is right" is no longer a folder of spreadsheets and a controller's recollection — it is a traceable chain from the reported figure down to the source transactions. The audit trail is not a compliance afterthought bolted onto the system. It is the reason controllers can trust the automation at all: nothing happens that cannot be inspected and reversed.
+## A close that runs daily and a checklist that admits what is blocked
 
-## Why this generalizes
+Matching runs every day, so month-end stops being the moment the work starts. Unreconciled items surface within a day, while the night auditor and the reservations team can still remember the stay. Month-end becomes review of a book reconciled continuously rather than reconstruction of one that was not.
 
-The hospitality group is a specific shape of a general problem: many entities, heterogeneous source systems, one set of books, and a close whose length is set by manual assembly rather than accounting complexity.
+The checklist runs as a live dependency graph across every entity. Intercompany eliminations wait on entity reconciliations, consolidation waits on eliminations, the tax pack waits on everything, and each task carries an owner with its blockers made explicit. When a property accountant clears a reconciliation, downstream tasks unblock and the next owner is notified, so the group controller can see which entity is late and what it is holding up.
 
-Franchise groups live the identical structure — dozens of operating entities, each with a point-of-sale system and a bank account, rolling up to a brand-level P&L. Private equity portfolio operations face it with more heterogeneity, closing across acquired companies that each brought their own ERP. Retail chains face it at store level, with the same daily settlement-matching problem across processors. In each case the instinct is to solve it with headcount or with a multi-year ERP consolidation. The copilot approach is faster and less invasive: leave the source systems alone, automate the matching and the narrative assembly above them, and give the controllers a close they review instead of a close they build.
+Underneath sits the trail: which transactions were matched against which expectation, which residual was attributed to which cause, who edited a narrative, who approved it, and when. The answer to "how do you know this number is right" becomes a chain from the reported figure down to the folio and the settlement advice.
 
-The businesses that get there first won't just close faster. They will make decisions on numbers that are weeks fresher than their competitors' — every month, compounding.
+## Common questions
 
-## How long does it take you to close the books?
+### Do we have to replace our property management systems or our ERP?
 
-If your month-end runs in weeks, and your best finance people spend those weeks assembling spreadsheets instead of exercising judgment, the assembly layer can be automated without replacing a single source system. We build close copilots end to end — matching, narratives, orchestration, audit trail. Tell us.
+No. The copilot reads from the systems each property already runs and writes proposals rather than postings, so the source systems stay authoritative. Most groups we work with operate several property management systems and more than one ledger. That heterogeneity is a reason to build the reconciliation layer above them rather than a reason to consolidate first.
+
+### How does the engine know what the commission should have been?
+
+From the distribution agreements, loaded as contract terms per channel and per property, including rate changes with effective dates. The engine applies the term in force on the stay date, not the one in force today. Where a partner's remittance disagrees with the loaded term, that disagreement becomes the exception, which is how contracted-rate drift surfaces instead of disappearing into a tolerance.
+
+### Can it post the journals if we approve them in bulk?
+
+It cannot post journals at all. It prepares them, shows the evidence, and waits for a named person to post. Bulk approval of a queue of proposals is available and heavily used, but the posting action stays with the human and is recorded against them. This is a deliberate limit we would keep even if asked to remove it.
+
+### When is this more machinery than we need?
+
+If a property sells almost entirely direct and takes payment through a single acquirer, the gap between folio and bank is predictable enough that amount matching within a tolerance mostly works. Expected-settlement modelling earns its keep once a meaningful share of revenue arrives through third parties acting as merchant of record, because that is when the correct difference stops being a constant.
+
+## What is your close actually waiting on?
+
+If your month-end runs for weeks, ask how much of that time goes on differences that were always going to be there. Reconciliation gets fast when the engine knows what the difference should be before it looks. Tell us how money reaches your bank accounts, and we will tell you what your close could look like.

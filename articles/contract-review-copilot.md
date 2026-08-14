@@ -1,63 +1,73 @@
-# How We Built a Contract Review Copilot for a Skeleton-Crew Legal Team
+# A Contract Review Copilot That Reads the Deal File, Not Just the Lease
 
-> How we built a contract review copilot for the in-house legal team of a commercial real-estate group, and why the same approach matters for any team that reviews agreements against a standard it carries around in its head.
+> Why a commercial property legal team's review copilot had to stop judging clauses on their drafting and start tracking the conditions attached to every right inside them.
 
-![Flow diagram: leases, contracts, and NDAs enter clause extraction, pass through the playbook made explicit, deviation flagging, and redlines with rationale, and a lawyer decides — accept, edit, or reject — before the redline goes out](graphics/contract-review-copilot.svg)
+![Flow diagram: leases, contracts, and NDAs enter clause extraction, pass through the playbook made explicit, deviation flagging, and redlines with rationale, and a lawyer decides (accept, edit, or reject) before the redline goes out](graphics/contract-review-copilot.svg)
 
-## The bottleneck is reading, not judgment
+## We built clause extraction first, and it read everything correctly
 
-A legal team you could count on one hand. Hundreds of contracts a year. That was the in-house legal function of a commercial real-estate group we worked with: lease agreements, service contracts, and NDAs flowing in from asset managers, facilities teams, and brokers across the portfolio — and every single one read line by line. Not because every contract was dangerous, but because there was no way to know which ones were without reading them.
+The build we shipped first segments each document into clauses, classifies them, compares every clause against the team's preferred position, its fallbacks and its walk-away line, then flags each deviation and proposes a redline with the rationale attached. That is clause extraction against a written playbook, and it is what we shipped. Our client was the in-house legal function of a commercial real-estate group: a team you could count on one hand, reading hundreds of leases, service contracts and NDAs a year, on counterparty paper at least as often as on their own templates.
 
-Most in-house legal teams don't have a judgment problem. They have a *reading* problem. The judgment — knowing which indemnity language is acceptable, when a break option is worth fighting for, what a reasonable liability cap looks like on a facilities contract — was excellent and fast. What consumed the week was the mechanical work of getting to the point where judgment could be applied: reading forty pages of counterparty paper to find the handful of clauses that actually mattered.
+The extraction layer held up on documents built to defeat it. Counterparty paper hides things, occasionally on purpose: the indemnity that matters is a sub-paragraph inside "General Provisions", and the liability cap is split across two schedules. Classification therefore runs on what a clause does rather than on what its heading says, against a taxonomy of a few dozen clause types: indemnities, liability caps, assignment and change of control, break options, rent review mechanisms, insurance obligations, termination rights.
 
-The manual routine looked like this. A first pass on an incoming lease ate the better part of a morning. The lawyer read every clause, compared it against a standard that existed nowhere except in her head, marked up a Word document, and typed out comments explaining why the indemnity language was unacceptable — comments she had written, in slightly different words, dozens of times before. When one lawyer went on holiday, everyone else's queue swelled, and a large share of the institutional memory went offline with the out-of-office reply.
+Then it read a break clause and passed it. The drafting matched the playbook's preferred position, the flag said exactly that, and the flag was accurate. Every word of the clause was standard, and the copilot was right about every word.
 
-Here is what struck us in the first workshop: the team already had a playbook. Ask any of the lawyers about assignment clauses and you would get, without hesitation, the preferred position, two acceptable fallbacks, the walk-away line, and a war story about the negotiation that shaped each one. None of it was written down anywhere. The playbook existed. It just wasn't explicit.
+## The break clause was fine. The break was not.
 
-## What we built
+A conditional break option is construed strictly, so a clause drafted precisely to your preferred position can still fail on the day the tenant tries to use it. Where the break depends on giving vacant possession and paying all sums due, leaving fitted-out items behind or carrying a trivial shortfall on the rent account can invalidate the exercise, and the lease simply runs on for the rest of its term. The words were never the exposure. The facts were, and those facts live outside the document: the rent account, the service charge account, whether the fit-out actually comes out in time.
 
-We built a contract review copilot that reads every incoming contract, extracts and classifies its clauses, compares each one against the team's own negotiation playbook, flags every deviation from the standard, and proposes redlines with the rationale attached. The lawyer reviews flags instead of reading documents cold. Nothing goes back to a counterparty without a lawyer's sign-off — the human role shifts from reading every line to deciding whether the machine's reading is correct.
+The same pattern shows up before the lease is even signed. Contracting out of security of tenure under Part II of the Landlord and Tenant Act 1954 requires the landlord's warning notice and the tenant's declaration or statutory declaration to be completed before the lease is entered into. Get the sequence wrong and the tenant holds renewal rights the deal never priced, on the strength of a defect in a document dated before the lease itself. A copilot reading the executed lease sees a clean contracting-out recital and nothing else, because the notice and the declaration sit in the deal bundle rather than in the lease.
 
-It is worth being clear about what the system is not. It is not a chatbot that answers legal questions, and it is not a substitute for a lawyer's judgment on a novel deal. It is a first-pass reviewer that applies, tirelessly and consistently, the positions the lawyers themselves wrote down.
+On institutional commercial leases, the clause is rarely the risk. A conditional right turns on facts the four corners of the paper cannot show you, which is how a reviewer restricted to the document approves every word and still misses what the deal is exposed to.
 
 <img src="motion/contract-review-copilot.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Clauses run against the playbook. What deviates diverts, and a lawyer decides what to do about it.*
 
-## How it works
+## The playbook four people carried, and the fortnight one of them took off
 
-### Component 1: Clause extraction and classification
+The team's negotiation playbook already existed in full; it had simply never been written down, so it left the building whenever its authors did. Ask any of the lawyers about assignment clauses and you got the preferred position, two acceptable fallbacks, the walk-away line, and a war story about the negotiation that shaped each one. When one of them took a fortnight off, every other queue swelled and a share of the institutional standard went offline with the out-of-office reply.
 
-Contracts arrive as PDFs and Word files, on counterparty paper at least as often as on the group's own templates. The first layer segments each document into clauses and classifies them against a taxonomy of a few dozen clause types that matter in this practice: indemnities, liability caps, assignment and change of control, break options, rent review mechanisms, service levels, insurance obligations, confidentiality, termination rights.
+Writing it down was the least technical part of the project and the part that changed the most. We ran sessions where we mostly asked questions and typed, and the document that came out would have earned its keep even if no software had followed: onboarding manual, continuity plan and negotiation standard in one file. The lawyers own it, so when a hard negotiation changes their view of an acceptable cap they edit it, and every future review inherits the change.
 
-Counterparty paper is messy — sometimes deliberately so. The indemnity you care about is a sub-paragraph buried in "General Provisions", and the liability cap is split across two schedules. Classification therefore works on what a clause does, not on what its heading says. The output is a structured map of the document: every commitment, obligation, and right, sorted by type.
+We refuse to license an external clause library or benchmark anything against market standard, and that refusal is not squeamishness. "Market standard" is a negotiating claim rather than a fact, and a copilot that imports one starts quietly arguing for positions the team never took. The only standard this system applies is the one the team wrote down.
 
-### Component 2: The playbook, made explicit
+## Conditions, evidence, and the diary the copilot may not write
 
-This is the heart of the system, and the least technical part of the project. For each clause type, the playbook records the team's preferred position, its fallback positions, and its walk-away terms — written by the lawyers themselves, in working sessions where we mostly asked questions and typed. We did not impose an external standard, license a clause library, or scrape precedent from the internet. The standard was already there, applied consistently for years. It just lived in the heads of the people applying it.
+We rebuilt flagging around conditions and their evidence, so every conditional right now generates a dated obligation that carries the evidence source it depends on. That source might be the rent account, the service charge account, a licence to assign, a landlord's consent to alterations, or the contracting-out notice sitting in the deal bundle. A clause whose conditions cannot be evidenced is escalated even when its language is perfect, which inverts the original design: good drafting stopped being a reason to pass something.
 
-This is a theme we keep meeting in our work: the most valuable step in building an AI system is often making explicit what was implicit. The document that came out of those sessions would have been worth the effort even if no software had followed — it is an onboarding manual, a continuity plan, and a negotiation standard in one. And the playbook remains a living document the lawyers own. When a hard negotiation changes their view of an acceptable cap, they edit the playbook, and every future review inherits the change.
+Conditional right: a contractual option whose exercise depends on facts outside the clause, such as payment history, vacant possession or a consent obtained. In review, a conditional right is assessed on its conditions and the evidence for them, never on how it is drafted.
 
-### Component 3: Deviation flagging
+The consequence reached into the architecture. Extraction had to stop being document-scoped and start reaching into the deal file, because a lease review that cannot see the rent account, the licence to assign or the section 38A paperwork is a review of one PDF rather than a review of the deal. That is a heavier integration than clause extraction, and it is the difference between a tool that reads contracts and a tool that reviews them.
 
-With clauses classified and the playbook explicit, comparison becomes tractable. Each extracted clause is checked against the corresponding playbook position, and the differences are stated plainly: "This indemnity clause differs from your standard in three ways: it is uncapped, it extends to indirect losses, and it survives termination indefinitely."
+The copilot proposes dates. It does not write them. Break dates, rent review dates and notice deadlines are surfaced with their source clause attached and must be confirmed by a lawyer before they enter any calendar, because a wrongly diarised break date is a live negligence exposure and an automated one is that exposure repeated across a whole portfolio.
 
-Flags are graded, because not every deviation deserves the same attention. A clause matching the preferred position passes with a note. A clause landing within a fallback position is flagged with the fallback it matches, so the lawyer knows what has already been conceded. A clause beyond the walk-away line goes to the top of the queue. The lawyer opens a contract and sees a triaged list of deviations, not forty pages of undifferentiated text.
+## Redlines are drafted; dates are only proposed
 
-### Component 4: Suggested redlines with rationale
+Drafting and diarising sit at different levels of automation on purpose, because a wrong redline is caught by the next reader and a wrong date is caught by nobody. For every flag the system proposes replacement language drawn from the playbook, with the rationale phrased the way the team phrases it, since the rationale is what travels back to the counterparty and has to be negotiation-ready. The lawyer accepts, edits or rejects, and those decisions are signal: when the same proposed clause keeps getting reworded the same way, the playbook is asking to be updated, and the update takes a minute.
 
-For every flag, the system proposes a redline — replacement language drawn from the playbook — together with the rationale, phrased the way the team phrases it. The lawyer can accept the redline as-is, edit it, or reject it. The rationale matters as much as the new language: it is the explanation that goes back to the counterparty, so it has to be negotiation-ready, not a generic note about risk.
+The system is not permitted to decide anything that binds the group. It does not mark a conditional right acceptable on drafting alone, does not enter a date in anyone's calendar, does not send a redline to a counterparty, and does not decide whether a deviation is worth fighting for. It is a first-pass reviewer that applies, tirelessly and consistently, the positions the lawyers wrote themselves.
 
-The accept-edit-reject decisions are also a signal. When a lawyer keeps rewording the same proposed clause the same way, that is the playbook asking to be updated, and the update takes a minute. A first pass that used to eat a morning is now a short, focused review of what the system flagged. The judgment is untouched; the reading has been delegated.
+There is a case where none of this is worth building. If your agreements are self-contained and their obligations unconditional, which describes most NDAs and plenty of one-off service contracts, clause-level review against a playbook is the whole job and a document-scoped tool will serve you well. Institutional leases are the opposite case, and so is anything with options, consents, milestones or conditions precedent hanging off it.
 
-## Why this generalizes
+## Common questions
 
-Nothing in this system is specific to real estate. The same shape fits any team of expert reviewers facing a steady volume of documents and carrying its standard in its head.
+### Can it put break dates and notice deadlines into our diary system automatically?
 
-Procurement teams reviewing supplier terms against purchasing policy have a playbook — payment terms, liability, data protection, exit rights — that almost never exists in writing. HR teams handling employment contracts and severance agreements across jurisdictions have one too. So does every in-house legal team carrying a department's workload with a handful of people, which in our experience describes most in-house legal teams.
+No, and we would decline to build that. Dates are proposed with the source clause attached, and a lawyer confirms each one before it reaches the calendar. A misdiarised break date is a negligence exposure, and an automated pipeline that writes dates directly turns a single mistake into a portfolio of identical mistakes nobody reviews.
 
-The move is identical in every case: make the standard explicit, let the machine do the comparing, and keep the human on the judgment calls no standard can make. The experts stop being the bottleneck and become what they always should have been — the authors of the standard and the final word on the exceptions.
+### Do we have to write our playbook down before you can build anything?
 
-## Staring at a contract pile only you can review?
+Yes, and that work is usually the most valuable part of the engagement. We run the sessions and do the typing, and the output is your positions, fallbacks and walk-away lines in one editable document you own. Without it the system has no standard to compare against, and we will not substitute a licensed clause library for your team's judgment.
 
-If your team reads every agreement line by line because the standard lives in someone's head, that standard is your most valuable unwritten asset. We help teams write it down, then build the system that applies it — so your experts spend their time deciding, not reading. What does your review pile look like this week? Tell us.
+### Does it work on counterparty paper or only on our own templates?
+
+Both, and counterparty paper is the harder case it was designed for. Clauses are classified by what they do rather than by their headings, so an indemnity buried in general provisions or a cap split across two schedules is still found and still compared against your standard. Odd numbering, unusual defined terms and schedule cross-references are normal input.
+
+### What happens when the lease is clean but the deal file is incomplete?
+
+The conditional right is escalated rather than passed. If a break depends on all sums being paid and no rent account is available to the system, the copilot says so and routes it to a lawyer instead of approving the drafting. An unevidenced condition is treated as a live question, never as a satisfied one.
+
+## What is sitting in your deal file that your review never opens?
+
+If your contract review stops at the four corners of the document, the conditions that decide whether your rights actually work are being assessed by nobody. We build review systems that read the deal rather than the PDF, and we build them around the standard your team already applies. Tell us which rights in your portfolio you would not want to test on the break date.

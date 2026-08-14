@@ -1,61 +1,79 @@
-# A Shared Inbox That Triages Itself
+# A Shared Inbox Where Every Tenant Email Is a Notice
 
-> How we built shared-inbox automation for a property management company handling thousands of tenant emails a month, and why the same approach matters for any operations team that lives in a shared inbox.
+> In lettings a tenant's email is a legal instrument the moment it arrives, so the thing worth building is not a triage tool but a register of notices with immutable timestamps.
 
 ![Flow diagram: one wide shared-inbox channel arrives at an urgency gate where a single bright pulse breaks onto a fast express rail while the rest sort through an entity-resolution grid; the resolved stream forks into a work-order nozzle feeding the maintenance system and a draft-reply rail passing a lime-ringed node where the property manager approves before replies go out.](graphics/shared-inbox-automation.svg)
 
-## The problem: triage by whoever opens the inbox first
+## We built the classifier first; the audit wanted something else
 
-Most operations teams don't have an email problem. They have a *triage* problem.
+The visible problem in a lettings inbox is the sorting, so the sorting is where we started. Thousands of tenant emails a month were landing in one shared address for a portfolio of several thousand units, mixed together in arrival order: maintenance requests, billing questions, lease queries, complaints about neighbours, parking. The classifier labelled each message by type and urgency, resolved every sender to a tenant and a unit, and drafted an acknowledgment for a manager to send, and all of that worked.
 
-Our customer is a property management company running a portfolio of several thousand units, with thousands of tenant emails a month landing in a single shared inbox. Maintenance requests, billing questions, lease queries, complaints about the neighbors, questions about parking spots — all of it, one address, one undifferentiated stream.
+The pilot then failed an internal audit for a reason no accuracy metric would have caught. Three tenants reported the same lift outage within an hour. The system correctly recognised them as the same fault, deduplicated them into one work order, and two of those tenants vanished from the record as individual reporters. Every classification in that batch was correct. The legal position was still wrong, and no amount of model tuning would have found it, because the defect was in the data model rather than in the predictions.
 
-The triage protocol was simple: whoever opened the inbox first dealt with what they found. Which meant a burst pipe flooding a ground-floor flat sat in the same list as a question about visitor parking, in arrival order, until someone happened to read it. Emails got claimed by being opened, so some were answered twice by two different property managers and some were answered by no one, each manager assuming another had it. Every maintenance request that did get handled had to be retyped by hand into the maintenance system — several minutes of transcription per request, tenant details copied field by field. And the first pass through the overnight pile consumed the better part of a property manager's morning before any actual property management happened.
+That failure sent us back to a question we had skipped: what is a tenant's email, legally, at the moment it arrives. Answering it properly changed the shape of the system, and everything since has been built downward from the answer rather than upward from the inbox.
 
-None of this was anyone's fault. The inbox was doing exactly what inboxes do: presenting everything in the order it arrived, with no opinion about what any of it means. The expensive judgment of experienced property managers was being spent on sorting, not solving.
+## Receipt is notice. Reading is not.
 
-## What we built
+A landlord's liability for disrepair generally runs from the point at which the landlord or its managing agent has notice of the defect, and notice given to the agent is notice to the landlord. Receipt starts the clock. Reading does not. An email sitting unopened in a shared inbox on a Friday evening has already started something that no amount of Monday-morning diligence can unstart, and the agent is the party that received it.
 
-We built an engine that reads every email as it arrives, classifies what it is and how urgent it is, works out which tenant, unit, and contract it concerns, creates work orders in the maintenance system automatically, and drafts a reply for the property manager to review and send.
+Specific hazards now carry fixed statutory timescales on top of that general position. Under the Awaab's Law regulations phased in for social landlords in England from October 2025, emergency hazards must be made safe within twenty-four hours, and damp and mould hazards must be investigated within a set number of working days of the report. The clock runs from the tenant's report, not from the moment a manager opens it, not from the moment a work order is raised.
 
-The shared inbox is still there — nobody had to change where they work. But it stopped being a pile and became a queue: sorted by urgency and type, each message arriving pre-labeled, pre-matched to a tenant, and carrying a draft answer. Nothing is sent and no work order is dispatched to a contractor without a human looking at it first. The property managers kept every decision. They just stopped doing the sorting.
+Notice event: the moment a tenant's report is received by the agent, independent of whether any human has read it. Every inbound message describing a defect creates a notice event with an immutable timestamp, and the operational record is assembled from notice events rather than from tickets.
+
+The practical consequence is that the ticket stopped being the primary object. A ticket is an operational convenience that can be merged, reassigned, reopened and closed. A notice event is a fact about a specific person on a specific date, and facts do not get merged for convenience.
 
 <img src="motion/shared-inbox-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Urgency takes the express rail. Everything else resolves to a tenant, a unit, a work order.*
 
-## How it works
+## One lift, three notices, one work order
 
-### Layer 1: Classification and urgency detection
+Deduplication is right operationally and wrong legally, so the data model had to hold both. Three tenants reporting one lift outage is one repair job and three notices, because each report creates a separate obligation to a separate person, and each of those people can bring a separate claim in which the only question that matters is when their report was received and what happened next.
 
-Every inbound email is classified along two independent axes. The first is type: maintenance request, billing question, lease query, move-in or move-out logistics, complaint, general question. The second is urgency — and keeping it separate matters, because a burst pipe is not a parking question, even though both arrive as "maintenance." Water where it shouldn't be, the smell of gas, no heating in January, a door that won't lock: these patterns are flagged as urgent from the message content and context, not from whether the tenant thought to write URGENT in the subject line. Tenants in a genuine emergency rarely write tidy emails.
+Reports are never merged. Work orders are. Every report keeps its own received timestamp, its own acknowledgment to its own sender, its own status trail and its own due-by, and links to the shared work order that will actually fix the lift. When the engineer signs off, the work order closes once and three notice events each record their own outcome, addressed to three people who each get told.
 
-Attachments are read as part of the message, because tenants photograph problems more often than they describe them well. A blurry photo of water pooling under a boiler carries more signal than the two lines of text above it. Urgent items trigger an immediate notification to the on-duty manager; everything else lands in the queue in priority order.
+This also fixed a quieter failure the audit had not reached yet. Under the old arrangement, the second and third reporters received nothing, because their messages had been folded into a ticket someone else owned, and silence to a tenant who has reported a hazard is exactly the evidence that turns a repair into a claim.
 
-### Layer 2: Entity resolution
+The system is not permitted to close a report, and it is not permitted to decide that two reports are the same notice. It proposes the link, a property manager confirms it, and the link is recorded with who made it and when.
 
-The second question is deceptively hard: who is this, and which unit are they writing about? Tenants write from personal addresses that were never registered. Partners write on behalf of leaseholders. People move units within the portfolio and keep using the same email. A message signed "Anna, Flat 12" is useless until you know which building.
+## Urgency is a hazard class with a due-by, not a colour
 
-The engine resolves identity from converging signals — sender address matched against tenant records, names in signatures, unit and building references in the text, postal addresses, lease references — and attaches a confidence score to the match. High-confidence matches proceed automatically; ambiguous ones are presented to the manager with candidates ranked, one click to confirm. This layer is the least glamorous part of the system and the most essential: every downstream action, from the work order to the draft reply, is only as correct as the answer to "which tenant, which unit, which contract."
+Urgency in this system is a hazard classification with a named regime and a due-by timestamp attached, not a red flag in a queue. The word urgent, applied by a tool nobody configured against any standard, is indefensible six months later when a solicitor asks what the agent understood the report to be and what timescale applied to it.
 
-### Layer 3: Automated work-order creation
+So a report is classified into a hazard category with the regime that governs it, and the regime supplies the deadline. Water where it should not be, the smell of gas, no heating in a cold snap, a door that will not lock, damp and visible mould: each maps to a category, each category carries a response requirement, and the due-by is computed from the notice timestamp rather than from the moment a human triaged it. Photographs are read as part of the message, because tenants photograph problems more reliably than they describe them.
 
-Maintenance requests — the largest single category in the inbox — used to end their journey there and start again, retyped, in the maintenance system. Now the engine creates the work order directly: category, unit, problem description distilled from the tenant's message, urgency level, photos attached, tenant contact details filled in.
+Classification runs on the message content and context rather than on whether the tenant wrote URGENT in the subject line, since people in a genuine emergency rarely write tidy emails. Where the classifier is not confident, the report is escalated rather than downgraded, and a manager sees it with the candidate categories ranked.
 
-Duplicates are handled at this layer too. When the lift breaks, three tenants report it within the hour; that becomes one work order with three linked reporters, not three contractor callouts. For routine issues, the property manager approves the drafted work order before it is dispatched. For urgent ones, the order is created and flagged immediately — the manager's review happens in parallel with the response, not in front of it.
+Contractor dispatch stays with a person, including on emergencies. The work order is created and flagged within seconds, the on-duty manager is notified, and the callout that commits somebody else's money is authorised by a human who can also tell the difference between a leak and a burst main.
 
-### Layer 4: Draft replies for the property managers
+## Drafts that acknowledge and never interpret
 
-Every email gets a draft reply built from what the system now knows. A maintenance request gets an acknowledgment with the work order reference and the expected next step. A billing question gets a reply grounded in the actual account state. A lease query gets an answer that points to the relevant clause of that tenant's actual contract, not a generic policy statement.
+Draft replies acknowledge and inform. They never interpret, and this is the refusal that surprises clients most. The system will not answer a question about a tenant's rights or a landlord's repairing obligations, even when the answer is sitting in that tenant's own agreement, because a wrong sentence about a repairing obligation, sent in writing by the agent, is evidence in a claim and cannot be retrieved.
 
-The manager reviews, edits where judgment is needed, and sends. Nothing leaves the inbox unsupervised — the human role shifts from typing every reply from scratch to deciding whether the prepared one is right. Most of the time it is, and the minutes saved on the routine messages are spent where they belong: on the angry tenant, the tricky lease negotiation, the judgment calls no draft can make.
+What a draft does contain is factual and checkable: confirmation that the report was received, the timestamp it was received at, the reference of the work order it created, the category it was logged under, and what happens next. A billing question gets a reply grounded in the account state. A lease query gets an acknowledgment and a routing to the person who is allowed to answer it, not an answer assembled from the contract.
 
-## Why this generalizes
+A property manager reviews and sends. Nothing leaves the inbox unsupervised, and the minutes saved on routine acknowledgments are spent on the tenant who is angry for a good reason.
 
-The shared inbox is the default operating system of an enormous number of teams, and it fails them all the same way. Logistics customer service desks fielding "where is my container" next to genuine exception alerts. Clinic front desks where an appointment reschedule sits in the same stream as a message describing symptoms that shouldn't wait. University admissions offices buried under deadline questions while time-sensitive transcript issues age quietly in the pile.
+There is a case where this whole design is overbuilt, and it is worth naming. If your inbox carries no statutory clock, a conventional triage tool is cheaper and perfectly adequate. The notice register earns its cost precisely where a timestamp may one day have to be produced in evidence, which in lettings is every single day.
 
-The shape is always identical: one address the world writes to, a small set of message types behind the apparent chaos, structured systems sitting next to the inbox that nobody has connected to it, and urgency scattered randomly through the stream. Wherever that shape exists, the same four layers apply — classify, resolve, act in the system of record, draft the reply — with a human approving every action that touches the outside world.
+## Common questions
 
-## Still triaging a shared inbox by hand?
+### Does this replace our property managers?
 
-If your team's morning starts with someone reading a pile of email to figure out what matters, you are paying expert salaries for sorting work a machine now does better. We build inbox engines that triage, match, and draft — and leave every send to your people. Tell us.
+No. It removes the sorting, the retyping into the maintenance system and the first draft of routine acknowledgments. Every action that touches a tenant, a contractor or a work order's closure is authorised by a person. Managers spend the recovered morning on the reports that need judgment rather than on reading a pile to discover which ones those are.
+
+### What happens when the system classifies a hazard wrongly?
+
+Low-confidence reports escalate rather than downgrade, so ambiguity produces a person looking at it, not a quiet delay. Every classification is recorded with the evidence it used, the manager who confirmed or changed it, and the timestamp, which means a reclassification is an auditable event. The notice timestamp itself never changes, whatever the category becomes.
+
+### We manage private rented stock. Do the statutory timescales apply to us?
+
+The Awaab's Law regulations phased in from October 2025 apply to social landlords in England. The underlying position on notice applies far more widely: liability generally runs from the point the landlord or its agent has notice, and notice to the agent is notice to the landlord. The register is built for that principle first, with hazard regimes configured per portfolio.
+
+### Can it dispatch a contractor automatically for an emergency?
+
+No, and that is deliberate. The work order is created and flagged within seconds of receipt, and the on-duty manager is notified immediately, so nothing waits for the morning. Committing somebody else's money to a callout stays with a person who can weigh the report, the property and the contractor against what the message actually describes.
+
+## When did your oldest unanswered tenant email become a notice?
+
+If nobody can answer that from the record, the answer will eventually be supplied by somebody else's solicitor, working from your own inbox. We build the register that timestamps every report on receipt, tracks each one to its own outcome, and leaves every send, every dispatch and every closure with your people. Tell us how your inbox handles a hazard report today.

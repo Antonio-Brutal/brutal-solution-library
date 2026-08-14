@@ -1,26 +1,38 @@
-# A Supplier Onboarding Engine That Hands the Analyst a Finished Risk File
+# A Supplier Onboarding Engine Whose Real Output Is an Ownership Graph
 
-> How we built document collection, screening and risk-file assembly for a manufacturing procurement team, and why the same approach matters for anyone who has to know exactly who they are dealing with before the first order.
+> Why screening a supplier's name misses the counterparty procurement is obliged to refuse, and why we resolve identity along the chain before adding anything up.
 
 ![Flow diagram: supplier documents are extracted and validated, screened against watchlists and adverse media, and assembled into a risk file that terminates at an analyst decision node rather than an automatic rejection](graphics/supplier-onboarding-risk.svg)
 
-## The problem: weeks of chasing, an hour of judgment
+## The counterparty you must refuse may be on no list at all
 
-Most procurement teams don't have a supplier risk problem. They have a *paperwork* problem.
+The screening record in a typical supplier file is a saved PDF of one search against one name. Type the supplier's name into the sanctions lists, read the hits, save the file: that procedure will pass a company you are prohibited from paying, because prohibition propagates up ownership chains and the entity at the bottom appears on no list at all.
 
-Our customer is the procurement team at an industrial manufacturer with plants in several countries, onboarding hundreds of new suppliers a year — everything from a workshop machining one bracket to a contract manufacturer building whole subassemblies. Before a first purchase order can be raised, a supplier has to produce a stack of evidence: company registration, ownership and ultimate beneficial owners, tax and VAT registration, bank details, insurance certificates, quality certifications, a signed code of conduct, an ESG questionnaire, and a sanctions screening on file.
+Under OFAC's 50 Percent Rule, an entity owned 50 percent or more, directly or indirectly, in aggregate, by one or more blocked persons is itself blocked, whether or not it has ever been named. EU practice applies a comparable ownership and control test. The prohibition attaches to a structure, and a structure is not a string you can search for.
 
-None of that is controversial. All of it arrived by email. A buyer would ask, the supplier would send half the documents, one would be the wrong entity, the insurance certificate would be missing its schedule page, and the questionnaire would come back part-filled. Elapsed time was measured in weeks, almost all of it waiting — for a supplier to reply, for a buyer to notice they hadn't, for someone to spot a certificate that expired last month.
+Our customer is the procurement team at an industrial manufacturer with plants in several countries, onboarding hundreds of new suppliers a year, from a workshop machining one bracket to a contract manufacturer building subassemblies. Before a first order can be raised, a supplier has to produce company registration, ultimate beneficial owner declarations, tax and VAT registration, bank details, insurance and quality certificates, a signed code of conduct, and a screening record.
 
-Delay of that kind does not stay administrative. A plant needs a part, so the process that takes weeks gets worked around: a one-off emergency supplier, an exception approval, onboarding completed retroactively. The workaround path is precisely the path where screening does not happen, so the slowest process in procurement quietly becomes the biggest hole in its controls.
+All of that used to arrive by email, and elapsed time was measured in weeks, almost all of it waiting. Delay does not stay administrative: a plant needs a part, so somebody raises an emergency supplier and completes the onboarding retroactively. The workaround path is precisely the path on which screening does not happen, which makes the slowest process in procurement the largest hole in its controls.
 
-Then there is the screening itself, which is the part that actually requires expertise. In practice it was a name typed into a sanctions search, a few pages of news results, and a PDF saved to a folder. Common names return dozens of hits. Transliterated names can be spelled six defensible ways. Adverse media is journalism, not a finding of fact. The analyst's judgment was the most valuable thing in the process and it got the least time.
+The portal that collects those documents matters, and it is not the interesting part. The documents are raw material for an ownership graph, and the graph is what the analyst needs.
 
-## What we built
+## Fifty percent, in aggregate, through any number of hops
 
-A portal that collects documents, an extraction layer that validates them, a screening layer that searches watchlists and media, and an assembly step that produces a single risk file per supplier: what was collected, what was verified, what screening returned, what remains unresolved, and which policy applies. The analyst opens a finished file instead of an inbox.
+Aggregation is the trap, because no single ownership path has to look remarkable for the threshold to be crossed. Two intermediate holdings of thirty percent each, registered in different jurisdictions, tracing to the same blocked individual, put the supplier over the line while each path on its own reads as an ordinary minority stake.
 
-One boundary is stated hard, in the architecture and not in a footnote: screening hits are evidence for a human decision, never an automatic rejection. The system does not approve suppliers and does not reject them. It does not resolve a name match to "this is the same person." It does not delete a hit. Calling a company sanctioned is a determination about a real business and real people, and being wrong in either direction has consequences — a legitimate supplier blocked without recourse, or a prohibited counterparty sitting in your master data.
+The system builds the ownership chain from what it can evidence: shareholder registers and UBO declarations from the supplier, national corporate registry filings, group structure charts, and the directors and shareholders extracted from the registration documents. Each edge carries its source and the date that source was current, because an ownership percentage with no provenance is a rumour with a decimal point.
+
+Extraction never normalises a discrepancy away. When the entity on the insurance certificate differs from the entity on the registration, or a registry shows a shareholding the supplier's declaration omits, both values surface side by side as a flag. A system that quietly reconciles two different company names is not saving time, it is deleting the finding.
+
+Screening then runs across the whole graph rather than the trading name: the legal entity, its parents, its ultimate beneficial owners, its directors, and the countries the goods will actually move through. Matching is fuzzy by design, covering aliases, transliterations, name-order variations and date-of-birth proximity, and tuned toward recall, because a missed sanctions match is categorically worse than another false positive on an analyst's desk.
+
+## Two thirty-percent stakes, one man, and the sum we got wrong
+
+Aggregate the stakes before you resolve the identities and the report comes back clean whether or not the supplier is. We know because our first traversal did exactly that: two levels of ownership walked, stakes summed per parent, no aggregated exposure reported on a supplier that had it.
+
+Two holding companies in different jurisdictions each held roughly thirty percent of the supplier, and both traced back to the same person: a name spelled two defensible ways under different transliteration conventions, with dates of birth recorded in different formats. Because we aggregated before we resolved identity, the graph treated one man as two shareholders, and two thirty-percent stakes summed to nothing worth reporting. The arithmetic was correct. The nodes were wrong.
+
+We inverted the order. Candidate identity resolution now runs across the whole chain first, matching persons and entities on names, transliterations, dates of birth, national identifiers, addresses and directorship overlap, and only then does aggregation run over the resolved graph. The change sounds like sequencing. It is the difference between a clean report and a true one.
 
 <img src="motion/supplier-onboarding-risk.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -28,48 +40,48 @@ One boundary is stated hard, in the architecture and not in a footnote: screenin
 
 *Documents converge, validation and screening run in parallel, and every hit lands at a human gate before the file is closed.*
 
-## How it works
+## A range beats a number when the identity is unresolved
 
-### Layer 1: A collection portal that does the chasing
+Where identity resolution along the chain is uncertain, the system refuses to emit a single percentage and emits a range instead: the minimum on the assumption that the ambiguous nodes are different people, the maximum on the assumption that they are the same, with the disambiguating attributes shown side by side for the analyst who decides which it is.
 
-The requirement list is generated from what the supplier actually is: country, category, spend band, whether they handle regulated materials or personal data, whether their people will be on site. A local packaging supplier should not be asked for what a chemical supplier in a new market must produce, and asking anyway is how you train suppliers to treat the whole request as noise.
+Aggregated ownership exposure is the total share of a supplier held, directly and indirectly, by listed persons or entities, summed across every ownership path after the persons at the ends of those paths have been resolved to a single identity. Because aggregation is meaningless before identity resolution, a system that sums first reports clean chains that are not clean.
 
-The portal replaces the email thread. Suppliers see what is required, what has been received, what was rejected and why, in their own language, with reminders that go out without a buyer having to remember. One design rule matters more than the rest: never ask twice for something already held. Group companies, renewals and re-onboardings inherit what is still valid, and only the gaps are requested.
+We also refuse to build the composite supplier risk score that procurement teams reliably ask for, in which a sanctions match, an expired insurance certificate and a weak ESG questionnaire answer are weighted into one number. A sanctions match is not a magnitude on the same axis as a late document. Averaging them produces an amber traffic light that hides a prohibition.
 
-### Layer 2: Extraction and validation
+## Bank details are a payment instruction wearing a PDF
 
-Every document is read into structured fields: registration numbers, legal addresses, directors and shareholders, validity dates, insurance coverage limits, certification scopes, bank details.
+Bank details are handled as a higher-trust artefact than any other document in the pack, because they are the only one that moves money on its own.
 
-Validation is cross-document and against external sources. Does the entity on the insurance certificate match the entity on the registration? Is the registration number live in the national register, and is the company in good standing? Is the certification body accredited, and does the certificate's scope cover the parts being bought — a scope mismatch being the most common quiet failure in supplier quality. Has anything expired?
+They are never accepted from an email attachment. They are confirmed out of band against a contact established independently of the document that supplied them, and any change re-enters verification with finance confirming it rather than procurement. Payment diversion fraud comes through this door dressed as a routine update to remittance details from a supplier you have paid for years.
 
-Bank details are handled as a higher-trust artifact of their own. They are never accepted from an email attachment, always confirmed out of band against a known contact, and any change re-enters verification with finance, not procurement, confirming it. Payment diversion fraud comes through this exact door, and it comes dressed as a routine update to remittance details.
+Every other document is validated against something outside itself: is the registration number live in the national register, is the certification body accredited, does the certificate's scope cover the parts being bought. Scope mismatch is the quietest failure in supplier quality, because the certificate is genuine, current, and about something else.
 
-What the extraction layer may never do is normalize a discrepancy away. Mismatches surface as flags with both values side by side. A system that quietly reconciles two different company names is not saving time; it is deleting the finding.
+## Every disposition names a person, a reason, and a list version
 
-### Layer 3: Screening against watchlists and adverse media
+Screening produces evidence for a human decision, never a verdict. The system does not approve a supplier, does not reject one, and cannot dispose of a hit. It can rank a hit as likely irrelevant and show its reasoning, and there it stops.
 
-Screening covers more than the legal entity: parent companies, ultimate beneficial owners, directors, and the countries goods will actually move through. Screening a supplier's trading name alone misses most of what screening exists to catch.
+Each hit is presented with what matched, what distinguishes the two entities, which list it came from, and which dated version of that list. Adverse media is retrieved with publication, date, and the status of what is described: allegation, ongoing investigation, or court outcome. A dismissed claim from years ago and a current indictment must never look the same in a file.
 
-Matching is fuzzy by design — aliases, transliterations, name-order variations, date-of-birth proximity — and it is deliberately tuned toward recall. A missed sanctions match is a categorically worse failure than an extra false positive on an analyst's desk. That trade is deliberate, and it means the analyst will see hits that turn out to be nothing.
+The assembled file carries a recommended path rather than a decision: routine, enhanced due diligence, or the procurement risk committee that includes legal. A clean file can be approved by one analyst in minutes because the evidence is already assembled. Suppliers are rescreened on a schedule and on ownership events, with results appended to the same file rather than replacing it, and every disposition is written down with its reasoning, its timestamp, the analyst's name, and the list version in force at the time. That is what makes the file defensible years later, when somebody asks why this supplier was approved.
 
-So the system's job is disambiguation evidence, not verdicts. Each hit shows why it matched, what distinguishes the two entities, which list it came from, and which version of that list, dated. Adverse media is retrieved and summarized with publication, date, and — critically — the status of what is described: allegation, ongoing investigation, or court outcome. A dismissed claim from years ago and a current indictment must never look the same in a file.
+## Common questions
 
-Watchlists change and ownership changes, so suppliers are rescreened on a schedule and on ownership events, with results appended to the same file rather than replacing it. The system can rank a hit as likely irrelevant and show its reasoning. It cannot clear it. Only a person disposes of a hit, and their name goes on the disposition.
+### Can the system block a sanctioned supplier automatically?
 
-### Layer 4: Risk file assembly and the analyst's decision
+No. It assembles evidence and stops. Calling a company sanctioned is a determination about a real business and real people, and being wrong either way has consequences: a legitimate supplier blocked with no recourse, or a prohibited counterparty sitting in your master data. A named analyst dispositions every hit.
 
-The file assembles into one document: verified identity and ownership, every document with its validity dates, validation flags, screening results awaiting disposition, country and category risk context, and the policy that applies to this supplier.
+### Why won't you give us a single supplier risk score?
 
-It carries a recommended path — routine, enhanced due diligence, or committee — and never a decision. A clean file with no flags can be approved by a single analyst in minutes, because the evidence is already assembled. Anything with an unresolved flag goes to the compliance lead, and confirmed hits above the policy threshold go to a procurement risk committee that includes legal. Every disposition is written down with its reasoning, timestamped, against the list version used at the time.
+Because a sanctions match and an expired insurance certificate are not the same kind of fact. Weighting them into one number produces an amber light that hides a prohibition behind a document lapse. You get separate outputs: sanctions and ownership findings, document validity, and category or country context.
 
-That last detail is what makes the file defensible years later, when someone asks why this supplier was ever approved. The weeks that disappeared were never analysis. They were waiting. What is left is the judgment, made by a named person with the evidence in front of them.
+### What if we cannot establish the full ownership chain?
 
-## Why this generalizes
+The file says so explicitly, naming which layer is opaque and why, whether that is a bearer-share jurisdiction, a nominee shareholder, or a registry with no beneficial ownership data. Unknown ownership is a finding you can act on, and it routes to enhanced due diligence. It is never reported as a clean chain.
 
-The shape is any onboarding of a counterparty you must know before money or goods move. Financial services teams doing know-your-business checks on corporate customers run this exact sequence under tighter regulation and heavier volume. Distributor and reseller networks for regulated goods — medical devices, dual-use components — screen partners against the same lists with the same false-positive problem. Healthcare provider credentialing is the same architecture in different clothes: collect licenses and certifications, verify them against primary sources, screen against exclusion lists, and put a qualified human in front of every adverse finding.
+### How much faster does onboarding actually get?
 
-In all of them, speed comes from removing the waiting, never from removing the judgment.
+The waiting disappears and the judgment does not. Document chasing, validation and screening run without a buyer remembering to follow up, so a straightforward supplier moves in days rather than weeks. Files with unresolved ownership or an undisposed hit take as long as the analyst needs, which is the part worth paying for.
 
-## Is your supplier onboarding mostly waiting?
+## Do you know who actually owns the suppliers you paid last month?
 
-If a new supplier takes weeks and the reason is document chasing rather than analysis, your controls are already being bypassed by whoever needs the part urgently. We build these systems evidence-first: documents collected and validated automatically, screening presented as evidence, every decision made by your people. Tell us what your onboarding looks like today.
+If the answer comes from a name typed into a search box, you have screened a string rather than a structure. We build these systems evidence-first: an ownership graph with resolved identities at its ends, honest ranges where identity is uncertain, and every disposition made by a named person. Tell us what your onboarding looks like.

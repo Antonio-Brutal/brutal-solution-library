@@ -1,69 +1,79 @@
-# A Reporting Engine That Turns Books That Disagree Into One Monthly Pack
+# A Reporting Engine That Computes Two Correct EBITDAs From One Trial Balance
 
-> How we built a portfolio reporting engine for a private-equity operating team, and why the same approach matters for any group reporting across companies that keep their books differently.
+> How we built a portfolio reporting engine for a mid-market private-equity operating team, and why the same ledger has to produce more than one right answer.
 
 ![Flow diagram: five portfolio companies with differently kept books pass through individual mapping combs onto one shared chart of accounts, then into metric computation and a reporting pack gated by an operating partner](graphics/portfolio-reporting-automation.svg)
 
-## The problem: the first two weeks of every month
+## Day eleven, and an analyst is on the phone about one line again
 
-Most operating teams don't have a reporting problem. They have a *translation* problem.
+It is the eleventh working day of the month. An analyst has a trial balance open on one screen, a mapping workbook on the other, and a controller on the phone explaining why a cost line moved. In a folder sits the facility agreement for that same company, which defines the number the lender will test at quarter end, unopened since the deal closed.
 
-Our customer is a mid-market private-equity firm with a portfolio in the low double digits — manufacturers, distributors, a couple of software businesses across several countries — and an operating team small enough to fit in one room. Every month, that team produces a reporting pack per company: the numbers, the variances, the operational metrics, the commentary. The packs feed the investment committee, the board meetings, and eventually the LPs.
+Our customer is a mid-market private-equity firm with a portfolio in the low double digits, manufacturers, distributors and a couple of software businesses across several countries, run by an operating team small enough to fit in one room. Every month that team produces a pack per company: the numbers, the variances, the operational metrics, the commentary. The packs feed the investment committee, the boards, and eventually the LPs.
 
-Every company keeps its books differently, and none of them is wrong to. One runs a mature ERP with a chart of accounts refined over twenty years. One runs entry-level software where half the analysis lives in the memo field. Two use the same system configured in incomparable ways. Each has its own definition of gross margin, its own view of what belongs in cost of sales, its own habits around accruals, and its own statutory obligations pulling the accounts somewhere the investor's view never goes.
+Every company keeps its books differently and none of them is wrong to. One runs a mature ERP with a chart of accounts refined over twenty years, one runs entry-level software where half the analysis lives in the memo field, and two use the same system configured in incomparable ways. The first fortnight of every month goes to translating between them, and the people hired to improve businesses spend it doing data entry.
 
-So the first two weeks of every month went to translation. Someone downloads a trial balance, opens the mapping spreadsheet, remaps the accounts, recalculates the metrics the fund defines rather than the ones the company reports, chases a controller about a line that moved, writes the commentary, formats the pack. Then does it again for the next company. And again.
+## Who each number in the pack is written for
 
-The consequences are worse than the hours. Numbers arrive late enough that operating partners are reacting to a quarter that has already happened. Comparability is fragile — when a company adds a general ledger account and nobody updates the mapping, the number silently changes meaning and the trend line lies without anyone noticing. Every version of the mapping lives in a workbook on somebody's laptop, so when an analyst leaves, part of the fund's reporting logic leaves too. And the people hired to improve businesses spend half of every month doing data entry.
+Each number in the pack is computed for a named reader, and EBITDA is where that bites. The investment committee reads Management EBITDA under the fund's adjustment policy; the lender reads Consolidated EBITDA as defined in that company's facility agreement. Those are different contractual constructions of the same ledger, and the engine's job is to keep both computable, labelled and reconciled rather than to choose between them.
 
-## What we built
+Basis: the named rule set under which a metric was computed, comprising the mapping version, the adjustment policies applied, their caps, and their look-forward limits. A metric published without its basis is an assertion rather than a number, since the same trial balance yields a different and equally correct EBITDA on the fund's management basis and on a facility agreement's basis.
 
-We built an engine that runs the translation layer. It pulls each portfolio company's raw finance and operations data, maps it into the fund's common chart of accounts using rules the team owns and can read, computes every metric against one definition, drafts the variance narrative from the underlying detail, and assembles the pack.
+Every metric the engine publishes names its basis, and any two figures shown side by side must share one or be reconciled line by line from the one to the other. That reconciliation is an exhibit in the pack rather than a working file on a laptop, because the gap between the management number and the covenant number is where the uncomfortable surprises live.
 
-Nothing ships without a human. The operating partner responsible for a company reviews and signs off every pack before it goes anywhere — to the investment committee, to a board, to an LP. The engine's job is to have the arithmetic, the mapping, and the first draft of the story done before that partner sits down. The judgment call about what a number means, and whether the fund is willing to stand behind it, stays exactly where it was.
+## Add-backs are contract terms, not accounting opinions
+
+Covenant compliance is tested on Consolidated EBITDA as defined in the facility agreement, not on any accounting standard. That definition enumerates the permitted add-backs, frequently caps them at a stated proportion of unadjusted EBITDA, and limits run-rate synergies and cost savings to those expected within a stated look-forward period, commonly twelve to eighteen months. Certificates are due within a set number of days of each test date, and equity cure rights are limited in number and usually cannot be exercised in consecutive quarters.
+
+We implemented adjustments as one policy list applied uniformly to mapped accounts. It produced an adjusted EBITDA that was internally consistent across the portfolio and useless to the deal team. Two companies' facility agreements treated add-backs differently, one capping them as a proportion of unadjusted EBITDA and one excluding run-rate savings beyond a twelve-month look-forward, and our number silently exceeded both. The management pack and the covenant certificate diverged, and nobody could see the seam.
+
+Adjustments became typed objects. Each carries a policy identifier, the agreement clause it derives from, its cap rule and its look-forward window, so the engine can apply a cost as an add-back on one basis and refuse it on another from the same entry. A cost that looks exceptional but matches no policy on either basis is raised as a question for the CFO and the operating partner. It is never quietly stripped out, and no adjustment is applied that is not tied to a written policy or a clause.
 
 <img src="motion/portfolio-reporting-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Companies that keep their books differently converge on one chart of accounts.*
 
-*Different books converge on one chart of accounts; the pack waits for a signature before it moves.*
+## The mapping proposal that never activates itself
 
-## How it works
+The system proposes mappings for new accounts and never activates one on its own. It recognises that an account called "Freight Out, Region 2" belongs with distribution costs, and that recognition is a suggestion sitting in front of the named person who owns that company's mapping. Until they resolve it, the account is an exception and the affected pack carries a visible flag.
 
-### Layer 1: Per-company ingestion and mapping
+Silent mapping is the most dangerous thing a system like this can do, because it produces a pack that looks complete, reconciles to nothing, and is believed. A company adds a general ledger account, the mapping does not know about it, and the trend line lies without anyone noticing.
 
-Each company connects the way it can: an API into the accounting system where one exists, a scheduled export where it doesn't, a defined file drop for the businesses whose finance function is one person and a spreadsheet. We do not ask companies to change systems. Replacing a portfolio company's ERP to improve fund reporting is a two-year project that solves the wrong problem.
+Each company connects the way it can, through an API where the accounting system has one, a scheduled export where it does not, and a defined file drop for the businesses whose finance function is one person and a spreadsheet. We refuse the project everyone reaches for first. Replacing a portfolio company's accounting system to make fund reporting easier is a two-year programme aimed at the wrong constraint, and the translation layer above the source systems is the thing that actually needs building.
 
-The mapping from each company's chart of accounts to the fund's common chart is explicit, versioned, and owned by a named person on the finance side. The system proposes mappings for new accounts — it is good at recognising that "Freight Out — Region 2" belongs with distribution costs — but it never activates one on its own. An unmapped account is an exception that goes to a human, and until that human resolves it, the affected company's pack carries a visible flag. Silent mapping is the single most dangerous thing this kind of system can do: it produces a pack that looks complete, reconciles to nothing, and is believed.
+## An unexplained variance found on day two is a phone call
 
-Operational data comes through the same door. Headcount, units shipped, bookings, utilisation — the metrics that explain the financials — are ingested and tied to the same period boundaries, because a margin discussion without volume is guesswork.
+When a line moves materially against budget, forecast or prior period, the engine drafts the explanation an analyst would otherwise assemble by hand and grounds it in the detail underneath. Gross margin fell at one company because a mix shift toward a lower-margin line coincided with a raw material price increase, with the specific accounts and volumes cited beneath the sentence. Where the portfolio company submitted its own commentary, it is carried through and attributed rather than paraphrased into the fund's voice.
 
-### Layer 2: Metric computation against one definition
+The draft is also required to admit ignorance. When a number moves and nothing in the data explains it, the draft says so and names the question to put to the controller. An unexplained variance surfaced on day two is a phone call. The same variance discovered in a board meeting is an incident.
 
-The fund's metric definitions live in one place, in language a human can read: how gross margin is calculated, what belongs in adjusted EBITDA, how recurring revenue is recognised, how net working capital is derived. Every company's numbers are computed from the mapped data using those definitions, so that when two businesses show the same metric, they mean the same thing.
+Operational data arrives on the same period boundaries: headcount, units shipped, bookings, utilisation. A margin discussion without volume underneath it is guesswork with a chart attached.
 
-Adjustments are where this gets serious. Add-backs, normalisations, and one-off exclusions are the most consequential and most contested numbers in private equity, and the engine treats them accordingly: it applies only the adjustment policies the fund has agreed, records which policy produced each adjustment, and refuses to invent new ones. A cost that looks non-recurring but matches no existing policy is raised as a question for the CFO and the operating partner, not quietly stripped out. The machine computes agreed treatments. It does not decide what counts as exceptional.
+## Covenant headroom is the exhibit nobody should draft from memory
 
-### Layer 3: Variance narrative drafting
+Headroom against each financial covenant is computed on the agreement's own basis, with the certificate due date, the permitted add-back caps and the remaining equity cure rights shown alongside it. Cures are limited in number and typically cannot run in consecutive quarters, so how many remain belongs in the pack rather than in somebody's memory during a board meeting.
 
-When a line moves materially against budget, forecast, or prior period, the engine drafts the explanation an analyst would otherwise assemble by hand — and grounds it entirely in the detail underneath. Gross margin fell at one company because a product mix shift toward a lower-margin line coincided with a raw material price increase, with the specific accounts and volumes cited beneath the sentence. Where the portfolio company has submitted its own commentary, that is carried through and attributed, not paraphrased into the fund's voice.
+Sign-off stays with the operating partner who owns the company. A pack cannot be signed while blocking exceptions are open, and exceptions are never silently excluded from totals to make a pack render cleanly. An incomplete pack states what is missing, because one that quietly drops what it could not handle is worse than one that arrives a day late.
 
-The most valuable output of this layer is the admission of ignorance. When a number moves and nothing in the data explains it, the draft says so and names the question to ask the controller. An unexplained variance surfaced on day two is a phone call. The same variance discovered in a board meeting is an incident.
+The engine does not decide what counts as exceptional, does not activate a mapping, does not select a basis for an external audience, and does not publish any metric without naming the basis it was computed on. Every figure traces through its basis and its mapping version back to the source trial balance line, so the answer to "where does this come from" is a path rather than a recollection.
 
-### Layer 4: Pack assembly and the operating-partner review gate
+## Common questions
 
-The pack renders itself — the standard exhibits in the standard order, per company and consolidated — and lands with the responsible operating partner as a draft, everything a human should look at already flagged: unmapped accounts, adjustments awaiting a decision, unexplained variances, incomplete submissions.
+### Why can't we just agree one definition of EBITDA across the portfolio?
 
-The gate is real. A pack does not leave the system unsigned, and it cannot be signed while blocking exceptions are open. Exceptions are never silently excluded from the totals to make a pack render cleanly; an incomplete pack states what is missing, because a pack that quietly drops what it couldn't handle is worse than one that arrives a day late. Every figure traces back through its metric definition and its mapping to the source trial balance line, so the answer to "where does this come from" is a path, not a recollection. And every partner edit is captured — a corrected narrative is the clearest available signal of where the engine's reading of a business and a partner's understanding of it diverge.
+Because one of the definitions is not yours to set. Each company's facility agreement defines Consolidated EBITDA for covenant purposes, with its own permitted add-backs, caps and look-forward limits, and lenders test that number regardless of fund policy. A single portfolio-wide definition is useful for comparing companies and unusable for compliance, so both have to exist and reconcile.
 
-## Why this generalizes
+### Do our portfolio companies have to change their accounting systems?
 
-The shape is any group that reports across entities it did not design: acquired companies, franchised operators, local subsidiaries — businesses that keep their own books for their own good reasons and must still roll up into one comparable view.
+No, and we will argue against it. Each company connects through an API, a scheduled export or a defined file drop, and the mapping to the fund's chart of accounts is versioned and owned by a named person. An ERP consolidation to improve fund reporting is a multi-year programme aimed at the wrong constraint, and it still leaves you needing the translation layer.
 
-Acquisitive multi-brand groups live this exactly, absorbing a new chart of accounts with every deal and postponing the ERP consolidation that never quite happens. Family offices face it across an even wider spread of asset types and reporting standards. And large franchisors run it in reverse — hundreds of independent operators submitting numbers in whatever form their bookkeeper prefers, into a brand-level view needed monthly.
+### Who signs off, and what happens if something is unresolved?
 
-In all three, the instinct is a system migration or another analyst. Both are slow, and neither addresses the constraint. Leave the source systems alone, automate the translation layer above them, and keep sign-off where the accountability already sits.
+The operating partner responsible for the company signs every pack, and the pack cannot be signed while blocking exceptions are open: unmapped accounts, adjustments awaiting a decision, unexplained variances, missing submissions. Nothing is silently excluded to make the totals render. The pack states what is missing and who owes the answer.
 
-## How much of your month goes to remapping the same accounts?
+### Can it produce the covenant compliance certificate itself?
 
-If your pack is assembled by hand from a dozen sets of books, your operating team's most productive fortnight each month goes to translation, and the numbers reach decision-makers already stale. We build these mapping-first, exception-visible, and signed by a human before anything leaves the building. Tell us what your month-end looks like.
+It computes the number on the agreement's basis, shows the clause behind each add-back and the cap applied, and tracks the certificate deadline against the test date. The certificate itself is signed by the people whose signature the agreement requires, on figures they have reviewed. We build the arithmetic and the audit trail, not the signature.
+
+## Does your pack agree with your covenant certificate?
+
+If your management EBITDA and your lender's definition are reconciled once a quarter by an analyst with two documents open, the seam is invisible until it matters. We build the translation layer above the source systems, keep every metric labelled with the basis it was computed on, and leave sign-off with the partner who owns the company. Tell us what your month-end looks like.
