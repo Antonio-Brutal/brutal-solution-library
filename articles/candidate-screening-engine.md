@@ -16,7 +16,7 @@ People worry that AI screening will be a black box. We'd put it more bluntly: th
 
 A screening engine that reads every application properly and shows its work. It parses CVs across formats and languages, scores each candidate against criteria the recruiters define, records the CV evidence behind every score, and hands recruiters a ranked shortlist with suggested interview questions. One principle governs the whole system: it ranks evidence, and humans make every hiring decision. No candidate is rejected by the machine. Ever.
 
-<video src="media/candidate-screening-engine.mp4" poster="media/candidate-screening-engine-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/candidate-screening-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Evidence lights the criteria that it supports. The ranking is visible, and the decision stays human.*
 

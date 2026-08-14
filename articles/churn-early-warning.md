@@ -24,7 +24,7 @@ Those responses come from a fixed catalogue of save actions that humans wrote an
 
 Three boundaries are architectural rather than procedural, because money and trust are involved. Discount depth and eligibility live in a policy layer set by the retention lead and finance, enforced outside the model, readable as plain text by anyone who asks. Cancelling is never made harder for a high-risk subscriber; the score influences what we offer, never what we obstruct. And some situations are excluded from targeting entirely — an open complaint, a bereavement notification, an accessibility case — because a save offer is the wrong thing to send then, and the only way to guarantee it is to make those subscribers unreachable by the selector.
 
-<video src="media/churn-early-warning.mp4" poster="media/churn-early-warning-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/churn-early-warning.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Risk surfaces with a reason code, and the reason decides which save action fires.*
 

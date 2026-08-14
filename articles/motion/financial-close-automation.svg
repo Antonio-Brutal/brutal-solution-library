@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Financial close automation schematic: parallel entity rails converge into an isometric reconciliation enclosure where pairs lock, an unmatched rail drops through a siding to a lime-ringed controller-reviews node and rejoins, variance narratives draft from the matched data, a sequential checklist rail runs to a sealed closed-ledger terminal, with an audit trail threading underneath the whole flow">
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .financial-close-automation-pulse { display: none; }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- faint registration texture -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.3">
+    <path d="M 1112 66 h 12 M 1118 60 v 12"/>
+    <path d="M 60 590 h 12 M 66 584 v 12"/>
+  </g>
+
+  <!-- entities: several parallel property rails -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.65">
+    <path id="financial-close-automation-ent1" d="M 40 150 C 170 154, 260 236, 360 270"/>
+    <path id="financial-close-automation-ent2" d="M 40 212 C 170 214, 260 268, 360 300"/>
+    <path id="financial-close-automation-ent3" d="M 40 278 C 170 282, 260 308, 360 330"/>
+    <path id="financial-close-automation-ent4" d="M 40 358 C 170 356, 260 336, 360 360"/>
+  </g>
+  <g fill="#f8fafc" opacity="0.6">
+    <circle cx="96" cy="151" r="2.5"/>
+    <circle cx="96" cy="213" r="2.5"/>
+    <circle cx="96" cy="279" r="2.5"/>
+    <circle cx="96" cy="358" r="2.5"/>
+    <circle cx="96" cy="424" r="2.5"/>
+  </g>
+  <!-- the fifth rail: looks the same as the others until it fails to lock -->
+  <path id="financial-close-automation-ent5" d="M 40 424 C 170 422, 230 438, 260 452" stroke="#f8fafc" stroke-width="1" opacity="0.6" fill="none"/>
+  <text x="50" y="126" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">entities</text>
+
+  <!-- reconciliation: isometric enclosure, pairs of pulses meet and lock -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <path d="M 360 245 L 500 245 L 500 385 L 360 385 Z"/>
+    <path d="M 360 245 L 386 223 L 526 223 L 500 245 Z"/>
+    <path d="M 500 245 L 526 223 L 526 363 L 500 385 Z"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.3">
+    <path d="M 506 353 L 522 339"/>
+    <path d="M 506 329 L 522 315"/>
+    <path d="M 506 305 L 522 291"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.18">
+    <path d="M 380 260 L 470 370"/>
+    <path d="M 380 370 L 470 260"/>
+    <path d="M 420 260 L 480 370"/>
+  </g>
+  <g fill="#f8fafc" opacity="0.9">
+    <circle cx="360" cy="270" r="3"/>
+    <circle cx="360" cy="300" r="3"/>
+    <circle cx="360" cy="330" r="3"/>
+    <circle cx="360" cy="360" r="3"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <path id="financial-close-automation-rec1" d="M 360 270 C 396 272, 412 278, 428 284"/>
+    <path id="financial-close-automation-rec2" d="M 360 300 C 396 298, 412 291, 428 285"/>
+    <path id="financial-close-automation-rec3" d="M 360 330 C 396 332, 412 338, 428 344"/>
+    <path id="financial-close-automation-rec4" d="M 360 360 C 396 358, 412 350, 428 345"/>
+  </g>
+  <path d="M 430 272 L 442 284 L 430 296 L 418 284 Z" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <path d="M 430 332 L 442 344 L 430 356 L 418 344 Z" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <use xlink:href="#pulseDeep" transform="translate(430,284)"/>
+  <use xlink:href="#pulseDeep" transform="translate(430,344)"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 442 284 L 462 300"/>
+    <path d="M 442 344 L 462 328"/>
+    <path d="M 462 300 L 462 328"/>
+  </g>
+  <path id="financial-close-automation-matched" d="M 462 314 L 560 314" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <use xlink:href="#pulse" transform="translate(500,314)"/>
+
+  <!-- unmatched: dim siding runs under the whole flow to a lime-ringed controller-reviews node -->
+  <path id="financial-close-automation-siding" d="M 260 452 C 420 462, 560 468, 660 470 C 760 472, 840 475, 890 478" stroke="#62748e" stroke-width="1" opacity="0.85" fill="none"/>
+  <g stroke="#62748e" stroke-width="1" opacity="0.5">
+    <path d="M 340 461 l 4 -10"/>
+    <path d="M 460 466 l 4 -10"/>
+    <path d="M 580 469 l 4 -10"/>
+    <path d="M 700 471 l 4 -10"/>
+    <path d="M 800 474 l 4 -10"/>
+  </g>
+  <use xlink:href="#pulseDeep" transform="translate(520,468)"/>
+
+  <circle cx="912" cy="479" r="22" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0.7"/>
+  <circle class="financial-close-automation-pulse" cx="912" cy="479" r="22" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0">
+    <animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="912" cy="479" r="22" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="912" cy="479" r="13" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <circle cx="908" cy="476" r="5" fill="none" stroke="#d8f999" stroke-width="1.4"/>
+  <path d="M 912 480 L 918 486" stroke="#d8f999" stroke-width="1.4"/>
+  <text x="912" y="530" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">controller reviews</text>
+
+  <!-- reviewed items rejoin toward the close -->
+  <path id="financial-close-automation-rejoin" d="M 934 473 C 962 456, 978 420, 985 366" stroke="#f8fafc" stroke-width="1" opacity="0.6" fill="none"/>
+  <use xlink:href="#pulse" transform="translate(963,415)"/>
+
+  <!-- variance narratives: reference plate feeds the drafting nib -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <rect x="622" y="196" width="64" height="40" opacity="0.8"/>
+    <path d="M 630 208 h 40" opacity="0.55"/>
+    <path d="M 630 218 h 48" opacity="0.55"/>
+    <path d="M 630 228 h 28" opacity="0.55"/>
+    <path id="financial-close-automation-varfeed" d="M 654 236 V 300" opacity="0.6"/>
+    <path d="M 649 266 L 654 274 L 659 266" opacity="0.7"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(654,252)"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 560 300 C 580 300, 584 308, 604 312" opacity="0.85"/>
+    <path id="financial-close-automation-var2" d="M 560 322 L 604 320" opacity="0.85"/>
+    <path d="M 560 344 C 580 344, 584 336, 604 328" opacity="0.85"/>
+    <path d="M 604 308 h 30" opacity="0.6"/><path d="M 604 314 h 30" opacity="0.6"/>
+    <path d="M 604 320 h 30" opacity="0.6"/><path d="M 604 326 h 30" opacity="0.6"/>
+    <path d="M 604 332 h 30" opacity="0.6"/>
+    <path d="M 638 302 L 682 320 L 638 338 Z" stroke-width="1.2"/>
+    <path d="M 638 320 L 672 320" opacity="0.5"/>
+    <path id="financial-close-automation-varout" d="M 682 320 L 748 320" stroke-width="1.2"/>
+  </g>
+
+  <!-- close-checklist orchestration: sequential rail of task nodes -->
+  <path id="financial-close-automation-checklist" d="M 748 320 L 966 320" stroke="#f8fafc" stroke-width="1" opacity="0.7" fill="none"/>
+  <g fill="#bbf451" opacity="0.85">
+    <rect x="785" y="315" width="10" height="10"/>
+    <rect x="825" y="315" width="10" height="10"/>
+  </g>
+  <rect x="863" y="313" width="14" height="14" fill="#bbf451" opacity="0.85" filter="url(#glow)"/>
+  <rect x="863" y="313" width="14" height="14" fill="#bbf451" opacity="0.9"/>
+  <g fill="none" stroke="#f8fafc" opacity="0.6">
+    <rect x="905" y="315" width="10" height="10"/>
+    <rect x="945" y="315" width="10" height="10"/>
+  </g>
+
+  <!-- close: sealed ledger terminal -->
+  <rect x="995" y="258" width="110" height="104" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.5">
+    <path d="M 1010 280 L 1090 280"/>
+    <path d="M 1010 320 L 1086 320"/>
+    <path d="M 1010 340 L 1064 340"/>
+  </g>
+  <path d="M 1010 300 L 1078 300" stroke="#bbf451" stroke-width="2" filter="url(#glow)" opacity="0.75"/>
+  <path d="M 1010 300 L 1078 300" stroke="#bbf451" stroke-width="1.6"/>
+  <path d="M 966 320 L 995 320" stroke="#f8fafc" stroke-width="1.1" fill="none" opacity="0.8"/>
+  <path d="M 1080 336 L 1088 344 L 1102 326" fill="none" stroke="#d8f999" stroke-width="1.6" opacity="0.9"/>
+
+  <!-- audit trail threads underneath the whole flow -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 6" opacity="0.3">
+    <path d="M 300 430 H 1120"/>
+    <path d="M 430 430 V 420"/>
+    <path d="M 660 430 V 420"/>
+    <path d="M 860 430 V 420"/>
+    <path d="M 1060 430 V 420"/>
+  </g>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 430 400 V 545"/>
+    <path d="M 660 400 V 545"/>
+    <path d="M 1060 400 V 545"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="430" y="568">reconciliation</text>
+    <text x="660" y="568">variance narratives</text>
+    <text x="1060" y="568">close</text>
+  </g>
+
+  <!-- ==== motion: travelling pulses on the existing flow paths, 6s seamless loop ====
+       Stagger uses negative begin offsets so every dot is already mid-path at t=0:
+       state at t=6s is identical to t=0s, with no dot parked off-path. -->
+
+  <!-- every entity's ledger, streaming continuously rather than at month-end -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.6s"><mpath href="#financial-close-automation-ent1" xlink:href="#financial-close-automation-ent1"/></animateMotion>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1.5s"><mpath href="#financial-close-automation-ent2" xlink:href="#financial-close-automation-ent2"/></animateMotion>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3s"><mpath href="#financial-close-automation-ent3" xlink:href="#financial-close-automation-ent3"/></animateMotion>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4.5s"><mpath href="#financial-close-automation-ent4" xlink:href="#financial-close-automation-ent4"/></animateMotion>
+  </use>
+  <!-- the fifth rail looks exactly like the others, right up until it fails to lock -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.2s"><mpath href="#financial-close-automation-ent5" xlink:href="#financial-close-automation-ent5"/></animateMotion>
+  </use>
+
+  <!-- pairs meet and lock inside the reconciliation enclosure -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-0.5s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.18;1"><mpath href="#financial-close-automation-rec1" xlink:href="#financial-close-automation-rec1"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-0.5s" values="0;1;1;0;0" keyTimes="0;0.035;0.155;0.2;1"/>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-0.5s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.18;1"><mpath href="#financial-close-automation-rec2" xlink:href="#financial-close-automation-rec2"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-0.5s" values="0;1;1;0;0" keyTimes="0;0.035;0.155;0.2;1"/>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3.5s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.18;1"><mpath href="#financial-close-automation-rec3" xlink:href="#financial-close-automation-rec3"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-3.5s" values="0;1;1;0;0" keyTimes="0;0.035;0.155;0.2;1"/>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3.5s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.18;1"><mpath href="#financial-close-automation-rec4" xlink:href="#financial-close-automation-rec4"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-3.5s" values="0;1;1;0;0" keyTimes="0;0.035;0.155;0.2;1"/>
+  </use>
+
+  <!-- matched, and on toward the narrative -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1s"><mpath href="#financial-close-automation-matched" xlink:href="#financial-close-automation-matched"/></animateMotion>
+  </use>
+
+  <!-- THE EXCEPTION: only the unreconciled drops onto the siding, and it STOPS dead
+       at the controller. Nothing closes past a human who has not looked at it. -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulseDeep" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.5;1"><mpath href="#financial-close-automation-siding" xlink:href="#financial-close-automation-siding"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="0s" values="0;1;1;1;0" keyTimes="0;0.03;0.5;0.85;1"/>
+  </use>
+  <!-- reviewed, and only then does it rejoin the close -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.6;0.95;1"><mpath href="#financial-close-automation-rejoin" xlink:href="#financial-close-automation-rejoin"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="0s" values="0;0;1;1;0;0" keyTimes="0;0.6;0.64;0.92;0.97;1"/>
+  </use>
+
+  <!-- the variance narrative drafts itself out of the matched detail -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1.2s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.16;1"><mpath href="#financial-close-automation-varfeed" xlink:href="#financial-close-automation-varfeed"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-1.2s" values="0;1;1;0;0" keyTimes="0;0.03;0.14;0.18;1"/>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3.4s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.12;1"><mpath href="#financial-close-automation-var2" xlink:href="#financial-close-automation-var2"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-3.4s" values="0;1;1;0;0" keyTimes="0;0.025;0.1;0.14;1"/>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2s"><mpath href="#financial-close-automation-varout" xlink:href="#financial-close-automation-varout"/></animateMotion>
+  </use>
+
+  <!-- the checklist marches, entity by entity, to the sealed ledger -->
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1.7s"><mpath href="#financial-close-automation-checklist" xlink:href="#financial-close-automation-checklist"/></animateMotion>
+  </use>
+  <use class="financial-close-automation-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4.7s"><mpath href="#financial-close-automation-checklist" xlink:href="#financial-close-automation-checklist"/></animateMotion>
+  </use>
+</svg>

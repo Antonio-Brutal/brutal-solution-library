@@ -22,7 +22,7 @@ We built an engine that maintains a verified map between the retailer's catalogu
 
 One rule shaped the whole architecture. The engine recommends; the pricing committee decides. Price is a commercial decision with consequences the model cannot see — a vendor rebate agreement, a promotion three weeks out, a deliberate choice to hold a headline price on a hero product and make the margin on accessories. The committee can delegate a narrow band of routine moves to run automatically, defines that band itself in writing, and can revoke it in an afternoon. Everything else waits for a person.
 
-<video src="media/competitive-price-monitoring.mp4" poster="media/competitive-price-monitoring-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/competitive-price-monitoring.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Matching the same product across retailers is the hard part. The price move is the easy part.*
 

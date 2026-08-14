@@ -24,7 +24,7 @@ We have written before about content engines that optimise themselves. This is t
 
 The boundary was fixed on day one. The engine proposes; a performance marketer decides what ships. Claims belong to the people who own claims. And the machine never touches budget — it can tell you a hook is outperforming, but it cannot move a euro toward it.
 
-<video src="media/ad-creative-iteration.mp4" poster="media/ad-creative-iteration-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/ad-creative-iteration.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Variants go out, performance comes back, and the next round is shaped by what returned.*
 

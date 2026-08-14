@@ -22,7 +22,7 @@ Before the appointment, it reads the intake questionnaire, the referral, and the
 
 Then it stops. The draft is not a record. It is a proposal, sitting in a holding area outside the patient file, and it stays there until a named clinician reads it, edits whatever needs editing, and signs it. Nothing the system produces enters the medical record without that signature. The system does not diagnose, does not grade severity, does not suggest a treatment plan, and does not decide what happens next. It writes down what the clinician did and said, in the format the clinic requires, and waits.
 
-<video src="media/clinical-documentation-assistant.mp4" poster="media/clinical-documentation-assistant-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/clinical-documentation-assistant.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *The note is drafted from the session. Nothing reaches the record without the clinician.*
 

@@ -22,7 +22,7 @@ The thesis fits in one sentence: the system turns regulatory change from a readi
 
 It is worth saying what the system is not. It does not interpret the law, and it does not decide what the company should do about a change — those calls stay with the humans who are qualified and accountable for them. It makes sure the right human sees the right change, with the right context, in time to act.
 
-<video src="media/regulatory-horizon-scanning.mp4" poster="media/regulatory-horizon-scanning-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/regulatory-horizon-scanning.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Change arrives from many sources, gets compared against what stood before, and lands on an owner.*
 

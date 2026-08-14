@@ -38,7 +38,9 @@ When real numbers become available from delivery teams, they replace the magnitu
 
 Schematics are self-contained SVG on `#050608` with white line-work and lime accents, sized 1200×630 so they double as OG images. Every `id` is slug-prefixed, so any number of them can be inlined on one page without collisions.
 
-Videos are silent five-second 720p loops, each with a matching poster frame. They carry no text by design — AI-generated lettering is unreliable, so all labelling lives in the article and the schematic.
+Diagram loops are silent five-second 720p clips, each with a poster frame and a true GIF alternative under `articles/media/gif/`. They embed as `autoplay loop muted playsinline` so they behave like a GIF — no controls, no click to start — because they are diagrams rather than something the reader chooses to watch. Prefer the MP4 over the GIF where the platform allows it: same loop at roughly half the weight and noticeably sharper, since GIF caps at 256 colours and these are subtle gradients on near-black.
+
+They carry no text by design. Generated lettering is unreliable and reads as fake, so every label lives in the article and the schematic instead. `VIDEO-SPEC.md` records the prompt discipline this requires — describe geometry, never objects, since object nouns like *panel*, *dial* or *matrix* pull the model toward labelled instrument panels that arrive covered in garbled glyphs.
 
 ## Rebuilding
 

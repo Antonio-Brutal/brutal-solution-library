@@ -22,7 +22,7 @@ We built an enrichment engine that sits between supplier chaos and the live cata
 
 That judgment step is the heart of the system. Nothing goes live on blind faith, and no merchandiser spends a minute on an item the machine has solid grounds to be confident about.
 
-<video src="media/catalog-enrichment-engine.mp4" poster="media/catalog-enrichment-engine-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/catalog-enrichment-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Whatever the supplier sends becomes one uniform structure. Confidence decides which rail it takes.*
 

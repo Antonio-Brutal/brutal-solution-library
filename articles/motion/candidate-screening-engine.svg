@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: CV strands feed a parsing nozzle and an isometric scoring lattice, spill onto ordered shortlist rails toward a lime-ringed recruiter decides node leading to interviews, while a faint audit-trail line runs beneath the whole flow">
+  <defs>
+    <style>@media (prefers-reduced-motion: reduce){.candidate-screening-engine-pulse{display:none}}</style>
+    <g id="candidate-screening-engine-mpulse">
+      <circle r="4.4" fill="#bbf451" opacity="0.8" filter="url(#candidate-screening-engine-glow)"/>
+      <circle r="1.7" fill="#d8f999"/>
+    </g>
+    <g id="candidate-screening-engine-mpulseDeep">
+      <circle r="5" fill="#9de500" opacity="0.85" filter="url(#candidate-screening-engine-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="candidate-screening-engine-mpulseDim">
+      <circle r="3.2" fill="#62748e" opacity="0.9"/>
+      <circle r="1.2" fill="#90a1b9"/>
+    </g>
+    <radialGradient id="candidate-screening-engine-bg" cx="50%" cy="45%" r="80%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="candidate-screening-engine-glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="candidate-screening-engine-glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="candidate-screening-engine-pulse">
+      <circle r="5" fill="#bbf451" opacity="0.85" filter="url(#candidate-screening-engine-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#candidate-screening-engine-bg)"/>
+
+  <!-- faint registration marks -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.35">
+    <path d="M200,128 h12 M206,122 v12"/>
+    <path d="M870,140 h12 M876,134 v12"/>
+    <path d="M1090,540 h12 M1096,534 v12"/>
+  </g>
+
+  <!-- cv pages -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <rect x="56" y="176" width="42" height="56"/>
+    <rect x="46" y="296" width="42" height="56"/>
+    <rect x="60" y="400" width="42" height="56"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.8">
+    <line x1="63" y1="192" x2="91" y2="192"/>
+    <line x1="63" y1="204" x2="85" y2="204"/>
+    <line x1="63" y1="216" x2="91" y2="216"/>
+    <line x1="53" y1="312" x2="81" y2="312"/>
+    <line x1="53" y1="324" x2="75" y2="324"/>
+    <line x1="53" y1="336" x2="81" y2="336"/>
+    <line x1="67" y1="416" x2="95" y2="416"/>
+    <line x1="67" y1="428" x2="89" y2="428"/>
+    <line x1="67" y1="440" x2="95" y2="440"/>
+  </g>
+
+  <!-- cv strands into the nozzle -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="candidate-screening-engine-cv1" d="M98,204 C160,204 200,240 252,246" opacity="0.9"/>
+    <path d="M98,220 C170,224 210,270 252,272" opacity="0.5"/>
+    <path id="candidate-screening-engine-cv2" d="M88,324 C160,324 200,300 252,296" opacity="0.9"/>
+    <path d="M88,336 C170,338 206,322 252,320" opacity="0.5"/>
+    <path id="candidate-screening-engine-cv3" d="M102,428 C170,424 210,360 252,350" opacity="0.9"/>
+    <path d="M102,440 C180,436 216,384 252,374" opacity="0.5"/>
+    <path id="candidate-screening-engine-cv4" d="M-10,260 C110,256 180,278 252,282" opacity="0.35"/>
+    <path d="M-10,392 C120,390 190,336 252,326" opacity="0.35"/>
+  </g>
+  <use href="#candidate-screening-engine-pulse" x="150" y="212"/>
+  <use href="#candidate-screening-engine-pulse" x="188" y="252"/>
+  <use href="#candidate-screening-engine-pulse" x="160" y="318"/>
+  <use href="#candidate-screening-engine-pulse" x="204" y="300"/>
+  <use href="#candidate-screening-engine-pulse" x="176" y="410"/>
+  <use href="#candidate-screening-engine-pulse" x="216" y="360"/>
+
+  <!-- parsing nozzle -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M252,214 C296,238 330,278 352,302" stroke-width="1.3"/>
+    <path d="M252,416 C296,392 330,336 352,316" stroke-width="1.3"/>
+    <path id="candidate-screening-engine-noz1" d="M258,278 C298,286 330,296 348,306" stroke-width="1" opacity="0.4"/>
+    <path id="candidate-screening-engine-noz2" d="M258,352 C298,344 330,326 348,314" stroke-width="1" opacity="0.4"/>
+  </g>
+  <circle cx="360" cy="309" r="9" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+  <use href="#candidate-screening-engine-pulse" x="378" y="309"/>
+
+  <!-- scoring: isometric lattice enclosure -->
+  <line x1="369" y1="309" x2="410" y2="309" stroke="#f8fafc" stroke-width="1.2"/>
+  <g stroke="#f8fafc" fill="none">
+    <rect x="410" y="235" width="190" height="165" stroke-width="1.3"/>
+    <path d="M410,235 L436,211 L626,211 L600,235" stroke-width="1.3"/>
+    <path d="M600,235 L626,211 L626,376 L600,400" stroke-width="1.3"/>
+    <g stroke-width="1" opacity="0.4">
+      <path d="M480,211 L454,235"/>
+      <path d="M530,211 L504,235"/>
+      <path d="M580,211 L554,235"/>
+      <path d="M626,250 L600,274"/>
+      <path d="M626,300 L600,324"/>
+      <path d="M626,350 L600,374"/>
+      <rect x="422" y="247" width="166" height="141"/>
+    </g>
+  </g>
+  <!-- criteria ticks along the intake edge -->
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.8">
+    <line x1="440" y1="230" x2="446" y2="222"/>
+    <line x1="472" y1="230" x2="478" y2="222"/>
+    <line x1="504" y1="230" x2="510" y2="222"/>
+    <line x1="536" y1="230" x2="542" y2="222"/>
+    <line x1="568" y1="230" x2="574" y2="222"/>
+  </g>
+  <!-- criteria lattice -->
+  <g stroke="#f8fafc" stroke-width="0.8" opacity="0.55">
+    <path d="M434,258 L586,378"/>
+    <path d="M434,318 L520,378"/>
+    <path d="M482,258 L586,340"/>
+    <path d="M530,258 L586,302"/>
+    <path d="M586,258 L434,378"/>
+    <path d="M586,318 L510,378"/>
+    <path d="M538,258 L434,340"/>
+    <path d="M490,258 L434,302"/>
+  </g>
+  <g fill="#050608" stroke="#f8fafc" stroke-width="1">
+    <circle cx="510" cy="318" r="3.5"/>
+    <circle cx="472" cy="288" r="3.5"/>
+    <circle cx="548" cy="288" r="3.5"/>
+    <circle cx="472" cy="348" r="3.5"/>
+    <circle cx="548" cy="348" r="3.5"/>
+    <circle cx="510" cy="258" r="3.5"/>
+  </g>
+  <circle cx="510" cy="318" r="7" fill="#bbf451" opacity="0.6" filter="url(#candidate-screening-engine-glow)"/>
+  <circle cx="510" cy="318" r="3.5" fill="#bbf451"/>
+  <circle cx="548" cy="288" r="7" fill="#bbf451" opacity="0.6" filter="url(#candidate-screening-engine-glow)"/>
+  <circle cx="548" cy="288" r="3.5" fill="#bbf451"/>
+  <circle cx="472" cy="348" r="7" fill="#bbf451" opacity="0.6" filter="url(#candidate-screening-engine-glow)"/>
+  <circle cx="472" cy="348" r="3.5" fill="#bbf451"/>
+
+  <!-- shortlist rails -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M626,246 C648,246 654,270 672,270" opacity="0.55"/>
+    <path id="candidate-screening-engine-feed1" d="M626,290 C648,290 654,270 672,270" opacity="0.9"/>
+    <path id="candidate-screening-engine-feed2" d="M626,318 C648,318 654,315 672,315" opacity="0.9"/>
+    <path id="candidate-screening-engine-feed3" d="M626,352 C648,352 654,360 672,360" opacity="0.55"/>
+  </g>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.85">
+    <path id="candidate-screening-engine-rail1" fill="none" d="M 672 270 L 880 270"/>
+    <path id="candidate-screening-engine-rail2" fill="none" d="M 672 315 L 880 315"/>
+    <path id="candidate-screening-engine-rail3" fill="none" d="M 672 360 L 880 360"/>
+    <line x1="880" y1="264" x2="880" y2="276" opacity="0.5"/>
+    <line x1="880" y1="309" x2="880" y2="321" opacity="0.5"/>
+    <line x1="880" y1="354" x2="880" y2="366" opacity="0.5"/>
+  </g>
+  <!-- ranked candidates on the rails -->
+  <circle cx="694" cy="270" r="7" fill="#bbf451" opacity="0.55" filter="url(#candidate-screening-engine-glow)"/>
+  <circle cx="694" cy="270" r="3.5" fill="#bbf451"/>
+  <circle cx="732" cy="270" r="7" fill="#bbf451" opacity="0.55" filter="url(#candidate-screening-engine-glow)"/>
+  <circle cx="732" cy="270" r="3.5" fill="#bbf451"/>
+  <g fill="#050608" stroke="#f8fafc" stroke-width="1">
+    <circle cx="770" cy="270" r="3.5"/>
+    <circle cx="808" cy="270" r="3.5"/>
+    <circle cx="706" cy="315" r="3.5"/>
+    <circle cx="762" cy="315" r="3.5"/>
+    <circle cx="818" cy="315" r="3.5"/>
+    <circle cx="718" cy="360" r="3.5"/>
+    <circle cx="788" cy="360" r="3.5"/>
+  </g>
+
+  <!-- rails converge on the recruiter -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="candidate-screening-engine-conv1" d="M880,270 C904,270 914,304 926,310" opacity="0.9"/>
+    <path id="candidate-screening-engine-conv2" d="M880,315 C900,315 912,315 926,315" opacity="0.9"/>
+    <path d="M880,360 C904,360 914,326 926,320" opacity="0.9"/>
+  </g>
+
+  <!-- recruiter decision node -->
+  <circle cx="950" cy="315" r="20" fill="#bbf451" opacity="0.45" filter="url(#candidate-screening-engine-glowBig)"/>
+  <circle cx="950" cy="315" r="24" fill="none" stroke="#bbf451" stroke-width="1.5"/>
+  <circle cx="950" cy="315" r="15" fill="#050608" stroke="#f8fafc" stroke-width="1"/>
+  <path d="M943,315 L949,321 L959,307" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+
+  <!-- interviews out -->
+  <path id="candidate-screening-engine-release" fill="none" d="M 974 315 L 1012 315" stroke="#f8fafc" stroke-width="1.2"/>
+  <path d="M1012,309 L1054,310 L1054,304 L1076,313 L1054,323 L1054,317 L1012,321 Z" fill="#bbf451" opacity="0.6" filter="url(#candidate-screening-engine-glow)"/>
+  <path d="M1012,309 L1054,310 L1054,304 L1076,313 L1054,323 L1054,317 L1012,321 Z" fill="#bbf451"/>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.85">
+    <line x1="1088" y1="293" x2="1146" y2="293"/>
+    <path id="candidate-screening-engine-interview" fill="none" d="M 1088 313 L 1146 313"/>
+    <line x1="1088" y1="333" x2="1146" y2="333"/>
+  </g>
+  <g fill="#f8fafc">
+    <circle cx="1150" cy="293" r="2.5"/>
+    <circle cx="1150" cy="313" r="2.5"/>
+    <circle cx="1150" cy="333" r="2.5"/>
+  </g>
+
+  <!-- audit trail beneath the whole flow -->
+  <path id="candidate-screening-engine-audit" fill="none" d="M 266 545 L 1010 545" stroke="#62748e" stroke-width="1" opacity="0.7"/>
+  <g stroke="#62748e" stroke-width="1" opacity="0.4">
+    <line x1="360" y1="538" x2="360" y2="508"/>
+    <line x1="518" y1="538" x2="518" y2="508"/>
+    <line x1="776" y1="538" x2="776" y2="508"/>
+    <line x1="950" y1="538" x2="950" y2="508"/>
+  </g>
+  <g fill="#62748e">
+    <circle cx="360" cy="545" r="2.5"/>
+    <circle cx="518" cy="545" r="2.5"/>
+    <circle cx="776" cy="545" r="2.5"/>
+    <circle cx="950" cy="545" r="2.5"/>
+  </g>
+
+  <!-- labels -->
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif">
+    <text x="296" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">parsing</text>
+    <text x="518" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">scoring</text>
+    <text x="776" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">shortlist</text>
+    <text x="950" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">recruiter decides</text>
+    <text x="1117" y="388" font-size="18" fill="#90a1b9" text-anchor="middle">interviews</text>
+    <text x="266" y="576" font-size="18" fill="#90a1b9">audit trail</text>
+  </g>
+
+  <!-- motion layer (MOTION-SPEC.md): additive pulses only, 6s seamless loop -->
+  <g class="candidate-screening-engine-pulse">
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.3s"><mpath href="#candidate-screening-engine-cv1"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-0.3s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-1.2s"><mpath href="#candidate-screening-engine-cv2"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-1.2s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-2.1s"><mpath href="#candidate-screening-engine-cv3"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-2.1s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-1.65s"><mpath href="#candidate-screening-engine-cv4"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-1.65s" values="0;0.55;0.55;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.75s"><mpath href="#candidate-screening-engine-noz1"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-0.75s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-2.4s"><mpath href="#candidate-screening-engine-noz2"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-2.4s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.02;0.12;1"><mpath href="#candidate-screening-engine-feed1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.02;0.045;0.12;0.145;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.1;0.2;1"><mpath href="#candidate-screening-engine-feed2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.1;0.125;0.2;0.225;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.18;0.28;1"><mpath href="#candidate-screening-engine-feed3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.18;0.205;0.28;0.305;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.12;0.46;1"><mpath href="#candidate-screening-engine-rail1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.12;0.145;0.46;0.485;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.2;0.54;1"><mpath href="#candidate-screening-engine-rail2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.2;0.225;0.54;0.565;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.28;0.62;1"><mpath href="#candidate-screening-engine-rail3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.6;0.6;0;0" keyTimes="0;0.28;0.305;0.82;0.845;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.46;0.53;1"><mpath href="#candidate-screening-engine-conv1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.46;0.485;0.65;0.675;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.54;0.61;1"><mpath href="#candidate-screening-engine-conv2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.54;0.565;0.7;0.725;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.72;0.77;1"><mpath href="#candidate-screening-engine-release"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.72;0.745;0.77;0.795;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.77;0.9;1"><mpath href="#candidate-screening-engine-interview"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.77;0.795;0.9;0.925;1"/></use>
+    <use class="candidate-screening-engine-pulse" href="#candidate-screening-engine-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#candidate-screening-engine-audit"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0.85;0.85;0" keyTimes="0;0.08;0.92;1"/></use>
+    <circle class="candidate-screening-engine-pulse" cx="950" cy="315" r="24" fill="none" stroke="#bbf451" stroke-width="1.5" filter="url(#candidate-screening-engine-glow)" opacity="0"><animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>

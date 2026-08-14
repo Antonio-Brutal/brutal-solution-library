@@ -2,3 +2,5 @@
 dist/
 *.log
 # these are build outputs, regenerate with build/build.py
+review-all-30.html
+preview.html

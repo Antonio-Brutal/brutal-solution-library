@@ -1,0 +1,284 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Support triage and draft-reply engine schematic">
+  <defs>
+    <style>@media (prefers-reduced-motion: reduce){.support-triage-engine-pulse{display:none}}</style>
+    <g id="support-triage-engine-mover">
+      <circle r="4.6" fill="#bbf451" opacity="0.85" filter="url(#support-triage-engine-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+    <radialGradient id="support-triage-engine-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="support-triage-engine-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="support-triage-engine-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#support-triage-engine-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="support-triage-engine-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#support-triage-engine-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="support-triage-engine-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#support-triage-engine-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#support-triage-engine-vig)"/>
+
+  <!-- input strands: tickets in many languages -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 100 C 100 112, 210 220, 296 288" opacity="0.5"/>
+    <path id="support-triage-engine-in1" d="M -10 140 C 90 150, 200 240, 296 294" opacity="0.75"/>
+    <path d="M -10 180 C 110 176, 205 252, 296 300" opacity="0.45"/>
+    <path id="support-triage-engine-in2" d="M -10 220 C 95 230, 210 268, 296 306" opacity="0.8"/>
+    <path d="M -10 260 C 120 252, 215 288, 296 312" opacity="0.55"/>
+    <path id="support-triage-engine-in3" d="M -10 300 C 100 310, 200 314, 296 318" opacity="0.85"/>
+    <path d="M -10 340 C 110 336, 205 328, 296 324" opacity="0.5"/>
+    <path d="M -10 380 C 95 370, 210 342, 296 330" opacity="0.75"/>
+    <path d="M -10 420 C 120 428, 215 360, 296 336" opacity="0.45"/>
+    <path id="support-triage-engine-in4" d="M -10 460 C 100 450, 200 380, 296 342" opacity="0.7"/>
+    <path d="M -10 500 C 115 508, 210 402, 296 348" opacity="0.55"/>
+    <path d="M -10 540 C 90 528, 205 420, 296 354" opacity="0.65"/>
+  </g>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(96,146)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(178,232)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(140,306)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(226,296)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(118,442)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(204,388)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(84,522)"/>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(252,338)"/>
+  <use xlink:href="#support-triage-engine-swoosh" transform="translate(240,320) rotate(-2)"/>
+  <text x="58" y="92" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">tickets</text>
+
+  <!-- ingestion funnel -->
+  <g stroke="#f8fafc" fill="none">
+    <ellipse cx="298" cy="320" rx="8" ry="56" stroke-width="1.2" opacity="0.75"/>
+    <path d="M 298 264 C 330 272, 352 296, 362 312" stroke-width="1.3"/>
+    <path d="M 298 376 C 330 368, 352 344, 362 328" stroke-width="1.3"/>
+    <path d="M 302 286 C 328 292, 344 302, 356 314" stroke-width="1" opacity="0.4"/>
+    <path d="M 302 354 C 328 348, 344 338, 356 326" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="364" cy="320" rx="3.5" ry="9" stroke-width="1.1" opacity="0.85"/>
+    <ellipse cx="372" cy="320" rx="3" ry="7.5" stroke-width="1" opacity="0.6"/>
+    <path id="support-triage-engine-throat" d="M 374 320 L 420 320" stroke-width="1.3"/>
+  </g>
+
+  <!-- intent routing: gate cluster -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="420" y="252" width="140" height="136" rx="3" stroke-width="1" opacity="0.55"/>
+    <path d="M 420 320 L 438 320" stroke-width="1.2"/>
+    <circle cx="440" cy="320" r="2.5" fill="#f8fafc" stroke="none" opacity="0.9"/>
+    <path d="M 442 318 C 448 300, 450 285, 455 285" stroke-width="1" opacity="0.8"/>
+    <path d="M 442 320 L 455 320" stroke-width="1" opacity="0.8"/>
+    <path d="M 442 322 C 448 340, 450 355, 455 355" stroke-width="1" opacity="0.8"/>
+    <path d="M 455 275 h 13 a 10 10 0 0 1 0 20 h -13 z" stroke-width="1.1"/>
+    <path d="M 455 310 h 13 a 10 10 0 0 1 0 20 h -13 z" stroke-width="1.1"/>
+    <path d="M 455 345 h 13 a 10 10 0 0 1 0 20 h -13 z" stroke-width="1.1"/>
+    <path d="M 479 285 L 497 285" stroke-width="1" opacity="0.7"/>
+    <path d="M 479 320 L 497 320" stroke-width="1" opacity="0.7"/>
+    <path d="M 479 355 L 497 355" stroke-width="1" opacity="0.7"/>
+    <path d="M 504 278 l 7 7 -7 7 -7 -7 z" stroke-width="1.1"/>
+    <path d="M 504 313 l 7 7 -7 7 -7 -7 z" stroke-width="1.1"/>
+    <path d="M 504 348 l 7 7 -7 7 -7 -7 z" stroke-width="1.1"/>
+    <path id="support-triage-engine-r1" d="M 511 285 C 530 285, 540 285, 560 285" stroke-width="1" opacity="0.8"/>
+    <path id="support-triage-engine-r2" d="M 511 320 L 560 320" stroke-width="1" opacity="0.8"/>
+    <path id="support-triage-engine-r3" d="M 511 355 C 530 355, 540 355, 560 355" stroke-width="1" opacity="0.8"/>
+    <circle cx="430" cy="264" r="1.6" fill="#f8fafc" stroke="none" opacity="0.5"/>
+    <circle cx="548" cy="264" r="1.6" fill="#f8fafc" stroke="none" opacity="0.5"/>
+    <circle cx="430" cy="376" r="1.6" fill="#f8fafc" stroke="none" opacity="0.5"/>
+    <path d="M 524 262 h 22" stroke-width="1" opacity="0.35"/>
+    <path d="M 434 300 v 14" stroke-width="1" opacity="0.35"/>
+  </g>
+  <!-- hard-case escalation: dim branch leaving the cluster -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path id="support-triage-engine-escalate" d="M 504 362 C 508 388, 512 392, 516 398 C 540 452, 580 496, 606 506" opacity="0.85"/>
+    <circle cx="612" cy="508" r="4" opacity="0.9"/>
+    <path d="M 618 508 h 18" opacity="0.45"/>
+  </g>
+  <use xlink:href="#support-triage-engine-pulseDeep" transform="translate(552,466)"/>
+
+  <!-- wires into context assembly -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <path id="support-triage-engine-w1" d="M 560 285 C 585 285, 592 292, 615 292"/>
+    <path id="support-triage-engine-w2" d="M 560 320 L 615 320"/>
+    <path id="support-triage-engine-w3" d="M 560 355 C 585 355, 592 348, 615 348"/>
+  </g>
+
+  <!-- context assembly: isometric enclosure with mesh + context taps -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="615" y="262" width="150" height="126" stroke-width="1.3"/>
+    <path d="M 615 262 L 645 234 L 795 234 L 765 262 Z" stroke-width="1.3"/>
+    <path d="M 765 262 L 795 234 L 795 360 L 765 388 Z" stroke-width="1.3"/>
+    <path d="M 771 380 L 789 364" stroke-width="1" opacity="0.3"/>
+    <path d="M 771 356 L 789 340" stroke-width="1" opacity="0.3"/>
+    <path d="M 771 332 L 789 316" stroke-width="1" opacity="0.3"/>
+  </g>
+  <g stroke="#f8fafc" opacity="0.45" stroke-width="1" fill="none">
+    <path d="M 645 290 L 690 300"/><path d="M 645 290 L 690 345"/>
+    <path d="M 645 325 L 690 300"/><path d="M 645 325 L 690 345"/>
+    <path d="M 645 360 L 690 300"/><path d="M 645 360 L 690 345"/>
+    <path d="M 690 300 L 735 290"/><path d="M 690 300 L 735 325"/>
+    <path d="M 690 345 L 735 325"/><path d="M 690 345 L 735 360"/>
+    <path d="M 690 300 L 735 360"/><path d="M 690 345 L 735 290"/>
+  </g>
+  <g fill="#f8fafc" stroke="none">
+    <circle cx="645" cy="290" r="3" opacity="0.85"/><circle cx="645" cy="325" r="3" opacity="0.85"/>
+    <circle cx="645" cy="360" r="3" opacity="0.85"/><circle cx="690" cy="300" r="3" opacity="0.85"/>
+    <circle cx="690" cy="345" r="3" opacity="0.85"/><circle cx="735" cy="290" r="3" opacity="0.85"/>
+    <circle cx="735" cy="325" r="3" opacity="0.85"/><circle cx="735" cy="360" r="3" opacity="0.85"/>
+    <circle cx="615" cy="292" r="2" opacity="0.6"/><circle cx="615" cy="320" r="2" opacity="0.6"/>
+    <circle cx="615" cy="348" r="2" opacity="0.6"/>
+  </g>
+  <!-- taps: order status / subscription state / past tickets feeding in from above -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 648 176 h 24" opacity="0.7"/><path d="M 660 176 V 248" opacity="0.6"/>
+    <ellipse cx="660" cy="250" rx="5" ry="2.5" opacity="0.6"/>
+    <path d="M 688 168 h 24" opacity="0.7"/><path d="M 700 168 V 242" opacity="0.6"/>
+    <ellipse cx="700" cy="244" rx="5" ry="2.5" opacity="0.6"/>
+    <path d="M 728 176 h 24" opacity="0.7"/><path d="M 740 176 V 248" opacity="0.6"/>
+    <ellipse cx="740" cy="250" rx="5" ry="2.5" opacity="0.6"/>
+  </g>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(700,205)"/>
+
+  <!-- drafting: comb plates, tone plate, nib -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="support-triage-engine-d1" d="M 795 300 C 815 300, 818 310, 838 314" opacity="0.85"/>
+    <path id="support-triage-engine-d2" d="M 795 322 L 838 320" opacity="0.85"/>
+    <path id="support-triage-engine-d3" d="M 795 344 C 815 344, 818 334, 838 326" opacity="0.85"/>
+    <path d="M 838 308 h 30" opacity="0.6"/><path d="M 838 314 h 30" opacity="0.6"/>
+    <path d="M 838 320 h 30" opacity="0.6"/><path d="M 838 326 h 30" opacity="0.6"/>
+    <path d="M 838 332 h 30" opacity="0.6"/>
+    <path d="M 872 302 L 916 320 L 872 338 Z" stroke-width="1.2"/>
+    <path d="M 872 320 L 906 320" opacity="0.5"/>
+    <rect x="856" y="196" width="64" height="40" rx="2" opacity="0.8"/>
+    <path d="M 864 208 h 40" opacity="0.55"/><path d="M 864 218 h 48" opacity="0.55"/>
+    <path d="M 864 228 h 28" opacity="0.55"/>
+    <path id="support-triage-engine-tone" d="M 888 236 V 300" opacity="0.6"/>
+    <path d="M 883 266 L 888 274 L 893 266" opacity="0.7"/>
+    <path id="support-triage-engine-tohuman" d="M 916 320 L 972 320" stroke-width="1.2"/>
+  </g>
+  <use xlink:href="#support-triage-engine-pulse" transform="translate(888,252)"/>
+
+  <!-- human approval: lime-ringed node -->
+  <circle cx="1000" cy="320" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#support-triage-engine-glow)" opacity="0.7"/>
+  <circle cx="1000" cy="320" r="24" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="1000" cy="320" r="15" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 992 321 L 998 327 L 1010 312" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="1000" y="372" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">human approves</text>
+
+  <!-- clean replies out -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path id="support-triage-engine-out1" d="M 1026 314 C 1060 306, 1100 304, 1148 304"/>
+    <path id="support-triage-engine-out2" d="M 1026 320 L 1148 320"/>
+    <path id="support-triage-engine-out3" d="M 1026 326 C 1060 334, 1100 336, 1148 336"/>
+    <path d="M 1148 300 v 8" opacity="0.6"/><path d="M 1148 316 v 8" opacity="0.6"/>
+    <path d="M 1148 332 v 8" opacity="0.6"/>
+  </g>
+  <use xlink:href="#support-triage-engine-swoosh" transform="translate(1088,320)"/>
+  <text x="1104" y="276" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">replies</text>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 490 392 V 545"/>
+    <path d="M 703 392 V 545"/>
+    <path d="M 902 344 V 545"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="490" y="568">intent routing</text>
+    <text x="703" y="568">context assembly</text>
+    <text x="902" y="568">drafting</text>
+  </g>
+
+  <!-- motion layer (MOTION-SPEC.md): additive pulses only, 6s seamless loop -->
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.02;0.1545;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.02;0.045;0.1545;0.1945;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.27;0.4045;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.27;0.295;0.4045;0.4445;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.52;0.6545;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.52;0.545;0.6545;0.6945;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.77;0.9045;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.77;0.795;0.9045;0.9445;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.07;0.2214;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.07;0.095;0.2214;0.2614;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4033;0.5547;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4033;0.4283;0.5547;0.5947;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.7367;0.8881;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.7367;0.7617;0.8881;0.9281;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.12;0.26;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.12;0.145;0.26;0.3;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.62;0.76;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.62;0.645;0.76;0.8;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.17;0.3146;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.17;0.195;0.3146;0.3546;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.67;0.8146;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-in4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.67;0.695;0.8146;0.8546;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0898;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0898;0.0965;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2898;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2898;0.2965;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4898;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4898;0.4965;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6898;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6898;0.6965;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8898;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8898;0.8965;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0;0.0215;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0;0.0072;0.0215;0.0615;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2;0.2215;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2;0.2072;0.2215;0.2615;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4;0.4215;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4;0.4072;0.4215;0.4615;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6;0.6215;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6;0.6072;0.6215;0.6615;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8;0.8215;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8;0.8072;0.8215;0.8615;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.02;0.0415;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.02;0.0272;0.0415;0.0815;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.22;0.2415;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.22;0.2272;0.2415;0.2815;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.42;0.4415;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.42;0.4272;0.4415;0.4815;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.62;0.6415;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.62;0.6272;0.6415;0.6815;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.82;0.8415;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.82;0.8272;0.8415;0.8815;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.04;0.0615;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.04;0.0472;0.0615;0.1015;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.24;0.2615;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.24;0.2472;0.2615;0.3015;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.44;0.4615;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.44;0.4472;0.4615;0.5015;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.64;0.6615;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.64;0.6472;0.6615;0.7015;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.84;0.8615;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-r3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.84;0.8472;0.8615;0.9015;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.06;0.0844;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.06;0.0681;0.0844;0.1244;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.26;0.2844;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.26;0.2681;0.2844;0.3244;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.46;0.4844;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.46;0.4681;0.4844;0.5244;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.66;0.6844;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.66;0.6681;0.6844;0.7244;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.86;0.8844;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.86;0.8681;0.8844;0.9244;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.08;0.1041;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.08;0.088;0.1041;0.1441;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.28;0.3041;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.28;0.288;0.3041;0.3441;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.48;0.5041;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.48;0.488;0.5041;0.5441;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.68;0.7041;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.68;0.688;0.7041;0.7441;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.88;0.9041;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.88;0.888;0.9041;0.9441;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0856;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0856;0.0937;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2856;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2856;0.2937;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4856;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4856;0.4937;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6856;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6856;0.6937;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8856;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-w3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8856;0.8937;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0819;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tone"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0819;0.0913;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2819;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tone"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2819;0.2913;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4819;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tone"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4819;0.4913;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6819;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tone"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6819;0.6913;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8819;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tone"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8819;0.8913;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.09;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.09;0.0966;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.29;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.29;0.2966;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.49;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.49;0.4966;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.69;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.69;0.6966;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.89;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.89;0.8966;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0911;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0911;0.0974;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2911;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2911;0.2974;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4911;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4911;0.4974;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6911;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6911;0.6974;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8911;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8911;0.8974;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.02;0.0408;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.02;0.0269;0.0408;0.0808;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.22;0.2408;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.22;0.2269;0.2408;0.2808;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.42;0.4408;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.42;0.4269;0.4408;0.4808;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.62;0.6408;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.62;0.6269;0.6408;0.6808;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.82;0.8408;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-d3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.82;0.8269;0.8408;0.8808;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.06;0.0846;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tohuman"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.06;0.0682;0.0846;0.1246;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.26;0.2846;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tohuman"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.26;0.2682;0.2846;0.3246;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.46;0.4846;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tohuman"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.46;0.4682;0.4846;0.5246;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.66;0.6846;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tohuman"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.66;0.6682;0.6846;0.7246;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.86;0.8846;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-tohuman"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.86;0.8682;0.8846;0.9246;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0562;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0562;0.0741;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2562;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2562;0.2741;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4562;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4562;0.4741;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6562;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6562;0.6741;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8562;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8562;0.8741;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0565;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0565;0.0743;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2565;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2565;0.2743;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4565;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4565;0.4743;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6565;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6565;0.6743;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8565;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8565;0.8743;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0562;0.11;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0562;0.0741;0.11;0.15;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2562;0.31;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2562;0.2741;0.31;0.35;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4562;0.51;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4562;0.4741;0.51;0.55;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6562;0.71;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6562;0.6741;0.71;0.75;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8562;0.91;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-out3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8562;0.8741;0.91;0.95;1"/></use>
+    <use href="#support-triage-engine-mover" class="support-triage-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.44;0.7;1" keyPoints="0;0;1;1"><mpath href="#support-triage-engine-escalate"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.44;0.465;0.92;0.95;1"/></use>
+    <circle class="support-triage-engine-pulse" cx="1000" cy="320" r="24" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#support-triage-engine-glow)" opacity="0"><animate attributeName="opacity" values="0;0.65;0" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/></circle>
+</svg>

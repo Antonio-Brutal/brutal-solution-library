@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: chaotic call waveforms converge through an ingestion funnel into an isometric extraction enclosure holding a small neural mesh, fan out through a manifold into CRM field slots, pass a lime-ringed owner approval node, and exit as a CRM record with a follow-up draft branching below">
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .meeting-to-crm-pipeline-pulse { display: none; }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="80%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5" fill="#bbf451" opacity="0.85" filter="url(#glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- faint registration marks -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.35">
+    <path d="M210,120 h12 M216,114 v12"/>
+    <path d="M820,150 h12 M826,144 v12"/>
+    <path d="M300,540 h12 M306,534 v12"/>
+    <line x1="640" y1="560" x2="960" y2="560" opacity="0.4" stroke-dasharray="1 7"/>
+  </g>
+
+  <!-- chaotic call strands -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="meeting-to-crm-pipeline-in1" d="M-10,150 C90,150 180,220 262,228" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-in2" d="M-10,210 C80,210 170,260 262,262" opacity="0.9"/>
+    <path d="M-10,280 C90,285 160,300 262,298" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-in3" d="M-10,340 C80,345 180,330 262,330" opacity="0.9"/>
+    <path id="meeting-to-crm-pipeline-in4" d="M-10,410 C100,405 170,370 262,364" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-in5" d="M-10,462 C110,458 180,405 262,398" opacity="0.9"/>
+    <path d="M-10,240 C120,236 150,300 262,296" opacity="0.35"/>
+  </g>
+  <!-- waveform ticks riding three strands -->
+  <g stroke="#90a1b9" fill="none" stroke-width="1" opacity="0.9">
+    <path d="M64,208 l5,-9 l6,16 l6,-14 l6,10 l5,-5"/>
+    <path d="M96,344 l5,-8 l6,14 l6,-12 l6,9 l5,-5"/>
+    <path d="M120,455 l5,-8 l6,13 l6,-11 l6,8 l5,-4"/>
+  </g>
+  <use href="#pulse" x="120" y="172"/>
+  <use href="#pulse" x="168" y="258"/>
+  <use href="#pulse" x="140" y="292"/>
+  <use href="#pulse" x="196" y="332"/>
+  <use href="#pulse" x="152" y="392"/>
+  <use href="#pulse" x="210" y="440"/>
+
+  <!-- ingestion funnel -->
+  <g stroke="#f8fafc" fill="none">
+    <path id="meeting-to-crm-pipeline-fun1" d="M262,196 C310,220 344,280 368,308" stroke-width="1.3"/>
+    <path id="meeting-to-crm-pipeline-fun2" d="M262,434 C310,410 344,350 368,322" stroke-width="1.3"/>
+    <path d="M268,268 C310,278 340,300 364,312" stroke-width="1" opacity="0.4"/>
+    <path d="M268,362 C310,352 340,330 364,318" stroke-width="1" opacity="0.4"/>
+  </g>
+  <circle cx="376" cy="315" r="9" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+  <use href="#pulse" x="394" y="315"/>
+
+  <!-- extraction: isometric enclosure with neural mesh -->
+  <line x1="385" y1="315" x2="430" y2="315" stroke="#f8fafc" stroke-width="1.2"/>
+  <g stroke="#f8fafc" fill="none">
+    <rect x="430" y="240" width="180" height="160" stroke-width="1.3"/>
+    <path d="M430,240 L456,216 L636,216 L610,240" stroke-width="1.3"/>
+    <path d="M610,240 L636,216 L636,376 L610,400" stroke-width="1.3"/>
+    <g stroke-width="1" opacity="0.4">
+      <path d="M500,216 L474,240"/>
+      <path d="M545,216 L519,240"/>
+      <path d="M590,216 L564,240"/>
+      <path d="M636,252 L610,276"/>
+      <path d="M636,300 L610,324"/>
+      <path d="M636,348 L610,372"/>
+      <rect x="442" y="252" width="156" height="136"/>
+    </g>
+  </g>
+  <!-- mesh links -->
+  <g stroke="#f8fafc" stroke-width="0.8" opacity="0.5">
+    <line x1="470" y1="290" x2="520" y2="275"/>
+    <line x1="470" y1="290" x2="520" y2="305"/>
+    <line x1="470" y1="290" x2="520" y2="335"/>
+    <line x1="470" y1="320" x2="520" y2="305"/>
+    <line x1="470" y1="320" x2="520" y2="335"/>
+    <line x1="470" y1="320" x2="520" y2="365"/>
+    <line x1="470" y1="350" x2="520" y2="335"/>
+    <line x1="470" y1="350" x2="520" y2="365"/>
+    <line x1="470" y1="350" x2="520" y2="275"/>
+    <line x1="520" y1="275" x2="570" y2="290"/>
+    <line x1="520" y1="275" x2="570" y2="320"/>
+    <line x1="520" y1="305" x2="570" y2="290"/>
+    <line x1="520" y1="305" x2="570" y2="350"/>
+    <line x1="520" y1="335" x2="570" y2="320"/>
+    <line x1="520" y1="335" x2="570" y2="350"/>
+    <line x1="520" y1="365" x2="570" y2="350"/>
+    <line x1="520" y1="365" x2="570" y2="290"/>
+  </g>
+  <!-- mesh nodes -->
+  <g fill="#050608" stroke="#f8fafc" stroke-width="1">
+    <circle cx="470" cy="290" r="4"/>
+    <circle cx="470" cy="320" r="4"/>
+    <circle cx="470" cy="350" r="4"/>
+    <circle cx="520" cy="275" r="4"/>
+    <circle cx="520" cy="335" r="4"/>
+    <circle cx="520" cy="365" r="4"/>
+    <circle cx="570" cy="290" r="4"/>
+    <circle cx="570" cy="350" r="4"/>
+  </g>
+  <circle cx="520" cy="305" r="7" fill="#bbf451" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="520" cy="305" r="4" fill="#bbf451"/>
+  <circle cx="570" cy="320" r="7" fill="#bbf451" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="570" cy="320" r="4" fill="#bbf451"/>
+
+  <!-- manifold: enclosure fans out into CRM field slots -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="meeting-to-crm-pipeline-man1" d="M636,252 C664,252 672,225 700,225" opacity="0.9"/>
+    <path id="meeting-to-crm-pipeline-man2" d="M636,282 C664,282 672,275 700,275" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-man3" d="M636,312 C664,312 672,325 700,325" opacity="0.9"/>
+    <path id="meeting-to-crm-pipeline-man4" d="M636,342 C664,342 672,375 700,375" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-man5" d="M636,370 C664,370 672,425 700,425" opacity="0.9"/>
+  </g>
+  <!-- field slots -->
+  <g fill="none" stroke-width="1">
+    <rect x="700" y="212" width="86" height="26" stroke="#f8fafc" opacity="0.9"/>
+    <rect x="700" y="262" width="86" height="26" stroke="#62748e"/>
+    <rect x="700" y="312" width="86" height="26" stroke="#f8fafc" opacity="0.9"/>
+    <rect x="700" y="362" width="86" height="26" stroke="#62748e"/>
+    <rect x="700" y="412" width="86" height="26" stroke="#f8fafc" opacity="0.9"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.6">
+    <line x1="708" y1="225" x2="760" y2="225"/>
+    <line x1="708" y1="275" x2="748" y2="275"/>
+    <line x1="708" y1="325" x2="764" y2="325"/>
+    <line x1="708" y1="375" x2="744" y2="375"/>
+    <line x1="708" y1="425" x2="756" y2="425"/>
+  </g>
+  <use href="#pulse" x="696" y="225"/>
+  <use href="#pulse" x="696" y="325"/>
+  <use href="#pulse" x="696" y="425"/>
+
+  <!-- slots converge on the owner -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="meeting-to-crm-pipeline-own1" d="M786,225 C830,225 846,296 860,310" opacity="0.9"/>
+    <path d="M786,275 C826,275 844,304 858,314" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-own3" d="M786,325 C820,325 844,322 860,323" opacity="0.9"/>
+    <path d="M786,375 C826,375 844,342 858,334" opacity="0.55"/>
+    <path id="meeting-to-crm-pipeline-own5" d="M786,425 C830,425 846,352 860,338" opacity="0.9"/>
+  </g>
+
+  <!-- owner approval node -->
+  <circle cx="886" cy="325" r="20" fill="#bbf451" opacity="0.45" filter="url(#glowBig)"/>
+  <circle class="meeting-to-crm-pipeline-pulse" cx="886" cy="325" r="20" fill="#bbf451" opacity="0" filter="url(#glowBig)">
+    <animate attributeName="opacity" values="0;0.4;0" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="886" cy="325" r="24" fill="none" stroke="#bbf451" stroke-width="1.5"/>
+  <circle cx="886" cy="325" r="15" fill="#050608" stroke="#f8fafc" stroke-width="1"/>
+  <path d="M879,325 L885,331 L895,317" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+
+  <!-- approved flow to CRM record -->
+  <line x1="910" y1="322" x2="966" y2="318" stroke="#f8fafc" stroke-width="1.2"/>
+  <path d="M966,312 L1014,313 L1014,307 L1036,316 L1014,326 L1014,320 L966,322 Z" fill="#bbf451" opacity="0.6" filter="url(#glow)"/>
+  <path d="M966,312 L1014,313 L1014,307 L1036,316 L1014,326 L1014,320 L966,322 Z" fill="#bbf451"/>
+  <g stroke="#f8fafc" fill="none">
+    <rect x="1072" y="224" width="110" height="80" stroke-width="1" opacity="0.35"/>
+    <rect x="1066" y="232" width="110" height="80" stroke-width="1" opacity="0.6"/>
+    <rect x="1060" y="240" width="110" height="80" stroke-width="1.3"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.8">
+    <line x1="1072" y1="262" x2="1152" y2="262"/>
+    <line x1="1072" y1="280" x2="1140" y2="280"/>
+    <line x1="1072" y1="298" x2="1152" y2="298"/>
+  </g>
+  <use href="#pulse" x="1054" y="280"/>
+
+  <!-- branch: follow-up draft -->
+  <path id="meeting-to-crm-pipeline-draft" d="M886,349 C886,420 940,476 1004,492" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.7"/>
+  <g stroke="#f8fafc" fill="none">
+    <rect x="1010" y="450" width="70" height="90" stroke-width="1.2"/>
+    <path d="M1010,450 l10,-8" stroke-width="1" opacity="0.5"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.8">
+    <line x1="1020" y1="472" x2="1070" y2="472"/>
+    <line x1="1020" y1="488" x2="1062" y2="488"/>
+    <line x1="1020" y1="504" x2="1070" y2="504"/>
+    <line x1="1020" y1="520" x2="1052" y2="520"/>
+  </g>
+  <use href="#pulse" x="1004" y="492"/>
+
+  <!-- labels -->
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif">
+    <text x="318" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">ingestion</text>
+    <text x="533" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">extraction</text>
+    <text x="735" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">field mapping</text>
+    <text x="905" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">owner approves</text>
+    <text x="1115" y="352" font-size="18" fill="#90a1b9" text-anchor="middle">crm record</text>
+    <text x="1045" y="574" font-size="18" fill="#90a1b9" text-anchor="middle">follow-up draft</text>
+  </g>
+
+  <!-- ==== motion: travelling pulses on the existing flow paths, 6s seamless loop ====
+       Stagger uses negative begin offsets so every dot is already mid-path at t=0:
+       state at t=6s is identical to t=0s, with no dot parked off-path. -->
+
+  <!-- conversations arriving -->
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.7s"><mpath href="#meeting-to-crm-pipeline-in2" xlink:href="#meeting-to-crm-pipeline-in2"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1.5s"><mpath href="#meeting-to-crm-pipeline-in3" xlink:href="#meeting-to-crm-pipeline-in3"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3s"><mpath href="#meeting-to-crm-pipeline-in5" xlink:href="#meeting-to-crm-pipeline-in5"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4.5s"><mpath href="#meeting-to-crm-pipeline-in1" xlink:href="#meeting-to-crm-pipeline-in1"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.3s"><mpath href="#meeting-to-crm-pipeline-in4" xlink:href="#meeting-to-crm-pipeline-in4"/></animateMotion>
+  </use>
+
+  <!-- through the ingestion funnel -->
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-0.8s"><mpath href="#meeting-to-crm-pipeline-fun1" xlink:href="#meeting-to-crm-pipeline-fun1"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3.8s"><mpath href="#meeting-to-crm-pipeline-fun2" xlink:href="#meeting-to-crm-pipeline-fun2"/></animateMotion>
+  </use>
+
+  <!-- extracted facts fan out into CRM field slots -->
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.2s"><mpath href="#meeting-to-crm-pipeline-man1" xlink:href="#meeting-to-crm-pipeline-man1"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-0.6s"><mpath href="#meeting-to-crm-pipeline-man3" xlink:href="#meeting-to-crm-pipeline-man3"/></animateMotion>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4.4s"><mpath href="#meeting-to-crm-pipeline-man5" xlink:href="#meeting-to-crm-pipeline-man5"/></animateMotion>
+  </use>
+
+  <!-- proposals reach the owner and WAIT there: nothing writes itself to the CRM -->
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.4;1"><mpath href="#meeting-to-crm-pipeline-own1" xlink:href="#meeting-to-crm-pipeline-own1"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="0s" values="0;1;1;1;0" keyTimes="0;0.05;0.4;0.82;1"/>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.4;1"><mpath href="#meeting-to-crm-pipeline-own3" xlink:href="#meeting-to-crm-pipeline-own3"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-2s" values="0;1;1;1;0" keyTimes="0;0.05;0.4;0.82;1"/>
+  </use>
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.4;1"><mpath href="#meeting-to-crm-pipeline-own5" xlink:href="#meeting-to-crm-pipeline-own5"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-4s" values="0;1;1;1;0" keyTimes="0;0.05;0.4;0.82;1"/>
+  </use>
+
+  <!-- and only then does the follow-up draft leave -->
+  <use class="meeting-to-crm-pipeline-pulse" href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1.2s"><mpath href="#meeting-to-crm-pipeline-draft" xlink:href="#meeting-to-crm-pipeline-draft"/></animateMotion>
+  </use>
+</svg>

@@ -20,7 +20,7 @@ The technician talks; the system writes. At the end of a job, the tech opens the
 
 The report gets written in the time it takes to walk back to the van. The paperwork hour is gone.
 
-<video src="media/field-service-reporting.mp4" poster="media/field-service-reporting-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/field-service-reporting.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *The technician talks. The report, the parts, and the invoice separate out on their own rails.*
 

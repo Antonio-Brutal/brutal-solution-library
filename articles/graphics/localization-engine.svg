@@ -128,10 +128,10 @@
     <path d="M 908 236 C 940 236, 952 244, 974 248" stroke-width="1.4"/>
     <path d="M 908 266 C 940 266, 952 262, 974 256" stroke-width="1.2"/>
   </g>
-  <path d="M 908 330 H 938" fill="none" stroke="#f8fafc" stroke-width="0.9" opacity="0.65"/>
-  <path d="M 946 330 l 8 -8 l 8 8 l -8 8 Z" fill="none" stroke="#f8fafc" stroke-width="1.1"/>
-  <path d="M 954 322 V 314 M 950 314 h 8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
-  <path d="M 962 326 C 978 320, 988 302, 992 280" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.85"/>
+  <path d="M 908 306 H 930" fill="none" stroke="#f8fafc" stroke-width="0.9" opacity="0.65"/>
+  <path d="M 938 306 l 8 -8 l 8 8 l -8 8 Z" fill="none" stroke="#f8fafc" stroke-width="1.1"/>
+  <path d="M 946 298 V 290 M 942 290 h 8" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <path d="M 954 302 C 968 298, 978 288, 984 274" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.85"/>
   <circle cx="1000" cy="250" r="26" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#localization-engine-glow)" opacity="0.7"/>
   <circle cx="1000" cy="250" r="26" fill="none" stroke="#bbf451" stroke-width="1.7"/>
   <circle cx="1000" cy="250" r="16" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
@@ -158,7 +158,7 @@
   <use xlink:href="#localization-engine-pulse" transform="translate(914,104)"/>
   <use xlink:href="#localization-engine-pulse" transform="translate(700,78)"/>
   <use xlink:href="#localization-engine-pulse" transform="translate(536,100)"/>
-  <text x="1000" y="306" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">native reviewer approves</text>
+  <text x="1036" y="342" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">native reviewer approves</text>
   <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
     <path d="M 168 534 V 552"/>
     <path d="M 490 534 V 552"/>

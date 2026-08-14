@@ -20,7 +20,7 @@ We built a contract review copilot that reads every incoming contract, extracts 
 
 It is worth being clear about what the system is not. It is not a chatbot that answers legal questions, and it is not a substitute for a lawyer's judgment on a novel deal. It is a first-pass reviewer that applies, tirelessly and consistently, the positions the lawyers themselves wrote down.
 
-<video src="media/contract-review-copilot.mp4" poster="media/contract-review-copilot-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/contract-review-copilot.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Clauses run against the playbook. What deviates diverts, and a lawyer decides what to do about it.*
 

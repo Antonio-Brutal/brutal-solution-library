@@ -22,7 +22,7 @@ We built an engine that runs the translation layer. It pulls each portfolio comp
 
 Nothing ships without a human. The operating partner responsible for a company reviews and signs off every pack before it goes anywhere — to the investment committee, to a board, to an LP. The engine's job is to have the arithmetic, the mapping, and the first draft of the story done before that partner sits down. The judgment call about what a number means, and whether the fund is willing to stand behind it, stays exactly where it was.
 
-<video src="media/portfolio-reporting-automation.mp4" poster="media/portfolio-reporting-automation-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/portfolio-reporting-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Companies that keep their books differently converge on one chart of accounts.*
 

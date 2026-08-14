@@ -22,7 +22,7 @@ The constraint is the product. The agent can only use metrics the data team has 
 
 We've written before about semantic layers and why a warehouse without one is a pile of tables rather than a source of truth. This system is the payoff of that groundwork, and we'll be blunt about the dependency: it only works *because* of the governance. Point the same agent at an ungoverned warehouse and it will produce wrong numbers with total confidence — find five revenue-like tables, pick one, write fluent SQL, and format a beautiful chart of the wrong answer. The semantic layer is what makes self-serve safe.
 
-<video src="media/analytics-agent-slack.mp4" poster="media/analytics-agent-slack-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/analytics-agent-slack.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *The agent sits on top of the governed layer. It cannot invent a definition, only use one.*
 

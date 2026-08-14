@@ -18,7 +18,7 @@ We built a claims document intelligence system that reads everything so the adju
 
 One design principle governed the whole build, and we held to it without exception: the system never decides a claim. It does not approve, deny, or reserve. It prepares the decision, completely, and puts a human in front of it. This is not a limitation we tolerated; it is the architecture we chose. Claims decisions carry regulatory weight, contractual weight, and human weight. The correct role for the machine is to make the decider faster and better informed — the human role shifts from excavating the file to judging it.
 
-<video src="media/claims-document-intelligence.mp4" poster="media/claims-document-intelligence-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/claims-document-intelligence.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Scattered evidence becomes one cited brief. The final node stays open: the adjuster decides.*
 

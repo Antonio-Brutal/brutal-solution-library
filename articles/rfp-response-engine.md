@@ -18,7 +18,7 @@ Manual bidding fails in two ways. The first is loud: you miss a mandatory requir
 
 A tender response engine. It parses every incoming tender into a compliance matrix, drafts answers from a curated library built out of past winning bids, and gives bid managers a review workspace where every section is approved by a human before it goes anywhere near a submission. The system never submits anything on its own. Its job is narrower and more valuable than writing: make sure nothing is forgotten, and make sure nothing that already exists gets written again.
 
-<video src="media/rfp-response-engine.mp4" poster="media/rfp-response-engine-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/rfp-response-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Requirements become a grid; answers rise from the library and dock into place, cell by cell.*
 

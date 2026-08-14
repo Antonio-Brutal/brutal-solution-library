@@ -26,7 +26,7 @@ The engine extracts strings from the codebase with that context captured automat
 
 The human boundary is architectural. Native reviewers approve anything a customer sees prominently, and every edit they make feeds back into the rules rather than dying in a single string. And one class of copy never auto-publishes, regardless of model confidence or how few people see it: legal terms, consent and privacy language, refund and cancellation policy, pricing and billing copy, safety and accessibility instructions. That copy carries regulatory weight that varies by market, so it routes to a named in-market reviewer — with counsel where the market requires it — every time. The routing is enforced by the risk class on the string itself, not by a reviewer remembering to be careful.
 
-<video src="media/localization-engine.mp4" poster="media/localization-engine-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/localization-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Strings carry their context through translation. The glossary is enforced, not suggested.*
 

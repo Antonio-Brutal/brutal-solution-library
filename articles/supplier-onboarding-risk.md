@@ -22,7 +22,7 @@ A portal that collects documents, an extraction layer that validates them, a scr
 
 One boundary is stated hard, in the architecture and not in a footnote: screening hits are evidence for a human decision, never an automatic rejection. The system does not approve suppliers and does not reject them. It does not resolve a name match to "this is the same person." It does not delete a hit. Calling a company sanctioned is a determination about a real business and real people, and being wrong in either direction has consequences — a legitimate supplier blocked without recourse, or a prohibited counterparty sitting in your master data.
 
-<video src="media/supplier-onboarding-risk.mp4" poster="media/supplier-onboarding-risk-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/supplier-onboarding-risk.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Screening produces evidence for an analyst. It never rejects a supplier on its own.*
 

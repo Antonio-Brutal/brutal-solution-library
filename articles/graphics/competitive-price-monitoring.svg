@@ -163,7 +163,7 @@
 
   <!-- delegated automatic band: thin bypass skirting the gate -->
   <g stroke="#9de500" fill="none" stroke-width="0.9" opacity="0.5">
-    <path d="M 868 246 C 902 198, 1000 194, 1028 258"/>
+    <path d="M 838 252 C 890 196, 1000 194, 1030 292"/>
     <path d="M 944 190 v 10 M 938 195 h 12"/>
   </g>
 

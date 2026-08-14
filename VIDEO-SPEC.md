@@ -22,6 +22,18 @@ Scripts: same scratchpad, `bin/bfl.sh` (FLUX keyframe) and `bin/seedance.sh` (vi
 
 One italic caption line beneath it, e.g. `*The matching flow: every document becomes structured data; only exceptions reach a human.*`
 
+## Prompt discipline — learned the hard way
+
+A strict QC pass rejected 23 of the first 30 clips. Every failure traced to the same root cause: **describing mechanisms with object nouns.** Words like *panel*, *dial*, *gauge*, *matrix*, *plate*, *chip*, *conveyor* and *cylinder* steer image models toward photorealistic instruments, which then arrive covered in garbled lettering, engraved digits, LED blocks and lens flare.
+
+Rules that actually work:
+
+- **Describe geometry, never objects.** "A narrow throat", "a comb of fine teeth", "small open circles", "one long hairline that nothing crosses". Never name a device.
+- **Pin it flat.** "Flat two-dimensional diagram, no perspective, no depth, no floor, no horizon" — otherwise you get sci-fi data-centre scenes with glowing grid floors.
+- **Ban the failure modes explicitly and at length.** No text/letters/words/numbers/digits/binary/labels/glyphs; no dense dot grids, LED panels, microchips, circuit boards; no saturated blobs, bursts, bloom or lens flare; no 3D objects.
+- **Say "a small number of tiny dots".** Unqualified "glowing dots" becomes a screen-filling LED matrix.
+- **Never put text in the scene.** All labelling lives in the article and the SVG schematic.
+
 ## Prompt formula
 
 **Keyframe (FLUX):** start from this base, then describe the article's mechanism scene:

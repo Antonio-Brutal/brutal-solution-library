@@ -22,7 +22,7 @@ A generator that takes the operating manual as its source and produces role-spec
 
 The governing rule is that the system has exactly one source of truth and no imagination. If a claim is not supported by the manual, it does not appear in a module. When the generator finds that a role genuinely needs an answer the manual does not contain, it does not fill the gap with plausible industry practice. It raises the gap to the operations team as a question, which turns out to be one of the more valuable outputs of the entire system: a list of the things the network assumed everyone knew and never wrote down.
 
-<video src="media/sop-to-training-generator.mp4" poster="media/sop-to-training-generator-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/sop-to-training-generator.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *One manual, many roles. When the policy changes, the affected modules regenerate.*
 

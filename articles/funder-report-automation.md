@@ -24,7 +24,7 @@ It assembles program data for the reporting period, structures the field notes i
 
 What it never does is assert something the record cannot support. If an indicator has no underlying data for the period, the draft says so rather than estimating. If two systems disagree, the draft surfaces the discrepancy instead of silently choosing the more flattering figure. And no report leaves the building on the engine's authority: the program lead signs the narrative, finance signs the figures, and the country director signs the document. The machine drafts. People attest.
 
-<video src="media/funder-report-automation.mp4" poster="media/funder-report-automation-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/funder-report-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Every funder wants it differently. The programme data underneath stays the same.*
 

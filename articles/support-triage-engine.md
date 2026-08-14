@@ -20,7 +20,7 @@ We built an engine that reads every inbound ticket, works out what the customer 
 
 One rule shaped the entire design: the machine never sends anything unsupervised at first. Every reply passes through a human. Autonomy is not a launch feature — it is earned, intent by intent, as the system proves its accuracy where the stakes are lowest. That rule is what made the support team trust the system enough to actually use it, and it is what makes the eventual automation safe rather than reckless.
 
-<video src="media/support-triage-engine.mp4" poster="media/support-triage-engine-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/support-triage-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Volume funnels into intent, context merges in, and the hard cases keep their own path.*
 

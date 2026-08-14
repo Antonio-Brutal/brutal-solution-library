@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: tangled competitor listing strands are clamped into verified pairs by a twin-rail comparator, unmatched strands drop into a closed holding loop, matched lines cross faint price-history traces into an isometric margin-weighing enclosure sitting above a hard margin floor, then thread a single lime-ringed committee gate before fanning out through four tapered nozzles">
+  <defs>
+    <radialGradient id="competitive-price-monitoring-vig" cx="50%" cy="44%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="competitive-price-monitoring-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="competitive-price-monitoring-glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="competitive-price-monitoring-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#competitive-price-monitoring-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="competitive-price-monitoring-pulseSmall">
+      <circle r="4" fill="#bbf451" opacity="0.7" filter="url(#competitive-price-monitoring-glow)"/>
+      <circle r="1.5" fill="#d8f999"/>
+    </g>
+    <g id="competitive-price-monitoring-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#competitive-price-monitoring-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+    <style>
+      @media (prefers-reduced-motion: reduce) { .competitive-price-monitoring-pulse { display: none; } }
+    </style>
+    <g id="competitive-price-monitoring-mover">
+      <circle r="4.6" fill="#bbf451" opacity="0.85" filter="url(#competitive-price-monitoring-glow)"/>
+      <circle r="1.7" fill="#d8f999"/>
+    </g>
+    <g id="competitive-price-monitoring-moverDeep">
+      <circle r="5.0" fill="#9de500" opacity="0.9" filter="url(#competitive-price-monitoring-glow)"/>
+      <circle r="1.9" fill="#d8f999"/>
+    </g>
+    <g id="competitive-price-monitoring-moverSmall">
+      <circle r="3.4" fill="#bbf451" opacity="0.75" filter="url(#competitive-price-monitoring-glow)"/>
+      <circle r="1.3" fill="#d8f999"/>
+    </g>
+    <!-- motion tracks: each traces drawn line-work already in the artwork -->
+    <g id="competitive-price-monitoring-tracks" fill="none" stroke="none">
+      <path id="competitive-price-monitoring-mA" d="M -10 100 C 90 108, 180 158, 262 190 L 356 190 L 368 200 L 388 200 L 552 200 C 596 200, 604 236, 644 236"/>
+      <path id="competitive-price-monitoring-mB" d="M -10 280 C 96 284, 186 302, 262 310 L 356 310 L 368 300 L 388 300 L 644 300"/>
+      <path id="competitive-price-monitoring-mC" d="M -10 430 C 96 428, 188 418, 262 410 L 356 410 L 368 400 L 388 400 L 552 400 C 596 400, 604 364, 644 364"/>
+      <path id="competitive-price-monitoring-mD" d="M 838 210 C 880 210, 890 292, 924 300 L 949 300"/>
+      <path id="competitive-price-monitoring-mE" d="M 838 332 C 880 332, 892 306, 924 300 L 949 300"/>
+      <path id="competitive-price-monitoring-orbit" d="M 302 480 A 28 28 0 1 1 358 480 A 28 28 0 1 1 302 480"/>
+      <path id="competitive-price-monitoring-mH" d="M 1001 300 L 1030 300 C 1058 300, 1062 288, 1090 288 L 1122 288"/>
+      <path id="competitive-price-monitoring-mI" d="M 1001 300 L 1030 300 C 1058 300, 1062 234, 1090 234 L 1122 234"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#competitive-price-monitoring-vig)"/>
+
+  <!-- faint registration marks -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.3" fill="none">
+    <path d="M 232 96 h 12 M 238 90 v 12"/>
+    <path d="M 1064 552 h 12 M 1070 546 v 12"/>
+  </g>
+
+  <!-- layer 0: competitor listing strands arriving at varied angles -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 100 C 90 108, 180 158, 262 190" opacity="0.5"/>
+    <path d="M -10 136 C 92 142, 182 184, 262 210" opacity="0.8"/>
+    <path d="M -10 172 C 96 178, 186 220, 262 240" opacity="0.55"/>
+    <path d="M -10 208 C 94 212, 184 246, 262 260" opacity="0.75"/>
+    <path d="M -10 244 C 98 248, 188 276, 262 290" opacity="0.45"/>
+    <path d="M -10 280 C 96 284, 186 302, 262 310" opacity="0.85"/>
+    <path d="M -10 316 C 100 318, 190 334, 262 340" opacity="0.6"/>
+    <path d="M -10 352 C 98 354, 188 358, 262 360" opacity="0.75"/>
+    <path d="M -10 392 C 100 392, 190 390, 262 390" opacity="0.5"/>
+    <path d="M -10 430 C 96 428, 188 418, 262 410" opacity="0.8"/>
+    <path d="M -10 474 C 100 472, 200 458, 302 474" opacity="0.8"/>
+    <path d="M -10 522 C 104 520, 206 496, 302 488" opacity="0.75"/>
+  </g>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(64,146)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(137,201)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(204,277)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(140,326)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(205,390)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(148,466)"/>
+  <use xlink:href="#competitive-price-monitoring-swoosh" transform="translate(224,354) rotate(4)"/>
+  <text x="52" y="76" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">listings</text>
+
+  <!-- layer 1: twin-rail comparator lattice -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.3">
+    <path d="M 258 168 H 404"/>
+    <path d="M 258 434 H 404"/>
+    <path d="M 258 168 V 434 M 332 168 V 434 M 404 168 V 434" opacity="0.6"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 262 190 H 356 L 368 200 L 356 210 H 262"/>
+    <path d="M 368 200 l 10 -8 l 10 8 l -10 8 z"/>
+    <path d="M 326 185 v 10 M 338 185 v 10 M 326 205 v 10 M 338 205 v 10" stroke-width="0.9" opacity="0.55"/>
+    <path d="M 262 240 H 356 L 368 250 L 356 260 H 262"/>
+    <path d="M 368 250 l 10 -8 l 10 8 l -10 8 z"/>
+    <path d="M 326 235 v 10 M 338 235 v 10 M 326 255 v 10 M 338 255 v 10" stroke-width="0.9" opacity="0.55"/>
+    <path d="M 262 290 H 356 L 368 300 L 356 310 H 262"/>
+    <path d="M 368 300 l 10 -8 l 10 8 l -10 8 z"/>
+    <path d="M 326 285 v 10 M 338 285 v 10 M 326 305 v 10 M 338 305 v 10" stroke-width="0.9" opacity="0.55"/>
+    <path d="M 262 340 H 356 L 368 350 L 356 360 H 262"/>
+    <path d="M 368 350 l 10 -8 l 10 8 l -10 8 z"/>
+    <path d="M 326 335 v 10 M 338 335 v 10 M 326 355 v 10 M 338 355 v 10" stroke-width="0.9" opacity="0.55"/>
+    <path d="M 262 390 H 356 L 368 400 L 356 410 H 262"/>
+    <path d="M 368 400 l 10 -8 l 10 8 l -10 8 z"/>
+    <path d="M 326 385 v 10 M 338 385 v 10 M 326 405 v 10 M 338 405 v 10" stroke-width="0.9" opacity="0.55"/>
+  </g>
+
+  <!-- unmatched strands: closed holding loop, no onward path -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <circle cx="330" cy="480" r="28" opacity="0.8"/>
+    <circle cx="330" cy="480" r="17" opacity="0.35"/>
+  </g>
+  <use xlink:href="#competitive-price-monitoring-pulseSmall" transform="translate(330,463)"/>
+  <text x="370" y="486" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">unverified</text>
+
+  <!-- layer 2: verified lines carrying stacked price history -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.9">
+    <path d="M 388 200 H 552 C 596 200, 604 236, 644 236"/>
+    <path d="M 388 250 H 552 C 596 250, 604 268, 644 268"/>
+    <path d="M 388 300 H 644"/>
+    <path d="M 388 350 H 552 C 596 350, 604 332, 644 332"/>
+    <path d="M 388 400 H 552 C 596 400, 604 364, 644 364"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="0.8" opacity="0.42">
+    <path d="M 420 192 H 540 M 436 186 H 524 M 428 208 H 532"/>
+    <path d="M 414 242 H 546 M 430 236 H 518 M 424 258 H 538"/>
+    <path d="M 422 292 H 536 M 440 286 H 528 M 416 308 H 544"/>
+    <path d="M 418 342 H 542 M 434 336 H 522 M 426 358 H 530"/>
+    <path d="M 424 392 H 534 M 438 386 H 526 M 420 408 H 540"/>
+  </g>
+  <path d="M 436 186 V 208 M 500 186 V 208 M 430 236 V 258 M 512 236 V 258 M 440 286 V 308 M 496 286 V 308 M 434 336 V 358 M 508 336 V 358 M 438 386 V 408 M 502 386 V 408" stroke="#f8fafc" stroke-width="0.7" opacity="0.28" fill="none"/>
+  <use xlink:href="#competitive-price-monitoring-pulseSmall" transform="translate(496,200)"/>
+  <use xlink:href="#competitive-price-monitoring-pulseSmall" transform="translate(452,250)"/>
+  <use xlink:href="#competitive-price-monitoring-pulseSmall" transform="translate(432,300)"/>
+  <use xlink:href="#competitive-price-monitoring-pulseSmall" transform="translate(520,350)"/>
+  <use xlink:href="#competitive-price-monitoring-pulseSmall" transform="translate(468,400)"/>
+
+  <!-- layer 3: isometric margin-weighing enclosure -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <rect x="644" y="216" width="160" height="168"/>
+    <path d="M 644 216 L 678 186 L 838 186 L 804 216 Z"/>
+    <path d="M 804 216 L 838 186 L 838 354 L 804 384 Z"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.28">
+    <path d="M 810 376 L 830 358 M 810 346 L 830 328 M 810 316 L 830 298 M 810 286 L 830 268"/>
+    <path d="M 652 210 L 676 190 M 700 210 L 724 190 M 748 210 L 772 190"/>
+  </g>
+  <path d="M 644 236 h 0.6 M 644 268 h 0.6 M 644 300 h 0.6 M 644 332 h 0.6 M 644 364 h 0.6" stroke="#f8fafc" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 654 262 L 722 276"/>
+    <path d="M 681 282 L 688 264 L 695 282 Z"/>
+    <path d="M 654 262 v 12 M 646 274 h 16 M 722 276 v 12 M 714 288 h 16" opacity="0.75"/>
+    <path d="M 654 350 L 722 338"/>
+    <path d="M 681 358 L 688 340 L 695 358 Z"/>
+    <path d="M 654 350 v 12 M 646 362 h 16 M 722 338 v 12 M 714 350 h 16" opacity="0.75"/>
+  </g>
+  <g transform="translate(766,250)" stroke="#f8fafc" fill="none" stroke-width="1">
+    <circle r="19" opacity="0.85"/>
+    <circle r="10" opacity="0.5"/>
+    <path d="M 13 0 L 18 0 M 9.2 -9.2 L 12.7 -12.7 M 0 -13 L 0 -18 M -9.2 -9.2 L -12.7 -12.7 M -13 0 L -18 0 M -9.2 9.2 L -12.7 12.7 M 0 13 L 0 18 M 9.2 9.2 L 12.7 12.7" opacity="0.6"/>
+    <path d="M 0 0 L 11 -8"/>
+  </g>
+  <g transform="translate(766,344)" stroke="#f8fafc" fill="none" stroke-width="1">
+    <circle r="19" opacity="0.85"/>
+    <circle r="10" opacity="0.5"/>
+    <path d="M 13 0 L 18 0 M 9.2 -9.2 L 12.7 -12.7 M 0 -13 L 0 -18 M -9.2 -9.2 L -12.7 -12.7 M -13 0 L -18 0 M -9.2 9.2 L -12.7 12.7 M 0 13 L 0 18 M 9.2 9.2 L 12.7 12.7" opacity="0.6"/>
+    <path d="M 0 0 L -9 -10"/>
+  </g>
+
+  <!-- the margin floor: a hard line nothing crosses -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 606 434 H 892" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 614 434 l -8 10 M 638 434 l -8 10 M 662 434 l -8 10 M 686 434 l -8 10 M 710 434 l -8 10 M 734 434 l -8 10 M 758 434 l -8 10 M 782 434 l -8 10 M 806 434 l -8 10 M 830 434 l -8 10 M 854 434 l -8 10 M 878 434 l -8 10" stroke-width="0.8" opacity="0.4"/>
+  </g>
+
+  <!-- deflected lines leaving the enclosure, converging on the throat -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.9">
+    <path d="M 838 210 C 880 210, 890 292, 924 300"/>
+    <path d="M 838 242 C 880 242, 892 294, 924 300"/>
+    <path d="M 838 272 C 884 272, 896 296, 924 300"/>
+    <path d="M 838 302 H 924"/>
+    <path d="M 838 332 C 880 332, 892 306, 924 300"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.55">
+    <path d="M 902 264 L 936 292"/>
+    <path d="M 902 336 L 936 308"/>
+  </g>
+
+  <!-- delegated automatic band: thin bypass skirting the gate -->
+  <g stroke="#9de500" fill="none" stroke-width="0.9" opacity="0.5">
+    <path id="competitive-price-monitoring-delegated" d="M 838 252 C 890 196, 1000 194, 1030 292"/>
+    <path d="M 944 190 v 10 M 938 195 h 12"/>
+  </g>
+
+  <!-- layer 4: the pricing committee gate, single lime ring on the throat -->
+  <path d="M 936 300 H 949 M 1001 300 H 1030" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <circle cx="975" cy="300" r="26" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#competitive-price-monitoring-glowBig)" opacity="0.75"/>
+  <circle cx="975" cy="300" r="26" fill="none" stroke="#bbf451" stroke-width="1.8"/>
+  <circle cx="975" cy="300" r="16" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.7"/>
+  <circle cx="975" cy="300" r="3.6" fill="#d8f999"/>
+  <text x="952" y="374" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">committee approves</text>
+
+  <!-- ordered output nozzles -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 1030 300 C 1058 300, 1062 234, 1090 234"/>
+    <path d="M 1030 300 C 1058 300, 1062 288, 1090 288"/>
+    <path d="M 1030 300 C 1058 300, 1062 342, 1090 342"/>
+    <path d="M 1030 300 C 1058 300, 1062 396, 1090 396"/>
+    <path d="M 1090 225 L 1122 230 L 1122 238 L 1090 243 Z"/>
+    <path d="M 1090 279 L 1122 284 L 1122 292 L 1090 297 Z"/>
+    <path d="M 1090 333 L 1122 338 L 1122 346 L 1090 351 Z"/>
+    <path d="M 1090 387 L 1122 392 L 1122 400 L 1090 405 Z"/>
+  </g>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(1144,234)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(1144,288)"/>
+  <use xlink:href="#competitive-price-monitoring-pulse" transform="translate(1144,396)"/>
+  <use xlink:href="#competitive-price-monitoring-swoosh" transform="translate(1152,342)"/>
+  <text x="1032" y="190" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">approved moves</text>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45" fill="none">
+    <path d="M 380 502 V 546"/>
+    <path d="M 740 458 V 546"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="380" y="568">matching</text>
+    <text x="740" y="568">margin floor</text>
+  </g>
+  <!-- ==== motion (MOTION-SPEC.md): 6s seamless loop, additive only ==== -->
+  <g id="competitive-price-monitoring-motion">
+    <circle class="competitive-price-monitoring-pulse" cx="975" cy="300" r="26" fill="none" stroke="#bbf451"
+            stroke-width="1.8" filter="url(#competitive-price-monitoring-glowBig)" opacity="0">
+      <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-0.3s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-mA"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-0.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-2.2s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-mB"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-2.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-4.3s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-mC"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-4.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-1.4s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-mD"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-1.4s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-3.5s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-mE"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-3.5s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-moverDeep">
+      <animateMotion dur="6s" begin="-1s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-orbit"/>
+      </animateMotion>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-moverSmall">
+      <animateMotion dur="6s" begin="-5.1s" repeatCount="indefinite">
+        <mpath xlink:href="#competitive-price-monitoring-delegated"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-5.1s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-2.6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.45;1">
+        <mpath xlink:href="#competitive-price-monitoring-mH"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-2.6s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="competitive-price-monitoring-pulse" xlink:href="#competitive-price-monitoring-mover">
+      <animateMotion dur="6s" begin="-4.9s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.45;1">
+        <mpath xlink:href="#competitive-price-monitoring-mI"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-4.9s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+  </g>
+</svg>

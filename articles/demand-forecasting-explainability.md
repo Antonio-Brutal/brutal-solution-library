@@ -24,7 +24,7 @@ Then the system captures what the buyer does next. Accept, adjust, or reject —
 
 One boundary is architectural and doesn't move: the machine forecasts, humans commit money. Proposals inside agreed value and volume bands release on the buyer's weekly sign-off. Anything outside them — a new product with no history, a seasonal buy, a supplier minimum-order commitment, a quantity that would park serious working capital in one stockroom — needs a named human approval before it becomes a purchase order. No forecast buys inventory on its own.
 
-<video src="media/demand-forecasting-explainability.mp4" poster="media/demand-forecasting-explainability-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/demand-forecasting-explainability.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *The forecast arrives with its reasoning attached, so a buyer can argue with it instead of ignoring it.*
 

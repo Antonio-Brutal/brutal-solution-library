@@ -20,7 +20,7 @@ We built a system that reads the resolution history, finds the problems that gen
 
 The boundary is simple and it holds everywhere. The machine drafts; a named human publishes. Every article has an owner — a senior engineer in that domain — who approves it before it can be seen by anyone and stays on record as the person accountable for it. Nothing synthesized reaches an engineer or an end user without that signature.
 
-<video src="media/ticket-mining-knowledge-base.mp4" poster="media/ticket-mining-knowledge-base-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/ticket-mining-knowledge-base.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Years of resolutions become articles that know exactly where they came from.*
 

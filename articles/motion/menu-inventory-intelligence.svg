@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: a branching recipe tree fed from below by invoice ticks feeds a differential junction where theoretical and actual rails converge on a splitter fanning into five variance channels, one dashed and unexplained, into an isometric bed of margin pins with two lime-ringed outliers, then a short shortlist stack meets a lime-ringed chef-decides node whose rejections curve back into the bed while accepted work leaves as one clean menu rail">
+  <defs>
+    <style>
+      @media (prefers-reduced-motion: reduce) { .menu-inventory-intelligence-pulse { display: none; } }
+    </style>
+    <radialGradient id="menu-inventory-intelligence-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="menu-inventory-intelligence-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="menu-inventory-intelligence-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#menu-inventory-intelligence-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="menu-inventory-intelligence-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#menu-inventory-intelligence-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="menu-inventory-intelligence-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#menu-inventory-intelligence-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#menu-inventory-intelligence-vig)"/>
+
+  <!-- recipe tree: dish at the trunk, sub-preps mid-branch, ingredients at the tips -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path id="menu-inventory-intelligence-trunk" d="M 306 262 L 372 262" stroke-width="1.4"/>
+    <path id="menu-inventory-intelligence-br1" d="M 294 262 C 268 258, 240 200, 194 182"/>
+    <path d="M 294 262 L 202 262"/>
+    <path id="menu-inventory-intelligence-br3" d="M 294 262 C 268 266, 240 328, 194 346"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.7">
+    <path id="menu-inventory-intelligence-tip1" d="M 186 180 C 158 174, 124 148, 100 140"/>
+    <path d="M 186 182 L 108 186"/>
+    <path d="M 186 184 C 158 192, 126 214, 102 222"/>
+    <path d="M 194 260 C 168 256, 136 252, 112 250"/>
+    <path d="M 194 264 C 168 270, 134 282, 108 286"/>
+    <path id="menu-inventory-intelligence-tip3" d="M 186 344 C 156 338, 128 324, 104 318"/>
+    <path d="M 186 346 L 110 356"/>
+    <path d="M 186 348 C 156 356, 126 384, 102 392"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <circle cx="300" cy="262" r="6"/>
+    <circle cx="190" cy="182" r="4.5"/>
+    <circle cx="198" cy="262" r="4.5"/>
+    <circle cx="190" cy="346" r="4.5"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.8">
+    <circle cx="100" cy="140" r="3.5"/>
+    <circle cx="108" cy="186" r="3.5"/>
+    <circle cx="102" cy="222" r="3.5"/>
+    <circle cx="112" cy="250" r="3.5"/>
+    <circle cx="108" cy="286" r="3.5"/>
+    <circle cx="104" cy="318" r="3.5"/>
+    <circle cx="110" cy="356" r="3.5"/>
+    <circle cx="102" cy="392" r="3.5"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(143,203)"/>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(334,262)"/>
+
+  <!-- invoices feeding the base of the tree -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="menu-inventory-intelligence-inv" d="M 60 470 L 300 470" opacity="0.55"/>
+    <path d="M 84 470 v -16" opacity="0.75"/>
+    <path d="M 120 470 v -16" opacity="0.75"/>
+    <path d="M 156 470 v -16" opacity="0.75"/>
+    <path d="M 192 470 v -16" opacity="0.75"/>
+    <path d="M 228 470 v -16" opacity="0.75"/>
+    <path d="M 264 470 v -16" opacity="0.75"/>
+    <path d="M 84 454 C 84 430, 90 410, 98 396" opacity="0.45"/>
+    <path id="menu-inventory-intelligence-invup" d="M 156 454 C 150 420, 124 382, 108 360" opacity="0.45"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(84,452)"/>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(156,452)"/>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(228,452)"/>
+
+  <!-- difference comb: theoretical usage off the recipe trunk, actual counted up from deliveries -->
+  <g stroke="#f8fafc" fill="none">
+    <path id="menu-inventory-intelligence-theo1" d="M 372 262 C 386 262, 384 230, 398 226" stroke-width="1.2"/>
+    <path id="menu-inventory-intelligence-theo2" d="M 398 226 L 512 226" stroke-width="1.4"/>
+    <path d="M 512 220 v 12" stroke-width="1.1" opacity="0.8"/>
+    <path id="menu-inventory-intelligence-act1" d="M 300 470 C 358 466, 384 356, 404 258" stroke-width="1.2" opacity="0.8"/>
+    <path id="menu-inventory-intelligence-act2" d="M 404 258 L 500 258" stroke-width="1.4"/>
+    <path d="M 500 252 v 12" stroke-width="1.1" opacity="0.8"/>
+    <g stroke-width="1" opacity="0.65">
+      <path d="M 412 226 V 300"/>
+      <path d="M 430 226 V 300"/>
+      <path d="M 448 226 V 300"/>
+      <path d="M 466 226 V 300"/>
+      <path d="M 482 226 V 300"/>
+      <path d="M 496 226 V 300"/>
+    </g>
+    <circle cx="430" cy="258" r="3.5" stroke-width="1.1"/>
+    <circle cx="482" cy="258" r="3.5" stroke-width="1.1"/>
+    <path d="M 424 226 v -9" stroke-width="1" opacity="0.7"/>
+    <path d="M 460 226 v -9" stroke-width="1" opacity="0.7"/>
+    <path id="menu-inventory-intelligence-diff" d="M 404 300 L 528 300" stroke-width="1.5"/>
+    <path d="M 528 300 C 536 294, 536 284, 538 276" stroke-width="1.2"/>
+    <path d="M 538 246 L 566 262 L 538 278 Z" stroke-width="1.2"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(470,300)"/>
+
+  <!-- five variance channels, the fifth honestly unexplained -->
+  <g stroke="#f8fafc" fill="none">
+    <path id="menu-inventory-intelligence-v1" d="M 566 262 C 584 258, 598 210, 622 200" stroke-width="1.7"/>
+    <path id="menu-inventory-intelligence-v2" d="M 566 262 C 586 260, 600 234, 622 232" stroke-width="1.3"/>
+    <path d="M 566 262 L 622 262" stroke-width="1"/>
+    <path id="menu-inventory-intelligence-v4" d="M 566 262 C 586 266, 600 288, 622 298" stroke-width="0.8"/>
+    <path id="menu-inventory-intelligence-v5" d="M 566 262 C 586 270, 600 320, 622 342" stroke-width="0.9" stroke-dasharray="4 5" opacity="0.5"/>
+    <path d="M 622 194 V 348" stroke-width="1.4"/>
+    <path id="menu-inventory-intelligence-bed" d="M 622 348 C 624 392, 630 424, 644 440" stroke-width="1.2" opacity="0.85"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(600,217)"/>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(602,287)"/>
+
+  <!-- margin and popularity: an isometric bed of pins at unequal heights -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 640 442 L 900 442 L 900 462 L 640 462 Z" stroke-width="1.3"/>
+    <path d="M 640 442 L 666 418 L 926 418 L 900 442 Z" stroke-width="1.3"/>
+    <path d="M 900 442 L 926 418 L 926 438 L 900 462 Z" stroke-width="1.3"/>
+    <path d="M 906 456 L 920 442" stroke-width="1" opacity="0.3"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M 652 442 V 377"/>
+    <path d="M 674 442 V 321"/>
+    <path d="M 696 442 V 403"/>
+    <path d="M 718 442 V 273"/>
+    <path d="M 740 442 V 349"/>
+    <path d="M 762 442 V 297"/>
+    <path d="M 784 442 V 415"/>
+    <path d="M 806 442 V 255"/>
+    <path d="M 828 442 V 335"/>
+    <path d="M 850 442 V 387"/>
+    <path d="M 872 442 V 305"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <circle cx="652" cy="372" r="5"/>
+    <circle cx="674" cy="316" r="5"/>
+    <circle cx="696" cy="398" r="5"/>
+    <circle cx="718" cy="268" r="5"/>
+    <circle cx="740" cy="344" r="5"/>
+    <circle cx="762" cy="292" r="5"/>
+    <circle cx="784" cy="410" r="5"/>
+    <circle cx="806" cy="250" r="5"/>
+    <circle cx="828" cy="330" r="5"/>
+    <circle cx="850" cy="382" r="5"/>
+    <circle cx="872" cy="300" r="5"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(718,268)"/>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(806,250)"/>
+
+  <!-- shortlist -->
+  <g stroke="#f8fafc" fill="none">
+    <path id="menu-inventory-intelligence-short1" d="M 926 424 C 962 408, 964 348, 952 280" stroke-width="1" opacity="0.6"/>
+    <path id="menu-inventory-intelligence-short2" d="M 926 432 C 950 422, 950 360, 944 316" stroke-width="1" opacity="0.6"/>
+    <rect x="942" y="270" width="68" height="10" stroke-width="1.1"/>
+    <rect x="942" y="288" width="52" height="10" stroke-width="1.1"/>
+    <rect x="942" y="306" width="62" height="10" stroke-width="1.1"/>
+    <path d="M 1010 275 C 1028 278, 1034 286, 1046 291" stroke-width="1.1"/>
+    <path id="menu-inventory-intelligence-chefin" d="M 994 293 C 1020 293, 1032 292, 1046 292" stroke-width="1.1"/>
+    <path d="M 1004 311 C 1024 308, 1034 298, 1046 294" stroke-width="1.1"/>
+  </g>
+
+  <!-- chef decides -->
+  <circle cx="1074" cy="292" r="26" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#menu-inventory-intelligence-glow)" opacity="0.7"><animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite"/></circle>
+  <circle cx="1074" cy="292" r="26" fill="none" stroke="#bbf451" stroke-width="1.6"><animate attributeName="opacity" values="1;0.55;1" dur="3s" repeatCount="indefinite"/></circle>
+  <circle cx="1074" cy="292" r="15" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 1065 293 L 1071 300 L 1084 284" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+
+  <!-- accepted work leaves as one rail; rejections curve back into the bed -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <path id="menu-inventory-intelligence-menu" d="M 1100 292 L 1140 292"/>
+    <path d="M 1140 284 L 1172 290 L 1172 294 L 1140 300 Z"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-swoosh" transform="translate(1122,292)"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6">
+    <path id="menu-inventory-intelligence-reject" d="M 1054 310 C 1024 372, 950 452, 856 476 C 800 490, 762 482, 744 464"/>
+    <path d="M 754 458 L 743 465 L 753 472"/>
+  </g>
+  <use xlink:href="#menu-inventory-intelligence-pulseDeep" transform="translate(979,407)"/>
+  <use xlink:href="#menu-inventory-intelligence-pulse" transform="translate(786,482)"/>
+
+  <!-- motion: pulses travel the existing flow paths; 6s seamless loop -->
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-0.6s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="1;0" keyTimes="0;1"><mpath href="#menu-inventory-intelligence-tip1"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-4.2s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="1;0" keyTimes="0;1"><mpath href="#menu-inventory-intelligence-tip3"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-1.2s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="1;0" keyTimes="0;1"><mpath href="#menu-inventory-intelligence-br1"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-4.8s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="1;0" keyTimes="0;1"><mpath href="#menu-inventory-intelligence-br3"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-0.3s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-trunk"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-1.5s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-inv"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-3.6s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-invup"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-2.1s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-theo1"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-3.3s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-theo2"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-0.9s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-act1"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-2.7s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-act2"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-4.2s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-diff"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-0.6s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-v1"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-1.8s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-v2"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-4.2s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-v4"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-1.2s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;1;1" keyTimes="0;0.4;1"><mpath href="#menu-inventory-intelligence-v5"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-3.6s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-bed"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-1.5s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-short1"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-3.9s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-short2"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse">
+    <animateMotion dur="6s" begin="-2.4s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-chefin"/></animateMotion>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;0;1" keyTimes="0;0.45;1"><mpath href="#menu-inventory-intelligence-menu"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite"
+       values="0;0;1;1;0" keyTimes="0;0.45;0.5;0.97;1"/>
+  </use>
+  <use class="menu-inventory-intelligence-pulse" xlink:href="#menu-inventory-intelligence-pulseDeep">
+    <animateMotion dur="6s" begin="-2.4s" repeatCount="indefinite"><mpath href="#menu-inventory-intelligence-reject"/></animateMotion>
+  </use>
+
+  <!-- labels -->
+  <text x="58" y="508" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">invoices</text>
+  <text x="1064" y="238" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">chef decides</text>
+  <text x="1182" y="342" text-anchor="end" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">menu</text>
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45" fill="none">
+    <path d="M 180 524 V 554"/>
+    <path d="M 452 330 V 554"/>
+    <path d="M 790 500 V 554"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="180" y="578">recipes</text>
+    <text x="452" y="578">variance</text>
+    <text x="790" y="578">margin map</text>
+  </g>
+</svg>

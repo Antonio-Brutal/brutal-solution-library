@@ -26,7 +26,7 @@ One rule defines the architecture: the copilot never takes remediation actions. 
 
 We are firm about this because the failure modes are not symmetrical. A copilot that summarizes badly costs an engineer a minute of attention. A copilot that acts badly turns a degraded service into an outage, during the exact window when the humans are too busy to notice what it did.
 
-<video src="media/incident-response-copilot.mp4" poster="media/incident-response-copilot-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/incident-response-copilot.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Runbooks and log signals converge into a live picture. The copilot never touches remediation.*
 

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: a constrained brand plate holding a claim rack fans candidate strands into a variant matrix of outlined cells, the matrix converges on a lime-ringed brand owner approves node, then launch nozzles emit ribbons whose returns are gathered on a measurement bar and carried back along a feedback rail beneath the whole diagram into the plate">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: a constrained brand plate holding a claim rack fans candidate strands into a variant matrix of outlined cells, the matrix converges on a lime-ringed brand owner approves node, then launch nozzles emit ribbons whose returns are gathered on a measurement bar and carried back along a feedback rail beneath the whole diagram into the plate">
   <defs>
     <radialGradient id="ad-creative-iteration-vig" cx="50%" cy="44%" r="78%">
       <stop offset="0%" stop-color="#050608"/>
@@ -63,10 +63,10 @@
     <path d="M228,302 C274,304 296,340 330,340" opacity="0.85"/>
     <path d="M228,304 C270,310 292,400 330,400" opacity="0.7"/>
   </g>
-  <use href="#ad-creative-iteration-pulse" x="272" y="246"/>
-  <use href="#ad-creative-iteration-pulse" x="292" y="299"/>
-  <use href="#ad-creative-iteration-pulse" x="278" y="352"/>
-  <use href="#ad-creative-iteration-pulse" x="304" y="386"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="272" y="246"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="292" y="299"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="278" y="352"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="304" y="386"/>
 
   <!-- variant matrix -->
   <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.72">
@@ -109,12 +109,12 @@
     <line x1="506" y1="266" x2="536" y2="266"/>
     <line x1="338" y1="320" x2="368" y2="320"/>
   </g>
-  <use href="#ad-creative-iteration-pulse" x="353" y="218"/>
-  <use href="#ad-creative-iteration-pulse" x="465" y="218"/>
-  <use href="#ad-creative-iteration-pulse" x="409" y="272"/>
-  <use href="#ad-creative-iteration-pulse" x="577" y="272"/>
-  <use href="#ad-creative-iteration-pulse" x="465" y="326"/>
-  <use href="#ad-creative-iteration-pulse" x="521" y="380"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="353" y="218"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="465" y="218"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="409" y="272"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="577" y="272"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="465" y="326"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="521" y="380"/>
 
   <!-- matrix converges on the approval throat -->
   <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
@@ -147,9 +147,9 @@
     <line x1="846" y1="326" x2="932" y2="326" opacity="0.85"/>
     <line x1="846" y1="376" x2="932" y2="376" opacity="0.85"/>
   </g>
-  <use href="#ad-creative-iteration-pulse" x="876" y="224"/>
-  <use href="#ad-creative-iteration-pulse" x="906" y="274"/>
-  <use href="#ad-creative-iteration-pulse" x="890" y="326"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="876" y="224"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="906" y="274"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="890" y="326"/>
 
   <!-- returns gathered on the measurement bar -->
   <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.7">
@@ -178,16 +178,16 @@
       <line x1="1082" y1="224" x2="1082" y2="407"/>
     </g>
   </g>
-  <use href="#ad-creative-iteration-pulse" x="1030" y="196"/>
-  <use href="#ad-creative-iteration-pulse" x="1030" y="262"/>
-  <use href="#ad-creative-iteration-pulse" x="1030" y="404"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="1030" y="196"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="1030" y="262"/>
+  <use xlink:href="#ad-creative-iteration-pulse" x="1030" y="404"/>
 
   <!-- feedback rail: the only line running right to left -->
   <path d="M1082,407 C1082,478 1050,534 986,542 L232,542 C168,542 126,506 118,430" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.9"/>
-  <use href="#ad-creative-iteration-pulseDeep" x="900" y="542"/>
-  <use href="#ad-creative-iteration-pulseDeep" x="700" y="542"/>
-  <use href="#ad-creative-iteration-pulseDeep" x="420" y="542"/>
-  <use href="#ad-creative-iteration-swoosh" x="560" y="542" transform="rotate(180 560 542)"/>
+  <use xlink:href="#ad-creative-iteration-pulseDeep" x="900" y="542"/>
+  <use xlink:href="#ad-creative-iteration-pulseDeep" x="700" y="542"/>
+  <use xlink:href="#ad-creative-iteration-pulseDeep" x="420" y="542"/>
+  <use xlink:href="#ad-creative-iteration-swoosh" x="560" y="542" transform="rotate(180 560 542)"/>
 
   <!-- tie-lines -->
   <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">

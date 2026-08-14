@@ -20,7 +20,7 @@ We built a system that ingests every conversation across every channel, scores e
 
 The QA analysts did not disappear from this picture. They moved up a level. Instead of sampling conversations, they now audit the scorer: reviewing machine-scored conversations, catching disagreements, and refining the rubric until human and machine judgments converge. Sampling became calibration. It is the same expertise, pointed at a far more leveraged target.
 
-<video src="media/conversation-qa-full-coverage.mp4" poster="media/conversation-qa-full-coverage-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/conversation-qa-full-coverage.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Every conversation carries a pulse, not a sampled few. The loop underneath is calibration.*
 

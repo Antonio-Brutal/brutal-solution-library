@@ -18,7 +18,7 @@ The cost compounds at the worst moments. New staff take longest to ramp precisel
 
 We built an assistant that frontline staff can ask in plain language, from the device already in their pocket, and that answers only from the network's own documents. Every answer carries a citation to the exact section of the exact document it came from — tap it, and the source opens at the right place. And the rule that defines the whole system: no citation, no answer. If the assistant cannot ground a response in a real document, it says so plainly, and the question is logged rather than improvised. Underneath sit a freshness pipeline, so that when a policy changes the answers change with it, and an analytics layer that shows head office what the field is actually asking — and what it couldn't answer.
 
-<video src="media/sop-knowledge-assistant.mp4" poster="media/sop-knowledge-assistant-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/sop-knowledge-assistant.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *One question, one lit path through the manuals, one answer that can name its source.*
 

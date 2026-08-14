@@ -18,7 +18,7 @@ The standard fix fails too. More mandatory fields, stricter Monday reminders, a 
 
 A meeting-to-CRM pipeline. Every recorded client call flows into it; the system extracts what was actually said — stakeholders, budget signals, next steps, risks — maps those facts onto the firm's CRM fields, and proposes updates that the deal owner approves in one click from Slack or email. It drafts the follow-up message while it's at it. The system never writes to the CRM on its own authority. Its job is to turn conversations into structured, cited proposals, and to make confirming them nearly effortless.
 
-<video src="media/meeting-to-crm-pipeline.mp4" poster="media/meeting-to-crm-pipeline-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/meeting-to-crm-pipeline.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *What was actually said lifts out of the conversation and settles into the record.*
 

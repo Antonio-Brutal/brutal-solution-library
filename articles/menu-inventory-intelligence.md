@@ -24,7 +24,7 @@ Recipes are modeled properly, down to sub-preparations and yields, so a change i
 
 The output is proposals, never actions. The engine does not change a menu, does not change a price, does not place an order, and does not edit a recipe or its allergen specification. Menus belong to the executive chef, prices need finance approval, and orders are placed by people who know what is happening in their kitchen this week. The engine removes the guessing, not the deciding.
 
-<video src="media/menu-inventory-intelligence.mp4" poster="media/menu-inventory-intelligence-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/menu-inventory-intelligence.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Cost, waste and popularity meet at the dish, where a chef can actually act on them.*
 

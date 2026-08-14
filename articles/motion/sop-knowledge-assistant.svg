@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="SOP knowledge assistant retrieval schematic">
+  <defs>
+    <style>@media (prefers-reduced-motion: reduce){.sop-knowledge-assistant-pulse{display:none}}</style>
+    <g id="sop-knowledge-assistant-mpulse">
+      <circle r="4.4" fill="#bbf451" opacity="0.8" filter="url(#sop-knowledge-assistant-glow)"/>
+      <circle r="1.7" fill="#d8f999"/>
+    </g>
+    <g id="sop-knowledge-assistant-mpulseDeep">
+      <circle r="5" fill="#9de500" opacity="0.85" filter="url(#sop-knowledge-assistant-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="sop-knowledge-assistant-mpulseDim">
+      <circle r="3.2" fill="#62748e" opacity="0.9"/>
+      <circle r="1.2" fill="#90a1b9"/>
+    </g>
+    <radialGradient id="sop-knowledge-assistant-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="sop-knowledge-assistant-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="sop-knowledge-assistant-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#sop-knowledge-assistant-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="sop-knowledge-assistant-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#sop-knowledge-assistant-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="sop-knowledge-assistant-pulseDim">
+      <circle r="3.6" fill="#62748e" opacity="0.85"/>
+      <circle r="1.3" fill="#90a1b9"/>
+    </g>
+    <g id="sop-knowledge-assistant-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#sop-knowledge-assistant-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#sop-knowledge-assistant-vig)"/>
+
+  <!-- the manual, thick and bound: 400 pages nobody has time to open -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.4">
+    <path d="M 100 235 L 230 235 L 230 385"/>
+    <path d="M 94 240 L 224 240 L 224 390"/>
+    <path d="M 88 245 L 218 245 L 218 395"/>
+    <path d="M 82 250 L 212 250 L 212 400"/>
+    <path d="M 76 255 L 206 255 L 206 405"/>
+  </g>
+  <g stroke="#f8fafc" fill="none">
+    <rect x="70" y="260" width="130" height="150" rx="2" stroke-width="1.3"/>
+    <path d="M 70 260 V 410" stroke-width="2.2" opacity="0.9"/>
+    <path d="M 140 260 l 10 15 l 10 -15" stroke-width="1" opacity="0.5"/>
+  </g>
+  <g stroke="#62748e" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M 86 284 h 92"/>
+    <path d="M 86 304 h 100"/>
+    <path d="M 86 324 h 78"/>
+    <path d="M 86 344 h 92"/>
+    <path d="M 86 364 h 64"/>
+    <path d="M 86 384 h 88"/>
+  </g>
+  <text x="70" y="205" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">manuals</text>
+
+  <!-- fanning out into the indexed lattice -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="sop-knowledge-assistant-in1" d="M 233 245 C 285 220, 345 188, 400 165" opacity="0.61"/>
+    <path d="M 228 259 C 285 247, 345 219, 400 191" opacity="0.39"/>
+    <path d="M 234 273 C 285 268, 345 242, 400 218" opacity="0.44"/>
+    <path id="sop-knowledge-assistant-in2" d="M 234 287 C 285 282, 345 264, 400 244" opacity="0.48"/>
+    <path d="M 234 301 C 285 303, 345 273, 400 270" opacity="0.43"/>
+    <path d="M 228 315 C 285 316, 345 309, 400 297" opacity="0.64"/>
+    <path d="M 235 330 C 285 337, 345 330, 400 323" opacity="0.61"/>
+    <path id="sop-knowledge-assistant-in3" d="M 228 344 C 285 346, 345 347, 400 350" opacity="0.36"/>
+    <path d="M 224 358 C 285 362, 345 372, 400 376" opacity="0.68"/>
+    <path id="sop-knowledge-assistant-in4" d="M 225 372 C 285 381, 345 388, 400 402" opacity="0.56"/>
+    <path d="M 236 386 C 285 394, 345 424, 400 429" opacity="0.42"/>
+    <path id="sop-knowledge-assistant-in5" d="M 224 400 C 285 415, 345 446, 400 455" opacity="0.56"/>
+  </g>
+  <use xlink:href="#sop-knowledge-assistant-pulse" transform="translate(325,242)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulse" transform="translate(334,326)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulse" transform="translate(308,366)"/>
+
+  <!-- indexed lattice: quiet by default, most of it never lights up -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.4">
+    <rect x="400" y="160" width="280" height="300"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.24">
+    <path d="M 456 160 V 460"/>
+    <path d="M 512 160 V 460"/>
+    <path d="M 568 160 V 460"/>
+    <path d="M 624 160 V 460"/>
+    <path d="M 400 220 H 680"/>
+    <path d="M 400 280 H 680"/>
+    <path d="M 400 340 H 680"/>
+    <path d="M 400 400 H 680"/>
+  </g>
+  <g fill="#f8fafc" stroke="none" opacity="0.35">
+    <circle cx="512" cy="280" r="2"/><circle cx="624" cy="280" r="2"/>
+    <circle cx="456" cy="340" r="2"/><circle cx="568" cy="340" r="2"/>
+    <circle cx="624" cy="400" r="2"/><circle cx="512" cy="400" r="2"/>
+    <circle cx="456" cy="400" r="2"/><circle cx="624" cy="220" r="2"/>
+    <circle cx="680" cy="220" r="2"/><circle cx="680" cy="340" r="2"/>
+    <circle cx="400" cy="340" r="2"/><circle cx="512" cy="220" r="2"/>
+  </g>
+
+  <!-- retrieval: one question threads exactly one route to one page -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.5" opacity="0.95">
+    <path id="sop-knowledge-assistant-route" d="M 700 280 L 568 280 L 568 220 L 460 220"/>
+  </g>
+  <use xlink:href="#sop-knowledge-assistant-pulse" transform="translate(634,280)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulse" transform="translate(568,250)"/>
+  <circle cx="456" cy="220" r="9" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.55"/>
+  <use xlink:href="#sop-knowledge-assistant-pulseDeep" transform="translate(456,220)"/>
+
+  <!-- question arrives from the right; cited answer returns -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.85">
+    <path id="sop-knowledge-assistant-ask" d="M 1210 268 C 950 270, 780 275, 700 280"/>
+  </g>
+  <use xlink:href="#sop-knowledge-assistant-pulse" transform="translate(980,272)"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1" opacity="0.85">
+    <path id="sop-knowledge-assistant-answer" d="M 700 284 C 800 294, 960 310, 1080 320"/>
+  </g>
+  <use xlink:href="#sop-knowledge-assistant-swoosh" transform="translate(1080,320)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulseDeep" transform="translate(920,304)"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.65">
+    <path d="M 1100 320 L 1140 320"/>
+    <path d="M 1148 306 h 14 v 10 l -6 6 h -8 z"/>
+    <path d="M 1151 313 h 8" opacity="0.7"/>
+    <path d="M 1151 318 h 6" opacity="0.7"/>
+  </g>
+  <text x="1156" y="344" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">citation</text>
+
+  <!-- unanswered: a faint channel to analytics, reviewed by head office -->
+  <g stroke="#62748e" fill="none" stroke-width="1" opacity="0.5">
+    <path id="sop-knowledge-assistant-drop1" d="M 480 460 V 506"/>
+    <path d="M 560 460 V 506"/>
+    <path id="sop-knowledge-assistant-drop2" d="M 640 460 V 506"/>
+    <path id="sop-knowledge-assistant-logged" d="M 420 506 H 910"/>
+    <path d="M 420 518 H 900"/>
+  </g>
+  <use xlink:href="#sop-knowledge-assistant-pulseDim" transform="translate(480,506)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulseDim" transform="translate(640,506)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulseDim" transform="translate(700,512)"/>
+  <use xlink:href="#sop-knowledge-assistant-pulseDim" transform="translate(820,512)"/>
+  <text x="420" y="494" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">unanswered</text>
+
+  <path d="M 910 512 L 920 512" stroke="#62748e" stroke-width="1" opacity="0.6" fill="none"/>
+  <circle cx="936" cy="512" r="16" fill="none" stroke="#bbf451" stroke-width="1.5" filter="url(#sop-knowledge-assistant-glow)" opacity="0.65"/>
+  <circle cx="936" cy="512" r="16" fill="none" stroke="#bbf451" stroke-width="1.5"/>
+  <path d="M 929 513 L 934 518 L 944 505" fill="none" stroke="#d8f999" stroke-width="1.5"/>
+  <text x="936" y="548" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="17" fill="#90a1b9">head office</text>
+
+  <!-- stage label -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 540 460 V 545"/>
+  </g>
+  <text x="540" y="568" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">retrieval</text>
+
+  <!-- motion layer (MOTION-SPEC.md): additive pulses only, 6s seamless loop -->
+  <g class="sop-knowledge-assistant-pulse">
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.3s"><mpath href="#sop-knowledge-assistant-in1"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-0.3s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-1.2s"><mpath href="#sop-knowledge-assistant-in2"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-1.2s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-2.1s"><mpath href="#sop-knowledge-assistant-in3"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-2.1s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.9s"><mpath href="#sop-knowledge-assistant-in4"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-0.9s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-1.8s"><mpath href="#sop-knowledge-assistant-in5"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-1.8s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.34;1"><mpath href="#sop-knowledge-assistant-ask"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.34;0.365;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.34;0.6;1"><mpath href="#sop-knowledge-assistant-route"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.34;0.365;0.66;0.685;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.62;0.92;1"><mpath href="#sop-knowledge-assistant-answer"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.62;0.645;0.92;0.945;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.05;0.2;1"><mpath href="#sop-knowledge-assistant-drop1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0.9;0;0" keyTimes="0;0.05;0.075;0.2;0.225;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.3;0.45;1"><mpath href="#sop-knowledge-assistant-drop2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0.9;0;0" keyTimes="0;0.3;0.325;0.45;0.475;1"/></use>
+    <use class="sop-knowledge-assistant-pulse" xlink:href="#sop-knowledge-assistant-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.2;0.72;1"><mpath href="#sop-knowledge-assistant-logged"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.9;0.9;0;0" keyTimes="0;0.2;0.225;0.88;0.905;1"/></use>
+    <circle class="sop-knowledge-assistant-pulse" cx="936" cy="512" r="16" fill="none" stroke="#bbf451" stroke-width="1.5" filter="url(#sop-knowledge-assistant-glow)" opacity="0"><animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>

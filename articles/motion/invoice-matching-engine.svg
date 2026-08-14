@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Invoice matching engine schematic: messy supplier-document strands funnel into extraction, an isometric three-way lock where invoice, purchase order, and delivery record converge, and clean entries post to the ledger while mismatches drop to a lime-ringed human-resolves node and rejoin">
+  <defs>
+    <style>@media (prefers-reduced-motion: reduce){.invoice-matching-engine-pulse{display:none}}</style>
+    <g id="invoice-matching-engine-mover">
+      <circle r="4.6" fill="#bbf451" opacity="0.85" filter="url(#invoice-matching-engine-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+    <radialGradient id="invoice-matching-engine-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="invoice-matching-engine-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="invoice-matching-engine-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#invoice-matching-engine-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="invoice-matching-engine-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#invoice-matching-engine-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="invoice-matching-engine-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#invoice-matching-engine-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#invoice-matching-engine-vig)"/>
+
+  <!-- faint registration texture in the dead corners -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.3">
+    <path d="M 1104 56 h 12 M 1110 50 v 12"/>
+    <path d="M 176 590 h 12 M 182 584 v 12"/>
+  </g>
+
+  <!-- input strands: supplier documents in every format -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 86 C 90 96, 188 192, 252 262" opacity="0.5"/>
+    <path id="invoice-matching-engine-in1" d="M -10 118 C 96 126, 192 206, 252 270" opacity="0.75"/>
+    <path d="M -10 150 C 100 152, 196 220, 252 278" opacity="0.45"/>
+    <path id="invoice-matching-engine-in2" d="M -10 182 C 92 190, 200 234, 252 286" opacity="0.8"/>
+    <path d="M -10 214 C 104 208, 204 246, 252 294" opacity="0.5"/>
+    <path d="M -10 246 C 96 254, 200 258, 252 300" opacity="0.7"/>
+    <path id="invoice-matching-engine-in3" d="M -10 288 C 100 296, 202 306, 252 310" opacity="0.85"/>
+    <path d="M -10 336 C 104 330, 204 322, 252 320" opacity="0.5"/>
+    <path d="M -10 384 C 94 374, 202 338, 252 328" opacity="0.75"/>
+    <path id="invoice-matching-engine-in4" d="M -10 428 C 106 436, 206 352, 252 336" opacity="0.45"/>
+    <path d="M -10 468 C 96 458, 202 360, 252 342" opacity="0.65"/>
+    <path d="M -10 508 C 108 496, 206 368, 252 348" opacity="0.55"/>
+  </g>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(94,124)"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(170,216)"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(140,300)"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(210,316)"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(110,420)"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(190,356)"/>
+  <text x="50" y="74" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">invoices</text>
+
+  <!-- ingestion funnel -->
+  <g stroke="#f8fafc" fill="none">
+    <ellipse cx="254" cy="313" rx="8" ry="56" stroke-width="1.2" opacity="0.75"/>
+    <path d="M 254 257 C 286 265, 308 289, 318 305" stroke-width="1.3"/>
+    <path d="M 254 369 C 286 361, 308 337, 318 321" stroke-width="1.3"/>
+    <path d="M 258 279 C 284 285, 300 295, 312 307" stroke-width="1" opacity="0.4"/>
+    <path d="M 258 347 C 284 341, 300 331, 312 319" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="320" cy="313" rx="3.5" ry="9" stroke-width="1.1" opacity="0.85"/>
+    <ellipse cx="328" cy="313" rx="3" ry="7.5" stroke-width="1" opacity="0.6"/>
+    <path id="invoice-matching-engine-throat" d="M 330 313 L 362 313" stroke-width="1.3"/>
+  </g>
+
+  <!-- extraction: comb pulls structured fields, confidence ticks above -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 362 262 L 396 298" stroke-width="1" opacity="0.4"/>
+    <path d="M 362 366 L 396 330" stroke-width="1" opacity="0.4"/>
+    <path d="M 398 280 L 398 348" stroke-width="1.4" opacity="0.95"/>
+    <path d="M 412 280 L 412 348" stroke-width="1.4" opacity="0.95"/>
+    <g stroke-width="1" opacity="0.8">
+      <path d="M 398 282 L 412 282"/>
+      <path d="M 398 296 L 412 296"/>
+      <path d="M 398 310 L 412 310"/>
+      <path d="M 398 324 L 412 324"/>
+      <path d="M 398 338 L 412 338"/>
+      <path d="M 398 348 L 412 348"/>
+    </g>
+  </g>
+  <g fill="#bbf451" opacity="0.75">
+    <rect x="399" y="256" width="2.5" height="18"/>
+    <rect x="405" y="248" width="2.5" height="26"/>
+    <rect x="411" y="262" width="2.5" height="12"/>
+  </g>
+  <path id="invoice-matching-engine-extract" d="M 412 313 C 428 313, 442 313, 456 313" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(434,313)"/>
+
+  <!-- purchase order tap, feeds the enclosure top entry -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.75">
+    <rect x="452" y="168" width="32" height="24" rx="2"/>
+    <path d="M 459 177 L 478 177" opacity="0.6"/>
+    <path d="M 459 184 L 470 184" opacity="0.6"/>
+  </g>
+  <path id="invoice-matching-engine-po" d="M 468 192 C 490 210, 545 250, 578 275" stroke="#f8fafc" stroke-width="1" opacity="0.7" fill="none"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(524,228)"/>
+
+  <!-- delivery record tap, feeds the enclosure bottom entry -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.75">
+    <rect x="452" y="440" width="32" height="24" rx="2"/>
+    <path d="M 459 449 L 478 449" opacity="0.6"/>
+    <path d="M 459 456 L 470 456" opacity="0.6"/>
+  </g>
+  <path id="invoice-matching-engine-pod" d="M 468 440 C 490 420, 545 375, 578 350" stroke="#f8fafc" stroke-width="1" opacity="0.7" fill="none"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(524,398)"/>
+
+  <!-- invoice rail continues straight into the enclosure's middle entry -->
+  <path id="invoice-matching-engine-rail" d="M 456 313 L 578 313" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+
+  <!-- three-way match: isometric enclosure where invoice / PO / delivery lock -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3">
+    <path d="M 578 253 L 728 253 L 728 373 L 578 373 Z"/>
+    <path d="M 578 253 L 606 229 L 756 229 L 728 253 Z"/>
+    <path d="M 728 253 L 756 229 L 756 349 L 728 373 Z"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.3">
+    <path d="M 734 341 L 750 327"/>
+    <path d="M 734 317 L 750 303"/>
+    <path d="M 734 293 L 750 279"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.35">
+    <path d="M 608 268 L 654 278"/><path d="M 608 268 L 654 313"/>
+    <path d="M 608 313 L 654 278"/><path d="M 608 313 L 654 313"/>
+    <path d="M 608 358 L 654 313"/><path d="M 608 358 L 654 348"/>
+    <path d="M 654 278 L 700 268"/><path d="M 654 313 L 700 268"/>
+    <path d="M 654 348 L 700 313"/><path d="M 654 313 L 700 348"/>
+  </g>
+  <g fill="#f8fafc" opacity="0.5">
+    <circle cx="608" cy="268" r="2"/><circle cx="608" cy="313" r="2"/><circle cx="608" cy="358" r="2"/>
+    <circle cx="654" cy="278" r="2"/><circle cx="654" cy="348" r="2"/>
+    <circle cx="700" cy="268" r="2"/><circle cx="700" cy="313" r="2"/><circle cx="700" cy="348" r="2"/>
+  </g>
+  <!-- the lock: three entries converge on one point -->
+  <g fill="#f8fafc" opacity="0.9">
+    <circle cx="578" cy="283" r="3"/>
+    <circle cx="578" cy="313" r="3"/>
+    <circle cx="578" cy="343" r="3"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.3" opacity="0.9">
+    <path d="M 578 283 C 615 285, 640 298, 656 311"/>
+    <path id="invoice-matching-engine-lock" d="M 578 313 L 656 313"/>
+    <path d="M 578 343 C 615 341, 640 328, 656 315"/>
+  </g>
+  <path d="M 656 296 L 674 313 L 656 330 L 638 313 Z" stroke="#f8fafc" stroke-width="1.3" fill="none"/>
+  <use xlink:href="#invoice-matching-engine-pulseDeep" transform="translate(656,313)"/>
+  <path id="invoice-matching-engine-outlock" d="M 674 313 L 728 313" stroke="#f8fafc" stroke-width="1.3" fill="none"/>
+
+  <!-- clean ledger output rail -->
+  <path d="M 756 300 L 800 300" stroke="#f8fafc" stroke-width="1.2" fill="none" opacity="0.85"/>
+  <path id="invoice-matching-engine-ledger" d="M 728 313 L 800 313" stroke="#f8fafc" stroke-width="1.2" fill="none"/>
+  <use xlink:href="#invoice-matching-engine-swoosh" transform="translate(850,308)"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <rect x="920" y="225" width="176" height="150" opacity="0.9"/>
+  </g>
+  <g stroke="#90a1b9" stroke-width="1" opacity="0.5">
+    <path d="M 938 252 L 1074 252"/>
+    <path d="M 938 276 L 1060 276"/>
+    <path d="M 938 324 L 1068 324"/>
+    <path d="M 938 348 L 1050 348"/>
+  </g>
+  <path d="M 938 300 L 1078 300" stroke="#bbf451" stroke-width="2" filter="url(#invoice-matching-engine-glow)" opacity="0.75"/>
+  <path d="M 938 300 L 1078 300" stroke="#bbf451" stroke-width="1.6"/>
+  <text x="1008" y="204" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">ledger</text>
+
+  <!-- unmatched: dim branch drops to a lime-ringed human-resolves node -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path id="invoice-matching-engine-exception" d="M 656 330 C 664 368, 690 412, 745 444 C 800 476, 860 492, 906 496" opacity="0.85"/>
+  </g>
+  <use xlink:href="#invoice-matching-engine-pulseDeep" transform="translate(760,452)"/>
+
+  <circle cx="940" cy="498" r="23" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#invoice-matching-engine-glow)" opacity="0.7"/>
+  <circle cx="940" cy="498" r="23" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="940" cy="498" r="14" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 932 499 L 938 505 L 950 490" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="940" y="550" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">human resolves</text>
+
+  <!-- resolved items rejoin the ledger rail -->
+  <path id="invoice-matching-engine-rejoin" d="M 963 490 C 1000 468, 1020 430, 1030 378" stroke="#f8fafc" stroke-width="1" opacity="0.65" fill="none"/>
+  <use xlink:href="#invoice-matching-engine-pulse" transform="translate(1013,420)"/>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 290 400 V 545"/>
+    <path d="M 405 400 V 545"/>
+    <path d="M 655 400 V 545"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="290" y="568">ingestion</text>
+    <text x="405" y="568">extraction</text>
+    <text x="655" y="568">three-way match</text>
+  </g>
+
+  <!-- motion layer (MOTION-SPEC.md): additive pulses only, 6s seamless loop -->
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.096;0.11;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.096;0.1006;0.11;0.15;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.296;0.31;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.296;0.3006;0.31;0.35;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.496;0.51;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.496;0.5006;0.51;0.55;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.696;0.71;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.696;0.7006;0.71;0.75;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.896;0.91;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-throat"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.896;0.9006;0.91;0.95;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0907;0.11;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-extract"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0907;0.0971;0.11;0.15;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2907;0.31;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-extract"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2907;0.2971;0.31;0.35;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4907;0.51;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-extract"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4907;0.4971;0.51;0.55;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6907;0.71;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-extract"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6907;0.6971;0.71;0.75;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8907;0.91;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-extract"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8907;0.8971;0.91;0.95;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0565;0.11;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-rail"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0565;0.0743;0.11;0.15;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2565;0.31;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-rail"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2565;0.2743;0.31;0.35;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4565;0.51;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-rail"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4565;0.4743;0.51;0.55;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6565;0.71;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-rail"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6565;0.6743;0.71;0.75;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8565;0.91;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-rail"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8565;0.8743;0.91;0.95;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0288;0.063;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-lock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0288;0.0402;0.063;0.103;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2288;0.263;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-lock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2288;0.2402;0.263;0.303;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4288;0.463;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-lock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4288;0.4402;0.463;0.503;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6288;0.663;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-lock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6288;0.6402;0.663;0.703;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8288;0.863;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-lock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8288;0.8402;0.863;0.903;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0709;0.0946;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-outlock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0709;0.0788;0.0946;0.1346;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2709;0.2946;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-outlock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2709;0.2788;0.2946;0.3346;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4709;0.4946;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-outlock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4709;0.4788;0.4946;0.5346;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6709;0.6946;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-outlock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6709;0.6788;0.6946;0.7346;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8709;0.8946;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-outlock"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8709;0.8788;0.8946;0.9346;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.0784;0.11;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-ledger"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.0784;0.0889;0.11;0.15;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2784;0.31;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-ledger"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2784;0.2889;0.31;0.35;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4784;0.51;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-ledger"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4784;0.4889;0.51;0.55;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6784;0.71;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-ledger"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6784;0.6889;0.71;0.75;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8784;0.91;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-ledger"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8784;0.8889;0.91;0.95;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.02;0.1353;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.02;0.045;0.1353;0.1753;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.27;0.3853;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.27;0.295;0.3853;0.4253;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.52;0.6353;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.52;0.545;0.6353;0.6753;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.77;0.8853;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.77;0.795;0.8853;0.9253;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.07;0.2058;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.07;0.095;0.2058;0.2458;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4033;0.5391;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4033;0.4283;0.5391;0.5791;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.7367;0.8725;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.7367;0.7617;0.8725;0.9125;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.12;0.2458;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.12;0.145;0.2458;0.2858;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.62;0.7458;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.62;0.645;0.7458;0.7858;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.17;0.2936;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.17;0.195;0.2936;0.3336;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.67;0.7936;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-in4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.67;0.695;0.7936;0.8336;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.05;0.1104;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-po"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.05;0.0701;0.1104;0.1504;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.3;0.3604;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-po"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.3;0.3201;0.3604;0.4004;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.55;0.6104;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-po"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.55;0.5701;0.6104;0.6504;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8;0.8604;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-po"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8;0.8201;0.8604;0.9004;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.1;0.1623;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-pod"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.1;0.1208;0.1623;0.2023;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4333;0.4957;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-pod"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4333;0.4541;0.4957;0.5357;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.7667;0.829;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-pod"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.7667;0.7874;0.829;0.869;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.44;0.66;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-exception"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.44;0.465;0.8;0.84;1"/></use>
+    <use href="#invoice-matching-engine-mover" class="invoice-matching-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.84;0.91;1" keyPoints="0;0;1;1"><mpath href="#invoice-matching-engine-rejoin"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.84;0.8633;0.91;0.95;1"/></use>
+    <circle class="invoice-matching-engine-pulse" cx="940" cy="498" r="23" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#invoice-matching-engine-glow)" opacity="0"><animate attributeName="opacity" values="0;0.65;0" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/></circle>
+</svg>

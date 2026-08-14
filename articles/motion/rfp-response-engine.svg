@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: a tender document unravels into requirement strands that fill a compliance matrix grid; answer-library tiles dock into an isometric draft-assembly enclosure; the flow passes a lime-ringed bid manager approval gate and exits as a submission">
+  <defs>
+    <style>@media (prefers-reduced-motion: reduce){.rfp-response-engine-pulse{display:none}}</style>
+    <g id="rfp-response-engine-mover">
+      <circle r="4.6" fill="#bbf451" opacity="0.85" filter="url(#rfp-response-engine-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+    <path id="rfp-response-engine-gatein" d="M 768 338 L 814 336" fill="none" stroke="none"/>
+    <path id="rfp-response-engine-gateout" d="M 864 335 L 950 335" fill="none" stroke="none"/>
+    <radialGradient id="rfp-response-engine-bg" cx="50%" cy="45%" r="80%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="rfp-response-engine-glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="rfp-response-engine-glowBig" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <g id="rfp-response-engine-pulse">
+      <circle r="5" fill="#bbf451" opacity="0.85" filter="url(#rfp-response-engine-glow)"/>
+      <circle r="1.8" fill="#d8f999"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#rfp-response-engine-bg)"/>
+
+  <!-- faint registration marks -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.35">
+    <path d="M252,146 h12 M258,140 v12"/>
+    <path d="M948,168 h12 M954,162 v12"/>
+    <path d="M1020,540 h12 M1026,534 v12"/>
+    <line x1="60" y1="430" x2="500" y2="430" opacity="0.4" stroke-dasharray="1 7"/>
+  </g>
+
+  <!-- tender document -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="86" y="196" width="118" height="214" stroke-width="1" opacity="0.4"/>
+    <rect x="74" y="208" width="118" height="214" stroke-width="1.3"/>
+    <path d="M74,208 l14,-12" stroke-width="1" opacity="0.5"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.8">
+    <line x1="90" y1="232" x2="176" y2="232"/>
+    <line x1="90" y1="250" x2="160" y2="250"/>
+    <line x1="90" y1="268" x2="172" y2="268"/>
+    <line x1="90" y1="286" x2="150" y2="286"/>
+    <line x1="90" y1="304" x2="176" y2="304"/>
+    <line x1="90" y1="322" x2="166" y2="322"/>
+    <line x1="90" y1="340" x2="176" y2="340"/>
+    <line x1="90" y1="358" x2="144" y2="358"/>
+    <line x1="90" y1="376" x2="170" y2="376"/>
+    <line x1="90" y1="394" x2="158" y2="394"/>
+  </g>
+
+  <!-- requirement strands: document unravels into the matrix -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="rfp-response-engine-req1" d="M192,224 C238,224 254,256 298,256" opacity="0.9"/>
+    <path d="M192,244 C240,244 252,288 298,288" opacity="0.55"/>
+    <path id="rfp-response-engine-req2" d="M192,266 C238,266 256,288 298,288" opacity="0.9"/>
+    <path d="M192,290 C242,290 250,320 298,320" opacity="0.55"/>
+    <path id="rfp-response-engine-req3" d="M192,314 C238,314 256,320 298,320" opacity="0.9"/>
+    <path d="M192,338 C240,338 252,352 298,352" opacity="0.55"/>
+    <path id="rfp-response-engine-req4" d="M192,362 C238,362 254,384 298,384" opacity="0.9"/>
+    <path d="M192,388 C244,388 252,384 298,384" opacity="0.55"/>
+  </g>
+  <use href="#rfp-response-engine-pulse" x="246" y="240"/>
+  <use href="#rfp-response-engine-pulse" x="245" y="266"/>
+  <use href="#rfp-response-engine-pulse" x="247" y="305"/>
+  <use href="#rfp-response-engine-pulse" x="246" y="345"/>
+  <use href="#rfp-response-engine-pulse" x="249" y="386"/>
+
+  <!-- compliance matrix grid -->
+  <g stroke="#62748e" stroke-width="1" opacity="0.55">
+    <line x1="292" y1="256" x2="298" y2="256"/>
+    <line x1="292" y1="288" x2="298" y2="288"/>
+    <line x1="292" y1="320" x2="298" y2="320"/>
+    <line x1="292" y1="352" x2="298" y2="352"/>
+    <line x1="292" y1="384" x2="298" y2="384"/>
+  </g>
+  <rect x="300" y="240" width="170" height="160" fill="none" stroke="#f8fafc" stroke-width="1.3"/>
+  <g stroke="#f8fafc" stroke-width="1" opacity="0.4">
+    <line x1="328" y1="240" x2="328" y2="400"/>
+    <line x1="357" y1="240" x2="357" y2="400"/>
+    <line x1="385" y1="240" x2="385" y2="400"/>
+    <line x1="413" y1="240" x2="413" y2="400"/>
+    <line x1="442" y1="240" x2="442" y2="400"/>
+    <line x1="300" y1="272" x2="470" y2="272"/>
+    <line x1="300" y1="304" x2="470" y2="304"/>
+    <line x1="300" y1="336" x2="470" y2="336"/>
+    <line x1="300" y1="368" x2="470" y2="368"/>
+  </g>
+  <g>
+    <circle cx="314" cy="256" r="6" fill="#bbf451" opacity="0.7" filter="url(#rfp-response-engine-glow)"/>
+    <rect x="310" y="252" width="8" height="8" fill="#bbf451"/>
+    <circle cx="399" cy="288" r="6" fill="#bbf451" opacity="0.7" filter="url(#rfp-response-engine-glow)"/>
+    <rect x="395" y="284" width="8" height="8" fill="#bbf451"/>
+    <circle cx="342" cy="336" r="6" fill="#bbf451" opacity="0.7" filter="url(#rfp-response-engine-glow)"/>
+    <rect x="338" y="332" width="8" height="8" fill="#bbf451"/>
+    <circle cx="456" cy="368" r="6" fill="#bbf451" opacity="0.7" filter="url(#rfp-response-engine-glow)"/>
+    <rect x="452" y="364" width="8" height="8" fill="#bbf451"/>
+  </g>
+
+  <!-- matrix feeds draft assembly -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="rfp-response-engine-fd1" d="M470,288 C505,288 520,315 558,315" opacity="0.9"/>
+    <path id="rfp-response-engine-fd2" d="M470,320 C505,320 520,340 558,340" opacity="0.55"/>
+    <path id="rfp-response-engine-fd3" d="M470,368 C505,368 520,365 558,365" opacity="0.9"/>
+  </g>
+  <use href="#rfp-response-engine-pulse" x="514" y="302"/>
+  <use href="#rfp-response-engine-pulse" x="516" y="366"/>
+
+  <!-- answer library shelf -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.85">
+    <rect x="544" y="118" width="30" height="24"/>
+    <rect x="580" y="118" width="30" height="24"/>
+    <rect x="616" y="118" width="30" height="24"/>
+    <rect x="652" y="118" width="30" height="24"/>
+    <rect x="688" y="118" width="30" height="24"/>
+    <rect x="544" y="150" width="30" height="24"/>
+    <rect x="580" y="150" width="30" height="24"/>
+    <rect x="652" y="150" width="30" height="24"/>
+    <rect x="688" y="150" width="30" height="24"/>
+  </g>
+  <rect x="616" y="150" width="30" height="24" fill="none" stroke="#62748e" stroke-width="1" stroke-dasharray="3 3"/>
+  <use href="#rfp-response-engine-pulse" x="595" y="130"/>
+  <use href="#rfp-response-engine-pulse" x="703" y="162"/>
+
+  <!-- library docks into assembly -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="rfp-response-engine-lib1" d="M574,182 C574,220 596,238 612,254" opacity="0.55"/>
+    <path id="rfp-response-engine-lib2" d="M640,182 C640,216 648,236 656,252" opacity="0.9"/>
+    <path id="rfp-response-engine-lib3" d="M700,182 C700,220 692,238 684,254" opacity="0.55"/>
+  </g>
+  <use href="#rfp-response-engine-pulse" x="649" y="220"/>
+
+  <!-- draft assembly: isometric enclosure -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="560" y="280" width="180" height="120" stroke-width="1.3"/>
+    <path d="M560,280 L588,254 L768,254 L740,280" stroke-width="1.3"/>
+    <path d="M740,280 L768,254 L768,374 L740,400" stroke-width="1.3"/>
+    <g stroke-width="1" opacity="0.4">
+      <path d="M620,254 L592,280"/>
+      <path d="M660,254 L632,280"/>
+      <path d="M700,254 L672,280"/>
+      <path d="M768,290 L740,316"/>
+      <path d="M768,330 L740,356"/>
+      <rect x="572" y="292" width="156" height="96"/>
+    </g>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.8">
+    <line x1="585" y1="300" x2="585" y2="390"/>
+    <rect x="596" y="308" width="112" height="10"/>
+    <rect x="596" y="338" width="112" height="10"/>
+    <rect x="596" y="368" width="112" height="10"/>
+  </g>
+  <g fill="#f8fafc">
+    <circle cx="590" cy="313" r="2"/>
+    <circle cx="590" cy="343" r="2"/>
+    <circle cx="590" cy="373" r="2"/>
+  </g>
+  <use href="#rfp-response-engine-pulse" x="652" y="343"/>
+
+  <!-- approval gate -->
+  <line x1="768" y1="338" x2="814" y2="336" stroke="#f8fafc" stroke-width="1.2"/>
+  <circle cx="840" cy="335" r="20" fill="#bbf451" opacity="0.45" filter="url(#rfp-response-engine-glowBig)"/>
+  <circle cx="840" cy="335" r="24" fill="none" stroke="#bbf451" stroke-width="1.5"/>
+  <circle cx="840" cy="335" r="15" fill="#050608" stroke="#f8fafc" stroke-width="1"/>
+  <line x1="836" y1="327" x2="836" y2="343" stroke="#f8fafc" stroke-width="1"/>
+  <line x1="844" y1="327" x2="844" y2="343" stroke="#f8fafc" stroke-width="1"/>
+
+  <!-- approved flow out -->
+  <line x1="864" y1="335" x2="950" y2="335" stroke="#f8fafc" stroke-width="1.2"/>
+  <path d="M950,329 L1006,331 L1006,325 L1028,335 L1006,345 L1006,339 L950,341 Z" fill="#bbf451" opacity="0.6" filter="url(#rfp-response-engine-glow)"/>
+  <path d="M950,329 L1006,331 L1006,325 L1028,335 L1006,345 L1006,339 L950,341 Z" fill="#bbf451"/>
+
+  <!-- submission document -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="1060" y="292" width="64" height="84" stroke-width="1" opacity="0.4"/>
+    <rect x="1052" y="300" width="64" height="84" stroke-width="1.3"/>
+  </g>
+  <g stroke="#62748e" stroke-width="1" opacity="0.8">
+    <line x1="1062" y1="318" x2="1106" y2="318"/>
+    <line x1="1062" y1="334" x2="1098" y2="334"/>
+    <line x1="1062" y1="350" x2="1106" y2="350"/>
+    <line x1="1062" y1="366" x2="1090" y2="366"/>
+  </g>
+  <use href="#rfp-response-engine-pulse" x="1046" y="335"/>
+
+  <!-- labels -->
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif">
+    <text x="133" y="466" font-size="18" fill="#90a1b9" text-anchor="middle">tender</text>
+    <text x="385" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">compliance matrix</text>
+    <text x="631" y="97" font-size="19" fill="#f8fafc" text-anchor="middle">answer library</text>
+    <text x="650" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">draft assembly</text>
+    <text x="840" y="480" font-size="19" fill="#f8fafc" text-anchor="middle">bid manager approves</text>
+    <text x="1084" y="424" font-size="18" fill="#90a1b9" text-anchor="middle">submission</text>
+  </g>
+
+  <!-- motion layer (MOTION-SPEC.md): additive pulses only, 6s seamless loop -->
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.02;0.0666;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.02;0.0355;0.0666;0.1066;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.22;0.2666;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.22;0.2355;0.2666;0.3066;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.42;0.4666;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.42;0.4355;0.4666;0.5066;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.62;0.6666;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.62;0.6355;0.6666;0.7066;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.82;0.8666;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.82;0.8355;0.8666;0.9066;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.05;0.0991;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.05;0.0664;0.0991;0.1391;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.25;0.2991;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.25;0.2664;0.2991;0.3391;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.45;0.4991;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.45;0.4664;0.4991;0.5391;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.65;0.6991;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.65;0.6664;0.6991;0.7391;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.85;0.8991;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.85;0.8664;0.8991;0.9391;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.08;0.1278;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.08;0.0959;0.1278;0.1678;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.33;0.3778;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.33;0.3459;0.3778;0.4178;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.58;0.6278;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.58;0.5959;0.6278;0.6678;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.83;0.8778;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.83;0.8459;0.8778;0.9178;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.11;0.1578;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.11;0.1259;0.1578;0.1978;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.36;0.4078;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.36;0.3759;0.4078;0.4478;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.61;0.6578;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.61;0.6259;0.6578;0.6978;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.86;0.9078;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-req4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.86;0.8759;0.9078;0.9478;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.01;0.0508;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.01;0.0236;0.0508;0.0908;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.1529;0.1937;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.1529;0.1665;0.1937;0.2337;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2957;0.3366;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2957;0.3093;0.3366;0.3766;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.4386;0.4794;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.4386;0.4522;0.4794;0.5194;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.5814;0.6223;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.5814;0.595;0.6223;0.6623;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.7243;0.7651;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.7243;0.7379;0.7651;0.8051;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8671;0.908;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8671;0.8808;0.908;0.948;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.03;0.0699;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.03;0.0433;0.0699;0.1099;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.1967;0.2365;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.1967;0.21;0.2365;0.2765;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.3633;0.4032;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.3633;0.3766;0.4032;0.4432;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.53;0.5699;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.53;0.5433;0.5699;0.6099;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6967;0.7365;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6967;0.71;0.7365;0.7765;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8633;0.9032;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8633;0.8766;0.9032;0.9432;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.05;0.0886;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.05;0.0629;0.0886;0.1286;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.25;0.2886;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.25;0.2629;0.2886;0.3286;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.45;0.4886;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.45;0.4629;0.4886;0.5286;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.65;0.6886;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.65;0.6629;0.6886;0.7286;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.85;0.8886;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-fd3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.85;0.8629;0.8886;0.9286;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.02;0.057;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.02;0.0323;0.057;0.097;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.1867;0.2236;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.1867;0.199;0.2236;0.2636;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.3533;0.3903;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.3533;0.3657;0.3903;0.4303;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.52;0.557;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.52;0.5323;0.557;0.597;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6867;0.7236;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.6867;0.699;0.7236;0.7636;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8533;0.8903;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8533;0.8657;0.8903;0.9303;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.04;0.0727;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.04;0.0509;0.0727;0.1127;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2067;0.2394;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.2067;0.2176;0.2394;0.2794;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.3733;0.406;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.3733;0.3842;0.406;0.446;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.54;0.5727;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.54;0.5509;0.5727;0.6127;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.7067;0.7394;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.7067;0.7176;0.7394;0.7794;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8733;0.906;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-lib3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8733;0.8842;0.906;0.946;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.26;0.48;1" keyPoints="0;0;0.42;0.42"><mpath href="#rfp-response-engine-lib2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.26;0.285;0.48;0.52;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.5;0.58;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-gatein"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.5;0.525;0.74;0.78;1"/></use>
+    <use href="#rfp-response-engine-mover" class="rfp-response-engine-pulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.8;0.9;1" keyPoints="0;0;1;1"><mpath href="#rfp-response-engine-gateout"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" calcMode="linear" values="0;0;1;1;0;0" keyTimes="0;0.8;0.825;0.9;0.94;1"/></use>
+    <circle class="rfp-response-engine-pulse" cx="840" cy="335" r="20" fill="#bbf451" opacity="0" filter="url(#rfp-response-engine-glowBig)"><animate attributeName="opacity" values="0;0.45;0" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/></circle>
+</svg>

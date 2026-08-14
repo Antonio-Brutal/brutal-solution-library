@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Schematic of a churn early-warning engine: subscriber timelines are tapped by two combs into a split collector rail, a triangulated lattice turns signal into six reason-coded exits of unequal width, one ending in a deliberate stub; a lime-ringed policy bar caps every channel and a permanent holdout loop runs back against the flow">  <defs>
+    <style>@media (prefers-reduced-motion: reduce){.churn-early-warning-pulse{display:none}}</style>
+    <g id="churn-early-warning-mpulse">
+      <circle r="4.4" fill="#bbf451" opacity="0.8" filter="url(#churn-early-warning-glow)"/>
+      <circle r="1.7" fill="#d8f999"/>
+    </g>
+    <g id="churn-early-warning-mpulseDeep">
+      <circle r="5" fill="#9de500" opacity="0.85" filter="url(#churn-early-warning-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="churn-early-warning-mpulseDim">
+      <circle r="3.2" fill="#62748e" opacity="0.9"/>
+      <circle r="1.2" fill="#90a1b9"/>
+    </g>
+    <radialGradient id="churn-early-warning-vig" cx="44%" cy="48%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="churn-early-warning-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="churn-early-warning-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#churn-early-warning-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="churn-early-warning-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#churn-early-warning-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="churn-early-warning-swoosh">
+      <path d="M -20 -5.5 Q 7 -9 20 0 Q 7 9 -20 5.5 Q -7 0 -20 -5.5 Z" fill="#bbf451" filter="url(#churn-early-warning-glow)" opacity="0.68"/>
+      <path d="M -20 -5.5 Q 7 -9 20 0 Q 7 9 -20 5.5 Q -7 0 -20 -5.5 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#churn-early-warning-vig)"/>
+  <!-- layer 1: subscriber timelines measured against their own baseline -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 112 L 254.0 112" opacity="0.65"/>
+    <path d="M -10 128 L 258.0 128" opacity="0.65"/>
+    <path d="M -10 144 L 262.0 144" opacity="0.65"/>
+    <path id="churn-early-warning-tl1" d="M -10 160 L 266.0 160" opacity="0.92"/>
+    <path d="M -10 176 L 270.0 176" opacity="0.65"/>
+    <path d="M -10 192 L 274.0 192" opacity="0.65"/>
+    <path id="churn-early-warning-tl2" d="M -10 208 L 278.0 208" opacity="0.92"/>
+    <path d="M -10 224 L 282.0 224" opacity="0.65"/>
+    <path d="M -10 240 L 286.0 240" opacity="0.65"/>
+    <path d="M -10 256 L 290.0 256" opacity="0.65"/>
+    <path id="churn-early-warning-tl3" d="M -10 272 L 294.0 272" opacity="0.92"/>
+    <path d="M -10 288 L 298.0 288" opacity="0.65"/>
+    <path d="M -10 304 L 302.0 304" opacity="0.65"/>
+  </g>
+  <g fill="#bbf451" stroke="none">
+    <circle cx="16" cy="160" r="2.4"/>
+    <circle cx="54" cy="160" r="2.4"/>
+    <circle cx="100" cy="160" r="2.4"/>
+    <circle cx="164" cy="160" r="2.4"/>
+    <circle cx="16" cy="208" r="2.4"/>
+    <circle cx="54" cy="208" r="2.4"/>
+    <circle cx="100" cy="208" r="2.4"/>
+    <circle cx="164" cy="208" r="2.4"/>
+    <circle cx="16" cy="272" r="2.4"/>
+    <circle cx="54" cy="272" r="2.4"/>
+    <circle cx="100" cy="272" r="2.4"/>
+    <circle cx="164" cy="272" r="2.4"/>
+    <circle cx="92" cy="112" r="2.3" opacity="0.8"/>
+    <circle cx="40" cy="144" r="2.3" opacity="0.8"/>
+    <circle cx="138" cy="176" r="2.3" opacity="0.8"/>
+    <circle cx="200" cy="240" r="2.3" opacity="0.8"/>
+    <circle cx="66" cy="288" r="2.3" opacity="0.8"/>
+    <circle cx="122" cy="304" r="2.3" opacity="0.8"/>
+  </g>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(146,192)"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(72,256)"/>
+  <!-- product telemetry rake -->
+  <path d="M 250 96 L 306 320" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.85"/>
+  <path d="M 258.9 110.8 L 249.1 113.2 M 262.9 126.8 L 253.1 129.2 M 266.9 142.8 L 257.1 145.2 M 270.9 158.8 L 261.1 161.2 M 274.9 174.8 L 265.1 177.2 M 278.9 190.8 L 269.1 193.2 M 282.9 206.8 L 273.1 209.2 M 286.9 222.8 L 277.1 225.2 M 290.9 238.8 L 281.1 241.2 M 294.9 254.8 L 285.1 257.2 M 298.9 270.8 L 289.1 273.2 M 302.9 286.8 L 293.1 289.2 M 306.9 302.8 L 297.1 305.2" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.9"/>
+  <path d="M 254.0 112 C 304.0 112, 344 236, 386 236 M 258.0 128 C 308.0 128, 344 246, 386 246 M 262.0 144 C 312.0 144, 344 256, 386 256 M 266.0 160 C 316.0 160, 344 266, 386 266 M 270.0 176 C 320.0 176, 344 276, 386 276 M 274.0 192 C 324.0 192, 344 286, 386 286 M 278.0 208 C 328.0 208, 344 296, 386 296" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.55"/>
+  <path d="M 282.0 224 C 332.0 224, 344 306, 386 306 M 286.0 240 C 336.0 240, 344 316, 386 316 M 290.0 256 C 340.0 256, 344 326, 386 326 M 294.0 272 C 344.0 272, 344 336, 386 336 M 298.0 288 C 348.0 288, 344 346, 386 346 M 302.0 304 C 352.0 304, 344 356, 386 356" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.55"/>
+  <!-- billing signals kept on their own dashed tracks: involuntary churn is separate -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" stroke-dasharray="5 4" opacity="0.6">
+    <path id="churn-early-warning-bill1" d="M -10 344 L 257.7 344"/>
+    <path d="M -10 360 L 266.9 360"/>
+    <path id="churn-early-warning-bill2" d="M -10 376 L 276.0 376"/>
+    <path d="M -10 392 L 285.1 392"/>
+  </g>
+  <path d="M 252 334 L 292 404" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.7"/>
+  <path d="M 262.0 341.5 L 253.4 346.5 M 271.2 357.5 L 262.6 362.5 M 280.3 373.5 L 271.7 378.5 M 289.4 389.5 L 280.8 394.5" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.8"/>
+  <path d="M 257.7 344 C 307.7 344, 344 372, 386 372 M 266.9 360 C 316.9 360, 344 380, 386 380 M 276.0 376 C 326.0 376, 344 388, 386 388 M 285.1 392 C 335.1 392, 344 396, 386 396" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.5"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(116,376)"/>
+  <!-- collector rail, split so the two families never blend -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 386 230 V 350" stroke-width="1.5"/>
+    <path d="M 386 364 V 402" stroke-width="1.5" opacity="0.7"/>
+    <path d="M 379 230 h 14 M 379 402 h 14 M 379 350 h 14 M 379 364 h 14" stroke-width="1" opacity="0.55"/>
+    <path id="churn-early-warning-collect" d="M 386 300 L 450 300" stroke-width="1.5"/>
+  </g>
+  <path id="churn-early-warning-bypass" d="M 386 396 C 452 402, 500 404, 562 398 C 622 392, 662 374, 700 358 C 712 353, 720 350, 726 348" fill="none" stroke="#90a1b9" stroke-width="1" stroke-dasharray="5 4" opacity="0.95"/>
+  <!-- layer 2: the reason is drawn as the thing that chooses the exit -->
+  <path d="M 610.0 300.0 L 570.0 230.7 L 490.0 230.7 L 450.0 300.0 L 490.0 369.3 L 570.0 369.3 Z" fill="none" stroke="#f8fafc" stroke-width="1.3"/>
+  <path d="M 572.0 300.0 L 551.0 263.6 L 509.0 263.6 L 488.0 300.0 L 509.0 336.4 L 551.0 336.4 Z" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <path d="M 572.0 300.0 L 610.0 300.0 M 551.0 263.6 L 570.0 230.7 M 509.0 263.6 L 490.0 230.7 M 488.0 300.0 L 450.0 300.0 M 509.0 336.4 L 490.0 369.3 M 551.0 336.4 L 570.0 369.3" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.5"/>
+  <path d="M 530 300 L 572.0 300.0 M 530 300 L 551.0 263.6 M 530 300 L 509.0 263.6 M 530 300 L 488.0 300.0 M 530 300 L 509.0 336.4 M 530 300 L 551.0 336.4" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.35"/>
+  <path d="M 572.0 300.0 L 570.0 230.7 M 551.0 263.6 L 490.0 230.7 M 509.0 263.6 L 450.0 300.0 M 488.0 300.0 L 490.0 369.3 M 509.0 336.4 L 570.0 369.3 M 551.0 336.4 L 610.0 300.0" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.3"/>
+  <path d="M 572.0 300.0 L 570.0 369.3 M 551.0 263.6 L 610.0 300.0 M 509.0 263.6 L 570.0 230.7 M 488.0 300.0 L 490.0 230.7 M 509.0 336.4 L 450.0 300.0 M 551.0 336.4 L 490.0 369.3" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.3"/>
+  <g fill="#f8fafc" stroke="none">
+    <circle cx="572.0" cy="300.0" r="2.6" opacity="0.8"/>
+    <circle cx="551.0" cy="263.6" r="2.6" opacity="0.8"/>
+    <circle cx="509.0" cy="263.6" r="2.6" opacity="0.8"/>
+    <circle cx="488.0" cy="300.0" r="2.6" opacity="0.8"/>
+    <circle cx="509.0" cy="336.4" r="2.6" opacity="0.8"/>
+    <circle cx="551.0" cy="336.4" r="2.6" opacity="0.8"/>
+    <circle cx="530" cy="300" r="3" opacity="0.9"/>
+  </g>
+  <g fill="#bbf451" stroke="none">
+    <circle cx="592" cy="269" r="3.2"/>
+    <circle cx="604" cy="290" r="3.2"/>
+    <circle cx="604" cy="310" r="3.2"/>
+    <circle cx="580" cy="352" r="3.2"/>
+  </g>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(580,248)"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(592,331)"/>
+  <!-- layer 3: five responses of different cost, plus doing nothing -->
+  <path id="churn-early-warning-exit1" d="M 580 248 L 1096 190" fill="none" stroke="#f8fafc" stroke-width="2.2" opacity="0.95"/>
+  <path id="churn-early-warning-exit2" d="M 592 269 L 1096 240" fill="none" stroke="#f8fafc" stroke-width="1.75" opacity="0.88"/>
+  <path id="churn-early-warning-exit3" d="M 604 290 L 1096 292" fill="none" stroke="#f8fafc" stroke-width="1.4" opacity="0.81"/>
+  <path id="churn-early-warning-exit4" d="M 604 310 L 1096 344" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.74"/>
+  <path id="churn-early-warning-exit5" d="M 592 331 L 1096 396" fill="none" stroke="#f8fafc" stroke-width="0.85" opacity="0.67"/>
+  <path id="churn-early-warning-exit6" d="M 580 352 L 778 412" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.5"/>
+  <path d="M 780 404 L 776 420" fill="none" stroke="#f8fafc" stroke-width="1.6" opacity="0.85"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 1096 179 L 1130 190 L 1096 201 Z M 1096 229 L 1130 240 L 1096 251 Z M 1096 281 L 1130 292 L 1096 303 Z M 1096 333 L 1130 344 L 1096 355 Z M 1096 385 L 1130 396 L 1096 407 Z"/>
+    <path d="M 1130 190 h 28 M 1130 240 h 28 M 1130 292 h 28 M 1130 344 h 28 M 1130 396 h 28" opacity="0.75"/>
+    <path d="M 1158 182 v 16 M 1158 232 v 16 M 1158 284 v 16 M 1158 336 v 16 M 1158 388 v 16" opacity="0.55"/>
+  </g>
+  <path d="M 988 372 v 8 M 988 387 v 8 M 1002 373 v 8 M 1002 388 v 8" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.9"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(852,290)"/>
+  <use xlink:href="#churn-early-warning-swoosh" transform="translate(942,214) rotate(-3)"/>
+  <!-- the policy bar: hard constraints enforced outside the model -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 668 150 H 1006" stroke-width="1.3"/>
+    <path d="M 668 157 H 1006" stroke-width="1" opacity="0.6"/>
+    <path d="M 668 142 v 22 M 1006 142 v 22 M 674 146 h 14 M 986 146 h 14" stroke-width="1" opacity="0.7"/>
+  </g>
+  <path d="M 694 159 V 377 M 748 159 V 219 M 796 159 V 247 M 846 159 V 281 M 896 159 V 320 M 946 159 V 367" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.5"/>
+  <path d="M 686 377 h 16 M 694 377 v -5 M 690 372 h 8 M 740 219 h 16 M 748 219 v -5 M 744 214 h 8 M 788 247 h 16 M 796 247 v -5 M 792 242 h 8 M 838 281 h 16 M 846 281 v -5 M 842 276 h 8 M 888 320 h 16 M 896 320 v -5 M 892 315 h 8 M 938 367 h 16 M 946 367 v -5 M 942 362 h 8" fill="none" stroke="#f8fafc" stroke-width="1.1" opacity="0.9"/>
+  <circle cx="846" cy="153" r="24" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#churn-early-warning-glow)" opacity="0.7"/>
+  <circle cx="846" cy="153" r="24" fill="none" stroke="#bbf451" stroke-width="1.7"/>
+  <circle cx="846" cy="153" r="14" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 838 154 L 844 160 L 856 145" fill="none" stroke="#d8f999" stroke-width="1.7"/>
+  <!-- layer 4: a permanent holdout measures the counterfactual -->
+  <path id="churn-early-warning-hold1" d="M 506 364 C 480 434, 530 466, 594 466 L 856 466" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <path d="M 884 454 A 13 13 0 1 0 884 478" fill="none" stroke="#f8fafc" stroke-width="1.2" opacity="0.9"/>
+  <circle cx="876" cy="466" r="3" fill="#90a1b9" stroke="none"/>
+  <path id="churn-early-warning-hold2" d="M 868 480 C 796 508, 656 516, 588 506 C 530 496, 498 428, 516 370" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.6"/>
+  <path d="M 700 512 l 11 -4 M 700 512 l 11 5 M 580 500 l 11 -5 M 580 500 l 10 5" fill="none" stroke="#90a1b9" stroke-width="1" opacity="0.85"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(786,508)"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(620,510)"/>
+  <use xlink:href="#churn-early-warning-pulse" transform="translate(528,440)"/>
+  <text x="846" y="106" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">retention lead sets the rules</text>
+  <text x="912" y="436" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">holdout</text>
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 148 534 V 552"/>
+    <path d="M 530 534 V 552"/>
+    <path d="M 892 534 V 552"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="148" y="576">signals</text>
+    <text x="530" y="576">risk and reason</text>
+    <text x="892" y="576">actions</text>
+  </g>
+
+  <!-- motion layer (MOTION-SPEC.md): additive pulses only, 6s seamless loop -->
+  <g class="churn-early-warning-pulse">
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.3s"><mpath href="#churn-early-warning-tl1"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-0.3s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-1.5s"><mpath href="#churn-early-warning-tl2"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-1.5s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-2.4s"><mpath href="#churn-early-warning-tl3"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-2.4s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.9s"><mpath href="#churn-early-warning-bill1"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-0.9s" values="0;0.7;0.7;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-2.1s"><mpath href="#churn-early-warning-bill2"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-2.1s" values="0;0.7;0.7;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="-1.2s"><mpath href="#churn-early-warning-collect"/></animateMotion><animate attributeName="opacity" dur="3s" repeatCount="indefinite" begin="-1.2s" values="0;1;1;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" begin="-3s"><mpath href="#churn-early-warning-bypass"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-3s" values="0;0.9;0.9;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.34;0.72;1"><mpath href="#churn-early-warning-exit1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.34;0.365;0.72;0.745;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.37;0.75;1"><mpath href="#churn-early-warning-exit2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.37;0.395;0.75;0.775;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.4;0.78;1"><mpath href="#churn-early-warning-exit3"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.4;0.425;0.78;0.805;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.43;0.81;1"><mpath href="#churn-early-warning-exit4"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.43;0.455;0.81;0.835;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.46;0.84;1"><mpath href="#churn-early-warning-exit5"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.46;0.485;0.84;0.865;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulse" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.36;0.62;1"><mpath href="#churn-early-warning-exit6"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;0.6;0.6;0;0" keyTimes="0;0.36;0.385;0.88;0.905;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" begin="-0.6s"><mpath href="#churn-early-warning-hold1"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-0.6s" values="0;0.85;0.85;0" keyTimes="0;0.08;0.92;1"/></use>
+    <use class="churn-early-warning-pulse" xlink:href="#churn-early-warning-mpulseDim" opacity="0"><animateMotion dur="6s" repeatCount="indefinite" begin="-3.6s"><mpath href="#churn-early-warning-hold2"/></animateMotion><animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-3.6s" values="0;0.85;0.85;0" keyTimes="0;0.08;0.92;1"/></use>
+    <circle class="churn-early-warning-pulse" cx="846" cy="153" r="24" fill="none" stroke="#bbf451" stroke-width="1.8" filter="url(#churn-early-warning-glow)" opacity="0"><animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>

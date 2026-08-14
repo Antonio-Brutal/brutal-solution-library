@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: intake, referral and prior-note strands meet a ringed data boundary where all but one channel end in stubs, the permitted channel runs under a hatched containment shroud into a funnel that compresses it to one ribbon, hangs a passive session comb, fills an isometric lattice of template cells with two left dashed and empty, then halts at a lime-ringed clinician-signs gate whose edits loop back to the lattice before the ordered record rails at the right edge">
+  <defs>
+    <style>
+      @media (prefers-reduced-motion: reduce) { .clinical-documentation-assistant-pulse { display: none; } }
+    </style>
+    <radialGradient id="clinical-documentation-assistant-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="clinical-documentation-assistant-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="clinical-documentation-assistant-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#clinical-documentation-assistant-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="clinical-documentation-assistant-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#clinical-documentation-assistant-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#clinical-documentation-assistant-vig)"/>
+
+  <!-- input strands: intake form, referral letter, prior notes -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path id="clinical-documentation-assistant-in1" d="M -10 118 C 90 124, 130 190, 182 262" opacity="0.6"/>
+    <path id="clinical-documentation-assistant-in2" d="M -10 150 C 96 156, 136 206, 182 274" opacity="0.8"/>
+    <path d="M -10 182 C 84 188, 130 224, 182 286" opacity="0.5"/>
+    <path d="M -10 244 C 90 250, 132 268, 182 298" opacity="0.75"/>
+    <path id="clinical-documentation-assistant-in3" d="M -10 276 C 96 282, 140 292, 182 308" opacity="0.9"/>
+    <path d="M -10 386 C 92 380, 134 342, 182 320" opacity="0.55"/>
+    <path id="clinical-documentation-assistant-in4" d="M -10 424 C 96 418, 136 358, 182 330" opacity="0.8"/>
+    <path d="M -10 462 C 88 456, 132 372, 182 342" opacity="0.5"/>
+    <path id="clinical-documentation-assistant-in5" d="M -10 500 C 96 492, 134 388, 182 352" opacity="0.7"/>
+  </g>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(104,165)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(105,262)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(106,359)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(104,411)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(108,437)"/>
+
+  <!-- data boundary: guard rings, radial ticks, one permitted channel, stubs for the rest -->
+  <g stroke="#f8fafc" fill="none">
+    <circle cx="250" cy="308" r="78" stroke-width="1" opacity="0.5"/>
+    <circle cx="250" cy="308" r="62" stroke-width="1.2" opacity="0.85"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.55">
+    <path d="M 303.7 339 L 317.5 347"/>
+    <path d="M 285.6 358.8 L 294.7 371.9"/>
+    <path d="M 233.9 367.9 L 229.8 383.3"/>
+    <path d="M 193.8 334.2 L 179.3 341"/>
+    <path d="M 193.8 281.8 L 179.3 275"/>
+    <path d="M 233.9 248.1 L 229.8 232.7"/>
+    <path d="M 285.6 257.2 L 294.7 244.1"/>
+    <path d="M 303.7 277 L 317.5 269"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2" opacity="0.75">
+    <path d="M 182 259 v 6"/>
+    <path d="M 182 271 v 6"/>
+    <path d="M 182 283 v 6"/>
+    <path d="M 182 295 v 6"/>
+    <path d="M 182 317 v 6"/>
+    <path d="M 182 327 v 6"/>
+    <path d="M 182 339 v 6"/>
+    <path d="M 182 349 v 6"/>
+  </g>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 200 299 L 300 299" stroke-width="1.1" opacity="0.8"/>
+    <path d="M 200 317 L 300 317" stroke-width="1.1" opacity="0.8"/>
+    <path id="clinical-documentation-assistant-chan" d="M 182 308 L 430 308" stroke-width="1.3"/>
+  </g>
+  <!-- contained handling: hatched shroud clamped over the permitted channel -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 300 298 L 312 272 L 402 272 L 414 298" stroke-width="1.1" opacity="0.9"/>
+    <path d="M 300 298 v 10" stroke-width="1.1" opacity="0.7"/>
+    <path d="M 414 298 v 10" stroke-width="1.1" opacity="0.7"/>
+    <path d="M 322 272 L 310 296" stroke-width="1" opacity="0.35"/>
+    <path d="M 340 272 L 328 296" stroke-width="1" opacity="0.35"/>
+    <path d="M 358 272 L 346 296" stroke-width="1" opacity="0.35"/>
+    <path d="M 376 272 L 364 296" stroke-width="1" opacity="0.35"/>
+    <path d="M 394 272 L 382 296" stroke-width="1" opacity="0.35"/>
+  </g>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(360,308)"/>
+
+  <!-- pre-visit summarisation: several traces compressed into one ribbon -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 430 268 V 348" stroke-width="1" opacity="0.6"/>
+    <path id="clinical-documentation-assistant-fun1" d="M 430 244 C 476 262, 508 292, 540 308" stroke-width="1.3"/>
+    <path id="clinical-documentation-assistant-fun2" d="M 430 372 C 476 354, 508 324, 540 308" stroke-width="1.3"/>
+    <path d="M 434 268 C 474 278, 500 300, 534 308" stroke-width="1" opacity="0.45"/>
+    <path d="M 434 288 C 474 294, 500 302, 534 308" stroke-width="1" opacity="0.45"/>
+    <path id="clinical-documentation-assistant-fun3" d="M 434 308 L 534 308" stroke-width="1" opacity="0.45"/>
+    <path d="M 434 328 C 474 322, 500 314, 534 308" stroke-width="1" opacity="0.45"/>
+    <path d="M 434 348 C 474 338, 500 316, 534 308" stroke-width="1" opacity="0.45"/>
+    <ellipse cx="544" cy="308" rx="3.5" ry="9" stroke-width="1.1" opacity="0.9"/>
+    <ellipse cx="554" cy="308" rx="3" ry="7" stroke-width="1" opacity="0.6"/>
+    <path d="M 516 320 L 510 338" stroke-width="1" opacity="0.3"/>
+    <path d="M 528 322 L 524 352" stroke-width="1" opacity="0.3"/>
+  </g>
+  <g fill="#62748e" stroke="none">
+    <circle cx="509" cy="341" r="2"/>
+    <circle cx="524" cy="355" r="2"/>
+  </g>
+
+  <!-- in-session capture: passive comb hanging beneath one session line, nothing leaves upward -->
+  <g stroke="#f8fafc" fill="none">
+    <path id="clinical-documentation-assistant-sess" d="M 558 308 L 744 308" stroke-width="1.3"/>
+    <path d="M 566 292 L 744 292" stroke-width="1" opacity="0.28"/>
+    <g stroke-width="1" opacity="0.7">
+      <path d="M 568 308 v 28"/>
+      <path d="M 578 308 v 38"/>
+      <path d="M 599 308 v 24"/>
+      <path d="M 620 308 v 46"/>
+      <path d="M 641 308 v 30"/>
+      <path d="M 662 308 v 42"/>
+      <path d="M 683 308 v 22"/>
+      <path d="M 704 308 v 36"/>
+      <path d="M 722 308 v 50"/>
+    </g>
+    <ellipse cx="620" cy="356" rx="4.5" ry="2" stroke-width="1" opacity="0.55"/>
+    <ellipse cx="722" cy="360" rx="4.5" ry="2" stroke-width="1" opacity="0.55"/>
+  </g>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(606,308)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(690,308)"/>
+
+  <!-- structured drafting: isometric extruded lattice of template cells -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="760" y="252" width="170" height="148" stroke-width="1.3"/>
+    <path d="M 760 252 L 788 226 L 958 226 L 930 252 Z" stroke-width="1.3"/>
+    <path d="M 930 252 L 958 226 L 958 374 L 930 400 Z" stroke-width="1.3"/>
+    <path d="M 936 392 L 952 377" stroke-width="1" opacity="0.3"/>
+    <path d="M 936 340 L 952 325" stroke-width="1" opacity="0.3"/>
+    <path d="M 760 276 v 68" stroke-width="1" opacity="0.5"/>
+    <path d="M 760 276 h 12" stroke-width="1" opacity="0.6"/>
+    <path d="M 760 310 h 12" stroke-width="1" opacity="0.6"/>
+    <path d="M 760 344 h 12" stroke-width="1" opacity="0.6"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.75">
+    <rect x="772" y="262" width="46" height="28"/>
+    <rect x="826" y="262" width="46" height="28"/>
+    <rect x="880" y="262" width="46" height="28"/>
+    <rect x="772" y="296" width="46" height="28"/>
+    <rect x="880" y="296" width="46" height="28"/>
+    <rect x="772" y="330" width="46" height="28"/>
+    <rect x="826" y="330" width="46" height="28"/>
+    <rect x="880" y="330" width="46" height="28"/>
+    <rect x="772" y="364" width="46" height="28"/>
+    <rect x="826" y="364" width="46" height="28"/>
+  </g>
+  <g stroke="#62748e" fill="none" stroke-width="1" stroke-dasharray="3 4" opacity="0.75">
+    <rect x="826" y="296" width="46" height="28"/>
+    <rect x="880" y="364" width="46" height="28"/>
+  </g>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(795,276)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(903,276)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(795,310)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(849,344)"/>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(795,378)"/>
+
+  <!-- sign-off gate: the only opening in the path -->
+  <path d="M 958 300 L 976 308" stroke="#f8fafc" fill="none" stroke-width="1.2"/>
+  <circle cx="1002" cy="308" r="26" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#clinical-documentation-assistant-glow)" opacity="0.7"><animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite"/></circle>
+  <circle cx="1002" cy="308" r="26" fill="none" stroke="#bbf451" stroke-width="1.6"><animate attributeName="opacity" values="1;0.55;1" dur="3s" repeatCount="indefinite"/></circle>
+  <circle cx="1002" cy="308" r="16" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 993 309 L 999 316 L 1012 300" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+
+  <!-- edits loop back into the drafting lattice -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6">
+    <path id="clinical-documentation-assistant-edit" d="M 998 282 C 978 214, 892 190, 846 222"/>
+    <path d="M 852 214 L 844 223 L 855 227"/>
+  </g>
+  <use xlink:href="#clinical-documentation-assistant-pulse" transform="translate(924,201)"/>
+
+  <!-- ordered record rails -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path id="clinical-documentation-assistant-rail1" d="M 1028 308 C 1048 306, 1052 250, 1072 248 L 1168 248"/>
+    <path d="M 1028 308 C 1048 306, 1052 278, 1072 278 L 1168 278"/>
+    <path id="clinical-documentation-assistant-rail3" d="M 1028 308 L 1168 308"/>
+    <path d="M 1028 308 C 1048 310, 1052 338, 1072 338 L 1168 338"/>
+    <path id="clinical-documentation-assistant-rail5" d="M 1028 308 C 1048 310, 1052 366, 1072 368 L 1168 368"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M 1168 242 v 12"/>
+    <path d="M 1168 302 v 12"/>
+    <path d="M 1168 362 v 12"/>
+  </g>
+  <use xlink:href="#clinical-documentation-assistant-swoosh" transform="translate(1118,308)"/>
+
+  <!-- motion: pulses travel the existing flow paths; 6s seamless loop -->
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-0.3s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;1;1" keyTimes="0;0.45;1"><mpath href="#clinical-documentation-assistant-in1"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-1.8s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-in2"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-3s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-in3"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-4.2s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-in4"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-2.4s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;1;1" keyTimes="0;0.45;1"><mpath href="#clinical-documentation-assistant-in5"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-0.9s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-chan"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-2.1s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-fun1"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-3.3s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-fun2"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-4.5s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-fun3"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-1.5s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-sess"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-4.5s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-sess"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse">
+    <animateMotion dur="6s" begin="-3.6s" repeatCount="indefinite"><mpath href="#clinical-documentation-assistant-edit"/></animateMotion>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;0;1" keyTimes="0;0.45;1"><mpath href="#clinical-documentation-assistant-rail1"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite"
+       values="0;0;1;1;0" keyTimes="0;0.45;0.5;0.97;1"/>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;0;1" keyTimes="0;0.45;1"><mpath href="#clinical-documentation-assistant-rail3"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite"
+       values="0;0;1;1;0" keyTimes="0;0.45;0.5;0.97;1"/>
+  </use>
+  <use class="clinical-documentation-assistant-pulse" xlink:href="#clinical-documentation-assistant-pulse" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" calcMode="linear"
+       keyPoints="0;0;1" keyTimes="0;0.45;1"><mpath href="#clinical-documentation-assistant-rail5"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite"
+       values="0;0;1;1;0" keyTimes="0;0.45;0.5;0.97;1"/>
+  </use>
+
+  <!-- labels -->
+  <text x="52" y="94" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">intake</text>
+  <text x="1168" y="212" text-anchor="end" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">record</text>
+  <text x="1002" y="424" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">clinician signs</text>
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45" fill="none">
+    <path d="M 250 400 V 545"/>
+    <path d="M 650 400 V 545"/>
+    <path d="M 845 416 V 545"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="250" y="568">data boundary</text>
+    <text x="650" y="568">session capture</text>
+    <text x="845" y="568">structured draft</text>
+  </g>
+</svg>

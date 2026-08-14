@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Incident copilot schematic: six scattered signal sources converge onto a single ticked timeline rail, an isometric runbook enclosure returns cited plates to the exact ticks that summoned them, an iris aperture splits the rail into known, unknown and tried ribbons, the remediation branch is stopped dead at a capped read-only gate before production, and every status ribbon crosses one lime-ringed node where a human approves">
+  <defs>
+    <radialGradient id="incident-response-copilot-vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="incident-response-copilot-glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="incident-response-copilot-pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#incident-response-copilot-glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="incident-response-copilot-pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#incident-response-copilot-glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="incident-response-copilot-swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#incident-response-copilot-glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+    <style>
+      @media (prefers-reduced-motion: reduce) { .incident-response-copilot-pulse { display: none; } }
+    </style>
+    <g id="incident-response-copilot-mover">
+      <circle r="4.6" fill="#bbf451" opacity="0.85" filter="url(#incident-response-copilot-glow)"/>
+      <circle r="1.7" fill="#d8f999"/>
+    </g>
+    <g id="incident-response-copilot-moverDeep">
+      <circle r="5.0" fill="#9de500" opacity="0.9" filter="url(#incident-response-copilot-glow)"/>
+      <circle r="1.9" fill="#d8f999"/>
+    </g>
+    <g id="incident-response-copilot-moverSmall">
+      <circle r="3.4" fill="#bbf451" opacity="0.75" filter="url(#incident-response-copilot-glow)"/>
+      <circle r="1.3" fill="#d8f999"/>
+    </g>
+    <!-- motion tracks: each traces drawn line-work already in the artwork -->
+    <g id="incident-response-copilot-tracks" fill="none" stroke="none">
+      <path id="incident-response-copilot-mA" d="M 118 173 C 184 180, 242 246, 297 294 L 300 300 L 794 300 L 870 294 C 940 288, 990 216, 1046 212"/>
+      <path id="incident-response-copilot-mB" d="M 118 436 C 186 432, 246 340, 297 311 L 300 300 L 794 300 L 870 300 C 950 300, 1040 292, 1164 292"/>
+      <path id="incident-response-copilot-mC" d="M 118 108 C 182 118, 240 222, 297 288 L 300 300 L 794 300 L 870 307 C 940 318, 1010 350, 1164 352"/>
+      <path id="incident-response-copilot-mE" d="M 700 314 C 722 362, 748 404, 792 430 L 836 452 L 870 452"/>
+      <path id="incident-response-copilot-mF" d="M 1004 358 C 1026 388, 1030 412, 1030 444 L 1030 528"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#incident-response-copilot-vig)"/>
+
+  <!-- six source glyphs: alert, deploy, flag toggle, logs, latency, config -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 44 108 L 56 108 L 62 90 L 70 126 L 78 100 L 85 108 L 118 108" opacity="0.9"/>
+    <path d="M 44 178 L 64 178 L 64 162 L 88 162 L 88 173 L 118 173" opacity="0.9"/>
+    <path d="M 44 232 L 72 232" opacity="0.85"/>
+    <path d="M 76 230 C 86 226, 92 220, 100 218" opacity="0.85"/>
+    <path d="M 76 234 C 86 238, 92 244, 100 246" opacity="0.5"/>
+    <circle cx="74" cy="232" r="3" opacity="0.9"/>
+    <path d="M 46 284 L 104 284" opacity="0.5"/>
+    <path d="M 46 293 L 110 293" opacity="0.8"/>
+    <path d="M 46 302 L 98 302" opacity="0.55"/>
+    <path d="M 46 311 L 106 311" opacity="0.75"/>
+    <path d="M 40 280 L 40 315" opacity="0.45"/>
+    <path d="M 44 384 L 118 384" opacity="0.4"/>
+    <path d="M 44 380 C 68 380, 78 348, 118 342" opacity="0.9"/>
+    <path d="M 56 428 L 68 421 L 80 428 L 80 442 L 68 449 L 56 442 Z" opacity="0.9"/>
+    <path d="M 80 436 L 118 436" opacity="0.7"/>
+    <circle cx="68" cy="435" r="2.4" opacity="0.7"/>
+  </g>
+
+  <!-- convergence wires into the timeline -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 118 108 C 182 118, 240 222, 297 288" opacity="0.55"/>
+    <path d="M 118 173 C 184 180, 242 246, 297 294" opacity="0.8"/>
+    <path d="M 100 232 C 176 238, 240 270, 297 298" opacity="0.6"/>
+    <path d="M 110 297 C 176 300, 240 300, 297 301" opacity="0.85"/>
+    <path d="M 118 348 C 184 354, 242 322, 297 306" opacity="0.6"/>
+    <path d="M 118 436 C 186 432, 246 340, 297 311" opacity="0.75"/>
+  </g>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(178,168)"/>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(210,296)"/>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(196,392)"/>
+
+  <!-- the timeline rail with event ticks -->
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 300 300 L 556 300" stroke-width="1.4"/>
+    <path d="M 556 300 L 742 300" stroke-width="1.2" opacity="0.45"/>
+    <path d="M 742 300 L 794 300" stroke-width="1.4"/>
+  </g>
+  <use xlink:href="#incident-response-copilot-swoosh" transform="translate(246,300)"/>
+  <g stroke="#f8fafc" fill="none">
+    <path d="M 312 280 V 320 M 384 280 V 320 M 456 280 V 320 M 528 280 V 320" stroke-width="1.1" opacity="0.8"/>
+    <path d="M 348 288 V 312 M 420 288 V 312 M 492 288 V 312" stroke-width="1" opacity="0.6"/>
+    <path d="M 330 294 V 306 M 366 294 V 306 M 402 294 V 306 M 438 294 V 306 M 474 294 V 306 M 510 294 V 306 M 546 294 V 306" stroke-width="1" opacity="0.45"/>
+    <path d="M 306 266 L 318 266 M 378 266 L 390 266 M 450 266 L 462 266 M 522 266 L 534 266" stroke-width="1" opacity="0.35"/>
+    <ellipse cx="302" cy="300" rx="3.5" ry="10" stroke-width="1.1" opacity="0.85"/>
+    <ellipse cx="310" cy="300" rx="3" ry="7.5" stroke-width="1" opacity="0.55"/>
+  </g>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(348,300)"/>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(384,300)"/>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(438,300)"/>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(492,300)"/>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(528,300)"/>
+
+  <!-- runbook retrieval: isometric enclosure of stacked plates straddling the rail -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="558" y="176" width="184" height="136" stroke-width="1.3"/>
+    <path d="M 558 176 L 588 148 L 772 148 L 742 176 Z" stroke-width="1.3"/>
+    <path d="M 742 176 L 772 148 L 772 284 L 742 312 Z" stroke-width="1.3"/>
+    <path d="M 748 306 L 766 290" stroke-width="1" opacity="0.3"/>
+    <path d="M 748 282 L 766 266" stroke-width="1" opacity="0.3"/>
+    <path d="M 748 258 L 766 242" stroke-width="1" opacity="0.3"/>
+  </g>
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <rect x="576" y="190" width="148" height="9" rx="1.5" opacity="0.85"/>
+    <rect x="576" y="212" width="148" height="9" rx="1.5" opacity="0.85"/>
+    <rect x="576" y="234" width="148" height="9" rx="1.5" opacity="0.34"/>
+    <rect x="576" y="256" width="148" height="9" rx="1.5" opacity="0.85"/>
+    <rect x="576" y="278" width="148" height="9" rx="1.5" opacity="0.7"/>
+  </g>
+  <use xlink:href="#incident-response-copilot-pulse" transform="translate(700,216)"/>
+  <!-- citation threads back to the ticks that summoned them -->
+  <g stroke="#f8fafc" fill="none" stroke-width="0.8" opacity="0.32">
+    <path d="M 576 195 C 518 202, 474 244, 456 278"/>
+    <path id="incident-response-copilot-cite" d="M 576 217 C 506 228, 402 254, 384 278"/>
+    <path d="M 576 261 C 516 272, 344 274, 312 278"/>
+  </g>
+
+  <!-- live summarisation: iris aperture splitting the rail -->
+  <g stroke="#f8fafc" fill="none">
+    <circle cx="832" cy="300" r="38" stroke-width="1.3"/>
+    <circle cx="832" cy="300" r="27" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="832" cy="300" rx="7" ry="13" stroke-width="1" opacity="0.55"/>
+  </g>
+  <g stroke="#f8fafc" stroke-width="1.2" opacity="0.8">
+    <path d="M 859 300 L 870 300"/>
+    <path d="M 851 319 L 859 327"/>
+    <path d="M 832 327 L 832 338"/>
+    <path d="M 813 319 L 805 327"/>
+    <path d="M 805 300 L 794 300"/>
+    <path d="M 813 281 L 805 273"/>
+    <path d="M 832 273 L 832 262"/>
+    <path d="M 851 281 L 859 273"/>
+  </g>
+
+  <!-- three ordered status ribbons: known, unknown, tried -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1.1">
+    <path d="M 870 294 C 940 288, 990 216, 1046 212"/>
+    <path d="M 870 300 C 950 300, 1040 292, 1164 292"/>
+    <path d="M 870 307 C 940 318, 1010 350, 1164 352"/>
+    <path id="incident-response-copilot-approved" d="M 1092 212 L 1164 212"/>
+    <path d="M 1164 206 v 12" opacity="0.6"/>
+    <path d="M 1164 286 v 12" opacity="0.6"/>
+    <path d="M 1164 346 v 12" opacity="0.6"/>
+  </g>
+  <use xlink:href="#incident-response-copilot-swoosh" transform="translate(1116,292)"/>
+
+  <!-- the one human-decision node -->
+  <circle cx="1070" cy="212" r="22" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#incident-response-copilot-glow)" opacity="0.7"/>
+  <circle cx="1070" cy="212" r="22" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="1070" cy="212" r="13" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <path d="M 1063 213 L 1068 218 L 1078 205" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="1070" y="168" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">human approves</text>
+
+  <!-- remediation branch, stopped dead at a capped gate; production beyond it untouched -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path d="M 700 314 C 722 362, 748 404, 792 430 L 836 452" opacity="0.85"/>
+    <path d="M 838 440 L 838 464 L 862 440 L 862 464 Z" opacity="0.9"/>
+    <path d="M 862 452 L 870 452" opacity="0.6"/>
+  </g>
+  <path d="M 874 436 L 874 468" stroke="#f8fafc" stroke-width="2.6" opacity="0.9"/>
+  <path d="M 890 372 V 532" stroke="#62748e" stroke-width="1" stroke-dasharray="3 6" opacity="0.5" fill="none"/>
+  <g stroke="#62748e" fill="none" stroke-width="1" opacity="0.7">
+    <path d="M 912 416 H 984 M 912 440 H 984 M 912 464 H 984 M 912 488 H 984"/>
+    <path d="M 912 416 V 488 M 936 416 V 488 M 960 416 V 488 M 984 416 V 488"/>
+  </g>
+  <g fill="#62748e" stroke="none" opacity="0.8">
+    <circle cx="936" cy="440" r="2"/><circle cx="960" cy="464" r="2"/><circle cx="936" cy="488" r="2"/>
+  </g>
+  <text x="828" y="512" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">read-only</text>
+
+  <!-- postmortem: the same events reflowed into an even ladder -->
+  <path d="M 1004 358 C 1026 388, 1030 412, 1030 444" stroke="#f8fafc" fill="none" stroke-width="1" opacity="0.6"/>
+  <g stroke="#f8fafc" fill="none" stroke-width="1.2">
+    <path d="M 1030 444 V 528"/>
+    <path d="M 1030 452 H 1136 M 1030 464 H 1112 M 1030 476 H 1140 M 1030 488 H 1120 M 1030 500 H 1132 M 1030 512 H 1108"/>
+  </g>
+  <g fill="#f8fafc" stroke="none" opacity="0.55">
+    <circle cx="1136" cy="452" r="2.2"/><circle cx="1112" cy="464" r="2.2"/>
+    <circle cx="1140" cy="476" r="2.2"/><circle cx="1120" cy="488" r="2.2"/>
+    <circle cx="1132" cy="500" r="2.2"/><circle cx="1108" cy="512" r="2.2"/>
+  </g>
+  <use xlink:href="#incident-response-copilot-pulseDeep" transform="translate(1074,476)"/>
+
+  <!-- stage labels -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 176 486 V 552"/>
+    <path d="M 650 332 V 552"/>
+  </g>
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc" text-anchor="middle">
+    <text x="176" y="576">signals</text>
+    <text x="650" y="576">runbooks</text>
+    <text x="1084" y="576">postmortem</text>
+  </g>
+  <!-- ==== motion (MOTION-SPEC.md): 6s seamless loop, additive only ==== -->
+  <g id="incident-response-copilot-motion">
+    <circle class="incident-response-copilot-pulse" cx="1070" cy="212" r="22" fill="none" stroke="#bbf451"
+            stroke-width="1.6" filter="url(#incident-response-copilot-glow)" opacity="0">
+      <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-mover">
+      <animateMotion dur="6s" begin="-0.3s" repeatCount="indefinite">
+        <mpath xlink:href="#incident-response-copilot-mA"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-0.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-mover">
+      <animateMotion dur="6s" begin="-2.1s" repeatCount="indefinite">
+        <mpath xlink:href="#incident-response-copilot-mB"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-2.1s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-mover">
+      <animateMotion dur="6s" begin="-4.2s" repeatCount="indefinite">
+        <mpath xlink:href="#incident-response-copilot-mC"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-4.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-moverDeep">
+      <animateMotion dur="6s" begin="-1.2s" repeatCount="indefinite">
+        <mpath xlink:href="#incident-response-copilot-cite"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-1.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-mover">
+      <animateMotion dur="6s" begin="-3.3s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.4;1">
+        <mpath xlink:href="#incident-response-copilot-mE"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-3.3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.05;0.4;0.56;1"/>
+    </use>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-moverDeep">
+      <animateMotion dur="6s" begin="-1.8s" repeatCount="indefinite">
+        <mpath xlink:href="#incident-response-copilot-mF"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-1.8s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+    <use class="incident-response-copilot-pulse" xlink:href="#incident-response-copilot-mover">
+      <animateMotion dur="6s" begin="-3s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.45;1">
+        <mpath xlink:href="#incident-response-copilot-approved"/>
+      </animateMotion>
+      <animate attributeName="opacity" dur="6s" begin="-3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.06;0.9;1"/>
+    </use>
+  </g>
+</svg>

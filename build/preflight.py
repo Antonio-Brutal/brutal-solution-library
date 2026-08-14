@@ -55,9 +55,9 @@ def main():
             if not os.path.exists(os.path.join(ART, r)):
                 problems.append(f"{name}: missing asset {r}")
         if not any(r.startswith("graphics/") for r in refs):
-            problems.append(f"{name}: no graphic embed")
-        if "<video" not in s:
-            problems.append(f"{name}: no video embed")
+            problems.append(f"{name}: no hero graphic embed")
+        if 'src="motion/' not in s:
+            problems.append(f"{name}: no animated schematic embed")
 
         # prose word count: strip embeds, alt text, HTML tags and captions so we measure
         # what a reader actually reads, not the markup around it

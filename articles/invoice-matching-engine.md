@@ -20,7 +20,7 @@ We built an invoice matching engine that sits between the inbox and the ERP. It 
 
 The finance team did not get smaller. It got reassigned. The people who used to key invoices now resolve exceptions, chase suppliers on genuine discrepancies, and tighten the tolerance rules — the judgment work that was always the actual job.
 
-<video src="media/invoice-matching-engine.mp4" poster="media/invoice-matching-engine-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/invoice-matching-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Documents converge, become structured facts, and clear against the order and the delivery. Only the exceptions divert.*
 

@@ -20,7 +20,7 @@ We built a close copilot that runs the mechanical layer of the close continuousl
 
 The controllers still close the books. But their role shifted from assembling the close to reviewing it — from building reconciliation spreadsheets to judging whether the system's reconciliation and its explanation are correct. That is the recurring pattern in everything we build: the human moves from doing the work to deciding whether the work is right.
 
-<video src="media/financial-close-automation.mp4" poster="media/financial-close-automation-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/financial-close-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Entity ledgers converge, matched pairs lock, and only the unreconciled drops to a controller.*
 

@@ -26,7 +26,7 @@ The second is a case layer for HR business partners: structured summaries of cas
 
 Between them sits a hard boundary. A defined set of topics is never answered, never drafted, never handled by self-service at all. It goes straight to a named human, and the machine's only contribution is the speed of the handoff.
 
-<video src="media/hr-policy-case-assistant.mp4" poster="media/hr-policy-case-assistant-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/hr-policy-case-assistant.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Answers cite their source. Sensitive cases bypass drafting entirely and go straight to a person.*
 

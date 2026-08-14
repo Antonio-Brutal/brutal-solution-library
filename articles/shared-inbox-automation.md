@@ -20,7 +20,7 @@ We built an engine that reads every email as it arrives, classifies what it is a
 
 The shared inbox is still there — nobody had to change where they work. But it stopped being a pile and became a queue: sorted by urgency and type, each message arriving pre-labeled, pre-matched to a tenant, and carrying a draft answer. Nothing is sent and no work order is dispatched to a contractor without a human looking at it first. The property managers kept every decision. They just stopped doing the sorting.
 
-<video src="media/shared-inbox-automation.mp4" poster="media/shared-inbox-automation-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/shared-inbox-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Urgency takes the express rail. Everything else resolves to a tenant, a unit, a work order.*
 

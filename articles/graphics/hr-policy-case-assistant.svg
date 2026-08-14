@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: employee questions converge on a classifier prism where a distinctly marked sensitive channel climbs away above all machinery to a lime-ringed terminal reserved for an HR partner, while the routine path enters a retrieval lattice fed by a stack of jurisdiction-layered policy plates and leaves as one cited answer rail carrying a citation tag tethered back to the plate it came from">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Engineering schematic: employee questions converge on a classifier prism where a distinctly marked sensitive channel climbs away above all machinery to a lime-ringed terminal reserved for an HR partner, while the routine path enters a retrieval lattice fed by a stack of jurisdiction-layered policy plates and leaves as one cited answer rail carrying a citation tag tethered back to the plate it came from">
   <defs>
     <radialGradient id="hr-policy-case-assistant-vig" cx="50%" cy="44%" r="78%">
       <stop offset="0%" stop-color="#050608"/>
@@ -37,11 +37,11 @@
     <path d="M-10,342 C96,338 188,300 246,288" opacity="0.5"/>
     <path d="M-10,374 C90,368 182,314 246,296" opacity="0.75"/>
   </g>
-  <use href="#hr-policy-case-assistant-pulse" x="94" y="186"/>
-  <use href="#hr-policy-case-assistant-pulse" x="164" y="226"/>
-  <use href="#hr-policy-case-assistant-pulse" x="120" y="308"/>
-  <use href="#hr-policy-case-assistant-pulse" x="196" y="284"/>
-  <use href="#hr-policy-case-assistant-pulse" x="212" y="252"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="94" y="186"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="164" y="226"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="120" y="308"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="196" y="284"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="212" y="252"/>
 
   <!-- classifier prism: sensitive splits from routine before any machinery -->
   <g stroke="#f8fafc" fill="none">
@@ -69,8 +69,8 @@
     <path d="M735,128 L735,168"/>
     <path d="M725,172 L745,172" stroke-width="1.6"/>
   </g>
-  <use href="#hr-policy-case-assistant-pulseDeep" x="640" y="123"/>
-  <use href="#hr-policy-case-assistant-pulseDeep" x="836" y="123"/>
+  <use xlink:href="#hr-policy-case-assistant-pulseDeep" x="640" y="123"/>
+  <use xlink:href="#hr-policy-case-assistant-pulseDeep" x="836" y="123"/>
 
   <!-- the one human terminal -->
   <circle cx="966" cy="123" r="20" fill="#bbf451" opacity="0.45" filter="url(#hr-policy-case-assistant-glowBig)"/>
@@ -155,9 +155,9 @@
     <circle cx="672" cy="288" r="3.4"/>
     <circle cx="672" cy="344" r="3.4"/>
   </g>
-  <use href="#hr-policy-case-assistant-pulse" x="546" y="288"/>
-  <use href="#hr-policy-case-assistant-pulse" x="610" y="312"/>
-  <use href="#hr-policy-case-assistant-pulse" x="672" y="288"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="546" y="288"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="610" y="312"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="672" y="288"/>
 
   <!-- one cited answer leaves -->
   <g stroke="#f8fafc" fill="none" stroke-width="1">
@@ -177,7 +177,7 @@
     </g>
   </g>
   <path d="M866,364 C884,432 878,486 806,506 C660,548 420,552 292,508" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.38"/>
-  <use href="#hr-policy-case-assistant-pulse" x="612" y="536"/>
+  <use xlink:href="#hr-policy-case-assistant-pulse" x="612" y="536"/>
 
   <!-- no policy found: drops out to a human inbox instead of improvising -->
   <g stroke="#62748e" fill="none" stroke-width="1">
@@ -201,7 +201,7 @@
     <circle cx="1152" cy="300" r="2.5"/>
     <circle cx="1152" cy="322" r="2.5"/>
   </g>
-  <use href="#hr-policy-case-assistant-swoosh" x="1002" y="300"/>
+  <use xlink:href="#hr-policy-case-assistant-swoosh" x="1002" y="300"/>
 
   <!-- stage tie-lines -->
   <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
@@ -214,6 +214,6 @@
     <text x="576" y="596" font-size="20" fill="#f8fafc" text-anchor="middle">cited retrieval</text>
     <text x="966" y="176" font-size="18" fill="#90a1b9" text-anchor="middle">hr partner only</text>
     <text x="52" y="122" font-size="19" fill="#90a1b9">questions</text>
-    <text x="1108" y="242" font-size="18" fill="#90a1b9" text-anchor="middle">cited answer</text>
+    <text x="1108" y="252" font-size="18" fill="#90a1b9" text-anchor="middle">cited answer</text>
   </g>
 </svg>

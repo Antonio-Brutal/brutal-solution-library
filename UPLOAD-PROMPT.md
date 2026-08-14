@@ -11,12 +11,21 @@ Ingest the attached Brutal solution library and create one solution plus one blo
 
 STRUCTURE
 The bundle contains 30 articles. For each one:
-  articles/<slug>.md              the article source (Markdown)
-  articles/graphics/<slug>.svg    hero schematic, 1200x630, use as the header image and OG image
-  articles/media/<slug>.mp4       demo video, 720p, silent, 5s loop
-  articles/media/<slug>-poster.jpg  poster frame for the video
-  dist/articles/<slug>.html       the same article pre-rendered as styled HTML, if you prefer HTML input
-  dist/index.html                 index of all 30
+  articles/<slug>.md                the article source (Markdown)
+  articles/graphics/<slug>.svg      hero schematic, 1200x630, use as the header image and OG image
+  articles/media/<slug>.mp4         diagram loop, 720p, silent, 5s
+  articles/media/<slug>-poster.jpg  poster frame
+  articles/media/gif/<slug>.gif     the same loop as a true GIF, if the platform needs one
+  dist/articles/<slug>.html         the same article pre-rendered as styled HTML, if you prefer HTML input
+  dist/index.html                   index of all 30
+
+THE DIAGRAM LOOPS MUST AUTOPLAY AND LOOP — they are diagrams, not media the reader chooses to
+watch. The markup ships as:
+  <video src="..." poster="..." autoplay loop muted playsinline preload="metadata">
+Keep autoplay, loop and muted. Do not add player controls and do not require a click to start.
+If the platform cannot autoplay video, substitute articles/media/gif/<slug>.gif instead — same
+loop, same framing. Prefer the MP4 where possible: it is roughly half the file size and much
+sharper on these dark gradients, since GIF is limited to 256 colours.
 
 00-SOLUTIONS-INDEX.md lists all 30 with their customer type and one-line description.
 

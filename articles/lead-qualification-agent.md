@@ -24,7 +24,7 @@ The design principle we insisted on is that the sales team owns the judgment and
 
 And the agent never disqualifies anyone. Low-scoring leads are not deleted, hidden or silently binned; they go to a visible nurture queue that any rep can search and pull from. The machine sorts. People decide.
 
-<video src="media/lead-qualification-agent.mp4" poster="media/lead-qualification-agent-poster.jpg" controls playsinline preload="none" width="1280" height="720"></video>
+<img src="motion/lead-qualification-agent.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Fit and intent are scored against an ICP the sales team wrote, not one the model invented.*
 

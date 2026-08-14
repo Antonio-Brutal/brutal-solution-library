@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" role="img" aria-label="Full-coverage conversation QA scoring schematic">
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .conversation-qa-full-coverage-pulse { display: none; }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#050608"/>
+      <stop offset="100%" stop-color="#020618"/>
+    </radialGradient>
+    <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <g id="pulse">
+      <circle r="5.5" fill="#bbf451" opacity="0.8" filter="url(#glow)"/>
+      <circle r="2" fill="#d8f999"/>
+    </g>
+    <g id="pulseDeep">
+      <circle r="6.5" fill="#9de500" opacity="0.85" filter="url(#glow)"/>
+      <circle r="2.4" fill="#d8f999"/>
+    </g>
+    <g id="pulseSmall">
+      <circle r="3.4" fill="#bbf451" opacity="0.85" filter="url(#glow)"/>
+      <circle r="1.3" fill="#d8f999"/>
+    </g>
+    <g id="swoosh">
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451" filter="url(#glow)" opacity="0.7"/>
+      <path d="M -22 -6 Q 8 -10 22 0 Q 8 10 -22 6 Q -8 0 -22 -6 Z" fill="#bbf451"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#vig)"/>
+
+  <!-- input: every conversation across voice, chat, email, all of them, not a sample -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M -10 90 C 90 96, 210 138, 336 160" opacity="0.64"/>
+    <path id="conversation-qa-full-coverage-in4" d="M -10 115 C 90 121, 210 138, 336 160" opacity="0.62"/>
+    <path id="conversation-qa-full-coverage-in1" d="M -10 141 C 90 139, 210 161, 336 200" opacity="0.76"/>
+    <path d="M -10 166 C 90 173, 210 189, 336 200" opacity="0.67"/>
+    <path d="M -10 191 C 90 188, 210 205, 336 240" opacity="0.59"/>
+    <path d="M -10 217 C 90 213, 210 216, 336 240" opacity="0.63"/>
+    <path id="conversation-qa-full-coverage-in2" d="M -10 242 C 90 235, 210 266, 336 280" opacity="0.84"/>
+    <path d="M -10 267 C 90 273, 210 280, 336 280" opacity="0.73"/>
+    <path d="M -10 293 C 90 290, 210 311, 336 320" opacity="0.39"/>
+    <path id="conversation-qa-full-coverage-in5" d="M -10 318 C 90 326, 210 307, 336 320" opacity="0.41"/>
+    <path d="M -10 343 C 90 341, 210 366, 336 360" opacity="0.49"/>
+    <path d="M -10 369 C 90 361, 210 374, 336 360" opacity="0.6"/>
+    <path id="conversation-qa-full-coverage-in3" d="M -10 394 C 90 400, 210 401, 336 400" opacity="0.78"/>
+    <path d="M -10 419 C 90 427, 210 403, 336 400" opacity="0.68"/>
+    <path id="conversation-qa-full-coverage-in6" d="M -10 445 C 90 452, 210 428, 336 440" opacity="0.69"/>
+    <path d="M -10 470 C 90 476, 210 461, 336 440" opacity="0.51"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(172,127)"/>
+  <use xlink:href="#pulse" transform="translate(109,130)"/>
+  <use xlink:href="#pulse" transform="translate(109,161)"/>
+  <use xlink:href="#pulse" transform="translate(134,180)"/>
+  <use xlink:href="#pulse" transform="translate(103,207)"/>
+  <use xlink:href="#pulse" transform="translate(189,308)"/>
+  <use xlink:href="#pulse" transform="translate(123,366)"/>
+  <use xlink:href="#pulse" transform="translate(222,406)"/>
+  <text x="50" y="46" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">every conversation</text>
+
+  <!-- rubric plate feeding the lattice from above -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <rect x="420" y="54" width="220" height="32" rx="2" opacity="0.8"/>
+    <path d="M 436 65 h 188" opacity="0.5"/>
+    <path d="M 436 75 h 150" opacity="0.5"/>
+    <path id="conversation-qa-full-coverage-rub1" d="M 396 86 V 140" opacity="0.55"/>
+    <path d="M 452 86 V 140" opacity="0.55"/>
+    <path id="conversation-qa-full-coverage-rub3" d="M 508 86 V 140" opacity="0.55"/>
+    <path id="conversation-qa-full-coverage-rub4" d="M 564 86 V 140" opacity="0.55"/>
+    <ellipse cx="396" cy="140" rx="5" ry="2.5" opacity="0.7"/>
+    <ellipse cx="452" cy="140" rx="5" ry="2.5" opacity="0.7"/>
+    <ellipse cx="508" cy="140" rx="5" ry="2.5" opacity="0.7"/>
+    <ellipse cx="564" cy="140" rx="5" ry="2.5" opacity="0.7"/>
+  </g>
+  <use xlink:href="#pulse" transform="translate(508,110)"/>
+  <text x="400" y="75" text-anchor="end" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">rubric as code</text>
+
+  <!-- scoring lattice: isometric plate, every row scored against every column -->
+  <g stroke="#f8fafc" fill="none">
+    <rect x="340" y="140" width="280" height="320" stroke-width="1.3"/>
+    <path d="M 340 140 L 370 112 L 650 112 L 620 140 Z" stroke-width="1.3"/>
+    <path d="M 620 140 L 650 112 L 650 432 L 620 460 Z" stroke-width="1.3"/>
+    <path d="M 626 452 L 644 436" stroke-width="1" opacity="0.3"/>
+    <path d="M 626 412 L 644 396" stroke-width="1" opacity="0.3"/>
+    <path d="M 626 372 L 644 356" stroke-width="1" opacity="0.3"/>
+    <path d="M 626 332 L 644 316" stroke-width="1" opacity="0.3"/>
+  </g>
+  <g stroke="#f8fafc" opacity="0.4" stroke-width="1" fill="none">
+    <path d="M 396 140 V 460"/>
+    <path d="M 452 140 V 460"/>
+    <path d="M 508 140 V 460"/>
+    <path d="M 564 140 V 460"/>
+    <path d="M 340 180 H 620"/>
+    <path d="M 340 220 H 620"/>
+    <path d="M 340 260 H 620"/>
+    <path d="M 340 300 H 620"/>
+    <path d="M 340 340 H 620"/>
+    <path d="M 340 380 H 620"/>
+    <path d="M 340 420 H 620"/>
+  </g>
+  <g fill="#f8fafc" stroke="none">
+    <circle cx="340" cy="160" r="2.2" opacity="0.6"/><circle cx="340" cy="200" r="2.2" opacity="0.6"/>
+    <circle cx="340" cy="240" r="2.2" opacity="0.6"/><circle cx="340" cy="280" r="2.2" opacity="0.6"/>
+    <circle cx="340" cy="320" r="2.2" opacity="0.6"/><circle cx="340" cy="360" r="2.2" opacity="0.6"/>
+    <circle cx="340" cy="400" r="2.2" opacity="0.6"/><circle cx="340" cy="440" r="2.2" opacity="0.6"/>
+    <circle cx="620" cy="160" r="2.2" opacity="0.6"/><circle cx="620" cy="200" r="2.2" opacity="0.6"/>
+    <circle cx="620" cy="240" r="2.2" opacity="0.6"/><circle cx="620" cy="280" r="2.2" opacity="0.6"/>
+    <circle cx="620" cy="320" r="2.2" opacity="0.6"/><circle cx="620" cy="360" r="2.2" opacity="0.6"/>
+    <circle cx="620" cy="400" r="2.2" opacity="0.6"/><circle cx="620" cy="440" r="2.2" opacity="0.6"/>
+    <circle cx="396" cy="260" r="2" opacity="0.4"/><circle cx="396" cy="340" r="2" opacity="0.4"/>
+    <circle cx="452" cy="180" r="2" opacity="0.4"/><circle cx="452" cy="380" r="2" opacity="0.4"/>
+    <circle cx="508" cy="220" r="2" opacity="0.4"/><circle cx="508" cy="420" r="2" opacity="0.4"/>
+    <circle cx="564" cy="220" r="2" opacity="0.4"/><circle cx="564" cy="420" r="2" opacity="0.4"/>
+  </g>
+  <use xlink:href="#pulseSmall" transform="translate(396,220)"/>
+  <use xlink:href="#pulseSmall" transform="translate(452,300)"/>
+  <use xlink:href="#pulseSmall" transform="translate(508,180)"/>
+  <use xlink:href="#pulseSmall" transform="translate(564,340)"/>
+  <use xlink:href="#pulseSmall" transform="translate(452,420)"/>
+  <use xlink:href="#pulseSmall" transform="translate(508,260)"/>
+  <use xlink:href="#pulseSmall" transform="translate(396,380)"/>
+
+  <!-- output: scored pulses collect into per-team coaching channels -->
+  <g stroke="#f8fafc" fill="none" stroke-width="1">
+    <path d="M 620 160 C 660 165, 680 175, 700 180" opacity="0.7"/>
+    <path d="M 620 200 C 660 195, 680 185, 700 180" opacity="0.7"/>
+    <path d="M 620 240 C 660 245, 680 255, 700 260" opacity="0.7"/>
+    <path d="M 620 280 C 660 275, 680 265, 700 260" opacity="0.7"/>
+    <path d="M 620 320 C 660 325, 680 335, 700 340" opacity="0.7"/>
+    <path d="M 620 360 C 660 355, 680 345, 700 340" opacity="0.7"/>
+    <path d="M 620 400 C 660 405, 680 415, 700 420" opacity="0.7"/>
+    <path d="M 620 440 C 660 435, 680 425, 700 420" opacity="0.7"/>
+    <path id="conversation-qa-full-coverage-rail1" d="M 700 180 L 1080 180" stroke-width="1.1"/>
+    <path id="conversation-qa-full-coverage-rail2" d="M 700 260 L 1080 260" stroke-width="1.1"/>
+    <path id="conversation-qa-full-coverage-rail3" d="M 700 340 L 1080 340" stroke-width="1.1"/>
+    <path id="conversation-qa-full-coverage-rail4" d="M 700 420 L 1080 420" stroke-width="1.1"/>
+    <path d="M 1080 172 v 16" opacity="0.6"/>
+    <path d="M 1080 252 v 16" opacity="0.6"/>
+    <path d="M 1080 332 v 16" opacity="0.6"/>
+    <path d="M 1080 412 v 16" opacity="0.6"/>
+  </g>
+  <use xlink:href="#swoosh" transform="translate(900,260)"/>
+  <use xlink:href="#pulse" transform="translate(940,180)"/>
+  <use xlink:href="#pulse" transform="translate(940,420)"/>
+  <text x="1084" y="152" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#90a1b9">coaching</text>
+
+  <!-- calibration: humans audit the scorer, feeding refinements back into the lattice -->
+  <g stroke="#62748e" fill="none" stroke-width="1">
+    <path id="conversation-qa-full-coverage-caldown" d="M 600 460 C 622 495, 650 512, 668 519" opacity="0.85"/>
+    <path id="conversation-qa-full-coverage-calup" d="M 668 521 C 596 542, 542 500, 520 460" opacity="0.85"/>
+    <circle cx="600" cy="460" r="3" fill="#62748e" stroke="none" opacity="0.8"/>
+    <circle cx="520" cy="460" r="3" fill="#62748e" stroke="none" opacity="0.8"/>
+  </g>
+  <circle cx="670" cy="520" r="22" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0.7"/>
+  <circle class="conversation-qa-full-coverage-pulse" cx="670" cy="520" r="22" fill="none" stroke="#bbf451" stroke-width="1.6" filter="url(#glow)" opacity="0">
+    <animate attributeName="opacity" values="0;0.55;0" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="670" cy="520" r="22" fill="none" stroke="#bbf451" stroke-width="1.6"/>
+  <circle cx="670" cy="520" r="14" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.75"/>
+  <circle cx="666" cy="516" r="5" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <path d="M 669.5 519.5 L 676 526" fill="none" stroke="#d8f999" stroke-width="1.6"/>
+  <text x="670" y="568" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#90a1b9">calibration</text>
+
+  <!-- stage label -->
+  <g stroke="#62748e" stroke-width="1" stroke-dasharray="2 5" opacity="0.45">
+    <path d="M 480 460 V 545"/>
+  </g>
+  <text x="480" y="568" text-anchor="middle" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#f8fafc">scoring</text>
+
+  <!-- ==== motion: travelling pulses on the existing flow paths, 6s seamless loop ====
+       Stagger uses negative begin offsets so every dot is already mid-path at t=0:
+       state at t=6s is identical to t=0s, with no dot parked off-path. -->
+
+  <!-- every conversation carries a pulse, not one in fifty -->
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3.4s"><mpath href="#conversation-qa-full-coverage-in1" xlink:href="#conversation-qa-full-coverage-in1"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1s"><mpath href="#conversation-qa-full-coverage-in2" xlink:href="#conversation-qa-full-coverage-in2"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2s"><mpath href="#conversation-qa-full-coverage-in3" xlink:href="#conversation-qa-full-coverage-in3"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3s"><mpath href="#conversation-qa-full-coverage-in4" xlink:href="#conversation-qa-full-coverage-in4"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4s"><mpath href="#conversation-qa-full-coverage-in5" xlink:href="#conversation-qa-full-coverage-in5"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-5s"><mpath href="#conversation-qa-full-coverage-in6" xlink:href="#conversation-qa-full-coverage-in6"/></animateMotion>
+  </use>
+
+  <!-- the rubric drips into the lattice from above -->
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulseSmall" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-0.4s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.16;1"><mpath href="#conversation-qa-full-coverage-rub1" xlink:href="#conversation-qa-full-coverage-rub1"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-0.4s" values="0;1;1;0;0" keyTimes="0;0.03;0.13;0.17;1"/>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulseSmall" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.4s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.16;1"><mpath href="#conversation-qa-full-coverage-rub3" xlink:href="#conversation-qa-full-coverage-rub3"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-2.4s" values="0;1;1;0;0" keyTimes="0;0.03;0.13;0.17;1"/>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulseSmall" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-4.4s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.16;1"><mpath href="#conversation-qa-full-coverage-rub4" xlink:href="#conversation-qa-full-coverage-rub4"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="-4.4s" values="0;1;1;0;0" keyTimes="0;0.03;0.13;0.17;1"/>
+  </use>
+
+  <!-- scored results run out to the per-team coaching channels -->
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-0.5s"><mpath href="#conversation-qa-full-coverage-rail1" xlink:href="#conversation-qa-full-coverage-rail1"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-2.1s"><mpath href="#conversation-qa-full-coverage-rail2" xlink:href="#conversation-qa-full-coverage-rail2"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-5.1s"><mpath href="#conversation-qa-full-coverage-rail2" xlink:href="#conversation-qa-full-coverage-rail2"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-3.7s"><mpath href="#conversation-qa-full-coverage-rail3" xlink:href="#conversation-qa-full-coverage-rail3"/></animateMotion>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulse">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="-1.3s"><mpath href="#conversation-qa-full-coverage-rail4" xlink:href="#conversation-qa-full-coverage-rail4"/></animateMotion>
+  </use>
+
+  <!-- calibration: a scored conversation drops out of the flow, STOPS at the human
+       auditing the scorer, and only afterwards does a refinement climb back in -->
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulseDeep" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.35;1"><mpath href="#conversation-qa-full-coverage-caldown" xlink:href="#conversation-qa-full-coverage-caldown"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="0s" values="0;1;1;0;0" keyTimes="0;0.04;0.35;0.45;1"/>
+  </use>
+  <use class="conversation-qa-full-coverage-pulse" xlink:href="#pulseSmall" opacity="0">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;0.55;0.92;1"><mpath href="#conversation-qa-full-coverage-calup" xlink:href="#conversation-qa-full-coverage-calup"/></animateMotion>
+    <animate attributeName="opacity" dur="6s" repeatCount="indefinite" begin="0s" values="0;0;1;1;0;0" keyTimes="0;0.55;0.6;0.9;0.96;1"/>
+  </use>
+</svg>

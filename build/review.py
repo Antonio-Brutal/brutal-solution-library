@@ -1,105 +1,93 @@
 #!/usr/bin/env python3
-"""Build the single-file review page: all 30 articles, full text, inline graphic + video."""
-import base64, json, os, re, html as H
-import markdown
+"""Single-file review page: all 30 articles rendered exactly as they will appear on the blog,
+with graphics and videos inlined. Navigation chrome is the only thing added."""
+import base64, os, re, html as H, importlib.util
 
 ROOT = "/Users/antonio.marques/Documents/Claude Projects/Brutal Articles"
 ART = os.path.join(ROOT, "articles")
 WEB = "/private/tmp/claude-502/-Users-antonio-marques-Documents-Claude-Projects-Brutal-Articles/a4398d1d-3a2d-4ca2-9dac-066edf9a7fbb/scratchpad/web30"
 OUT = os.path.join(ROOT, "review-all-30.html")
 
-import importlib.util
-spec = importlib.util.spec_from_file_location("b", os.path.join(ROOT, "build", "build.py"))
-b = importlib.util.module_from_spec(spec); spec.loader.exec_module(b)
-ORDER = b.ORDER
+
+def _load(name):
+    spec = importlib.util.spec_from_file_location(name, os.path.join(ROOT, "build", name + ".py"))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 
 
-def inline_svg(slug):
-    s = open(os.path.join(ART, "graphics", slug + ".svg"), encoding="utf-8").read()
-    s = re.sub(r"<\?xml[^>]*\?>", "", s).strip()
-    for i in set(re.findall(r'id="([^"]+)"', s)):
-        if not i.startswith(slug):
-            s = s.replace(f'id="{i}"', f'id="{slug}-{i}"')
-            s = s.replace(f"url(#{i})", f"url(#{slug}-{i})")
-            s = s.replace(f'href="#{i}"', f'href="#{slug}-{i}"')
-    return s
+brand = _load("brand")
+ORDER = _load("build").ORDER
+
+
+def inline_assets(inner, slug):
+    """Swap asset paths for data URIs so the page stands alone."""
+    svg = open(os.path.join(ART, "graphics", slug + ".svg"), encoding="utf-8").read()
+    svg = re.sub(r"<\?xml[^>]*\?>", "", svg).strip()
+    b64svg = base64.b64encode(svg.encode()).decode()
+    inner = inner.replace(f"../graphics/{slug}.svg", "data:image/svg+xml;base64," + b64svg)
+    inner = inner.replace(f"graphics/{slug}.svg", "data:image/svg+xml;base64," + b64svg)
+
+    poster = base64.b64encode(open(os.path.join(ART, "media", slug + "-poster.jpg"), "rb").read()).decode()
+    for pre in ("../media/", "media/"):
+        inner = inner.replace(f"{pre}{slug}-poster.jpg", "data:image/jpeg;base64," + poster)
+
+    motion = open(os.path.join(ART, "motion", slug + ".svg"), encoding="utf-8").read()
+    motion = re.sub(r"<\?xml[^>]*\?>", "", motion).strip()
+    b64m = base64.b64encode(motion.encode()).decode()
+    for pre in ("../motion/", "motion/"):
+        inner = inner.replace(f"{pre}{slug}.svg", "data:image/svg+xml;base64," + b64m)
+    return inner
 
 
 def build():
-    md = markdown.Markdown(extensions=["extra", "sane_lists"])
     cards, toc = [], []
     for i, (slug, title, cust, cat) in enumerate(ORDER, 1):
         p = os.path.join(ART, slug + ".md")
         if not os.path.exists(p):
             continue
-        src = open(p, encoding="utf-8").read()
-        # pull the graphic + video out of the flow; we render them ourselves
-        src = re.sub(r"!\[[^\]]*\]\(graphics/[^)]+\)", "", src)
-        src = re.sub(r"<video[^>]*></video>", "", src)
-        md.reset()
-        body = md.convert(src)
-        vid = base64.b64encode(open(os.path.join(WEB, slug + ".mp4"), "rb").read()).decode()
-        toc.append(f'<a href="#{slug}"><span class="tn">{i:02d}</span>{H.escape(title)}'
+        inner, real_title, _ = brand.render_article(open(p, encoding="utf-8").read(), slug)
+        inner = inline_assets(inner, slug)
+        toc.append(f'<a href="#{slug}"><span class="tn">{i:02d}</span>'
+                   f'<span class="tt">{H.escape(real_title)}</span>'
                    f'<span class="tc">{H.escape(cat)}</span></a>')
-        cards.append(f"""
-<section id="{slug}">
-  <div class="shead"><span class="num">{i:02d}</span>
-    <div><h2>{H.escape(title)}</h2><p class="cust">{H.escape(cust)} &middot; {H.escape(cat)}</p></div>
-    <a class="top" href="#top">top</a></div>
-  <div class="assets">
-    <figure><figcaption>hero graphic</figcaption><div class="svgwrap">{inline_svg(slug)}</div></figure>
-    <figure><figcaption>video</figcaption>
-      <video controls loop muted playsinline preload="none" src="data:video/mp4;base64,{vid}"></video></figure>
-  </div>
-  <div class="prose">{body}</div>
-</section>""")
+        cards.append(f'<article id="{slug}"><div class="container">'
+                     f'<div class="meta"><span>{H.escape(cat)}</span><span>{H.escape(cust)}</span></div>'
+                     f'{inner}<a class="totop" href="#top">Back to index</a>'
+                     f'</div></article><hr class="sep">')
 
-    css = """
-:root{--bg:#050608;--panel:#0a0d12;--ink:#f8fafc;--muted:#90a1b9;--dim:#62748e;--lime:#bbf451;--line:#1e293b}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif;line-height:1.7}
-.hero{padding:64px 32px 36px;border-bottom:1px solid var(--line)}
-.hin{max-width:1200px;margin:0 auto}
-h1{font-size:38px;margin:0 0 12px;letter-spacing:-.025em}
-.hin>p{color:var(--muted);max-width:72ch;margin:0}
-.n{color:var(--lime)}
-.toc{max-width:1200px;margin:0 auto;padding:28px 32px 8px;display:grid;
-     grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:6px}
-.toc a{display:flex;gap:10px;align-items:baseline;color:var(--muted);text-decoration:none;
-       font-size:13px;padding:7px 10px;border-radius:6px;border:1px solid transparent}
-.toc a:hover{color:var(--ink);border-color:var(--line);background:var(--panel)}
-.tn{color:var(--dim);font-family:ui-monospace,Menlo,monospace;font-size:11px}
-.tc{margin-left:auto;color:var(--lime);font-size:10px;letter-spacing:.06em;opacity:.8}
-main{max-width:1200px;margin:0 auto;padding:20px 32px 100px}
-section{border-top:1px solid var(--line);padding:52px 0 8px;scroll-margin-top:16px}
-.shead{display:flex;gap:16px;align-items:flex-start;margin-bottom:26px}
-.num{color:var(--dim);font-family:ui-monospace,Menlo,monospace;font-size:13px;padding-top:6px}
-.shead h2{margin:0;font-size:26px;letter-spacing:-.02em}
-.cust{margin:4px 0 0;color:var(--muted);font-size:13px}
-.top{margin-left:auto;color:var(--dim);font-size:12px;text-decoration:none}
-.top:hover{color:var(--lime)}
-.assets{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:34px}
-figure{margin:0}
-figcaption{color:var(--dim);font-size:10px;letter-spacing:.16em;margin-bottom:8px}
-.svgwrap svg,video{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line);background:#000}
-.prose{max-width:74ch}
-.prose h1{font-size:27px;margin:0 0 14px;letter-spacing:-.02em}
-.prose blockquote{margin:0 0 26px;padding:0;border:0;color:var(--muted);font-size:17px}
-.prose h2{font-size:20px;margin:36px 0 12px}
-.prose h3{font-size:16px;margin:26px 0 10px;color:var(--lime)}
-.prose p{font-size:16px;margin:0 0 16px}
-.prose em{color:var(--muted)}
-@media(max-width:900px){.assets{grid-template-columns:1fr}.toc{grid-template-columns:1fr}}
+    chrome = """
+.rhero{padding:5rem 1.5rem 2rem;border-bottom:1px solid #1d293d}
+.rhero-in{max-width:72rem;margin:0 auto}
+.rhero h1{font-size:2.25rem;margin:0 0 1rem}
+.rhero p{color:#90a1b9;max-width:66ch;margin:0;font-size:1rem}
+.rhero b{color:#9de500;font-weight:700}
+.toc{max-width:72rem;margin:0 auto;padding:1.75rem 1.5rem 2.5rem;display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.35rem}
+.toc a{display:flex;gap:.7rem;align-items:baseline;text-decoration:none;padding:.5rem .7rem;
+ border-radius:.6rem;border:1px solid transparent}
+.toc a:hover{border-color:#1d293d;background:rgba(15,23,43,.5)}
+.tn{color:#62748e;font-family:ui-monospace,Menlo,monospace;font-size:.7rem}
+.tt{color:#cad5e2;font-size:.85rem}
+.toc a:hover .tt{color:#fff}
+.tc{margin-left:auto;color:#9de500;font-size:.6rem;font-weight:700;text-transform:uppercase;
+ letter-spacing:.1em;opacity:.75}
+article{padding:4rem 1.5rem 2rem}
+.sep{border:0;border-top:1px solid #1d293d;margin:0}
+.totop{display:inline-block;margin-top:3.5rem;color:#62748e;text-decoration:none;font-size:.7rem;
+ font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.totop:hover{color:#9de500}
+@media(max-width:820px){.toc{grid-template-columns:1fr}.rhero h1{font-size:1.75rem}}
 """
     page = f"""<title>Brutal.ai — 30 Articles for Review</title>
-<style>{css}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>{brand.ARTICLE_CSS}{chrome}</style>
 <a id="top"></a>
-<div class="hero"><div class="hin"><h1>Brutal.ai — 30 articles</h1>
-<p>Every article in full, each with its hero schematic and demo loop. <span class="n">{len(cards)}</span> pieces,
-all publication-ready: no production notes, no invented metrics, no named clients.
-Press play on any video. Jump to any piece below.</p></div></div>
+<div class="rhero"><div class="rhero-in"><h1>Solution Library — Review</h1>
+<p><b>30</b> articles, each rendered exactly as it will appear on the blog, with its schematic and
+demo loop in place. All publication-ready: no production notes, no invented metrics, no named clients.
+Jump to any piece below.</p></div></div>
 <nav class="toc">{''.join(toc)}</nav>
-<main>{''.join(cards)}</main>"""
+{''.join(cards)}"""
     open(OUT, "w", encoding="utf-8").write(page)
     print(f"built {len(cards)} articles -> {OUT} ({os.path.getsize(OUT)/1024/1024:.1f} MB)")
 
