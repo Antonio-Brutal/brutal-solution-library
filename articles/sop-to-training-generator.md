@@ -10,7 +10,7 @@ Four hundred pages of operating manual is an unsorted legal obligation. Until ev
 
 Regulation (EC) No 852/2004, Annex II, Chapter XII requires food business operators to ensure that food handlers are supervised and instructed or trained in food hygiene matters commensurate with their work activity, and that those responsible for HACCP procedures have received adequate training. The wording is the point. The law names no certificate, no syllabus and no number of hours. It names proportionality to what the person actually does.
 
-An inspector tests that standard by asking one member of staff about one task. A manual organised by system rather than by role is evidence of documentation, not evidence of training, and the gap between the two becomes visible only when somebody in an apron is asked a question nobody ever specifically taught them.
+An inspector tests that standard by asking one member of staff about one task. A manual organised by system instead of by role is evidence of documentation, not evidence of training, and the gap between the two becomes visible only when somebody in an apron is asked a question nobody ever specifically taught them.
 
 The franchise network we built this for spans several countries: hundreds of locations, most owner-operated, most of the frontline staff in their first job or their third this year. The manual is genuinely good, refined over two decades, and it answers almost every question a new employee will have. Almost nobody has opened it, because it was written for the network rather than for the nineteen-year-old on their first shift.
 
@@ -44,7 +44,7 @@ A candidate question with no branch behind it is discarded automatically. That r
 
 ## The gap list is the most valuable output, and nobody asked for it
 
-When a role needs an answer the manual does not contain, the generator raises the gap rather than filling it. It does not supply plausible industry practice, because an unsourced instruction inserted into training is how a network acquires a standard nobody approved and cannot defend.
+When a role needs an answer the manual does not contain, the generator raises the gap and leaves it open. It does not supply plausible industry practice, because an unsourced instruction inserted into training is how a network acquires a standard nobody approved and cannot defend.
 
 Each gap names the role, the task, the countries where it applies and the point in the workflow where the module would otherwise have to invent something. Collected, they are the things the network assumed everyone knew and never wrote down. Nobody asked for that list. It is now the output the operations team reads first, because every line on it is a place where the floor has already been improvising.
 
@@ -56,13 +56,13 @@ Completion evidence is not certification. A training system may record that a na
 
 A franchisor that certifies a franchisee's employees is asserting a degree of control over those employees that it spends considerable effort elsewhere denying, in a record that is written down and dated.
 
-These limits are wired into the publish path rather than written into guidance. Modules covering food safety, workplace safety and alcohol service cannot be published by any path except a named compliance owner's approval. The system may not mark anyone as certified, may not decide which roles exist, may not fill a gap the manual leaves open, and may not publish any version of any module to any location without a named human approving that version.
+These limits are wired into the publish path, not written into guidance. Modules covering food safety, workplace safety and alcohol service cannot be published by any path except a named compliance owner's approval. The system may not mark anyone as certified, may not decide which roles exist, may not fill a gap the manual leaves open, and may not publish any version of any module to any location without a named human approving that version.
 
 ## When the policy changes, we can name who was trained on the old version
 
 Policy changes are made once, in the manual, and the currency loop is why the system does not rot. When a section is edited, the generator identifies every module and question derived from it, regenerates them, and produces a diff of what changed. An operations lead reviews that diff and approves the publish. Nothing reaches staff automatically.
 
-On approval the network gets two things it never had. Updated training reaches the floor within days of a policy change rather than never, and head office can name which people, at which locations, still hold the superseded version.
+On approval the network gets two things it never had. Updated training reaches the floor within days of a policy change (previously the honest answer was never), and head office can name which people, at which locations, still hold the superseded version.
 
 That second list is what an inspection turns on. "We updated the manual" is a statement about a document. "These named people at these sites were shown this version of this procedure on these dates" is a statement about training, which is what the regulation asked for.
 
@@ -82,7 +82,7 @@ No, and the mapping stage is the fastest audit of it you will get. Our first run
 
 ### How quickly does training reflect a policy change?
 
-Days rather than never, and the constraint is human review rather than generation. Editing the source section regenerates every module and question derived from it and produces a diff of what changed. An operations lead approves the publish. The system then names everyone still holding the superseded version, by person and by location.
+Days, and the constraint is human review, not generation. Editing the source section regenerates every module and question derived from it and produces a diff of what changed. An operations lead approves the publish. The system then names everyone still holding the superseded version, by person and by location.
 
 ## Is your training a document or a demonstration?
 

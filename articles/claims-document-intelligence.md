@@ -8,7 +8,7 @@
 
 A claim file usually names the third party whose failure caused the loss. Systems built to read for damage and coverage position go straight past that name. Subrogation is the insurer's right, after indemnifying its policyholder, to pursue the responsible party in the policyholder's name, and it is the only part of a claim file that can return money rather than spend it.
 
-That right is preserved or destroyed in the first days of a file, which is exactly when nobody is looking for it. Recovery depends on identifying the responsible party, preserving the physical evidence such as the failed appliance or the burst hose before remediation removes it, and not having signed the right away in advance. Commercial leases and construction contracts routinely carry waiver-of-subrogation clauses that extinguish it outright, and the limitation clock against the third party runs from the date of the loss, not from the day the insurer pays.
+That right is preserved or destroyed in the first days of a file, which is when nobody is looking for it. Recovery depends on identifying the responsible party, preserving the physical evidence such as the failed appliance or the burst hose before remediation removes it, and not having signed the right away in advance. Commercial leases and construction contracts routinely carry waiver-of-subrogation clauses that extinguish it outright, and the limitation clock against the third party runs from the date of the loss, not from the day the insurer pays.
 
 The insurer in this engagement is a regional property and casualty carrier handling thousands of claims a month, with experienced licensed adjusters whose job is judgment: what the policy covers, whether an estimate is reasonable, whether the evidence holds together. A claim file runs to dozens of documents arriving over days or weeks, so before any judgment happens someone has to read all of it, and then read it again each time a new attachment lands. Recovery was not on that reading list.
 
@@ -18,7 +18,7 @@ We built the adjuster brief around coverage and quantum, which is what adjusters
 
 The signals we were missing were unremarkable pieces of text that a coverage reader has no reason to stop on. A throwaway sentence in the first notice of loss narrative saying a plumber had been out the week before. A named manufacturer's part on a line of a repair estimate. A photograph that happens to show the neighbouring unit. Each one is trivial in isolation and each one is a potential defendant.
 
-The extraction that mattered turned out to be relational rather than field-level, which is why we added a party graph. Every person and company the documents mention is captured as a node, with their role and the document that ties them to the cause of loss, so the plumber in the narrative, the manufacturer on the estimate line and the neighbour in the photograph become connected entities rather than stray strings in three unrelated files.
+The extraction that mattered turned out to be relational, not field-level, which is why we added a party graph. Every person and company the documents mention is captured as a node, with their role and the document that ties them to the cause of loss, so the plumber in the narrative, the manufacturer on the estimate line and the neighbour in the photograph become connected entities rather than stray strings in three unrelated files.
 
 <img src="motion/claims-document-intelligence.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -26,7 +26,7 @@ The extraction that mattered turned out to be relational rather than field-level
 
 ## The party graph, and why it never touches the coverage view
 
-Recovery potential never appears anywhere in the coverage view, and that separation is enforced in code rather than written into a style guide. An adjuster who knows a loss might be recoverable has a reason to pay a marginal claim, because the money looks likely to come back. That is a contaminated coverage decision even when it reaches the right answer, and it is the kind of contamination a regulator, a reinsurer or a bad-faith claim will eventually ask about.
+Recovery potential never appears anywhere in the coverage view, and that separation is enforced in code, not written into a style guide. An adjuster who knows a loss might be recoverable has a reason to pay a marginal claim, because the money looks likely to come back. That is a contaminated coverage decision even when it reaches the right answer, and it is the kind of contamination a regulator, a reinsurer or a bad-faith claim will eventually ask about.
 
 So the party graph and the coverage flags are separate surfaces with separate access, and neither one feeds the other. The recovery surface is read by the subrogation team, who are the people the information is useful to and the people whose incentives it does not distort. The coverage surface shows the adjuster the policy, the evidence and the open questions, and shows nothing at all about who else might end up paying.
 

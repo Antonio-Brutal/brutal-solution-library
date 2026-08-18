@@ -34,7 +34,7 @@ Use a single axis when the timeline will only ever be read by the people fixing 
 
 ## We display clock skew instead of hiding it
 
-We show clock skew as a field rather than correcting for it, because correcting for it means guessing. Once we were on event time, a partner's API gateway turned out to be running several seconds off ours, and the honest fix was not to pick a winner between the two clocks. We stopped normalising clocks at all and started displaying the offset beside the entries it affects.
+We show clock skew as a field instead of correcting for it, because correcting for it means guessing. Once we were on event time, a partner's API gateway turned out to be running several seconds off ours, and the honest fix was not to pick a winner between the two clocks. We stopped normalising clocks at all and started displaying the offset beside the entries it affects.
 
 The rule we settled on is narrow and holds everywhere: the copilot may present two timestamps and their sources, and may never assert an order. "The gateway logged its first 5xx at its own 14:02:11, our deploy service recorded completion at its own 14:02:09, and the measured offset between those clocks is about four seconds" is a sentence an engineer can act on and a compliance officer can defend. "The deploy caused the errors" is not.
 
@@ -44,11 +44,11 @@ The rule we settled on is narrow and holds everywhere: the copilot may present t
 
 ## Read-only credentials are the safety argument
 
-Every credential the copilot holds is read-only, and that is the whole safety argument rather than a paragraph in a prompt. There is no write path to production, so no instruction, no injected log line and no chain of reasoning can produce one. Your security team verifies the property by reading the permission grants rather than by trusting a description of model behaviour.
+Every credential the copilot holds is read-only, and that is the whole safety argument. Not a paragraph in a prompt: the permission grants themselves. There is no write path to production, so no instruction, no injected log line and no chain of reasoning can produce one. Your security team verifies the property by reading the permission grants rather than by trusting a description of model behaviour.
 
 That matters most during an incident, because incidents are when log lines carry arbitrary text from customers and partners, and when the humans in the channel are too busy to audit what a tool just did.
 
-The boundary around what it may decide is architectural rather than editorial. It cannot restart a service, roll back a deploy, flip a feature flag, scale a cluster or fail over a region. It cannot post to the status page or send an external word to anyone. It cannot open, close or amend a regulatory notification. It cannot classify an incident.
+The boundary around what it may decide is architectural, not editorial. It cannot restart a service, roll back a deploy, flip a feature flag, scale a cluster or fail over a region. It cannot post to the status page or send an external word to anyone. It cannot open, close or amend a regulatory notification. It cannot classify an incident.
 
 ## Contributing factors are written as questions, because a timeline shows correlation
 
@@ -58,7 +58,7 @@ The engineers who ran the incident own the analysis and the action items. What c
 
 ## Who is allowed to say the word major
 
-A named compliance officer says it, and the copilot's job is to make that person's decision faster and better evidenced rather than to pre-empt it. It assembles an evidence pack against each DORA classification criterion and presents each one as an open question with the underlying entries attached: which clients were affected and across which window, whether data losses are evidenced or merely suspected, which markets saw degradation, how long the service was down and by whose clock.
+A named compliance officer says it, and the copilot's job is to make that person's decision faster and better evidenced, never to pre-empt it. It assembles an evidence pack against each DORA classification criterion and presents each one as an open question with the underlying entries attached: which clients were affected and across which window, whether data losses are evidenced or merely suspected, which markets saw degradation, how long the service was down and by whose clock.
 
 A machine that classifies an incident as major has effectively initiated a regulatory filing. A machine that classifies one as not major has effectively suppressed one. Both are decisions carrying a named person's professional accountability, and neither becomes safer because the machine is usually right.
 
@@ -76,7 +76,7 @@ No, and we will not build it with any. Every integration is read-only, which mak
 
 ### How do you handle timestamps from systems we do not control, like a partner gateway?
 
-We display the offset rather than correcting it. Each entry carries the emitting system's clock, our ingestion time and the measured skew where one can be established, and third-party entries are labelled as third-party clocks. The copilot may show two timestamps side by side with their sources, and is not permitted to assert which of the two events happened first.
+We display the offset and leave it uncorrected. Each entry carries the emitting system's clock, our ingestion time and the measured skew where one can be established, and third-party entries are labelled as third-party clocks. The copilot may show two timestamps side by side with their sources, and is not permitted to assert which of the two events happened first.
 
 ### What happens when the log platform itself is degraded during the incident?
 

@@ -40,7 +40,7 @@ We refuse to build the consolidated cross-donor beneficiary total that executive
 
 European Commission grant agreements specify the conversion convention for costs incurred in other currencies, typically the InforEuro monthly accounting rate for the month of the expense rather than the bank rate on the date a payment cleared. Costs falling outside the eligibility period are ineligible regardless of when they were paid.
 
-Those two rules together are why a stored converted amount is a liability rather than a convenience. Conversion depends on the month the cost was incurred, eligibility depends on the same date, and the bank rate that actually hit the account depends on treasury timing no donor cares about. One stored figure cannot satisfy the ledger and the grant agreement at once.
+Those two rules together are why a stored converted amount is a liability, not a convenience. Conversion depends on the month the cost was incurred, eligibility depends on the same date, and the bank rate that actually hit the account depends on treasury timing no donor cares about. One stored figure cannot satisfy the ledger and the grant agreement at once.
 
 So we stopped storing converted amounts anywhere in the system. Every amount is held in its transaction currency with its transaction date, and conversion happens at render time under the requesting donor's stated convention. The reported figure travels with six things attached: source amount, currency, date, rate, rate source and result. Any reader can recompute it, and so can we, three years later, with an auditor in the room.
 
@@ -64,7 +64,7 @@ Where two sources disagree, both values travel into the draft with the reason fo
 
 ### Can we get one total for people reached across all our donors?
 
-Not from this engine, and the reason is contractual rather than technical. Each grant agreement fixes its own definition, eligibility window and disaggregation, so adding figures computed under incompatible rules produces a total that is wrong for every reader. We produce each donor's figure separately, each reproducible, each carrying the definition it was computed under.
+Not from this engine, and the reason is contractual, not technical. Each grant agreement fixes its own definition, eligibility window and disaggregation, so adding figures computed under incompatible rules produces a total that is wrong for every reader. We produce each donor's figure separately, each reproducible, each carrying the definition it was computed under.
 
 ### What happens when a donor changes its indicator definition mid-grant?
 

@@ -14,11 +14,11 @@ Every company keeps its books differently and none of them is wrong to. One runs
 
 ## Who each number in the pack is written for
 
-Each number in the pack is computed for a named reader, and EBITDA is where that bites. The investment committee reads Management EBITDA under the fund's adjustment policy; the lender reads Consolidated EBITDA as defined in that company's facility agreement. Those are different contractual constructions of the same ledger, and the engine's job is to keep both computable, labelled and reconciled rather than to choose between them.
+Each number in the pack is computed for a named reader, and EBITDA is where that bites. The investment committee reads Management EBITDA under the fund's adjustment policy; the lender reads Consolidated EBITDA as defined in that company's facility agreement. Those are different contractual constructions of the same ledger, and the engine's job is to keep both computable, labelled and reconciled, never to choose between them.
 
-Basis: the named rule set under which a metric was computed, comprising the mapping version, the adjustment policies applied, their caps, and their look-forward limits. A metric published without its basis is an assertion rather than a number, since the same trial balance yields a different and equally correct EBITDA on the fund's management basis and on a facility agreement's basis.
+Basis: the named rule set under which a metric was computed, comprising the mapping version, the adjustment policies applied, their caps, and their look-forward limits. A metric published without its basis is an assertion, not a number, since the same trial balance yields a different and equally correct EBITDA on the fund's management basis and on a facility agreement's basis.
 
-Every metric the engine publishes names its basis, and any two figures shown side by side must share one or be reconciled line by line from the one to the other. That reconciliation is an exhibit in the pack rather than a working file on a laptop, because the gap between the management number and the covenant number is where the uncomfortable surprises live.
+Every metric the engine publishes names its basis, and any two figures shown side by side must share one or be reconciled line by line from the one to the other. That reconciliation is an exhibit in the pack, not a working file on a laptop, because the gap between the management number and the covenant number is where the uncomfortable surprises live.
 
 ## Add-backs are contract terms, not accounting opinions
 
@@ -42,7 +42,7 @@ Each company connects the way it can, through an API where the accounting system
 
 ## An unexplained variance found on day two is a phone call
 
-When a line moves materially against budget, forecast or prior period, the engine drafts the explanation an analyst would otherwise assemble by hand and grounds it in the detail underneath. Gross margin fell at one company because a mix shift toward a lower-margin line coincided with a raw material price increase, with the specific accounts and volumes cited beneath the sentence. Where the portfolio company submitted its own commentary, it is carried through and attributed rather than paraphrased into the fund's voice.
+When a line moves materially against budget, forecast or prior period, the engine drafts the explanation an analyst would otherwise assemble by hand and grounds it in the detail underneath. Gross margin fell at one company because a mix shift toward a lower-margin line coincided with a raw material price increase, with the specific accounts and volumes cited beneath the sentence. Where the portfolio company submitted its own commentary, it is carried through and attributed, not paraphrased into the fund's voice.
 
 The draft is also required to admit ignorance. When a number moves and nothing in the data explains it, the draft says so and names the question to put to the controller. An unexplained variance surfaced on day two is a phone call. The same variance discovered in a board meeting is an incident.
 

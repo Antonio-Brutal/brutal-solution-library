@@ -8,7 +8,7 @@
 
 The visible problem in a lettings inbox is the sorting, so the sorting is where we started. Thousands of tenant emails a month were landing in one shared address for a portfolio of several thousand units, mixed together in arrival order: maintenance requests, billing questions, lease queries, complaints about neighbours, parking. The classifier labelled each message by type and urgency, resolved every sender to a tenant and a unit, and drafted an acknowledgment for a manager to send, and all of that worked.
 
-The pilot then failed an internal audit for a reason no accuracy metric would have caught. Three tenants reported the same lift outage within an hour. The system correctly recognised them as the same fault, deduplicated them into one work order, and two of those tenants vanished from the record as individual reporters. Every classification in that batch was correct. The legal position was still wrong, and no amount of model tuning would have found it, because the defect was in the data model rather than in the predictions.
+The pilot then failed an internal audit for a reason no accuracy metric would have caught. Three tenants reported the same lift outage within an hour. The system correctly recognised them as the same fault, deduplicated them into one work order, and two of those tenants vanished from the record as individual reporters. Every classification in that batch was correct. The legal position was still wrong, and no amount of model tuning would have found it, because the defect was in the data model, not in the predictions.
 
 That failure sent us back to a question we had skipped: what is a tenant's email, legally, at the moment it arrives. Answering it properly changed the shape of the system, and everything since has been built downward from the answer rather than upward from the inbox.
 
@@ -18,7 +18,7 @@ A landlord's liability for disrepair generally runs from the point at which the 
 
 Specific hazards now carry fixed statutory timescales on top of that general position. Under the Awaab's Law regulations phased in for social landlords in England from October 2025, emergency hazards must be made safe within twenty-four hours, and damp and mould hazards must be investigated within a set number of working days of the report. The clock runs from the tenant's report, not from the moment a manager opens it, not from the moment a work order is raised.
 
-Notice event: the moment a tenant's report is received by the agent, independent of whether any human has read it. Every inbound message describing a defect creates a notice event with an immutable timestamp, and the operational record is assembled from notice events rather than from tickets.
+Notice event: the moment a tenant's report is received by the agent, independent of whether any human has read it. Every inbound message describing a defect creates a notice event with an immutable timestamp, and the operational record is assembled from notice events, not from tickets.
 
 The practical consequence is that the ticket stopped being the primary object. A ticket is an operational convenience that can be merged, reassigned, reopened and closed. A notice event is a fact about a specific person on a specific date, and facts do not get merged for convenience.
 
@@ -40,9 +40,9 @@ Closing a report is a human act, and so is deciding that two reports are the sam
 
 Urgency in this system is a hazard classification with a named regime and a due-by timestamp attached, not a red flag in a queue. The word urgent, applied by a tool nobody configured against any standard, is indefensible six months later when a solicitor asks what the agent understood the report to be and what timescale applied to it.
 
-So a report is classified into a hazard category with the regime that governs it, and the regime supplies the deadline. Water where it should not be, the smell of gas, no heating in a cold snap, a door that will not lock, damp and visible mould: each maps to a category, each category carries a response requirement, and the due-by is computed from the notice timestamp rather than from the moment a human triaged it. Photographs are read as part of the message, because tenants photograph problems more reliably than they describe them.
+So a report is classified into a hazard category with the regime that governs it, and the regime supplies the deadline. Water where it should not be, the smell of gas, no heating in a cold snap, a door that will not lock, damp and visible mould: each maps to a category, each category carries a response requirement, and the due-by is computed from the notice timestamp, not from the moment a human triaged it. Photographs are read as part of the message, because tenants photograph problems more reliably than they describe them.
 
-Classification runs on the message content and context rather than on whether the tenant wrote URGENT in the subject line, since people in a genuine emergency rarely write tidy emails. Where the classifier is not confident, the report is escalated rather than downgraded, and a manager sees it with the candidate categories ranked.
+Classification runs on the message content and context, not on whether the tenant wrote URGENT in the subject line. People in a genuine emergency rarely write tidy emails. Where the classifier is not confident, the report is escalated, not downgraded, and a manager sees it with the candidate categories ranked.
 
 Contractor dispatch stays with a person, including on emergencies. The work order is created and flagged within seconds, the on-duty manager is notified, and the callout that commits somebody else's money is authorised by a human who can also tell the difference between a leak and a burst main.
 
@@ -64,7 +64,7 @@ No. It removes the sorting, the retyping into the maintenance system and the fir
 
 ### What happens when the system classifies a hazard wrongly?
 
-Low-confidence reports escalate rather than downgrade, so ambiguity produces a person looking at it, not a quiet delay. Every classification is recorded with the evidence it used, the manager who confirmed or changed it, and the timestamp, which means a reclassification is an auditable event. The notice timestamp itself never changes, whatever the category becomes.
+Low-confidence reports escalate instead of downgrading, so ambiguity produces a person looking at it, not a quiet delay. Every classification is recorded with the evidence it used, the manager who confirmed or changed it, and the timestamp, which means a reclassification is an auditable event. The notice timestamp itself never changes, whatever the category becomes.
 
 ### We manage private rented stock. Do the statutory timescales apply to us?
 

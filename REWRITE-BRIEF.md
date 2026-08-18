@@ -87,3 +87,15 @@ two or three sentences, ending in an invitation to talk
 ```
 
 Length: 1,300 to 1,700 words including the FAQ. Keep both existing media embeds exactly where they are, byte-identical, including alt text and caption.
+
+## Rule 7: break the machine rhythm
+
+AI-drafted prose has a rhythm detectors and readers both pick up, separate from word choice. The corpus audit found it everywhere. These rules apply to every article and every future edit:
+
+1. **"Rather than" is rationed.** Corpus count was 205, roughly seven per article; no human does that. Maximum three per article. Replace with "instead of", "not", restructure, or plain assertion.
+2. **Twin-sentence antithesis is rationed.** "Receipt is notice. Reading is not." is a fine sentence; three per section is a metronome. Keep at most two per article, flatten the rest into ordinary sentences.
+3. **Vary the lists.** "Cannot A, cannot B, cannot C" triples everywhere: make some lists two items, some four, break some into prose, interrupt one with an aside.
+4. **Not every paragraph earns a mic drop.** Let some paragraphs end on a plain fact. The aphorisms that survive gain force from the quiet around them.
+5. **Allow human texture.** Per article, one or two parenthetical asides (this is what parentheses are for), one or two honest hedges ("in practice", "on the accounts we saw", "more often than not"), an occasional sentence starting with And or But. Paragraph lengths should visibly vary: a one-sentence paragraph beside a six-sentence one.
+6. **Thin the intensifiers.** "Exactly", "precisely", "deliberately" carry force only when scarce.
+7. **Never fake humanity.** No injected typos, no grammar errors, no manufactured rambling. Facts, structure and honesty rules stay untouched. The goal is prose a careful human editor would actually produce, which is also the prose that scores least machine-made.

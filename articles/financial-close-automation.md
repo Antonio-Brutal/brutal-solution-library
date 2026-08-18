@@ -18,19 +18,19 @@ Every night's revenue in a hotel group carries two mappings at once. Internally 
 
 City and tourist taxes make the split concrete. The hotel collects them from the guest as agent for a municipality, so they are a liability from the moment they are charged and never revenue under either mapping. A tolerance-based matcher seeing a folio total on the bank and a smaller revenue figure in the ledger reports a break, when the difference is a tax the hotel is holding on somebody else's behalf.
 
-We carry both mappings on every posting rather than converting between them at period end. Reconciliation happens under the statutory books, because that is what the bank and the auditor see. Reporting happens under USALI, because that is what a general manager can act on.
+We carry both mappings on every posting instead of converting between them at period end. Reconciliation happens under the statutory books, because that is what the bank and the auditor see. Reporting happens under USALI, because that is what a general manager can act on.
 
 ## Merchant model, agency model, and money that arrives late and short
 
 The gap between folio revenue and bank receipt is set by the distribution channel, and the channel is knowable in advance. Under the agency model, the hotel collects from the guest and the online travel agent invoices its commission afterwards, so the receipt matches the folio and the commission is a separate payable. Under the merchant model, the travel agent is merchant of record, collects from the guest itself, and remits net of commission days after checkout, batched across many stays.
 
-Under the merchant model the bank receipt therefore cannot equal folio revenue. It is short by a contracted commission, late by a settlement period, and spread across bookings that need not share a month. The difference is a cost of distribution rather than an error. Card acquiring adds a third calendar, settling net of interchange and scheme fees on the acquirer's cycle, so one night's business can reach the bank in three pieces on three days.
+Under the merchant model the bank receipt therefore cannot equal folio revenue. It is short by a contracted commission, late by a settlement period, and spread across bookings that need not share a month. The difference is a cost of distribution, not an error. Card acquiring adds a third calendar, settling net of interchange and scheme fees on the acquirer's cycle, so one night's business can reach the bank in three pieces on three days.
 
-The engine we shipped first matched on amount and date within a tolerance, and it drowned exactly the properties with the highest online travel agent mix. Every merchant remittance was one net figure spanning many stays, arriving in a settlement period that crossed the month boundary. Nothing matched, so everything became an exception, and the exception queue was longer than the manual process it was supposed to retire.
+The engine we shipped first matched on amount and date within a tolerance, and it drowned the properties with the highest online travel agent mix, which were also the group's biggest earners. Every merchant remittance was one net figure spanning many stays, arriving in a settlement period that crossed the month boundary. Nothing matched, so everything became an exception, and the exception queue was longer than the manual process it was supposed to retire.
 
 We replaced amount matching with expected-settlement modelling. For each folio the engine derives what should land on the bank given the channel, the contracted commission rate, the payment method, the acquirer's interchange and the settlement calendar. It reconciles each batch against the sum of those expectations and attributes whatever is left over.
 
-Expected settlement is the amount a given folio or batch should produce on the bank once the contractually known deductions for its distribution channel, payment method and settlement calendar are applied. Reconciliation compares actuals against expected settlement rather than against gross revenue, and the residual is the finding.
+Expected settlement is the amount a given folio or batch should produce on the bank once the contractually known deductions for its distribution channel, payment method and settlement calendar are applied. Reconciliation compares actuals against expected settlement instead of gross revenue, and the residual is the finding.
 
 <img src="motion/financial-close-automation.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -40,7 +40,7 @@ Expected settlement is the amount a given folio or batch should produce on the b
 
 The residuals worth their own exception class are the small ones that recur, not the large ones that shout. A large break gets chased anyway: somebody notices a missing batch and telephones the acquirer. The dangerous residual is the one too small to argue about on any single booking.
 
-Commission billed a fraction above the contracted rate is the clearest example. Per booking it is invisible, comfortably inside any tolerance. Across a year of bookings at a property with heavy third-party mix it is material, and it is precisely what an amount-matching engine is built to absorb. Contracted-rate drift became its own exception class, ranked by recurrence rather than by size, with the contract term and the applied rate shown side by side.
+Commission billed a fraction above the contracted rate is the clearest example. Per booking it is invisible, comfortably inside any tolerance. Across a year of bookings at a property with heavy third-party mix it is material, and it is precisely what an amount-matching engine is built to absorb. Contracted-rate drift became its own exception class, ranked by recurrence, not size, with the contract term and the applied rate shown side by side.
 
 That gives a controller a sorting rule. A residual repeating across every batch from one partner is a contract question and goes to commercial. A residual appearing once at one property is an operational question and goes to the property accountant. Ranking by value would bury the first underneath the second.
 
@@ -64,7 +64,7 @@ Underneath sits the trail: which transactions were matched against which expecta
 
 ### Do we have to replace our property management systems or our ERP?
 
-No. The copilot reads from the systems each property already runs and writes proposals rather than postings, so the source systems stay authoritative. Most groups we work with operate several property management systems and more than one ledger. That heterogeneity is a reason to build the reconciliation layer above them rather than a reason to consolidate first.
+No. The copilot reads from the systems each property already runs and writes proposals, never postings, so the source systems stay authoritative. Most groups we work with operate several property management systems and more than one ledger. That heterogeneity is a reason to build the reconciliation layer above them rather than a reason to consolidate first.
 
 ### How does the engine know what the commission should have been?
 

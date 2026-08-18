@@ -18,7 +18,7 @@ Co-determination is not a setting you can respect more or less. Deploying a cove
 
 A second clock runs alongside it. The EU Whistleblower Directive 2019/1937 requires acknowledgement of an internal report within seven days and feedback within three months, and it protects the reporting person's identity. A protected disclosure that lands in a general HR question log is both a confidentiality breach and a statutory deadline nobody started.
 
-Those two facts push in the same direction: per-person analytics had to become impossible in the design rather than switchable in the settings, and the sensitive routes had to leave the assistant entirely.
+Those two facts push in the same direction: per-person analytics had to become impossible in the design, not switchable in the settings, and the sensitive routes had to leave the assistant entirely.
 
 ## The question log we built and the one we were allowed to keep
 
@@ -40,13 +40,13 @@ On the sensitive list, the system produces nothing at all. Harassment, discrimin
 
 Generation-free path: a route through the system on which no model is invoked at all. The classifier's only output is a routing decision, and the employee receives a named person and a time rather than a drafted answer. A prompt can be talked into answering; a code path that never calls a model cannot.
 
-The classifier is deliberately over-inclusive, tuned knowing it would send routine questions to humans, because the opposite error is the one that causes harm. Sensitivity here is a property of the route, not a warning appended to an answer.
+The classifier is over-inclusive by intent, tuned knowing it would send routine questions to humans, because the opposite error is the one that causes harm. Sensitivity here is a property of the route, not a warning appended to an answer.
 
 ## One clause, one country, one version, or silence
 
 Routine questions get an instant answer with a citation to the exact clause in the exact document version, in the asker's jurisdiction, or they get no answer at all. We refuse to answer from general employment knowledge, because a model's generic understanding of parental leave is an average of the internet and the employee in front of it is governed by one agreement in one country. An answer scoped to the wrong entity is not partially right. It is wrong, delivered with confidence.
 
-Precedence between sources is declared rather than inferred. Handbooks, country addenda, works council agreements and policy memos carry different authority, and a local agreement overrides the group handbook in the market it covers because a human said so, not because a model read the tone. Every source carries its scope: which entity, which country, which contract types, effective from when and superseded when. Documents are chunked along their own structure, because a leave table split down the middle is a wrong answer waiting for someone to ask.
+Precedence between sources is declared, never inferred. Handbooks, country addenda, works council agreements and policy memos carry different authority, and a local agreement overrides the group handbook in the market it covers because a human said so, not because a model read the tone. Every source carries its scope: which entity, which country, which contract types, effective from when and superseded when. Documents are chunked along their own structure, because a leave table split down the middle is a wrong answer waiting for someone to ask.
 
 We also refuse to build the dashboard. No view of this system can rank, segment or single out individuals by what they asked, in any market, including the ones with no works council at all. Building it once for a permissive jurisdiction means the capability exists everywhere.
 
@@ -58,7 +58,7 @@ For cases already in human hands, the case layer assembles what a business partn
 
 It produces a summary and never a conclusion. It does not propose an outcome, assess credibility, suggest a disciplinary step, or score anything about a person, because a machine-generated suggestion anchors a judgment that has to stay independent. Every summary is marked as drafted, reviewed before it enters the case record, and never sent to the employee.
 
-The decisions the system may not make are named and enforced in code rather than in a prompt: it may not decide that a sensitive matter is routine, may not answer without a citation, may not produce a per-person view of question activity, and may not close a case.
+The decisions the system may not make are named and enforced in code, not in a prompt: it may not decide that a sensitive matter is routine, may not answer without a citation, may not produce a per-person view of question activity, and may not close a case.
 
 ## Common questions
 

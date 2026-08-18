@@ -26,7 +26,7 @@ Prompt engineering does not fix this. You can put a careful paragraph about grai
 
 We removed SQL from the model's output space entirely. The agent now emits a structured metric selection: which measure, which dimensions, which filters, which grain. The semantic layer takes that selection and compiles the SQL itself, using the relationship cardinalities it already holds and applying symmetric aggregates wherever a join fans out. The model can no longer express a join, so it can no longer express a wrong one.
 
-A governed analytics agent is one whose output space is metric selections rather than SQL strings. It chooses among measures, dimensions and filters that a human has already defined, and a semantic layer compiles the query. It cannot produce a wrong join because it cannot produce a join.
+A governed analytics agent is one whose output space is metric selections, not SQL strings. It chooses among measures, dimensions and filters that a human has already defined, and a semantic layer compiles the query. It cannot produce a wrong join because it cannot produce a join.
 
 <img src="motion/analytics-agent-slack.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -44,7 +44,7 @@ When somebody asks for a number that has no governed definition, the agent says 
 
 Every answer carries its definition and its filters, printed with the chart: active customers defined as accounts with a paid subscription and at least one product login in the trailing thirty days, trials excluded. That single detail changed the arguments inside the company. Disputes stopped being about whose number was right and became about whether the definition was right, which the data team can settle once, in one place, for everybody.
 
-Analysts who want to check the work can expand the compiled query. The compiled SQL comes from the semantic layer rather than from the model, so reviewing it is a review of the definition rather than of a language model's improvisation.
+Analysts who want to check the work can expand the compiled query. The compiled SQL comes from the semantic layer, not from the model, so reviewing it means reviewing the definition instead of a language model's improvisation.
 
 ## Every unanswerable question is a modelling ticket, so the layer grows along the grain of real questions
 
@@ -68,7 +68,7 @@ Read-only access protects the data. It does nothing about wrong answers, which a
 
 ### What happens when someone asks something the semantic layer cannot answer?
 
-The agent says the metric does not exist, names the closest one that does, and offers to raise it. The question becomes a ticket for the data team, and the resolution is usually a definition added to the layer rather than a one-off query. That is how the layer grows, and it grows towards the questions people are actually asking.
+The agent says the metric does not exist, names the closest one that does, and offers to raise it. The question becomes a ticket for the data team, and the resolution is usually a definition added to the layer, not a one-off query. That is how the layer grows, and it grows towards the questions people are actually asking.
 
 ### How is this different from the text-to-SQL feature already in our BI tool?
 

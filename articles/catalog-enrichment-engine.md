@@ -10,7 +10,7 @@ A category schema on a long-tail marketplace runs to dozens of attributes, and a
 
 Under the EU General Product Safety Regulation, in application since December 2024, every product offered for sale online must display the manufacturer's name, postal address and electronic address, and where the manufacturer sits outside the EU, the name and address of the EU-established responsible person. A listing missing those details is a non-compliant offer, and the marketplace is the party making the offer. No score, however high, changes who is accountable for the statement.
 
-We learned this from our own confidence gate working exactly as designed. Reading a supplier's spec sheet, the engine extracted a manufacturer name and postal address at high confidence and pushed the listing live. The extraction was accurate. That name really was printed on the sheet. It belonged to the distributor, who was neither the manufacturer nor the responsible person, and there was nothing in the document, the score or the pipeline that could have caught it. Nothing was wrong with the reading. The field simply is not an inference.
+We learned this from our own confidence gate working as designed. Reading a supplier's spec sheet, the engine extracted a manufacturer name and postal address at high confidence and pushed the listing live. The extraction was accurate. That name really was printed on the sheet. It belonged to the distributor, who was neither the manufacturer nor the responsible person, and there was nothing in the document, the score or the pipeline that could have caught it. Nothing was wrong with the reading. The field simply is not an inference.
 
 ## One EAN, eleven sizes, and the deduplication that ate a product line
 
@@ -28,7 +28,7 @@ That single reused identifier corrupts matching, deduplication and the complianc
 
 We split the category schema in two, and the split is now the central structure of the engine. Inferable attributes flow through the confidence gate as before: extracted from titles, descriptions and product images, scored, published automatically when the score clears a per-category threshold, and routed to a merchandiser with the evidence attached when it does not. Attested attributes are populated only by a supplier declaration captured during onboarding.
 
-Attested attribute: a product field whose correctness rests on somebody taking responsibility for it rather than on evidence present in the data. Attested attributes are collected by declaration, never inferred, and no confidence score may stand in for the declaration.
+Attested attribute: a product field whose correctness rests on somebody taking responsibility for it, not on evidence present in the data. Attested attributes are collected by declaration, never inferred, and no confidence score may stand in for the declaration.
 
 Publication is blocked when an attested attribute is missing, regardless of how confident the engine is about everything else on the listing. An item can have a perfect material extraction, clean dimensions, a category assignment nobody would argue with and copy ready to ship, and it still will not go live without a declared manufacturer and a declared identifier. Aggregate confidence has no vote in that decision.
 
@@ -48,7 +48,7 @@ Search copy that lies is a returns queue with better typography, and on regulate
 
 The chase is engineered as carefully as the extraction, because a blocked listing is worthless until somebody fills the gap. Missing attested fields generate a supplier request that names the exact field, explains what the regulation requires, and offers the declaration as a form rather than an email thread. Requests are batched per supplier, ordered by how much catalog value is blocked behind them, and tracked until the declaration arrives.
 
-Merchandisers work the exception queue rather than the catalog. Their job is deciding whether a proposed enrichment is correct and pursuing the declarations that unblock revenue, and the queue is ordered by expected impact so the day starts with the products that matter. Every correction they make feeds back into extraction and recalibrates the thresholds each category publishes against.
+Merchandisers work the exception queue, not the catalog. Their job is deciding whether a proposed enrichment is correct and pursuing the declarations that unblock revenue, and the queue is ordered by expected impact so the day starts with the products that matter. Every correction they make feeds back into extraction and recalibrates the thresholds each category publishes against.
 
 The system may not publish a listing with a missing attested attribute, may not populate one from any source other than a supplier declaration, and may not decide whether a declaration is truthful. It flags contradictions and escalates them. A human decides what a supplier's paperwork actually means, and the supplier remains accountable for what it says.
 

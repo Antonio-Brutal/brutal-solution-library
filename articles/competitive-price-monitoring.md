@@ -1,6 +1,6 @@
 # A Price Monitoring Engine That Prices the Move Against the Next Thirty Days
 
-> Why a tactical price match costs a European electronics retailer two things rather than one, and how we made the second cost visible before anyone approves the move.
+> A tactical price match costs a European electronics retailer two things, not one, and the second cost stays invisible unless the engine prices it before anyone approves the move.
 
 ![Flow diagram: competitor listings are clamped into matched pairs, unmatched ones held aside; matched lines pass a margin-aware recommendation stage bounded by a floor no line crosses, then a pricing-committee gate](graphics/competitive-price-monitoring.svg)
 
@@ -50,13 +50,13 @@ We refuse to build an automatic follower rule that targets a named competitor's 
 
 The engine recommends and the pricing committee decides. The committee can delegate a band of routine moves, defines that band in writing, and can revoke it in an afternoon. The delegated band is deliberately narrow and boring: small moves on accessory lines, inside the margin floor, on human-confirmed matches, outside any blackout window.
 
-What the system may not decide is fixed in the architecture rather than in a policy document. It cannot set a price. It cannot cross a margin floor or touch a protected line. It cannot recommend a move on a match no human has confirmed, and it cannot recommend a move on a line the promotions calendar has closed.
+What the system may not decide is fixed in the architecture, not in a policy document. It cannot set a price. It cannot cross a margin floor or touch a protected line. It cannot recommend a move on a match no human has confirmed, and it cannot recommend a move on a line the promotions calendar has closed.
 
 ## Do nothing, with a written reason, is a first-class output
 
-"Do nothing" is a recommendation the engine produces deliberately, with its reasoning attached, and it is frequently the right one. A competitor undercutting you on a line where you hold the range, the stock and the service has told you something about their inventory position, not about your price.
+"Do nothing" is a recommendation the engine produces on purpose, with its reasoning attached, and in practice it is frequently the right one. A competitor undercutting you on a line where you hold the range, the stock and the service has told you something about their inventory position, not about your price.
 
-The daily list is ordered by what the moves are worth rather than by how loud the alert was. Each entry shows the current price, the recommended price, what the relevant competitors have been doing and for how long, margin per unit before and after, reference-price headroom consumed, and a rationale written to be argued with. The committee approves, adjusts, or rejects with a reason, and the decision is recorded against the evidence that was on screen at the time.
+The daily list is ordered by what the moves are worth, not by how loud the alert was. Each entry shows the current price, the recommended price, what the relevant competitors have been doing and for how long, margin per unit before and after, reference-price headroom consumed, and a rationale written to be argued with. The committee approves, adjusts, or rejects with a reason, and the decision is recorded against the evidence that was on screen at the time.
 
 That record is the most durable output of the system. When gross margin moves at the end of a quarter, the story is reconstructable move by move with a reason attached to each one, and pricing stops being folklore living in three people's memories.
 

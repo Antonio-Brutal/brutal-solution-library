@@ -1,6 +1,6 @@
 # A Horizon Scanner That Diffs Provisions, Not Files
 
-> A supervisory Q&A row can change a payment firm's obligations without any document changing, so this scanner watches provisions and database entries rather than files and feeds.
+> A supervisory Q&A row can change a payment firm's obligations without any document changing, so this scanner watches provisions and database entries, not files and feeds.
 
 ![Flow diagram: distant source beacons feed a change-detection comparator where an old and new version overlay and the difference glows lime, then an impact-mapping lattice routes the change and an officer confirms before it fans out to distinct owner terminals, each with a deadline](graphics/regulatory-horizon-scanning.svg)
 
@@ -74,7 +74,7 @@ No, by design. Applicability is a legal judgement that a named, accountable pers
 
 ### Regulators publish badly. How do you cope with sources that have no API?
 
-By parsing structure rather than watching files. Instruments are broken into numbered provisions and compared provision by provision, so a replaced PDF at the same URL is handled and a rotating banner produces nothing. Q&A entries are monitored as objects with their own revision history, since a new answer changes practice without changing any document.
+By parsing structure instead of watching files. Instruments are broken into numbered provisions and compared provision by provision, so a replaced PDF at the same URL is handled and a rotating banner produces nothing. Q&A entries are monitored as objects with their own revision history, since a new answer changes practice without changing any document.
 
 ### Who closes a task once a change has been handled?
 

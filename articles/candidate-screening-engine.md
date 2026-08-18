@@ -8,7 +8,7 @@
 
 Nobody in high-volume recruiting builds a machine that rejects candidates, so the automated-decision debate is aimed at a system that does not exist. The real hazard is quieter. A reviewer works down a ranked list from the top, stops when the shifts are filled, and never reaches the evidence that would have changed the order. A human clicked every button. The sort made the decision.
 
-Rank-position compliance is the tendency of a reviewer to act on the order a system produced rather than on the evidence behind it. It is the genuine automated-decision risk in screening, and unlike most fairness concerns it is directly measurable: the share of hires originating below the shortlist cut.
+Rank-position compliance is the tendency of a reviewer to act on the order a system produced instead of on the evidence behind it. It is the genuine automated-decision risk in screening, and unlike most fairness concerns it is directly measurable: the share of hires originating below the shortlist cut.
 
 The agency we built this for places candidates into industrial and logistics roles: warehouse operators, forklift drivers, line technicians, delivery crews. Thousands of applications a month reach a recruiting team that can give each one a few seconds, and 'a few seconds' is a measurement rather than a figure of speech.
 
@@ -80,7 +80,7 @@ Nothing is discarded. They stay ranked and one click away, with their evidence a
 
 ### How do you handle certifications that have no expiry date?
 
-By modelling the certification that exists rather than the one clients describe. A truck-category criterion resolves against accrediting-body names and category codes and asks whether refresher training is due. A driver entitlement checks the Driver CPC cycle separately from the licence category, since CPC lapses on its own schedule and makes an otherwise valid driver unlawful to place.
+By modelling the certification that exists, not the one clients describe. A truck-category criterion resolves against accrediting-body names and category codes and asks whether refresher training is due. A driver entitlement checks the Driver CPC cycle separately from the licence category, since CPC lapses on its own schedule and makes an otherwise valid driver unlawful to place.
 
 ## Is your shortlist a recommendation, or is it the decision?
 

@@ -38,7 +38,7 @@ The engine now sizes the matrix before it generates a single asset. Given the ac
 
 Readable cell: a cell of the creative matrix that accumulated enough optimisation events inside the platform's learning window for its performance to be distinguished from the other cells. A cell below that threshold is reported as untested, never as a loser, because retiring a hook on a handful of conversions is how a closed loop optimises itself into a corner.
 
-New variants ship into new ad sets rather than as edits to delivering ones, so the incumbent keeps its delivery history and the comparison stays honest. A cell that misses its event floor comes back marked untested and rejoins the queue instead of the archive.
+New variants ship into new ad sets, never as edits to delivering ones, so the incumbent keeps its delivery history and the comparison stays honest. A cell that misses its event floor comes back marked untested and rejoins the queue instead of the archive.
 
 The refusal is the part clients do not expect. Asked for more variants than the account's conversion volume can read, the engine declines and says how many cells are affordable. A creative system that produces more assets than it can learn from is a production line pretending to be an experiment, and it will confidently retire a hook that never actually lost.
 
@@ -54,11 +54,11 @@ Three decisions stay outside the machine permanently. It does not move budget: i
 
 ## Fatigue is a shape, which is why we keep the curve and not the average
 
-The system stores each asset's performance curve over time rather than a lifetime average, because fatigue is a shape rather than a number. One format holding up for weeks while another decays within days is a planning fact that changes how a quarter is booked, and a lifetime average hides it completely.
+The system stores each asset's performance curve over time, not a lifetime average, because fatigue is a shape, not a number. One format holding up for weeks while another decays within days is a planning fact that changes how a quarter is booked, and a lifetime average hides it completely.
 
 Platform-reported conversions are treated as directional, reconciled against the brand's own order data wherever the join is honest and marked as platform-reported wherever it is not. A learning loop fed by numbers the team privately distrusts is worse than no loop, because it launders a suspicion into a rule.
 
-Retired branches are archived rather than deleted, with the evidence behind each retirement attached and the event counts visible. A brand that cannot see what it already tried will re-brief a hook it disproved last year, usually within one change of agency.
+Retired branches are archived, never deleted, with the evidence behind each retirement attached and the event counts visible. A brand that cannot see what it already tried will re-brief a hook it disproved last year, usually within one change of agency.
 
 ## Common questions
 
@@ -80,4 +80,4 @@ It can recommend, and it shows how much evidence sits behind each recommendation
 
 ## Is your creative programme testing more than your account can read?
 
-If your matrix is wider than your weekly conversion volume can support, you are producing rather than learning, and some of the hooks you retired were never actually beaten. We build creative engines that size the test before they generate the assets and leave budget with a human. Tell us what you are buying and what the account converts in a week, and we will tell you how many cells you can afford.
+If your matrix is wider than your weekly conversion volume can support, you are producing, not learning, and some of the hooks you retired were never actually beaten. We build creative engines that size the test before they generate the assets and leave budget with a human. Tell us what you are buying and what the account converts in a week, and we will tell you how many cells you can afford.

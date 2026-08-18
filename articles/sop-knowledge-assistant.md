@@ -44,7 +44,7 @@ A citation tells you where a sentence came from and nothing about whether it is 
 
 Provenance is the citation rule: every answer links to the exact section of the exact document that produced it, and tapping it opens the source at the right place, so a staff member, a manager or an inspector can verify it in one action. Where retrieval finds nothing solid, the assistant says so and logs the question.
 
-Currency is the version registry: it retires superseded chunks when a policy is updated and respects effective dates, so the procedure amended on Monday is the one cited on Tuesday, in every location at once. When a memo contradicts a manual section nobody remembered to update, the conflict goes to head office rather than being settled silently by whichever chunk ranked higher.
+Currency is the version registry: it retires superseded chunks when a policy is updated and respects effective dates, so the procedure amended on Monday is the one cited on Tuesday, in every location at once. When a memo contradicts a manual section nobody remembered to update, the conflict goes to head office. It is never settled silently by whichever chunk ranked higher.
 
 We refuse to answer any question whose correct answer can change without the manual changing. That is a hard class boundary enforced at query classification rather than a caution in a system prompt, and it routes allergen composition, batch substitution and live pricing to the specification system or to a named human every time.
 
@@ -82,7 +82,7 @@ Start anyway, and budget for the exception queue. Ingestion refuses any chunk wi
 
 ### How do we know an answer reflects the current policy?
 
-Every answer carries the document, the section and the effective date it came from, so currency is visible in the answer rather than assumed. When a policy is superseded, the old chunks are retired at ingestion and stop being retrievable everywhere at once. A memo that contradicts a manual section is escalated to head office rather than quietly resolved by ranking.
+Every answer carries the document, the section and the effective date it came from, so currency is visible in the answer instead of assumed. When a policy is superseded, the old chunks are retired at ingestion and stop being retrievable everywhere at once. A memo that contradicts a manual section is escalated to head office rather than quietly resolved by ranking.
 
 ## What does your floor do when nobody on shift knows the answer?
 

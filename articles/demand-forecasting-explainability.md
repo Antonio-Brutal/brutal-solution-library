@@ -22,7 +22,7 @@ Actionable forecast error is the portion of forecast error that survives the ord
 
 ## We explained the forecast; the buyer was looking at the order
 
-Buyers got their explanations and carried on overriding at exactly the same rate. Every forecast in that first release shipped with a decomposition rendered into plain language: how much of the week-on-week movement came from trend, from seasonality, from a promotion ending, from weather, from a regional holiday, or from a correction applied to the sales history itself.
+Buyers got their explanations and carried on overriding at the same rate as before. Every forecast in that first release shipped with a decomposition rendered into plain language: how much of the week-on-week movement came from trend, from seasonality, from a promotion ending, from weather, from a regional holiday, or from a correction applied to the sales history itself.
 
 So a buyer read "demand up, regional school holiday starts Monday" directly above a proposed order identical to last week's. Two of those in a session and a reasonable person concludes the system is talking nonsense, then types their own number exactly as before.
 
@@ -30,7 +30,7 @@ Both figures were correct. The explanation described the forecast, and the artef
 
 ## Quantisation is a driver, and it deserves a sentence
 
-We regenerated explanations against the quantised order rather than the forecast, and promoted quantisation to a first-class driver with a sentence of its own: "demand up, order unchanged, both round to one case of six." That category of override effectively disappeared within a couple of planning cycles, because the argument on screen was finally an argument a buyer could have.
+We regenerated explanations against the quantised order instead of the forecast, and promoted quantisation to a first-class driver with a sentence of its own: "demand up, order unchanged, both round to one case of six." That category of override effectively disappeared within a couple of planning cycles, because the argument on screen was finally an argument a buyer could have.
 
 We do not show buyers feature-importance charts. A SHAP plot is an instrument for the modelling team and an insult to a category buyer, and an explanation that names a driver the buyer cannot act on is worse than saying nothing, because it spends the credibility the system is trying to earn. Where no single driver dominates, the system says that instead of promoting the largest of several small contributions.
 
@@ -44,7 +44,7 @@ Explanations also state their own weakness. A line with three weeks of history i
 
 The override box offers a short structured reason list, and the reason code that taught us most was the vaguest one on it. Buyers choose from local event we know about, supplier issue, merchandising plan, price change coming, or the data looks wrong, plus free text if they want it.
 
-"The data looks wrong" clustered by store, not by product, which is the signature of a place rather than a line. A stubborn buyer or a genuinely hard category would cluster the other way.
+"The data looks wrong" clustered by store, not by product, which is the signature of a place, not a line. A stubborn buyer or a genuinely hard category would cluster the other way.
 
 It traced to stock-record inaccuracy. The system believed there were four on the shelf, the shelf held none, and replenishment proposed nothing for a line that was selling. Buyers had been detecting phantom inventory by hand for years, one product at a time, with no way to tell anyone systematically. That reason code now feeds a cycle-count priority list for store operations rather than a model retrain, because the forecast was never the broken component.
 
@@ -78,7 +78,7 @@ By what the override reasons cluster on. Errors that cluster by product or categ
 
 ### Do buyers actually pick a reason code?
 
-They do when it takes one click and they see the result. The list is deliberately short, free text is always available, and the weekly outcome review shows buyers their own hit rate by reason. A reason code with no feedback loop attached is administrative work, and people are right to skip it.
+They do when it takes one click and they see the result. The list is short on purpose, free text is always available, and the weekly outcome review shows buyers their own hit rate by reason. A reason code with no feedback loop attached is administrative work, and people are right to skip it.
 
 ## What does your Monday planning meeting actually argue about?
 

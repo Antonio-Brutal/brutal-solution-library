@@ -14,7 +14,7 @@ The structure behind that is the bill of lading hierarchy. A forwarder issues a 
 
 The customer is a mid-market European freight forwarder moving tens of thousands of shipments a year and taking in thousands of supplier invoices a month from carriers, terminals, customs brokers and hauliers. They arrive as clean PDFs, as scans of printouts, as photographs pasted into an email body, as spreadsheets with the totals on a different tab from the line items.
 
-Extraction is the easy half. Reading a skewed scan and returning supplier identity, invoice number, currency, charge codes, container numbers and totals, with a confidence score on every field and low-confidence fields flagged rather than guessed, is ordinary engineering now. The hard half is deciding which of those fourteen shipments owe what share of the charge, and how much of it the forwarder can bill onward.
+Extraction is the easy half. Reading a skewed scan and returning supplier identity, invoice number, currency, charge codes, container numbers and totals (each field scored, the weak ones flagged instead of guessed) is ordinary engineering now. The hard half is deciding which of those fourteen shipments owe what share of the charge, and how much of it the forwarder can bill onward.
 
 ## Free time is a contract, not a courtesy
 
@@ -22,7 +22,7 @@ Demurrage and detention are two different clocks with two different contractual 
 
 Free time is written into the rate agreement or the service contract, usually per trade lane and often per equipment type. Validating a demurrage invoice therefore means rebuilding a timeline: gate-out, gate-in, free days consumed, weekends and holidays counted or not counted according to that contract, then the tier table applied to whatever spilled over. The invoice will show a total and a container number, and almost never the arithmetic.
 
-The engine treats that as a validation problem rather than a matching problem. It reconstructs the clock from container events, applies the free time recorded in the agreement, and either agrees with the carrier's figure or names the specific day and tier where the two accounts diverge. A dispute that says "your day four is our day two, here is the gate-out record" gets settled. One that says "this looks high" does not.
+The engine treats that as a validation problem, not a matching one. It reconstructs the clock from container events, applies the free time recorded in the agreement, and either agrees with the carrier's figure or names the specific day and tier where the two accounts diverge. A dispute that says "your day four is our day two, here is the gate-out record" gets settled. One that says "this looks high" does not.
 
 <img src="motion/invoice-matching-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -40,11 +40,11 @@ With the atoms right, comparison becomes tractable again. Each allocated shipmen
 
 ## A charge with no purchase order is not automatically an error
 
-A demurrage line can be entirely correct and still have no purchase order behind it, because it exists precisely because something went wrong. Nobody raises an order for a delay. Our first rule set treated a missing order reference as an exception, which meant the system flagged as suspect exactly the charges most likely to be valid.
+A demurrage line can be entirely correct and still have no purchase order behind it, because it exists only because something went wrong. Nobody raises an order for a delay. Our first rule set treated a missing order reference as an exception, which meant the system flagged as suspect exactly the charges most likely to be valid.
 
 So "no purchase order reference" stopped meaning "error" and started meaning "route to whoever owns the delay". A demurrage allocation goes to the operations desk that ran the customs entry, not to the accounts payable clerk, because the question is not whether the charge matches an order. The question is who caused the delay and whether it is recoverable from the customer.
 
-Recoverability is a contractual answer, so the engine looks it up rather than reasoning about it. The forwarder's own terms and the customer's rate card say who carries the cost when the consignee collects late and when an entry is held for inspection. The system proposes a treatment (recharge to the customer, absorb as cost of service, dispute with the carrier) and shows the clause and the event trail it relied on, so the person approving is reading evidence rather than a verdict.
+Recoverability is a contractual answer, so the engine looks it up instead of reasoning about it. The forwarder's own terms and the customer's rate card say who carries the cost when the consignee collects late and when an entry is held for inspection. The system proposes a treatment (recharge to the customer, absorb as cost of service, dispute with the carrier) and shows the clause and the event trail it relied on, so the person approving is reading evidence rather than a verdict.
 
 ## Tolerances belong to the controller; recoverability belongs to the customer contract
 
@@ -52,7 +52,7 @@ We refuse to allocate a charge on any basis that is not written into the rate ag
 
 Two further refusals shaped the build. We do not allow straight-through posting for any cost that is billable onward: it can be approved without argument, but a human sees the recharge before it reaches a customer account. We do not ask suppliers to change their formats as a condition of being paid, because coverage is the whole point and a system that demands supplier behaviour change never gets it.
 
-Tolerance thresholds are configuration owned by the financial controller rather than code owned by us. Rounding on a currency conversion clears silently. A small variance on a weight-based charge clears with a note. An accessorial the booking never anticipated does not clear at all.
+Tolerance thresholds are configuration owned by the financial controller, not code owned by us. Rounding on a currency conversion clears silently, and a small variance on a weight-based charge clears with a note. An accessorial the booking never anticipated does not clear at all.
 
 Four decisions are withheld from the system by construction: it cannot approve a disputed carrier charge, cannot create or change an allocation basis, cannot post a recharge to a customer account, and cannot release a payment. It allocates, validates, evidences and proposes; a controller approves, and the audit trail records which human agreed to what and against which clause.
 

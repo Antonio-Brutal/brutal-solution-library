@@ -14,7 +14,7 @@ The group runs dozens of sites across several cities under a handful of formats.
 
 ## As purchased is not edible portion, and the gap is site-specific
 
-Kitchens cost on edible portion rather than as purchased, and the conversion between the two is a yield test, not a constant. A cut or a case arrives at an as-purchased price; trimming, boning and peeling leave a smaller quantity of usable product at a higher cost per kilogram, and that edible-portion cost is the only one that belongs in a plate cost.
+Kitchens cost on edible portion, not as purchased, and the conversion between the two is a yield test rather than a constant. A cut or a case arrives at an as-purchased price; trimming, boning and peeling leave a smaller quantity of usable product at a higher cost per kilogram, and that edible-portion cost is the only one that belongs in a plate cost.
 
 The yield achieved varies by supplier specification and by the person doing the prep. That is why the same recipe genuinely costs different amounts at two sites buying from the same distributor, and why a group-average yield factor is a comfortable fiction.
 

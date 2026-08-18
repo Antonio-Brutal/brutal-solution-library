@@ -40,7 +40,7 @@ The largest single gain in transcription accuracy came from turning a feature of
 
 We disabled the platform suppression and handled the acoustics ourselves, and accuracy in plant rooms improved sharply. A voice system for field service is an acoustics project that presents itself as a language project.
 
-Away from the regulated fields, the capture layer asks for exactly one behaviour: talk. No forms at capture time, no mandatory categorisation before recording, no penalty for speaking out of order or adding "oh, and I swapped the intake filter while I was up there" at the end. Technicians dictate in whichever language they think in and the report is produced in the company's reporting language.
+Away from the regulated fields, the capture layer asks for one behaviour: talk. No forms at capture time, no mandatory categorisation before recording, no penalty for speaking out of order or adding "oh, and I swapped the intake filter while I was up there" at the end. Technicians dictate in whichever language they think in and the report is produced in the company's reporting language.
 
 ## The certification number on the report belongs to a person, so the person signs it
 
@@ -48,7 +48,7 @@ We will not build auto-submission here, and the reason is narrower than the usua
 
 Three further refusals hold across the system. The model may not round a regulated quantity, may not average one across similar jobs, and may not infer one from context. An empty field carrying a query is a lawful record awaiting completion. An inferred one is a false record already filed, and the distinction matters most in the exact situation where records get read: a leak investigation, an insurance claim, an inspection.
 
-Everything that is not compliance-bearing is treated more loosely, deliberately. Narrative description, diagnostic reasoning, recommendations and time on site are extracted, structured and offered for correction, because getting those slightly wrong costs an edit rather than a breach.
+Everything that is not compliance-bearing is treated more loosely, on purpose. Narrative description, diagnostic reasoning, recommendations and time on site are extracted, structured and offered for correction, because getting those slightly wrong costs an edit rather than a breach.
 
 ## Spoken records are longer than typed ones, and the extra length is future work
 
@@ -74,7 +74,7 @@ No. The record carries the technician's certification number, so publishing with
 
 ### Our technicians speak several languages. Does that put the compliance fields at risk?
 
-It does not, because regulated values are captured as values rather than translated as prose. Quantities are numerals and refrigerant designations are standardised codes, both biased into the recogniser's vocabulary and carried through unchanged. The narrative around them is produced in the company's reporting language. The numbers stay the numbers in any language.
+It does not, because regulated values are captured as values, never translated as prose. Quantities are numerals and refrigerant designations are standardised codes, both biased into the recogniser's vocabulary and carried through unchanged. The narrative around them is produced in the company's reporting language. The numbers stay the numbers in any language.
 
 ## Who signs your compliance records, and when?
 

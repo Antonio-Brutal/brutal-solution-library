@@ -56,7 +56,7 @@ The glossary is owned by the brand team and versioned like code. Change an entry
 
 ## Reviewers stop translating and start legislating
 
-Reviewers are a finite resource, so the queue is ordered by impressions multiplied by risk class rather than by arrival. The first onboarding screen, the paywall and the errors people hit when a payment fails are reviewed by an in-market native speaker every time. A tooltip in an advanced setting that sits inside the glossary and passes every check publishes and is reviewed later.
+Reviewers are a finite resource, so the queue is ordered by impressions multiplied by risk class, not by arrival. The first onboarding screen, the paywall and the errors people hit when a payment fails are reviewed by an in-market native speaker every time. A tooltip in an advanced setting that sits inside the glossary and passes every check publishes and is reviewed later.
 
 Each reviewer sees the source string, the context screenshot, the glossary entries applied and the engine's own flags. Their job is to judge, then to classify: every edit is recorded as a glossary entry, a tone-specification amendment, or a genuine one-off. Edits that repeat become rules, so the same correction is never made twice.
 

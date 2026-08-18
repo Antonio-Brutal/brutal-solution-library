@@ -22,7 +22,7 @@ The modal verb was the wrong extraction unit. We changed it to two properties in
 
 Bid-time obligation: a requirement the tenderer must satisfy inside the submission itself, whether a document, a declaration, a form or a stated commitment, as distinct from a delivery-phase obligation the contract imposes after award. Only bid-time obligations become rows in the compliance matrix.
 
-Everything else is routed rather than deleted. Delivery-phase obligations go to a separate register owned by contract review, where they belong, because they are commercial risk to be priced rather than paperwork to be produced this week. An incorporated standard collapses into a single row asking for a compliance statement against that standard, which is what the authority is actually evaluating.
+Everything else is routed, not deleted. Delivery-phase obligations go to a separate register owned by contract review, where they belong, because they are commercial risk to be priced, not paperwork to be produced this week. An incorporated standard collapses into a single row asking for a compliance statement against that standard, which is what the authority is actually evaluating.
 
 The matrix that came back was short enough to read in a sitting: page limits, font and formatting rules, forms to be signed, certificates to be declared, method statements with word counts, evaluation criteria with their weightings, and the exact location of each in the source document. Every row has an owner, a status and a deadline, and a bid manager reviews the extraction against the source before work starts, because a parsing step nobody checks is a new place for requirements to hide.
 
@@ -34,17 +34,17 @@ The matrix that came back was short enough to read in a sitting: page limits, fo
 
 Within days of a tender dropping, while the clarification window is still open, the rebuilt matrix hands a bid manager the ambiguity register: the list of places where the tender can be read in more than one way. That register outranks every draft answer the engine writes later, because the window it depends on closes first.
 
-An ambiguity is not a gap in your knowledge. It is a defect in the document, and the engine looks for specific shapes of defect. A requirement with two defensible readings that price differently. A contradiction between the instructions to tenderers and the technical specification. A page limit that cannot accommodate the content the evaluation criteria demand. An evaluation criterion that references a section number the pack does not contain. A form named in the instructions and absent from the annexes. A scope boundary that decides whether a whole discipline is in or out of your price.
+An ambiguity is not a gap in your knowledge; it is a defect in the document, and the engine looks for specific shapes of defect. A requirement with two defensible readings that price differently. A contradiction between the instructions to tenderers and the technical specification. A page limit that cannot accommodate the content the evaluation criteria demand. An evaluation criterion that references a section number the pack does not contain. A form named in the instructions and absent from the annexes. A scope boundary that decides whether a whole discipline is in or out of your price.
 
 Each entry is ranked by disqualification risk first and price exposure second, because those two consequences are not comparable and the ordering matters. A misread scope boundary costs margin. A misread eligibility condition costs the bid, before anyone reads your technical solution.
 
-The system never drafts the questions that go to the authority. It identifies ambiguities, ranks them and shows the passages they come from. A bid manager decides which ones to ask, because publishing a question to every competitor is a commercial disclosure decision rather than a completeness one. Sometimes the right answer is to ask. Sometimes it is to price the more expensive reading and say nothing, and no system should be making that call.
+The system never drafts the questions that go to the authority. It identifies ambiguities, ranks them and shows the passages they come from. A bid manager decides which ones to ask, because publishing a question to every competitor is a commercial disclosure decision, not a completeness one. Sometimes the right answer is to ask. Sometimes it is to price the more expensive reading and say nothing, and no system should be making that call.
 
 ## The certificate nobody checks until you win
 
 Under the European Single Procurement Document regime, bidders self-declare eligibility at bid time and only the preferred bidder is required to produce the underlying certificates before award. Nobody verifies your declaration while you are competing. A self-declaration resting on a lapsed accreditation therefore surfaces at the exact moment it costs most, after you have won and while the standstill clock runs.
 
-The answer library is built for that timing. Every entry carries provenance, which bid it came from, when it was written and who approved it, and every entry that depends on a dated artefact carries that artefact's expiry: ISO certificates, insurance schedules, financial statements, trade registrations, individual engineer accreditations, health and safety records. When the underlying evidence expires, the entry stops being usable rather than quietly ageing inside a shared drive.
+The answer library is built for that timing. Every entry carries provenance, which bid it came from, when it was written and who approved it, and every entry that depends on a dated artefact carries that artefact's expiry: ISO certificates, insurance schedules, financial statements, trade registrations, individual engineer accreditations, health and safety records. When the underlying evidence expires, the entry stops being usable instead of quietly ageing inside a shared drive.
 
 An expired entry cannot flow into a draft. It appears in the matrix as a blocked row with the reason and the owner attached, which converts an invisible future problem into a visible present task. Renewing an accreditation takes weeks. Discovering you need to renew it during a post-award verification takes the contract.
 
@@ -64,7 +64,7 @@ That is the point of it. The compliance matrix and the ambiguity register are pr
 
 ### How do you stop the compliance matrix turning into thousands of unusable rows?
 
-By extracting on obligation holder and obligation moment rather than on "shall" and "must". Only requirements the tenderer must satisfy inside the submission become rows. Delivery-phase obligations go to a contract review register, and standards incorporated by reference collapse into one row seeking a compliance statement, instead of importing every clause they contain.
+By extracting on obligation holder and obligation moment instead of on "shall" and "must". Only requirements the tenderer must satisfy inside the submission become rows. Delivery-phase obligations go to a contract review register, and standards incorporated by reference collapse into one row seeking a compliance statement, instead of importing every clause they contain.
 
 ### What happens when we have no approved answer for a requirement?
 

@@ -24,7 +24,7 @@ The system builds the ownership chain from what it can evidence: shareholder reg
 
 Extraction never normalises a discrepancy away. When the entity on the insurance certificate differs from the entity on the registration, or a registry shows a shareholding the supplier's declaration omits, both values surface side by side as a flag. A system that quietly reconciles two different company names is not saving time, it is deleting the finding.
 
-Screening then runs across the whole graph rather than the trading name: the legal entity, its parents, its ultimate beneficial owners, its directors, and the countries the goods will actually move through. Matching is fuzzy by design, covering aliases, transliterations, name-order variations and date-of-birth proximity, and tuned toward recall, because a missed sanctions match is categorically worse than another false positive on an analyst's desk.
+Screening then runs across the whole graph, not the trading name: the legal entity, its parents, its ultimate beneficial owners, its directors, and the countries the goods will actually move through. Matching is fuzzy by design, covering aliases, transliterations, name-order variations and date-of-birth proximity, and tuned toward recall, because a missed sanctions match is categorically worse than another false positive on an analyst's desk.
 
 ## Two thirty-percent stakes, one man, and the sum we got wrong
 
@@ -60,7 +60,7 @@ Screening produces evidence for a human decision, never a verdict. The system do
 
 Each hit is presented with what matched, what distinguishes the two entities, which list it came from, and which dated version of that list. Adverse media is retrieved with publication, date, and the status of what is described: allegation, ongoing investigation, or court outcome. A dismissed claim from years ago and a current indictment must never look the same in a file.
 
-The assembled file carries a recommended path rather than a decision: routine, enhanced due diligence, or the procurement risk committee that includes legal. A clean file can be approved by one analyst in minutes because the evidence is already assembled. Suppliers are rescreened on a schedule and on ownership events, with results appended to the same file rather than replacing it, and every disposition is written down with its reasoning, its timestamp, the analyst's name, and the list version in force at the time. That is what makes the file defensible years later, when somebody asks why this supplier was approved.
+The assembled file carries a recommended path, not a decision: routine, enhanced due diligence, or the procurement risk committee that includes legal. A clean file can be approved by one analyst in minutes because the evidence is already assembled. Suppliers are rescreened on a schedule and on ownership events, with results appended to the same file rather than replacing it, and every disposition is written down with its reasoning, its timestamp, the analyst's name, and the list version in force at the time. That is what makes the file defensible years later, when somebody asks why this supplier was approved.
 
 ## Common questions
 

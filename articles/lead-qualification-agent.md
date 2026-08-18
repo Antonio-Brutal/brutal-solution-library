@@ -18,7 +18,7 @@ Deal registration is the mechanism that makes routing contractual. In industrial
 
 An inbound web enquiry from an end customer inside a live registration belongs contractually to the registering partner. Sending it to a direct rep is a breach of the channel agreement, not a sales decision, and the partner discovers it at the worst possible moment, when their own customer mentions that the manufacturer called them directly.
 
-That is why routing sits above scoring in this system rather than after it. A lead's score changes what you say to them. A lead's claim changes who is permitted to say anything at all.
+That is why routing sits above scoring in this system, not after it. A lead's score changes what you say to them. A lead's claim changes who is permitted to say anything at all.
 
 Channel-safe routing: routing that assigns an inbound enquiry only when exactly one party holds a contractual claim to it, and escalates to a named human duty desk whenever two or more claims overlap, where a claim is any of an assigned territory, a live deal registration, an existing account ownership, or a key-account exception.
 
@@ -52,25 +52,25 @@ Unknown is a permitted output at every layer, and the layers are built to prefer
 
 The agent also never disqualifies anyone. Low-scoring leads are not deleted, hidden or quietly binned. They go to a visible nurture queue that any rep can search and pull from, because the cost of a wrong disqualification is invisible and permanent, while the cost of a low-priority lead sitting in a queue is a few seconds of somebody's attention.
 
-Five refusals are enforced structurally rather than by instruction: it may not resolve a channel conflict, may not disqualify a lead, may not create or edit an account-family edge, may not override or extend a deal registration, and may not send anything to anyone.
+Five refusals are enforced structurally, not by instruction: it may not resolve a channel conflict, may not disqualify a lead, may not create or edit an account-family edge, may not override or extend a deal registration, and may not send anything to anyone.
 
 ## What a first-touch email is forbidden to promise
 
 A first-touch draft may promise a conversation and nothing else. The rep receives a reply written in their own voice, referencing what the enrichment established, answering the specific question asked, and proposing a concrete next step. Most of the work of a good first response is having read up on the company, and that reading is already done. The rep edits and presses send, and nothing leaves without that press.
 
-The drafting layer runs under a prohibition list enforced by architecture rather than by tone. It has no connection to the pricing system, and it may not quote a price, commit a lead time, confirm a technical specification, or make any statement about compliance or certification. In industrial sales those sentences are commercial commitments and in some markets contractual ones, and the moment a first touch becomes a quotation it belongs to a human with the authority to make that promise.
+The drafting layer runs under a prohibition list enforced by architecture, not by tone. It has no connection to the pricing system, and it may not quote a price, commit a lead time, confirm a technical specification, or make any statement about compliance or certification. In industrial sales those sentences are commercial commitments and in some markets contractual ones, and the moment a first touch becomes a quotation it belongs to a human with the authority to make that promise.
 
-Where a partner holds the claim, the draft is addressed to the partner rather than to the end customer, and it carries the enquiry, the enrichment and the registration reference. The end customer gets their answer from the company that registered them, which is what the channel agreement says should happen.
+Where a partner holds the claim, the draft is addressed to the partner, not the end customer, and it carries the enquiry, the enrichment and the registration reference. The end customer gets their answer from the company that registered them, which is what the channel agreement says should happen.
 
 ## Common questions
 
 ### How does the agent know a partner has already registered this deal?
 
-It reads your deal registration records as a claim on the end customer, keyed to legal entity and site rather than to email domain, and it checks the window and its renewal state. Inside a live registration the enquiry routes to the registering partner. Where a registration is expired, expiring or disputed, the agent stops and a human duty desk decides.
+It reads your deal registration records as a claim on the end customer, keyed to legal entity and site instead of email domain, and it checks the window and its renewal state. Inside a live registration the enquiry routes to the registering partner. Where a registration is expired, expiring or disputed, the agent stops and a human duty desk decides.
 
 ### What happens when two partners both claim the same account?
 
-Nothing automatic. Overlapping claims are exactly the case this system is built to refuse, so the lead goes to a named duty desk with both claims spelled out: registration dates, territory assignment, account ownership and the evidence behind each. Speed on that decision is worth considerably less than the partner relationship a wrong answer damages.
+Nothing automatic. Overlapping claims are the case this system is built to refuse, so the lead goes to a named duty desk with both claims spelled out: registration dates, territory assignment, account ownership and the evidence behind each. Speed on that decision is worth considerably less than the partner relationship a wrong answer damages.
 
 ### Why not train a scoring model on our closed-won deals?
 

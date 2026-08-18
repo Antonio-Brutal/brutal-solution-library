@@ -14,7 +14,7 @@ The constraint has company. In Germany, deploying automated performance monitori
 
 ## Rewriting empathy into something you can point at
 
-Every criterion was rewritten as a test that can be failed by pointing at a specific utterance, and the product got better rather than worse. Empathy became four questions with answers you can see in a transcript: did the agent name the customer's stated problem back to them, did they acknowledge the impact the customer stated, did they interrupt while the customer was describing it, did they use the customer's own words for what went wrong.
+Every criterion was rewritten as a test that can be failed by pointing at a specific utterance, and the product got better for it. Empathy became four questions with answers you can see in a transcript: did the agent name the customer's stated problem back to them, did they acknowledge the impact the customer stated, did they interrupt while the customer was describing it, did they use the customer's own words for what went wrong.
 
 Observable-conduct criterion: a QA rubric criterion that can be passed or failed by pointing to a specific utterance or its absence, with no inference about anyone's emotional or mental state. If a criterion cannot be failed by citation, it cannot be scored.
 
@@ -46,7 +46,7 @@ Reading everything changes which questions the operation can ask. Not how did th
 
 Calibration is written into the contract because in a BPO the quality score is a deliverable the client audits. Every week the analysts review a slice of machine-scored conversations, weighted deliberately toward low-confidence scores and disputed ones. Disagreements are logged and traced to a cause: the transcript was wrong, the criterion was ambiguous, or the scorer was wrong. Each cause has a different fix, and the ambiguous-criterion fixes improve every future score.
 
-The analysts did not become redundant, they moved up a level, and the specific work is auditing the scorer rather than reading conversations. That work has an output the old sampling never produced: a documented agreement rate between human and machine per criterion, per rubric version, which is what the client's auditor actually asks for.
+The analysts did not become redundant. They moved up a level, and the specific work now is auditing the scorer, not reading conversations. That work has an output the old sampling never produced: a documented agreement rate between human and machine per criterion, per rubric version, which is what the client's auditor actually asks for.
 
 No machine score enters an HR process without a human analyst reviewing that specific conversation. Not a sample of similar conversations, that one. Triggering a performance process, altering a ranking or closing a compliance failure requires a person, every time.
 
@@ -70,7 +70,7 @@ Those seconds are never scored from audio, because under PCI DSS pause-and-resum
 
 ### Do we still need our QA analysts?
 
-Yes, and their week changes rather than shrinks. They stop reading a random sliver and start auditing the scorer: reviewing low-confidence and disputed scores, tracing disagreements to transcript errors, ambiguous criteria or scoring errors, and refining the rubric. That produces the documented human-machine agreement rate per criterion that your client's auditor asks for and sampling never generated.
+Yes, and their week changes shape more than it shrinks. They stop reading a random sliver and start auditing the scorer: reviewing low-confidence and disputed scores, tracing disagreements to transcript errors, ambiguous criteria or scoring errors, and refining the rubric. That produces the documented human-machine agreement rate per criterion that your client's auditor asks for and sampling never generated.
 
 ### Can our client see how individual agents are ranked?
 

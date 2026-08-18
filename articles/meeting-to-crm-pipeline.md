@@ -12,7 +12,7 @@ That exchange is two commercial events wearing one coat. It is a pipeline signal
 
 On a fixed-fee engagement, work that falls outside the deliverables listed in the statement of work has to be captured as a change request before it is performed. Once it has been performed it is unbilled work in progress, and work in progress that ages past the engagement's billing milestone gets written off far more often than it gets invoiced. Firms measure the whole cycle, from effort spent to cash collected, as lock-up, counted in days.
 
-In professional services this is structural rather than occasional, because a client meeting is delivery and origination at the same time.
+In professional services this is structural, not occasional: a client meeting is delivery and origination at the same time.
 
 ## Four extraction categories, and the expensive one was missing
 
@@ -34,15 +34,15 @@ The ordering in that definition is the whole design. Record first, classify seco
 
 The first weeks of scope-delta alerts produced a finding nobody enjoyed: the extractor fired far more often on the consultant's words than on the client's. Clients ask for things, which is free and expected and creates no obligation. The gap opens when somebody on the firm's side agrees, and the person opening it was usually the one saying of course, we can pick that up.
 
-That finding is exactly why the system does not classify what it finds. A flagged sentence can be a change request the firm should raise this week, deliberate goodwill on an account the partner is protecting, or something already covered by an assumption the extractor read too literally. Telling those apart needs the pitch, the relationship history and the renewal date, none of which live in a transcript.
+That finding is why the system does not classify what it finds. A flagged sentence can be a change request the firm should raise this week, deliberate goodwill on an account the partner is protecting, or something already covered by an assumption the extractor read too literally. Telling those apart needs the pitch, the relationship history and the renewal date, none of which live in a transcript.
 
-Nothing about a delta's commercial meaning is delegated: the system cannot decide whether it is billable, cannot raise a change request, cannot move an opportunity's stage or value in the CRM, and cannot send anything to a client. It proposes the sentence with its surrounding context to the engagement lead, and the engagement lead decides. Approving a proposed CRM update takes one click from Slack or email; dismissing it takes one click too, and a dismissal is logged as an answer rather than as silence.
+Nothing about a delta's commercial meaning is delegated: the system cannot decide whether it is billable, cannot raise a change request, cannot move an opportunity's stage or value in the CRM, and cannot send anything to a client. It proposes the sentence with its surrounding context to the engagement lead, and the engagement lead decides. Approving a proposed CRM update takes one click from Slack or email; dismissing it takes one click too, and a dismissal is logged as an answer, not as silence.
 
 ## A quote with coordinates, or a debrief that admits what it is
 
-Recording a client call is not a free input, and consent rewrote part of this system. Across several European jurisdictions all-party consent is the legal baseline for recording a conversation, and in Germany recording another person's non-public spoken word without consent is a criminal offence under §201 StGB rather than a policy matter. One of the firm's markets could not be recorded at all.
+Recording a client call is not a free input, and consent rewrote part of this system. Across several European jurisdictions all-party consent is the legal baseline for recording a conversation, and in Germany recording another person's non-public spoken word without consent is a criminal offence under §201 StGB, not a policy matter. One of the firm's markets could not be recorded at all.
 
-Typed debriefs therefore became a first-class input rather than a degraded fallback. A consultant writes what was asked and what was agreed, in the same structure the extractor uses on transcripts, and the extractor runs on that text.
+Typed debriefs therefore became a first-class input in their own right, not a degraded fallback. A consultant writes what was asked and what was agreed, in the same structure the extractor uses on transcripts, and the extractor runs on that text.
 
 Every extracted claim then carries a provenance grade, because the two inputs are not equally strong. A verbatim claim links to a transcript timestamp. A recalled claim links to a debrief, with the author and the time it was written. A citation never claims to be verbatim when it is recalled, which matters the moment a scope delta becomes a change-request conversation: here is the recording at thirty-four minutes is a different conversation from our manager's note says this was discussed.
 
@@ -58,7 +58,7 @@ This approach is wrong for one common case, and it is worth naming. If the firm 
 
 Scope-delta data is never a performance metric, and we will not build the version where it is. An alert is visible to the fee-earner who was on the call and to the engagement lead. It is not aggregated into an individual scorecard, it does not roll up into a leaderboard, and it never reaches a partner dashboard.
 
-The reason is operational rather than sentimental. The moment an alert can be used against the person whose sentence triggered it, that person stops recording calls, stops writing debriefs, and starts describing meetings in language vague enough to survive review. The system's only input is people willingly putting conversations into it, and a metric that punishes candour dries the input up within a month.
+The reason is operational, not sentimental. The moment an alert can be used against the person whose sentence triggered it, that person stops recording calls, stops writing debriefs, and starts describing meetings in language vague enough to survive review. The system's only input is people willingly putting conversations into it, and a metric that punishes candour dries the input up within a month.
 
 The firm's partners asked, reasonably, whether the system could rank consultants by how much scope they gave away. It could. We said no, and built the aggregate view at the level where the fix lives instead: which engagement types generate the most deltas, and which statements of work carry assumptions loose enough to argue about.
 
@@ -74,7 +74,7 @@ A notetaker summarises a call against generic categories. This tests every reque
 
 ### What do you need from us before it can run?
 
-Three things, and all of them already exist. The statements of work for live engagements, including deliverables, assumptions and exclusions. The CRM field definitions you actually use rather than the ones in the manual. And a named engagement lead per account who receives the scope deltas and decides what each one is.
+Three things, and all of them already exist. The statements of work for live engagements, including deliverables, assumptions and exclusions. The CRM field definitions you actually use, not the ones in the manual. And a named engagement lead per account who receives the scope deltas and decides what each one is.
 
 ### Will consultants see alerts about their own calls?
 

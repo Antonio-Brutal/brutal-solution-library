@@ -1,6 +1,6 @@
 # Mining Ten Years of Tickets Without Publishing Workarounds as Answers
 
-> Why most of an enterprise service desk's resolution history records circumventions rather than fixes, and how we made a knowledge base that publishes the two under different promises.
+> Most of an enterprise service desk's resolution history records circumventions, not fixes, and a knowledge base that cannot tell the two apart publishes expired workarounds as answers.
 
 ![Flow diagram: an archive of closed tickets is clustered into article trunks, each tethered by provenance threads back to its source tickets; stale and contradictory entries divert to an owner before anything publishes](graphics/ticket-mining-knowledge-base.svg)
 
@@ -38,7 +38,7 @@ Reading the archive properly means separating what the user reported from what a
 
 ## Step-level provenance changes the question the reviewer is answering
 
-Provenance attached to each step, rather than to the article, is what makes review a technical act instead of a proofread.
+Provenance attached to each step, not to the article, is what makes review a technical act instead of a proofread.
 
 Step-level provenance means every individual step in a published article names the source tickets whose resolutions produced it, so the reviewing owner is asked whether they agree with eleven specific resolutions rather than whether the article reads plausibly. Provenance attached to the article as a whole is a citation. Provenance attached to each step is a review.
 

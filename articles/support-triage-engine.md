@@ -16,11 +16,11 @@ Classifying intent is the trivial part. Knowing what to tell her means knowing w
 
 ## One question, four right answers, depending on the clock
 
-The same question from the same customer has four different true answers, and which one is correct depends on cycle position rather than on anything in the message. Before the cut-off, the address is changed in the subscription platform and the next box goes to the new address. Between the cut-off and label generation, this box is committed and only an operations amendment can touch it. After label generation, the honest answer is a carrier redirect with a fee and no guarantee. After delivery to the old address it is not an address change at all, but a lost parcel investigation with a different owner and a different clock.
+The same question from the same customer has four different true answers, and the correct one depends on cycle position, not on anything in the message. Before the cut-off, the address is changed in the subscription platform and the next box goes to the new address. Between the cut-off and label generation, this box is committed and only an operations amendment can touch it. After label generation, the honest answer is a carrier redirect with a fee and no guarantee. After delivery to the old address it is not an address change at all, but a lost parcel investigation with a different owner and a different clock.
 
 Skips and pauses branch the same way. A customer told her box was skipped, when the charge has already run and the parcel is packed, gets both a charge and a box she declined, which becomes a refund, a return food subscriptions often cannot accept, and a cancellation conversation.
 
-So the drafting step branches on cycle position before it composes anything, resolving where the subscription sits against the current batch window and only then writing. A draft that cannot establish cycle position is escalated to a human with the reason attached rather than written at lower confidence.
+So the drafting step branches on cycle position before it composes anything, resolving where the subscription sits against the current batch window and only then writing. A draft that cannot establish cycle position goes to a human with the reason attached; writing it anyway at lower confidence is the one thing the system will not do.
 
 <img src="motion/support-triage-engine.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
@@ -34,7 +34,7 @@ So every item in the context bundle now carries a validity window. Carrier track
 
 Perishable draft: a reply whose correctness expires. A draft is perishable when any fact it asserts has a validity window shorter than the expected approval latency. Perishable drafts must be regenerated at send time or blocked from sending.
 
-A draft inherits the earliest expiry among the facts it asserts. If that moment has passed when the agent clicks send, the draft is invalidated and regenerated against fresh state rather than sent. Approval latency in a busy support team is measured in hours, so this fires far more often than anyone expects.
+A draft inherits the earliest expiry among the facts it asserts. If that moment has passed when the agent clicks send, the draft is invalidated and regenerated against fresh state. Approval latency in a busy support team is measured in hours, so in practice this fires far more often than anyone expects.
 
 ## Act first, write second
 
@@ -54,7 +54,7 @@ Everything outside those strings is drafted directly in the customer's language 
 
 ## Autonomy that gets revoked on a schedule
 
-Auto-send is earned per intent and revoked on a schedule rather than only on failure. When an intent runs for weeks at a near-zero edit rate, a human promotes it. Every promoted intent then loses that autonomy for the hours either side of each batch cut-off, because those hours are exactly when a confident answer is most likely to be wrong.
+Auto-send is earned per intent, and it is revoked on a schedule, not only on failure. When an intent runs for weeks at a near-zero edit rate, a human promotes it. Every promoted intent then loses that autonomy for the hours either side of each batch cut-off, because those hours are exactly when a confident answer is most likely to be wrong.
 
 Edits are the feedback signal we care about: they mark the precise point where the machine's answer and a person's judgement separated, and edits clustered around a cut-off tell us a branch is drawn in the wrong place.
 
@@ -68,7 +68,7 @@ The customer never talks to the model. Every reply is drafted for an agent, who 
 
 ### What stops it telling a customer something that was true ten minutes ago?
 
-Every fact in the context bundle carries a validity window, and a draft inherits the earliest expiry among the facts it asserts. If that moment has passed when send is clicked, the draft is regenerated against fresh state rather than sent. This matters most around the batch cut-off, when state changes without anyone touching the account.
+Every fact in the context bundle carries a validity window, and a draft inherits the earliest expiry among the facts it asserts. If that moment has passed when send is clicked, the draft is regenerated against fresh state before anything goes out. This matters most around the batch cut-off, when state changes without anyone touching the account.
 
 ### Does it actually change the subscription, or only write about it?
 
@@ -76,7 +76,7 @@ It changes it first. The engine executes the skip, swap, pause or address change
 
 ### How do you keep quality in languages nobody in the team reads?
 
-Drafts are written directly in the customer's language against a versioned instruction set that fixes vocabulary and formality register per market, rather than translated from English. Legal wording is inserted verbatim from strings your counsel wrote. Native reviewers sample per language, and any language can drop back to full review on its own.
+Drafts are written directly in the customer's language against a versioned instruction set that fixes vocabulary and formality register per market. Nothing is translated from English. Legal wording is inserted verbatim from strings your counsel wrote. Native reviewers sample per language, and any language can drop back to full review on its own.
 
 ## What does your cut-off do to your inbox?
 
