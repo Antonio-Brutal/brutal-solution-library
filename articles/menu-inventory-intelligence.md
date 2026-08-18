@@ -1,6 +1,6 @@
 # A Costing Engine Where the Allergen Matrix Holds a Veto
 
-> How we built yield-true recipe costing and substitution proposals for a multi-site restaurant group, and why a cheaper thickener is a legal question before it is a margin question.
+> A cheaper thickener four levels down a prep tree can rewrite thirty-eight allergen declarations, so the allergen matrix vetoes substitutions before ranking ever sees them.
 
 ![Flow diagram: supplier prices and inventory feed recipe costing while waste is attributed per dish; margin and popularity meet at a dish node, with recommendations passing a chef's approval](graphics/menu-inventory-intelligence.svg)
 
@@ -10,7 +10,7 @@ One ingredient in this group's catalogue appears in thirty-eight dishes, and in 
 
 That number reframes what a costing engine is for. A distributor reprices one case and thirty-eight plate costs move, none of them visibly. It also reframes what a substitution is, because swapping that ingredient rewrites thirty-eight allergen declarations at the same moment it moves thirty-eight margins.
 
-Our customer runs dozens of sites across several cities under a handful of formats. In a multi-site kitchen, cost and legal declaration are the same object. Any substitution that improves plate margin also rewrites an allergen declaration and can invalidate a published dietary claim, which is why the allergen matrix has to veto cost recommendations at generation time rather than review them afterwards.
+The group runs dozens of sites across several cities under a handful of formats. In a multi-site kitchen, cost and legal declaration are the same object. Any substitution that improves plate margin also rewrites an allergen declaration and can invalidate a published dietary claim, which is why the allergen matrix has to veto cost recommendations at generation time rather than review them afterwards.
 
 ## As purchased is not edible portion, and the gap is site-specific
 

@@ -1,6 +1,6 @@
 # A Tender Engine That Works Out What to Ask Before It Drafts a Word
 
-> How we built tender parsing, ambiguity detection and answer assembly for an engineering services contractor bidding into regulated public procurement, where nobody is allowed to ring the buyer and ask what a requirement means.
+> In regulated procurement nobody may ring the buyer to ask what a requirement means, so the most valuable thing a tender engine produces is the list of questions worth asking while asking is still allowed.
 
 ![Flow diagram: tender documents enter a compliance matrix, an answer library with stale claims flagged feeds draft assembly, and a bid manager approves before submission](graphics/rfp-response-engine.svg)
 
@@ -10,13 +10,13 @@ In regulated public procurement you are not permitted to call the buyer and ask 
 
 The clarification deadline closes well before the submission deadline, often by a fortnight or more. That single scheduling fact reorders the whole bid. The work of understanding the tender has to finish while there is still time to act on what you did not understand, which is early, and long before anyone has written a word of a technical response.
 
-Our customer is an engineering services contractor with several hundred engineers, pursuing dozens of tenders a year across infrastructure frameworks, industrial maintenance contracts and design-and-build packages. Each serious tender arrives as hundreds of pages of instructions, technical specifications, annexes, evaluation criteria and forms, in a mixture of native PDFs, portal exports, spreadsheets and scans. The people who can interpret it are the same senior engineers delivering billable work during the day.
+The contractor we built this for employs several hundred engineers and pursues dozens of tenders a year across infrastructure frameworks, industrial maintenance contracts and design-and-build packages. Each serious tender arrives as hundreds of pages of instructions, technical specifications, annexes, evaluation criteria and forms, in a mixture of native PDFs, portal exports, spreadsheets and scans. The people who can interpret it are the same senior engineers delivering billable work during the day.
 
 So ambiguity detection became a week-one deliverable with a deadline of its own, and the compliance matrix stopped being a checklist for what to write. It became the instrument for deciding what to ask.
 
 ## Not every "shall" is yours to answer
 
-The bid manager who opened our first compliance matrix scrolled for a while and then asked which of the rows were his. Several thousand had come back from a single framework tender, because the extraction lifted every "shall" and every "must" in the pack into a row of its own. The technical specification incorporated external standards by reference, and each of those standards carried its own obligations, so the matrix inherited an entire library of engineering requirements. The genuinely mandatory bid-time rows sat somewhere inside that, indistinguishable from the noise, which is the exact failure the matrix existed to prevent.
+The bid manager who opened our first compliance matrix scrolled for a while and then asked which of the rows were his. Several thousand had come back from a single framework tender, because the extraction lifted every "shall" and every "must" in the pack into a row of its own. The technical specification incorporated external standards by reference, and each of those standards carried its own obligations, so the matrix inherited an entire library of engineering requirements. The genuinely mandatory bid-time rows sat somewhere inside that, indistinguishable from the noise. The instrument built to expose requirements was burying them.
 
 The modal verb was the wrong extraction unit. We changed it to two properties instead: who the obligation falls on, and when it has to be satisfied. A row is created only where the obligation falls on the tenderer at bid time.
 
@@ -54,7 +54,7 @@ We refuse to generate an answer where the library holds no approved entry. When 
 
 Every drafted answer cites the library entries it was assembled from, with their freshness dates visible, so a reviewer is checking sourced claims rather than judging tone. If a passage says the firm has delivered comparable work under a similar framework, the citation points at the approved entry that says so, and the reviewer can see when it was last verified.
 
-The system is not permitted to decide certain things. It cannot submit anything, cannot complete or sign a declaration of eligibility, cannot decide which clarification questions are published to competitors, cannot mark a mandatory row compliant without a named human, and cannot touch price. It supplies completeness, provenance and early warning. Bid managers and engineers supply judgement, and every mandatory row is green with a name against it before anything leaves the building.
+Five locks stay on the human side of this system: it cannot submit anything, cannot complete or sign a declaration of eligibility, cannot decide which clarification questions are published to competitors, cannot mark a mandatory row compliant without a named human, and cannot touch price. It supplies completeness, provenance and early warning. Bid managers and engineers supply judgement, and every mandatory row is green with a name against it before anything leaves the building.
 
 ## Common questions
 

@@ -1,6 +1,6 @@
 # The Report Is the Logbook: Voice to Record for Regulated Field Work
 
-> How we built voice-to-report documentation for a refrigeration and air-conditioning maintenance provider, and why any system capturing a technician's spoken report has to know the moment that report becomes a legal record.
+> A technician's spoken job report becomes an F-Gas logbook entry partway through a sentence, and the capture system has to notice that moment and change its behaviour.
 
 ![Flow diagram: a voice waveform passes through a structuring comb that separates it into three rails ending in report, parts, and invoice nozzles, which converge on a one-tap confirm node before exiting to the field-service system](graphics/field-service-reporting.svg)
 
@@ -18,7 +18,7 @@ Under the EU F-Gas regime (Regulation (EU) 517/2014, recast as (EU) 2024/573), h
 
 Because CO2 equivalent is kilograms multiplied by the refrigerant's global warming potential, two units holding an identical number of kilograms of different gases sit in different legal inspection tiers. No technician should be expected to hold that arithmetic in mind on a roof in February. The tier is a property of the asset record, derived from refrigerant type and charge, and the system knows it before anybody opens their mouth.
 
-The logbook the operator must keep is equally specific: refrigerant type, quantity added, quantity recovered, the identity of the technician who did the work, and the dates and results of leak checks, retained for five years. Those fields are not a form we designed. They are a legal minimum, and a report that leaves any of them to inference is exposure wearing the shape of paperwork.
+The logbook the operator must keep is equally specific: refrigerant type, quantity added, quantity recovered, the identity of the technician who did the work, and the dates and results of leak checks, retained for five years. Those fields are not a form we designed. They are a legal minimum, and a report that leaves any of them to inference is exposure filed as paperwork.
 
 ## "About a kilo" is not a logbook entry
 
@@ -38,7 +38,7 @@ A compliance-bearing field is any report field whose value will be read by someo
 
 The largest single gain in transcription accuracy came from turning a feature off. Modern handsets apply aggressive noise suppression tuned for voice calls, and a plant room is not a voice call. A running chiller produces broadband roar, and the handset's suppression was classifying that roar as speech and gating the technician's actual words around it. Words disappeared from the middle of sentences, which is worse than a low-confidence transcript, because the sentence still reads as complete.
 
-We disabled the platform suppression and handled the acoustics ourselves, and accuracy in plant rooms improved sharply. A voice system for field service is an acoustics project wearing the clothes of a language project.
+We disabled the platform suppression and handled the acoustics ourselves, and accuracy in plant rooms improved sharply. A voice system for field service is an acoustics project that presents itself as a language project.
 
 Away from the regulated fields, the capture layer asks for exactly one behaviour: talk. No forms at capture time, no mandatory categorisation before recording, no penalty for speaking out of order or adding "oh, and I swapped the intake filter while I was up there" at the end. Technicians dictate in whichever language they think in and the report is produced in the company's reporting language.
 
@@ -78,4 +78,4 @@ It does not, because regulated values are captured as values rather than transla
 
 ## Who signs your compliance records, and when?
 
-If your technicians finish at four and the logbook entries get written from memory later that week, the record and the work were produced by two different versions of the same person. Removing the typing closes that gap, and the closing is worth more than the time it saves. Tell us what your last job of the day leaves behind, and we will show you what it could leave behind instead.
+Where technicians finish at four and the logbook entries get written from memory later that week, the record and the work were produced by two different versions of the same person. Removing the typing closes that gap, and the closing is worth more than the time it saves. Tell us what your last job of the day leaves behind, and we will show you what it could leave behind instead.

@@ -1,6 +1,6 @@
 # A Support Engine That Checks Whether Its Own Draft Is Still True
 
-> How we built triage and draft replies for a multi-market subscription commerce brand, and why the correct answer to a ticket depends on the clock as much as on the question.
+> In subscription commerce the correct reply depends on where the batch cycle stands at the moment of sending, so this engine acts first, writes second, and rechecks its facts at send time.
 
 ![Flow diagram: a stack of inbound tickets moves through classification and intent routing, context assembly, and on-brand drafting into an approval and earned-autonomy step where a human approves each reply before it is sent; hard cases escalate along a separate path.](graphics/support-triage-engine.svg)
 
@@ -10,9 +10,9 @@ At 13:58 on a Tuesday a customer writes to say she has moved and wants her next 
 
 Subscription commerce runs on a hard cut-off, and the cut-off is the fact that governs support. Once the renewal charge has run and the pick list has gone to the logistics provider, skips, swaps, pauses and address changes stop being reversible in the order management system, even though nothing has physically shipped. Carrier label generation is a second, later point of no return. After a label exists, an address change is no longer a change at all: it is a carrier redirect, which most carriers charge for and some refuse outright on certain services.
 
-Our customer is a subscription brand shipping physical goods across Europe, taking thousands of tickets a month in nine languages. A few dozen intents cover the great majority of that volume, which is what makes drafting worth automating.
+The brand behind this build ships subscription boxes across Europe and takes thousands of tickets a month in nine languages. A few dozen intents cover the great majority of that volume, which is what makes drafting worth automating.
 
-Intent is the easy half. Knowing what to tell her requires knowing where her subscription sits in the fulfilment cycle at the moment the reply lands.
+Classifying intent is the trivial part. Knowing what to tell her means knowing where her subscription sits in the fulfilment cycle at the moment the reply lands.
 
 ## One question, four right answers, depending on the clock
 
@@ -58,7 +58,7 @@ Auto-send is earned per intent and revoked on a schedule rather than only on fai
 
 Edits are the feedback signal we care about: they mark the precise point where the machine's answer and a person's judgement separated, and edits clustered around a cut-off tell us a branch is drawn in the wrong place.
 
-The system is not permitted to decide certain things. It cannot issue a refund or credit beyond published policy, cannot cancel a subscription without an agent, cannot write or alter the legal strings, and cannot send unsupervised on any ticket flagged as bereavement, safety, allergy, chargeback or legal. Those route to a person with the full context bundle attached, so the agent starts from understanding rather than an empty tab.
+A hard list of decisions never leaves people: refunds or credits beyond published policy, cancellations, any edit to the legal strings, and any send at all on a ticket flagged as bereavement, safety, allergy, chargeback or legal. Those route to a person with the full context bundle attached, so the agent starts from understanding rather than an empty tab.
 
 ## Common questions
 
@@ -80,4 +80,4 @@ Drafts are written directly in the customer's language against a versioned instr
 
 ## What does your cut-off do to your inbox?
 
-If your replies are drafted against state that can change while a ticket sits in a queue, the correctness problem is timing rather than writing. We build these engines to act first, write second, and to recheck their facts at the moment of sending. Tell us where your cycle locks.
+Replies drafted against state that can change while the ticket queues are wrong by timing, not by writing. We build these engines to act first, write second, and to recheck their facts at the moment of sending. Tell us where your cycle locks.

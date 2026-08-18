@@ -1,14 +1,14 @@
 # The SOP Assistant That Refuses the Most Common Question on the Floor
 
-> How we built a cited-answer operations assistant for a hospitality network running across three countries, and why the hardest design decision was the class of question we forbade it to touch.
+> The question a floor assistant hears most, whether a dish contains an allergen, is the one it must never answer from a manual, and drawing that boundary was the real design work.
 
 ![Flow diagram: a thick bound stack of manuals fans out into an indexed lattice; a single question arrives from the right and threads one lit retrieval route through the lattice to one page, returning with a cited answer, while unanswered questions collect along a faint analytics channel that a lime-ringed head-office node reviews.](graphics/sop-knowledge-assistant.svg)
 
-## The question staff ask most is the one the assistant must refuse
+## The right answer changes with the delivery van
 
 Guests ask whether a dish contains nuts, or celery, or sulphur dioxide more often than they ask anything else, and no retrieval system should be answering that. The correct answer depends on which supplier delivered which batch of which component that week, so it can change without a word of the operations manual changing. A manual cannot know that. Neither can an assistant built on it, however clean the retrieval and exact the citation.
 
-Our customer is a hospitality franchise network with dozens of locations across three countries. The operating knowledge exists: a 400-page operations manual, brand standards, HR policies, food-safety procedures and a growing folder of training decks. Nobody opens any of it during service, because a 400-page PDF is unanswerable at the speed a shift runs at. The working knowledge system was a phone call to head office and whoever had been there longest.
+The operator is a hospitality franchise network with dozens of locations across three countries. The operating knowledge exists: a 400-page operations manual, brand standards, HR policies, food-safety procedures and a growing folder of training decks. Nobody opens any of it during service, because a 400-page PDF is unanswerable at the speed a shift runs at. The working knowledge system was a phone call to head office and whoever had been there longest.
 
 We designed the boundary before the index, because getting the boundary wrong is the only failure here that hurts somebody.
 
@@ -26,7 +26,7 @@ Every chunk in the index is consequently true only inside a country and a date w
 
 ## No jurisdiction and no effective date means no index entry
 
-Jurisdiction and effective date are mandatory fields on every chunk, with no default and no inference permitted. We arrived at that rule the expensive way.
+Jurisdiction and effective date are mandatory fields on every chunk, with no default and no inference permitted. The rule has a scar behind it.
 
 Retrieval evaluation on the first build looked strong, and the real defect was in the metadata. A supplier-change memo effective in one market was being served to a location in another, because the ingestion pipeline inferred country and effective date from the document header, and this memo carried its country only in the filename. Retrieval was doing what it had been asked. The label was wrong.
 
@@ -86,4 +86,4 @@ Every answer carries the document, the section and the effective date it came fr
 
 ## What does your floor do when nobody on shift knows the answer?
 
-If the answer travels by phone call and tribal memory, your standards are whatever the most experienced person on shift remembers. A cited answer fixes part of that, and an honest refusal fixes more than most operators expect. Tell us which questions your floor asks most, and we will tell you which ones a manual is entitled to answer.
+Answers that travel by phone call and tribal memory make your standards whatever the most experienced person on shift remembers. A cited answer fixes part of that, and an honest refusal fixes more than most operators expect. Tell us which questions your floor asks most, and we will tell you which ones a manual is entitled to answer.

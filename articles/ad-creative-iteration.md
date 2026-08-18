@@ -1,6 +1,6 @@
-# An Ad Creative Engine That Refuses to Make More Ads Than You Can Read
+# An Ad Creative Engine That Sizes the Test Before It Makes the Assets
 
-> How we built a closed-loop creative engine for a direct-to-consumer brand buying across several European markets, and why an account's weekly conversion volume, not its studio, sets how fast any advertiser can learn.
+> An account's weekly conversion volume, not its studio's output, sets how fast an advertiser can learn, and past that ceiling extra variants buy noise rather than knowledge.
 
 ![Flow diagram: a brand-constraint plate feeds a matrix of creative variants, performance returns are collected on the right, and a feedback rail carries what worked back to shape the next generation](graphics/ad-creative-iteration.svg)
 
@@ -8,7 +8,7 @@
 
 The number of creative tests a brand can read in a month is set by how many conversions its account buys, not by how many assets its team can produce. Most of a creative programme is negotiable. That part is arithmetic, and creative operations are usually built to ignore it.
 
-Our customer sells physical products direct to consumers across several European markets, buying on paid social and search with a creative team you could fit around one table. Targeting and bidding, the levers performance marketers used to spend careers on, now belong to the platforms' own optimisation systems. Creative is the main input the advertiser still controls, and the standing assumption is that more of it is always better.
+The brand sells physical products direct to consumers across several European markets, buying on paid social and search with a creative team small enough to share one whiteboard. Targeting and bidding, the levers performance marketers used to spend careers on, now belong to the platforms' own optimisation systems. Creative is the main input the advertiser still controls, and the standing assumption is that more of it is always better.
 
 More of it is better only up to the point where the account can still tell the variants apart. Past that point, extra volume buys no extra learning. It buys a wider matrix of cells too thin to distinguish, and conclusions drawn from noise. A brand in that state retires hooks it never actually tested, with a dashboard open in front of it.
 

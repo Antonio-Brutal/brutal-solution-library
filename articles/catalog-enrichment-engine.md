@@ -14,7 +14,7 @@ We learned this from our own confidence gate working exactly as designed. Readin
 
 ## One EAN, eleven sizes, and the deduplication that ate a product line
 
-The same rebuild surfaced a second failure with the same root cause, this time in the product identifier. Deduplication had merged an eleven-size range into a single product, because the supplier had printed one EAN across all eleven sizes and our matching logic trusted it. Ten configurations disappeared from the catalog, and the merge looked like a clean win in every quality metric we had.
+A second failure had the same root cause, this time in the product identifier. Deduplication had merged an eleven-size range into a single product, because the supplier had printed one EAN across all eleven sizes and our matching logic trusted it. Ten configurations disappeared from the catalog, and the merge looked like a clean win in every quality metric we had.
 
 GS1 allocation rules are unambiguous on this point: a GTIN identifies one specific product configuration, and it must change when the declared net content or the form of the product changes. A supplier who reuses one EAN across a size range is not being sloppy about a reference number. They are asserting that eleven different products are one product, and every downstream system that believes them inherits the assertion.
 
@@ -42,7 +42,7 @@ Generated copy is written from the structured attributes, never alongside them, 
 
 The constraint matters most on the fields that carry legal weight. A description that names a manufacturer, asserts a certification or implies a safety standard is making the same kind of statement as the attested field, and it is doing it in prose where no gate is watching. Copy generation reads only from the validated attribute record, which means an undeclared manufacturer cannot leak into a sentence because the model saw the name once in a source document.
 
-Search copy that lies is a returns problem wearing a marketing hat, and on regulated categories it is a withdrawal notice waiting to happen.
+Search copy that lies is a returns queue with better typography, and on regulated categories it is a withdrawal notice waiting to happen.
 
 ## Chasing a supplier is a product feature, not an admission of defeat
 
@@ -72,4 +72,4 @@ More than it looks. A GTIN identifies one product configuration and must change 
 
 ## How many of your live listings could name their manufacturer today?
 
-If the answer involves a search across supplier emails, the gap is a compliance exposure sitting on your live catalog rather than a data-quality backlog. We build enrichment engines that separate what a model may infer from what a supplier must declare, and that block publication rather than guessing. Tell us what arrives in your supplier feeds.
+An answer that starts with a search across supplier emails is a compliance exposure sitting on your live catalog, not a data-quality backlog. We build enrichment engines that separate what a model may infer from what a supplier must declare, and that block publication rather than guessing. Tell us what arrives in your supplier feeds.

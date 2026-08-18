@@ -10,7 +10,7 @@ A decade of resolution notes is overwhelmingly a record of workarounds, not fixe
 
 The distinction is not ours. In ITIL practice an incident record exists to restore service and a problem record exists to remove cause. When a problem's root cause is established and a temporary circumvention is documented, the pair becomes a known error and lives in a known error database alongside the change that will eventually remove it. Service desk resolution notes are therefore mostly known-error workarounds typed under an SLA clock, and they inherit an expiry that the note itself never states.
 
-Our customer runs service desks for large corporate clients across several countries, and their ticketing system holds a decade of history: millions of resolved tickets, each one a question somebody asked and an answer that worked at the time. It is the most complete account of how the business solves problems, and nobody could use it.
+The provider runs service desks for large corporate clients across several countries, and their ticketing system holds a decade of history: millions of resolved tickets, each one a question somebody asked and an answer that worked at the time. It is the most complete account of how the business solves problems, and nobody could use it.
 
 The official knowledge base was a few hundred articles produced during a documentation push years earlier. Many described systems since decommissioned, policies since changed, and steps that no longer matched the console anyone was looking at. Engineers stopped trusting it, so they stopped searching it, so it decayed further.
 
@@ -20,9 +20,9 @@ A workaround published as an answer is a specific and delayed hazard. It carries
 
 Clustering on the reported symptom demos beautifully. That was our first pipeline, and its clusters were clean and convincing; the drafts underneath them were dangerous.
 
-One cluster labelled around a VPN connection failure contained three unrelated causes: an expired device certificate, a split-tunnel policy change, and exhaustion of a licence pool. The symptom text was near-identical across all of them because users describe the same failure the same way. Synthesis dutifully merged the steps into a single confident procedure that was correct for roughly a third of the tickets underneath it, and the draft read beautifully, which was the problem.
+One cluster labelled around a VPN connection failure contained three unrelated causes: an expired device certificate, a split-tunnel policy change, and exhaustion of a licence pool. The symptom text was near-identical across all of them because users describe the same failure the same way. Synthesis dutifully merged the steps into a single confident procedure that was correct for roughly a third of the tickets underneath it, and the draft read smoothly, which was the problem.
 
-We moved clustering onto the resolution signature instead: which configuration item was touched, which change record was linked, which console path or command family the engineer used, and whether the note pointed back at a prior ticket. Symptom text became a label on the cluster, not the key it was formed on. A second pass now splits any cluster whose fix families diverge, so three causes wearing one symptom become three articles rather than one confident average.
+We moved clustering onto the resolution signature instead: which configuration item was touched, which change record was linked, which console path or command family the engineer used, and whether the note pointed back at a prior ticket. Symptom text became a label on the cluster, not the key it was formed on. A second pass now splits any cluster whose fix families diverge, so three causes sharing one symptom become three articles rather than one confident average.
 
 ## Known error, workaround, permanent fix: three different promises
 
@@ -35,8 +35,6 @@ Reading the archive properly means separating what the user reported from what a
 <img src="motion/ticket-mining-knowledge-base.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Years of resolutions become articles that know exactly where they came from.*
-
-*Resolutions cluster into recurring problems, synthesis pulls them into drafts with provenance, and nothing publishes without an owner's approval.*
 
 ## Step-level provenance changes the question the reviewer is answering
 

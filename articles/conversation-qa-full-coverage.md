@@ -48,7 +48,7 @@ Calibration is written into the contract because in a BPO the quality score is a
 
 The analysts did not become redundant, they moved up a level, and the specific work is auditing the scorer rather than reading conversations. That work has an output the old sampling never produced: a documented agreement rate between human and machine per criterion, per rubric version, which is what the client's auditor actually asks for.
 
-No machine score enters an HR process without a human analyst reviewing that specific conversation. Not a sample of similar conversations, that one. The system is not permitted to trigger a performance process, alter an agent's ranking, or close a compliance failure on its own authority.
+No machine score enters an HR process without a human analyst reviewing that specific conversation. Not a sample of similar conversations, that one. Triggering a performance process, altering a ranking or closing a compliance failure requires a person, every time.
 
 ## What the client brand does not get to see
 

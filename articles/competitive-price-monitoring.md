@@ -10,7 +10,7 @@ A price match you hold for three days governs what you may advertise for the nex
 
 Under the Omnibus Directive (EU) 2019/2161, which amends the Price Indication Directive 98/6/EC, any announced price reduction must state the prior price, and the prior price is defined as the lowest price the trader applied during at least the previous 30 days. Match a rival on Tuesday, restore the shelf price on Friday, and the discount you can lawfully announce three weeks later is measured from Tuesday's number rather than from the price the line sat at for most of the month.
 
-Our customer sells consumer electronics across several European markets, with a catalogue in the tens of thousands of active SKUs: televisions, laptops, headphones, and the long tail of cables, mounts and chargers nobody writes a strategy for. Competitors reprice continuously and algorithmically; the retailer's own prices were revisited when a category manager had an afternoon free.
+The retailer sells consumer electronics across several European markets, with a catalogue in the tens of thousands of active SKUs: televisions, laptops, headphones, and the long tail of cables, mounts and chargers nobody writes a strategy for. Competitors reprice continuously and algorithmically; the retailer's own prices were revisited when a category manager had an afternoon free.
 
 They were not flying blind. They had bought a monitoring tool and it produced alerts in quantity. An alert asserts that somebody is cheaper. It does not establish that the two listings are the same product, and it does not know that the line is earmarked for a headline offer in five weeks.
 
@@ -33,8 +33,6 @@ Everything is stored as history, which is what turns a feed into a picture: who 
 <img src="motion/competitive-price-monitoring.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Matching the same product across retailers is the hard part. The price move is the easy part.*
-
-*Listings converge into verified pairs, margin context joins the flow, and every move passes a human gate before it reaches the shelf edge.*
 
 ## The reference-price ledger we had to add after we lost a campaign
 
@@ -82,4 +80,4 @@ Matching quality decides that, not model tuning. Confident matches on well-ident
 
 ## What did your last quarter of price moves actually cost you?
 
-If you cannot answer that in margin and in advertised-discount headroom, you are running a pricing function on half its arithmetic. We build these engines matching-first and approval-first, with the promotional consequence of every move priced alongside the commercial one. Tell us what your catalogue and your promotional calendar look like.
+A pricing function that cannot answer in both margin and advertised-discount headroom is running on half its arithmetic. We build these engines matching-first and approval-first, with the promotional consequence of every move priced alongside the commercial one. Tell us what your catalogue and your promotional calendar look like.

@@ -1,6 +1,6 @@
-# An Inbound Agent That Refuses to Route a Lead Two Partners Can Claim
+# An Inbound Agent That Treats Deal Registration as Law
 
-> How we built inbound qualification for a channel-sold industrial manufacturer, and why arbitrating who owns an enquiry is harder, and more expensive to get wrong, than scoring it.
+> In channel sales an inbound enquiry can already belong to a partner by contract, so this agent arbitrates ownership before anything is scored and refuses to guess when claims overlap.
 
 ![Flow diagram: inbound leads pass through enrichment into a scoring lattice defined by the sales team, then route to the right rep with a drafted first touch awaiting approval](graphics/lead-qualification-agent.svg)
 
@@ -8,9 +8,9 @@
 
 The first thing almost every inbound project buys is enrichment, and enrichment was never the bottleneck. Sector, headcount band, site locations, hiring signals: all of it is available, most of it is a commodity, and none of it answers the question that actually holds an industrial enquiry up for four days, which is who is allowed to contact this person.
 
-Our customer manufactures industrial equipment sold into factories and processing plants across Europe, largely through distributors and integrators. Inbound arrives as a contact form, a general sales address and a stream of trade-show scans, and what it contains is a name, a company and one sentence of free text.
+The manufacturer we built this for sells industrial equipment into factories and processing plants across Europe, largely through distributors and integrators. Inbound arrives as a contact form, a general sales address and a stream of trade-show scans, and what it contains is a name, a company and one sentence of free text.
 
-Scoring that sentence is the easy half, and it is the half everybody demonstrates. The hard layer is arbitration: working out which parties hold a contractual claim to the enquiry, and refusing to decide when two claims overlap.
+Scoring that sentence is the part every demo leads with. The hard layer is arbitration: working out which parties hold a contractual claim to the enquiry, and refusing to decide when two claims overlap.
 
 ## A registered deal is a contract, and a web form does not know that
 
@@ -52,7 +52,7 @@ Unknown is a permitted output at every layer, and the layers are built to prefer
 
 The agent also never disqualifies anyone. Low-scoring leads are not deleted, hidden or quietly binned. They go to a visible nurture queue that any rep can search and pull from, because the cost of a wrong disqualification is invisible and permanent, while the cost of a low-priority lead sitting in a queue is a few seconds of somebody's attention.
 
-The agent is not permitted to decide certain things, and each boundary is enforced structurally rather than by instruction. It may not resolve a channel conflict, may not disqualify a lead, may not create or edit an account-family edge, may not override or extend a deal registration, and may not send anything to anyone.
+Five refusals are enforced structurally rather than by instruction: it may not resolve a channel conflict, may not disqualify a lead, may not create or edit an account-family edge, may not override or extend a deal registration, and may not send anything to anyone.
 
 ## What a first-touch email is forbidden to promise
 
@@ -82,4 +82,4 @@ No. Every draft waits for a rep to read it and press send. The drafting layer ha
 
 ## Who owns the enquiry that landed in your form this morning?
 
-If answering that takes two days and a thread of people checking with each other, the delay is arbitration rather than qualification, and the price of getting it wrong is a partner reading your reply to their own customer. We build inbound agents that route only on an unambiguous claim and escalate every overlap to a named person. Tell us how your channel agreement handles a web form.
+When answering that takes two days and a thread of people checking with each other, the delay is arbitration rather than qualification, and the price of getting it wrong is a partner reading your reply to their own customer. We build inbound agents that route only on an unambiguous claim and escalate every overlap to a named person. Tell us how your channel agreement handles a web form.

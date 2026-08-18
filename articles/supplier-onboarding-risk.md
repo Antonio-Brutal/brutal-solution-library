@@ -10,7 +10,7 @@ The screening record in a typical supplier file is a saved PDF of one search aga
 
 Under OFAC's 50 Percent Rule, an entity owned 50 percent or more, directly or indirectly, in aggregate, by one or more blocked persons is itself blocked, whether or not it has ever been named. EU practice applies a comparable ownership and control test. The prohibition attaches to a structure, and a structure is not a string you can search for.
 
-Our customer is the procurement team at an industrial manufacturer with plants in several countries, onboarding hundreds of new suppliers a year, from a workshop machining one bracket to a contract manufacturer building subassemblies. Before a first order can be raised, a supplier has to produce company registration, ultimate beneficial owner declarations, tax and VAT registration, bank details, insurance and quality certificates, a signed code of conduct, and a screening record.
+The buyer is the procurement team at an industrial manufacturer with plants in several countries, onboarding hundreds of new suppliers a year, from a workshop machining one bracket to a contract manufacturer building subassemblies. Before a first order can be raised, a supplier has to produce company registration, ultimate beneficial owner declarations, tax and VAT registration, bank details, insurance and quality certificates, a signed code of conduct, and a screening record.
 
 All of that used to arrive by email, and elapsed time was measured in weeks, almost all of it waiting. Delay does not stay administrative: a plant needs a part, so somebody raises an emergency supplier and completes the onboarding retroactively. The workaround path is precisely the path on which screening does not happen, which makes the slowest process in procurement the largest hole in its controls.
 
@@ -37,8 +37,6 @@ We inverted the order. Candidate identity resolution now runs across the whole c
 <img src="motion/supplier-onboarding-risk.svg" alt="Animated schematic: pulses travel the flow described above, pausing where a human decides." width="1200" height="630">
 
 *Screening produces evidence for an analyst. It never rejects a supplier on its own.*
-
-*Documents converge, validation and screening run in parallel, and every hit lands at a human gate before the file is closed.*
 
 ## A range beats a number when the identity is unresolved
 
@@ -84,4 +82,4 @@ The waiting disappears and the judgment does not. Document chasing, validation a
 
 ## Do you know who actually owns the suppliers you paid last month?
 
-If the answer comes from a name typed into a search box, you have screened a string rather than a structure. We build these systems evidence-first: an ownership graph with resolved identities at its ends, honest ranges where identity is uncertain, and every disposition made by a named person. Tell us what your onboarding looks like.
+A name typed into a search box screens a string, not a structure. We build these systems evidence-first: an ownership graph with resolved identities at its ends, honest ranges where identity is uncertain, and every disposition made by a named person. Tell us what your onboarding looks like.

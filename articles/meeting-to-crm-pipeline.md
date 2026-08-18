@@ -36,7 +36,7 @@ The first weeks of scope-delta alerts produced a finding nobody enjoyed: the ext
 
 That finding is exactly why the system does not classify what it finds. A flagged sentence can be a change request the firm should raise this week, deliberate goodwill on an account the partner is protecting, or something already covered by an assumption the extractor read too literally. Telling those apart needs the pitch, the relationship history and the renewal date, none of which live in a transcript.
 
-The system is not permitted to decide whether a scope delta is billable, to raise a change request, to move an opportunity's stage or value in the CRM, or to send anything to a client. It proposes the sentence with its surrounding context to the engagement lead, and the engagement lead decides. Approving a proposed CRM update takes one click from Slack or email; dismissing it takes one click too, and a dismissal is logged as an answer rather than as silence.
+Nothing about a delta's commercial meaning is delegated: the system cannot decide whether it is billable, cannot raise a change request, cannot move an opportunity's stage or value in the CRM, and cannot send anything to a client. It proposes the sentence with its surrounding context to the engagement lead, and the engagement lead decides. Approving a proposed CRM update takes one click from Slack or email; dismissing it takes one click too, and a dismissal is logged as an answer rather than as silence.
 
 ## A quote with coordinates, or a debrief that admits what it is
 
@@ -48,7 +48,7 @@ Every extracted claim then carries a provenance grade, because the two inputs ar
 
 ## Lock-up is the number this system actually moves
 
-Lock-up is the number this system moves, and CRM hygiene is a side effect. The honest description of the change is narrow: a scope delta surfaces within a day of the conversation, while the change request can still be raised before the work is performed, instead of surfacing months later at the write-off review, when the only remaining options are absorbing it or invoicing for work the client thought was included.
+CRM hygiene is the side effect here; the number that moves is lock-up. The honest description of the change is narrow: a scope delta surfaces within a day of the conversation, while the change request can still be raised before the work is performed, instead of surfacing months later at the write-off review, when the only remaining options are absorbing it or invoicing for work the client thought was included.
 
 Pipeline reviews changed too, in a less comfortable direction. When the record is built from what was said, engagements expanding without paperwork show up as expanding, and deals with no agreed next step across three consecutive calls show up as stalled.
 
@@ -82,4 +82,4 @@ They see every alert from their own conversations, first, before anyone else. Th
 
 ## How much scope did your firm agree to last quarter without writing it down?
 
-If the answer lives in the memories of the people who were on those calls, it is not recoverable and it is not billable. We build the pipeline that catches the sentence on the day it is said, cites it, and puts the commercial decision in front of the person who is allowed to make it. Tell us how your engagements handle change requests today.
+An answer that lives in the memories of the people who were on those calls is not recoverable and not billable. We build the pipeline that catches the sentence on the day it is said, cites it, and puts the commercial decision in front of the person who is allowed to make it. Tell us how your engagements handle change requests today.

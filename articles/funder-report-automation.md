@@ -1,6 +1,6 @@
 # Two Funders Ask the Same Question, and Both Answers Are Correct
 
-> How we built a grant-reporting engine for an international nonprofit, and why we stopped storing a single canonical figure for anything.
+> Each grant agreement fixes its own indicator definitions, windows and exchange-rate rules, so this engine stores no converted figures and computes every reported number from raw records at render time.
 
 ![Flow diagram: programme data and field notes converge, then fan out through per-funder template mappings into drafted narratives whose figures remain traced back to source](graphics/funder-report-automation.svg)
 
@@ -8,7 +8,7 @@
 
 We built a warehouse holding one canonical figure per indicator, with each donor's report as a filtered view on top. Buried in that design is a claim about the world: that an indicator has one true value. The claim survived a single reporting cycle.
 
-Our customer is an international nonprofit delivering programmes across a dozen countries on money from institutional donors, government agencies and private foundations. Every grant ends in a document: quarterly narratives, interim reports triggered by a milestone, final reports that release the last tranche. The material those documents need already exists, spread across a monitoring database, a finance ledger, and the field notes of the people who were there.
+The nonprofit delivers programmes across a dozen countries on money from institutional donors, government agencies and private foundations. Every grant ends in a document: quarterly narratives, interim reports triggered by a milestone, final reports that release the last tranche. The material those documents need already exists, spread across a monitoring database, a finance ledger, and the field notes of the people who were there.
 
 The warehouse broke not on counting but on money and dates. A training paid in local currency, invoiced across an eligibility boundary and converted once at the bank rate on the payment date, disagreed with the donor's mandated rate and with the finance ledger at the same time. Because we had stored the converted value rather than the transaction, we could not reproduce either figure.
 
@@ -80,4 +80,4 @@ Both, but only from material staff already wrote. Field notes are parsed into da
 
 ## Does reporting season pull your best people out of the field?
 
-If your quarter is spent hunting figures across three systems and reconciling numbers that were never contractually meant to agree, the problem is that your figures were stored instead of computed. We build these engines so every reported number can be recomputed from raw records under the donor's own rules, years after submission, with its means of verification attached. Tell us what your donors ask for.
+A quarter spent hunting figures across three systems, reconciling numbers that were never contractually meant to agree, is the price of storing figures instead of computing them. We build these engines so every reported number can be recomputed from raw records under the donor's own rules, years after submission, with its means of verification attached. Tell us what your donors ask for.

@@ -1,4 +1,4 @@
-# A Contract Review Copilot That Reads the Deal File, Not Just the Lease
+# A Contract Review Copilot That Reads Past the Four Corners of the Lease
 
 > Why a commercial property legal team's review copilot had to stop judging clauses on their drafting and start tracking the conditions attached to every right inside them.
 
@@ -6,7 +6,7 @@
 
 ## We built clause extraction first, and it read everything correctly
 
-The build we shipped first segments each document into clauses, classifies them, compares every clause against the team's preferred position, its fallbacks and its walk-away line, then flags each deviation and proposes a redline with the rationale attached. That is clause extraction against a written playbook, and it is what we shipped. Our client was the in-house legal function of a commercial real-estate group: a team you could count on one hand, reading hundreds of leases, service contracts and NDAs a year, on counterparty paper at least as often as on their own templates.
+The build we shipped first segments each document into clauses, classifies them, compares every clause against the team's preferred position, its fallbacks and its walk-away line, then flags each deviation and proposes a redline with the rationale attached. Clause extraction against a written playbook, in other words. The client is the in-house legal function of a commercial real-estate group, a team you could count on one hand, reading hundreds of leases, service contracts and NDAs a year, on counterparty paper at least as often as on their own templates.
 
 The extraction layer held up on documents built to defeat it. Counterparty paper hides things, occasionally on purpose: the indemnity that matters is a sub-paragraph inside "General Provisions", and the liability cap is split across two schedules. Classification therefore runs on what a clause does rather than on what its heading says, against a taxonomy of a few dozen clause types: indemnities, liability caps, assignment and change of control, break options, rent review mechanisms, insurance obligations, termination rights.
 
@@ -70,4 +70,4 @@ The conditional right is escalated rather than passed. If a break depends on all
 
 ## What is sitting in your deal file that your review never opens?
 
-If your contract review stops at the four corners of the document, the conditions that decide whether your rights actually work are being assessed by nobody. We build review systems that read the deal rather than the PDF, and we build them around the standard your team already applies. Tell us which rights in your portfolio you would not want to test on the break date.
+A review that stops at the four corners of the document leaves the conditions that decide whether your rights actually work assessed by nobody. We build review systems that read the deal rather than the PDF, and we build them around the standard your team already applies. Tell us which rights in your portfolio you would not want to test on the break date.

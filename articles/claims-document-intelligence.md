@@ -4,13 +4,13 @@
 
 ![Flow diagram: scattered claim documents and photos funnel through intake and an evidence-extraction lattice, align against a policy-terms grid for coverage cross-check, and condense into one brief rail that ends at an open node: the adjuster decides, the system never does](graphics/claims-document-intelligence.svg)
 
-## Somebody else should be paying, and the file already names them
+## The responsible party is on page one, unread
 
 A claim file usually names the third party whose failure caused the loss. Systems built to read for damage and coverage position go straight past that name. Subrogation is the insurer's right, after indemnifying its policyholder, to pursue the responsible party in the policyholder's name, and it is the only part of a claim file that can return money rather than spend it.
 
 That right is preserved or destroyed in the first days of a file, which is exactly when nobody is looking for it. Recovery depends on identifying the responsible party, preserving the physical evidence such as the failed appliance or the burst hose before remediation removes it, and not having signed the right away in advance. Commercial leases and construction contracts routinely carry waiver-of-subrogation clauses that extinguish it outright, and the limitation clock against the third party runs from the date of the loss, not from the day the insurer pays.
 
-Our client was a regional property and casualty insurer handling thousands of claims a month, with experienced licensed adjusters whose job is judgment: what the policy covers, whether an estimate is reasonable, whether the evidence holds together. A claim file runs to dozens of documents arriving over days or weeks, so before any judgment happens someone has to read all of it, and then read it again each time a new attachment lands. Recovery was not on that reading list.
+The insurer in this engagement is a regional property and casualty carrier handling thousands of claims a month, with experienced licensed adjusters whose job is judgment: what the policy covers, whether an estimate is reasonable, whether the evidence holds together. A claim file runs to dozens of documents arriving over days or weeks, so before any judgment happens someone has to read all of it, and then read it again each time a new attachment lands. Recovery was not on that reading list.
 
 ## Adjusters read for coverage; recovery hides in the sentences they skip
 

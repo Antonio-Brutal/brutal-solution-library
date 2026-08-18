@@ -6,7 +6,7 @@
 
 ## An accurate score, wired to the one action that already existed
 
-Our customer is a subscription media company operating across several European markets, with a subscriber base in the millions and a mix of monthly and annual plans, and they already had a churn dashboard. Monthly, with cohort curves and breakdowns by plan and tenure, accurate and well built, describing decisions that had finished weeks earlier. We built a score to catch those decisions while they were still forming.
+The customer, a subscription media company operating across several European markets with a subscriber base in the millions and a mix of monthly and annual plans, already had a churn dashboard. Monthly, with cohort curves and breakdowns by plan and tenure, accurate and well built, describing decisions that had finished weeks earlier. We built a score to catch those decisions while they were still forming.
 
 A score fixes the timing and leaves everything else exactly where it was. It tells you who is at risk this week rather than which cohort decayed last quarter, but if the only action wired to it is the discount that already sits at the cancel door, an earlier score simply buys the same blunt thing sooner and hands money to people who were staying anyway.
 
@@ -88,4 +88,4 @@ You can test clarity, layout, wording and the accuracy of what is shown at cance
 
 ## What happens in your product in the three weeks before someone cancels?
 
-If the honest answer is that nobody knows, the discount at the door is doing work that earlier signals could do more cheaply. We build early-warning systems that separate payments failures from decisions, name a reason with an owner, and prove their effect against a permanent holdout. Tell us what your cancel flow looks like today and what it is allowed to do.
+"Nobody knows" means the discount at the door is doing work that earlier signals could do more cheaply. We build early-warning systems that separate payments failures from decisions, name a reason with an owner, and prove their effect against a permanent holdout. Tell us what your cancel flow looks like today and what it is allowed to do.

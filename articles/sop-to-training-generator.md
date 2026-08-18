@@ -1,6 +1,6 @@
 # A Generator That Splits a 400-Page Manual Into Training Proportionate to the Job
 
-> How we turned a franchise network's operating manual into role-specific training, and why decomposition by role is a legal step rather than a usability improvement.
+> Food-hygiene law requires training commensurate with what each person actually does, which makes splitting a 400-page manual by role a legal act rather than a formatting choice.
 
 ![Flow diagram: a bound operating manual fans into role-mapped modules with assessments, and a currency loop regenerates affected modules whenever the underlying policy changes](graphics/sop-to-training-generator.svg)
 
@@ -12,7 +12,7 @@ Regulation (EC) No 852/2004, Annex II, Chapter XII requires food business operat
 
 An inspector tests that standard by asking one member of staff about one task. A manual organised by system rather than by role is evidence of documentation, not evidence of training, and the gap between the two becomes visible only when somebody in an apron is asked a question nobody ever specifically taught them.
 
-Our customer operates a franchise network across several countries: hundreds of locations, most of them owner-operated, most of the frontline staff in their first job or their third this year. The manual is genuinely good, refined over two decades, and it answers almost every question a new employee will have. Almost nobody has opened it, because it was written for the network rather than for the nineteen-year-old on their first shift.
+The franchise network we built this for spans several countries: hundreds of locations, most owner-operated, most of the frontline staff in their first job or their third this year. The manual is genuinely good, refined over two decades, and it answers almost every question a new employee will have. Almost nobody has opened it, because it was written for the network rather than for the nineteen-year-old on their first shift.
 
 ## Onboarding by oral tradition drifts one hire at a time
 
@@ -56,7 +56,7 @@ Completion evidence is not certification. A training system may record that a na
 
 A franchisor that certifies a franchisee's employees is asserting a degree of control over those employees that it spends considerable effort elsewhere denying, in a record that is written down and dated.
 
-The boundaries are therefore architectural rather than editorial. Modules covering food safety, workplace safety and alcohol service cannot be published by any path except a named compliance owner's approval. The system may not mark anyone as certified, may not decide which roles exist, may not fill a gap the manual leaves open, and may not publish any version of any module to any location without a named human approving that version.
+These limits are wired into the publish path rather than written into guidance. Modules covering food safety, workplace safety and alcohol service cannot be published by any path except a named compliance owner's approval. The system may not mark anyone as certified, may not decide which roles exist, may not fill a gap the manual leaves open, and may not publish any version of any module to any location without a named human approving that version.
 
 ## When the policy changes, we can name who was trained on the old version
 

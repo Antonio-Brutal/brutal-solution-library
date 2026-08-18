@@ -1,6 +1,6 @@
 # The Incident Copilot We Built Cannot Touch Production, By Design
 
-> How we built an incident-response copilot for a European payments and lending business, and why the regulatory clock starts at a moment somebody has to decide on rather than at the first alert.
+> DORA's four-hour clock runs from the moment a human classifies an incident as major, so the copilot's real product is a timeline that can prove, months later, when that moment was and what was known at it.
 
 ![Flow diagram: alerts, deploys and logs converge onto one incident timeline; runbooks are retrieved with citations back to the events that summoned them, and the remediation branch ends at a closed valve the system cannot cross](graphics/incident-response-copilot.svg)
 
@@ -8,7 +8,7 @@
 
 Ask a regulated European payments firm to show, months after the night in question, that it reported an incident inside the window the law gave it. The proof is a timestamp. A good summary saves an on-call engineer some scrolling; a timestamp made while the incident was still running is the thing a supervisor can test.
 
-Our customer runs payments and lending infrastructure across several European markets: dozens of services, a permanent on-call rotation, and the obligations that come with holding other people's money. The copilot sits in the incident channel and does the assembly work continuously. It pulls alerts, metrics movements, deploys, feature-flag changes, infrastructure events and log anomalies into one record, retrieves runbooks with citations and edit dates, keeps a rolling account of what is known and what has been tried, and drafts the first postmortem when the incident closes.
+The firm runs payments and lending infrastructure across several European markets: dozens of services, a permanent on-call rotation, and the obligations that come with holding other people's money. The copilot sits in the incident channel and does the assembly work continuously. It pulls alerts, metrics movements, deploys, feature-flag changes, infrastructure events and log anomalies into one record, retrieves runbooks with citations and edit dates, keeps a rolling account of what is known and what has been tried, and drafts the first postmortem when the incident closes.
 
 All of that is convenience, and a competent engineer could do every part of it more slowly. The one thing nobody can do afterwards is record what happened while it was happening, from the systems it happened to, which is why we treat the timeline as the product.
 
@@ -48,7 +48,7 @@ Every credential the copilot holds is read-only, and that is the whole safety ar
 
 That matters most during an incident, because incidents are when log lines carry arbitrary text from customers and partners, and when the humans in the channel are too busy to audit what a tool just did.
 
-The copilot is not permitted to decide certain things, and the boundary is architectural rather than editorial. It cannot restart a service, roll back a deploy, flip a feature flag, scale a cluster or fail over a region. It cannot post to the status page or send an external word to anyone. It cannot open, close or amend a regulatory notification. It cannot classify an incident.
+The boundary around what it may decide is architectural rather than editorial. It cannot restart a service, roll back a deploy, flip a feature flag, scale a cluster or fail over a region. It cannot post to the status page or send an external word to anyone. It cannot open, close or amend a regulatory notification. It cannot classify an incident.
 
 ## Contributing factors are written as questions, because a timeline shows correlation
 
@@ -84,4 +84,4 @@ The timeline records the gap instead of smoothing it away. Ingestion lag is a di
 
 ## What time did your last incident actually start?
 
-If the answer comes from a channel scrollback and somebody's memory, you are reconstructing a regulatory artefact from the two least reliable sources in the building. We build incident copilots read-only, on event time, with clock skew shown rather than hidden, and with classification left to the person accountable for it. Tell us what your last bad night looked like and who had to write it up afterwards.
+An answer assembled from channel scrollback and somebody's memory is a regulatory artefact built from the two least reliable sources in the building. We build incident copilots read-only, on event time, with clock skew shown rather than hidden, and with classification left to the person accountable for it. Tell us what your last bad night looked like and who had to write it up afterwards.

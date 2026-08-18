@@ -1,6 +1,6 @@
 # A Screening Engine That Measures Whether Its Human Oversight Is Real
 
-> How we built high-volume candidate screening for a staffing agency placing industrial and logistics workers, and why the number we watch hardest is how often a hire comes from below the shortlist cut.
+> Nobody builds a machine that rejects candidates; the real hazard is a ranked list nobody reads past, so the number this engine watches hardest is how often a hire comes from below the cut.
 
 ![Flow diagram: CVs are parsed and scored against recruiter-defined criteria with an audit trail citing every score; the recruiter decides who advances to interviews, and parse failures are flagged for human review](graphics/candidate-screening-engine.svg)
 
@@ -10,7 +10,7 @@ Nobody in high-volume recruiting builds a machine that rejects candidates, so th
 
 Rank-position compliance is the tendency of a reviewer to act on the order a system produced rather than on the evidence behind it. It is the genuine automated-decision risk in screening, and unlike most fairness concerns it is directly measurable: the share of hires originating below the shortlist cut.
 
-The agency we built this for places candidates into industrial and logistics roles: warehouse operators, forklift drivers, line technicians, delivery crews. Thousands of applications a month reach a recruiting team that can give each one a few seconds. The industry measures its skim in seconds rather than minutes, and that is a description rather than an exaggeration.
+The agency we built this for places candidates into industrial and logistics roles: warehouse operators, forklift drivers, line technicians, delivery crews. Thousands of applications a month reach a recruiting team that can give each one a few seconds, and 'a few seconds' is a measurement rather than a figure of speech.
 
 That skim leaves no record and produces nothing anyone could audit for fairness, which is the bar a screening system has to clear: more consistent than a tired glance, more accountable afterwards, and explicit about what it may never decide.
 

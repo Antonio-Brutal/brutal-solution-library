@@ -1,6 +1,6 @@
 # A Close Copilot for a Business Where Nothing Is Supposed to Reconcile
 
-> How we built a financial close copilot for a multi-country hotel group, and why expected settlement, rather than amount matching, is the right basis for reconciliation in any business that collects its money through somebody else's platform.
+> Room revenue posts tonight and the cash lands days later, short by a commission, so this close copilot models what should settle instead of hunting for amounts that match.
 
 ![Flow diagram: parallel entity rails converge into a reconciliation enclosure where pairs lock; an unmatched rail drops through a siding to a lime-ringed controller-reviews node and rejoins, variance narratives draft from the matched data, and a sequential close checklist leads to the closed ledger, with an audit trail running underneath the whole flow](graphics/financial-close-automation.svg)
 
@@ -80,4 +80,4 @@ If a property sells almost entirely direct and takes payment through a single ac
 
 ## What is your close actually waiting on?
 
-If your month-end runs for weeks, ask how much of that time goes on differences that were always going to be there. Reconciliation gets fast when the engine knows what the difference should be before it looks. Tell us how money reaches your bank accounts, and we will tell you what your close could look like.
+Ask how much of a weeks-long close goes on differences that were always going to be there. Reconciliation gets fast when the engine knows what the difference should be before it looks. Tell us how money reaches your bank accounts, and we will tell you what your close could look like.

@@ -1,6 +1,6 @@
 # An HR Assistant That Cites the Clause and Cannot Tell You Who Asked
 
-> How we built a policy assistant and case layer for a mid-size European employer, and why works council co-determination, not privacy preference, decided the data model.
+> Under German co-determination a per-person question log is the regulated object, so the analytics store holds cohorts only and the sensitive routes never invoke a model at all.
 
 ![Flow diagram: jurisdiction-layered policies feed a retrieval lattice that returns cited answers, while sensitive topics take a separate branch that bypasses drafting entirely and goes straight to a person](graphics/hr-policy-case-assistant.svg)
 
@@ -8,7 +8,7 @@
 
 In a co-determined market, the record of who asked the question is the regulated object, not the answer. Section 87(1)(6) of the German Works Constitution Act gives the works council a co-determination right over the introduction and use of technical devices that are suited to monitor employee behaviour or performance. Suitability is the test. Intent is irrelevant, and a system that logs which employee asked which question is suited to monitoring whether or not anyone ever reads the log.
 
-Our customer employs several thousand people across a handful of European countries, served by an HR function small enough that everyone knows everyone else's calendar. The policies exist and they are good: a group handbook, country addenda covering what differs by jurisdiction, works council agreements in one market, a separate leave policy in another. What employees actually use is the shared inbox and whoever sits nearest, and the overwhelming majority of what arrives there has a documented answer that gets typed out again by hand.
+The employer has several thousand people across a handful of European countries, served by an HR function small enough that everyone knows everyone else's calendar. The policies exist and they are good: a group handbook, country addenda covering what differs by jurisdiction, works council agreements in one market, a separate leave policy in another. What employees actually use is the shared inbox and whoever sits nearest, and the overwhelming majority of what arrives there has a documented answer that gets typed out again by hand.
 
 HR asked for an assistant over the handbook with a question log behind it, and every component of that request is reasonable on its own. In this employer's largest market, the log is the part that stops the project.
 
@@ -80,4 +80,4 @@ Every source is ingested with its scope and precedence attached, and answers are
 
 ## Do you know what your HR inbox is being asked, without knowing who asked?
 
-If your business partners are a lookup service for policies they wrote, and the serious cases queue behind the expense questions, that split is fixable without building a monitoring device in the process. We design these boundary-first: cited answers where policy is clear, a named person for everything that deserves one, and no per-person record to negotiate over. Tell us which markets you operate in and what lands in your inbox.
+Business partners running a lookup service for policies they wrote, while the serious cases queue behind the expense questions: that split is fixable without building a monitoring device in the process. We design these boundary-first: cited answers where policy is clear, a named person for everything that deserves one, and no per-person record to negotiate over. Tell us which markets you operate in and what lands in your inbox.

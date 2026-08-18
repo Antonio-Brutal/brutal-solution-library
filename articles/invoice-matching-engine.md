@@ -1,6 +1,6 @@
 # An AI Engine That Reads Carrier Invoices and Works Out Who Owes What
 
-> How we built ingestion, charge allocation and matching for a mid-market European freight forwarder, and why allocation has to happen before any match can be attempted.
+> A carrier invoice bills one number for fourteen customers' goods, so the engine splits every charge to the shipments that owe it before any match is attempted.
 
 ![Flow diagram: supplier invoices funnel through ingestion and extraction, then lock together with the purchase order and delivery record in a three-way match and post to the ledger; mismatches drop to a lime-ringed human-resolves node and rejoin the ledger](graphics/invoice-matching-engine.svg)
 
@@ -12,7 +12,7 @@ Three-way matching is undefined for most carrier invoices. The classical version
 
 The structure behind that is the bill of lading hierarchy. A forwarder issues a House Bill of Lading to each shipper it books, then moves those consignments together under a single Master Bill of Lading with the ocean carrier. The carrier invoices the master. Costs, margins and customer commitments live at house level. A terminal handling line, a bunker surcharge, a customs inspection fee: each is one number on the master, covering many customers' goods.
 
-Our customer is a mid-market European freight forwarder moving tens of thousands of shipments a year and taking in thousands of supplier invoices a month from carriers, terminals, customs brokers and hauliers. They arrive as clean PDFs, as scans of printouts, as photographs pasted into an email body, as spreadsheets with the totals on a different tab from the line items.
+The customer is a mid-market European freight forwarder moving tens of thousands of shipments a year and taking in thousands of supplier invoices a month from carriers, terminals, customs brokers and hauliers. They arrive as clean PDFs, as scans of printouts, as photographs pasted into an email body, as spreadsheets with the totals on a different tab from the line items.
 
 Extraction is the easy half. Reading a skewed scan and returning supplier identity, invoice number, currency, charge codes, container numbers and totals, with a confidence score on every field and low-confidence fields flagged rather than guessed, is ordinary engineering now. The hard half is deciding which of those fourteen shipments owe what share of the charge, and how much of it the forwarder can bill onward.
 
@@ -30,7 +30,7 @@ The engine treats that as a validation problem rather than a matching problem. I
 
 ## Allocation comes before matching, or nothing matches
 
-We shipped strict line-level three-way matching, and on carrier paper it matched almost nothing. The terminal handling line covering fourteen house bills had no order behind it to match against, so it dropped into the exceptions queue, and so did every other consolidated charge. The queue we had built for the difficult cases filled up with the ordinary ones, which is the failure the queue existed to prevent.
+Strict line-level matching went live anyway: proven technique, standing in a week. The terminal handling line covering fourteen house bills had no order behind it to match against, so it dropped into the exceptions queue, and so did every other consolidated charge. The queue we had built for the difficult cases filled up with the ordinary ones, which is the failure the queue existed to prevent.
 
 We rebuilt the unit of matching. The atom is no longer the invoice line. It is a charge-to-shipment allocation, and an apportionment step now runs before any comparison happens, splitting each consolidated line across the house bills that carried it on the basis recorded in the rate agreement: per container, per TEU, per chargeable weight.
 
@@ -54,7 +54,7 @@ Two further refusals shaped the build. We do not allow straight-through posting 
 
 Tolerance thresholds are configuration owned by the financial controller rather than code owned by us. Rounding on a currency conversion clears silently. A small variance on a weight-based charge clears with a note. An accessorial the booking never anticipated does not clear at all.
 
-The system is not permitted to decide certain things. It cannot approve a disputed carrier charge, cannot create or change an allocation basis, cannot post a recharge to a customer account, and cannot release a payment. It allocates, validates, evidences and proposes; a controller approves, and the audit trail records which human agreed to what and against which clause.
+Four decisions are withheld from the system by construction: it cannot approve a disputed carrier charge, cannot create or change an allocation basis, cannot post a recharge to a customer account, and cannot release a payment. It allocates, validates, evidences and proposes; a controller approves, and the audit trail records which human agreed to what and against which clause.
 
 ## Common questions
 

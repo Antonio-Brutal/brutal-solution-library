@@ -1,6 +1,6 @@
 # A Horizon Scanner That Diffs Provisions, Not Files
 
-> How we built regulatory horizon scanning for a payments fintech licensed across several European markets, and why the change that moves your obligations is usually not a change to the law.
+> A supervisory Q&A row can change a payment firm's obligations without any document changing, so this scanner watches provisions and database entries rather than files and feeds.
 
 ![Flow diagram: distant source beacons feed a change-detection comparator where an old and new version overlay and the difference glows lime, then an impact-mapping lattice routes the change and an officer confirms before it fans out to distinct owner terminals, each with a deadline](graphics/regulatory-horizon-scanning.svg)
 
@@ -22,7 +22,7 @@ So the system treats a Q&A entry as a first-class monitored object, with its own
 
 ## Hashing the PDF was noisier than the newsletters
 
-We started, as everyone does, with content hashing on the source URL, on the correct assumption that regulators replace PDFs in place. Regulators do precisely that: same URL, same filename, different text, no announcement.
+Content hashing on the source URL was the obvious first move, resting on the correct assumption that regulators replace PDFs in place. Regulators do precisely that: same URL, same filename, different text, no announcement.
 
 What we did not anticipate was the opposite failure. Many regulator pages embed a generated render timestamp, a session identifier or a rotating consultation banner, so the hash changed daily on pages where nothing substantive had moved. Within a fortnight the compliance officer was ignoring the system exactly as she had ignored the newsletters, and she was right to. Hashing produced more noise than the manual process it replaced.
 
@@ -82,4 +82,4 @@ A named human, always. The system will not close a task because a deadline passe
 
 ## Which changed rows in a supervisory Q&A would reach you this month?
 
-If the answer is that somebody would probably notice eventually, your detection depends on one person's reading stamina and their holiday schedule. We build the layer that watches provisions, maps them to your controls and puts a date on them, so your experts spend their hours on the response. Tell us which sources you are trying to watch.
+"Somebody would probably notice eventually" is a detection strategy resting on one person's reading stamina and their holiday schedule. We build the layer that watches provisions, maps them to your controls and puts a date on them, so your experts spend their hours on the response. Tell us which sources you are trying to watch.

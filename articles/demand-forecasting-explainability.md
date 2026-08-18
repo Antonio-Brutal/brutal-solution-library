@@ -8,7 +8,7 @@
 
 By nine on a Monday, the weekly replenishment proposal has usually been exported into a spreadsheet, and that export is the most honest trust measurement a forecasting team will ever get.
 
-Our customer is a specialty retail chain with stores across several European markets, tens of thousands of active SKUs, and a category mix that swings with season, weather and whatever is happening in the street outside each shop. A statistical forecast already ran every week and produced a proposed order for every store and every line. On backtests it was good. In the buying office it was a first draft, and some weeks it was a rounding error against the number a buyer typed in by hand.
+The retailer is a specialty chain with stores across several European markets, tens of thousands of active SKUs, and a category mix that swings with season, weather and whatever is happening in the street outside each shop. A statistical forecast already ran every week and produced a proposed order for every store and every line. On backtests it was good. In the buying office it was a first draft, and some weeks it was a rounding error against the number a buyer typed in by hand.
 
 The overrides were not the expensive part, because plenty of them were excellent. Forecast and override were saved as a single final quantity, so when a line sold out on day three or sat in the stockroom until markdown, nobody could say whose number had been wrong. Model error and buyer error were indistinguishable in the data, which meant neither of them ever got corrected.
 
@@ -82,4 +82,4 @@ They do when it takes one click and they see the result. The list is deliberatel
 
 ## What does your Monday planning meeting actually argue about?
 
-If the argument is whether to believe the proposal, the forecast is not the thing to fix first. We build replenishment systems that explain the quantity a buyer is looking at, capture the override as structured evidence, and route what that evidence reveals to the team that owns it. Tell us what your planning week looks like, and we will tell you which part of it is worth automating.
+When the argument is whether to believe the proposal, the forecast is not the thing to fix first. We build replenishment systems that explain the quantity a buyer is looking at, capture the override as structured evidence, and route what that evidence reveals to the team that owns it. Tell us what your planning week looks like, and we will tell you which part of it is worth automating.

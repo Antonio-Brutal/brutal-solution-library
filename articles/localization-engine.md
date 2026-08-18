@@ -8,9 +8,9 @@
 
 A meaningful share of the strings in any interface cannot be translated into some target languages at all, by any translator, at any budget. They can only be rewritten in English first, and until someone does that, every translation of them is a guess that will be wrong in a way the reviewer cannot fix.
 
-Our customer is a consumer app expanding across Europe: nine live languages, more queued, thousands of interface strings, a release train that ships weekly, and the process almost everybody starts with. Export the changed strings to a spreadsheet, email it to a pool of freelancers, wait days, paste the results back, ship.
+The product is a consumer app expanding across Europe: nine live languages, more queued, thousands of interface strings, a release train that ships weekly, and the process almost everybody starts with. Export the changed strings to a spreadsheet, email it to a pool of freelancers, wait days, paste the results back, ship.
 
-The obvious failure there is missing context. "Free" means one thing on a pricing page and something unrelated beside a booking slot, and a spreadsheet row cannot tell a translator which one it is. Capturing the screen, the component and a rendered crop alongside every string solves that, and it was the easy half of the work.
+The obvious failure there is missing context. "Free" means one thing on a pricing page and something unrelated beside a booking slot, and a spreadsheet row cannot tell a translator which one it is. Capturing the screen, the component and a rendered crop alongside every string solves that, and it was the quick half of the work.
 
 The half that mattered was the strings that context cannot rescue. Our pipeline's most valuable output turned out to be a list of defects filed against the source code, not a set of translations.
 
@@ -90,4 +90,4 @@ They are the reason to start early. A source string that satisfies the definitio
 
 ## How old is the copy your product speaks in its ninth language?
 
-If nobody can answer that quickly, the translations are not the part that is broken. We build localization pipelines that capture context automatically, enforce the brand as versioned rules, and send the impossible strings back to engineering where they can actually be fixed. Tell us how many languages you are behind, and we will show you what your own build already knows.
+When that takes more than a minute to answer, the translations are not the part that is broken. We build localization pipelines that capture context automatically, enforce the brand as versioned rules, and send the impossible strings back to engineering where they can actually be fixed. Tell us how many languages you are behind, and we will show you what your own build already knows.

@@ -1,6 +1,6 @@
 # The Note Assistant That Will Not Write a Number the Clinician Did Not Say
 
-> How we built session capture and structured note drafting for a physiotherapy clinic chain, and why the binding constraint turned out to be arithmetic rather than fluency.
+> Prose survives end-of-day fatigue and digits do not, so this assistant treats measurements as quotations to confirm against audio rather than text to generate.
 
 ![Flow diagram: intake and session capture feed a note drafted to the clinic template, which stops at a clinician sign-off node; no path continues into the record without it](graphics/clinical-documentation-assistant.svg)
 
@@ -8,7 +8,7 @@
 
 The treatment rooms are empty, the last patient left forty minutes ago, and a physiotherapist is at a terminal with nine notes still to write. Each one has to carry the numbers that session produced: goniometric range of motion at a named joint, a score on a validated outcome instrument, the sets, repetitions and load prescribed for the coming week. By this hour those numbers are competing with eight other patients' numbers, and the ones that survive are the ones that were easy to remember.
 
-Our customer is a physiotherapy chain running dozens of sites, with clinicians booked back to back from early morning to early evening. Notes written from memory at the end of a day do not fail evenly. Prose survives fatigue and digits do not, so the subjective paragraph still reads well at nine at night while the objective field quietly becomes "as before, progressing well".
+The clinic chain runs dozens of sites, with clinicians booked back to back from early morning to early evening. Notes written from memory at the end of a day do not fail evenly. Prose survives fatigue and digits do not, so the subjective paragraph still reads well at nine at night while the objective field quietly becomes "as before, progressing well".
 
 In physiotherapy the load-bearing content of a note is numeric, and that changes what a documentation assistant has to be good at. Fluency is cheap and mostly irrelevant here. The binding constraint is that a number may only enter the record if a clinician actually said it, exactly as they said it.
 
@@ -82,4 +82,4 @@ Yes, because the tap replaces recall rather than typing. The expensive part of a
 
 ## Are your clinicians reconstructing measurements from memory at nine at night?
 
-If the objective fields in your notes are filled in hours after the session ended, the numbers in your record are recollections wearing the clothes of measurements. We build these systems so a value enters a chart only when a clinician said it and confirmed it, and so the interpretation stays theirs. Tell us which fields your template treats as mandatory, and we will show you where the drafting stops.
+Objective fields filled in hours after the session ended hold recollections rounded into measurements, whatever the template calls them. We build these systems so a value enters a chart only when a clinician said it and confirmed it, and so the interpretation stays theirs. Tell us which fields your template treats as mandatory, and we will show you where the drafting stops.

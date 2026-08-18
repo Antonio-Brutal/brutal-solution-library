@@ -34,7 +34,7 @@ Reports are never merged. Work orders are. Every report keeps its own received t
 
 This also fixed a quieter failure the audit had not reached yet. Under the old arrangement, the second and third reporters received nothing, because their messages had been folded into a ticket someone else owned, and silence to a tenant who has reported a hazard is exactly the evidence that turns a repair into a claim.
 
-The system is not permitted to close a report, and it is not permitted to decide that two reports are the same notice. It proposes the link, a property manager confirms it, and the link is recorded with who made it and when.
+Closing a report is a human act, and so is deciding that two reports are the same notice. It proposes the link, a property manager confirms it, and the link is recorded with who made it and when.
 
 ## Urgency is a hazard class with a due-by, not a colour
 
@@ -76,4 +76,4 @@ No, and that is deliberate. The work order is created and flagged within seconds
 
 ## When did your oldest unanswered tenant email become a notice?
 
-If nobody can answer that from the record, the answer will eventually be supplied by somebody else's solicitor, working from your own inbox. We build the register that timestamps every report on receipt, tracks each one to its own outcome, and leaves every send, every dispatch and every closure with your people. Tell us how your inbox handles a hazard report today.
+When the record cannot answer that, the answer will eventually be supplied by somebody else's solicitor, working from your own inbox. We build the register that timestamps every report on receipt, tracks each one to its own outcome, and leaves every send, every dispatch and every closure with your people. Tell us how your inbox handles a hazard report today.

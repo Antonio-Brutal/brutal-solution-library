@@ -1,6 +1,6 @@
 # An Analytics Agent That Cannot Write a Wrong Join, Because It Cannot Write a Join
 
-> How we built a governed analytics agent in Slack for a B2B scale-up, and why constraining the agent's output space is the only control that holds where prompt instructions do not.
+> Prompt instructions cannot stop a model writing a fanned-out join, so this agent's output space contains no SQL at all: it selects governed metrics and the semantic layer writes the query.
 
 ![Flow diagram: plain-language questions drop into a governed SQL generation chamber that sits atop a wide semantic-layer lattice feeding it from below, answers exit as chart clusters, and one flagged question loops through a data-team-defines node back into the lattice as a new definition](graphics/analytics-agent-slack.svg)
 
@@ -36,7 +36,7 @@ The failure modes that survive this design are ones a business can live with. Th
 
 We refuse to give an analytics agent raw-table access. That includes read-only access, and it includes access accompanied by careful prompt instructions about grain, because prompt-level warnings are not a control surface. We equally refuse the other common design, a queue where the data team approves every answer before it goes out, because that rebuilds the bottleneck the project existed to remove and adds a language model to it. The data team owns definitions. It does not own answers.
 
-The agent is not permitted to define a metric, widen an existing definition to fit a question, or substitute a near-enough metric when the requested one is missing. Those three decisions belong to the data team, in the layer, under version control.
+Defining a metric, widening an existing definition to fit a question, substituting a near-enough metric when the requested one is missing: those three decisions belong to the data team, in the layer, under version control.
 
 ## "That metric does not exist yet" is the sentence that makes every other answer credible
 

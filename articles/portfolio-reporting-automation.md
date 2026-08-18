@@ -1,6 +1,6 @@
 # A Reporting Engine That Computes Two Correct EBITDAs From One Trial Balance
 
-> How we built a portfolio reporting engine for a mid-market private-equity operating team, and why the same ledger has to produce more than one right answer.
+> A lender's EBITDA and a fund's EBITDA are both contractually correct and rarely equal, so every metric this engine publishes names its basis and reconciles to its sibling.
 
 ![Flow diagram: five portfolio companies with differently kept books pass through individual mapping combs onto one shared chart of accounts, then into metric computation and a reporting pack gated by an operating partner](graphics/portfolio-reporting-automation.svg)
 
@@ -8,7 +8,7 @@
 
 It is the eleventh working day of the month. An analyst has a trial balance open on one screen, a mapping workbook on the other, and a controller on the phone explaining why a cost line moved. In a folder sits the facility agreement for that same company, which defines the number the lender will test at quarter end, unopened since the deal closed.
 
-Our customer is a mid-market private-equity firm with a portfolio in the low double digits, manufacturers, distributors and a couple of software businesses across several countries, run by an operating team small enough to fit in one room. Every month that team produces a pack per company: the numbers, the variances, the operational metrics, the commentary. The packs feed the investment committee, the boards, and eventually the LPs.
+The fund is a mid-market private-equity firm with a portfolio in the low double digits, manufacturers, distributors and a couple of software businesses across several countries, run by an operating team small enough to fit in one room. Every month that team produces a pack per company: the numbers, the variances, the operational metrics, the commentary. The packs feed the investment committee, the boards, and eventually the LPs.
 
 Every company keeps its books differently and none of them is wrong to. One runs a mature ERP with a chart of accounts refined over twenty years, one runs entry-level software where half the analysis lives in the memo field, and two use the same system configured in incomparable ways. The first fortnight of every month goes to translating between them, and the people hired to improve businesses spend it doing data entry.
 
