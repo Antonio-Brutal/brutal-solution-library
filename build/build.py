@@ -46,6 +46,21 @@ ORDER = [
 ]
 
 CSS = brand.ARTICLE_CSS + """
+/* related solutions footer */
+.related{margin-top:4.5rem;border-top:1px solid #1d293d;padding-top:2rem}
+.related-h{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.7rem;font-weight:700;
+ letter-spacing:.18em;color:#62748e;margin:0 0 1.1rem}
+.relgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.relcard{border:1px solid #1d293d;border-radius:.75rem;padding:1rem 1.1rem;text-decoration:none;
+ background:rgba(15,23,43,.4);display:block}
+.relcard:hover{border-color:rgba(157,229,0,.5)}
+.relcard .rt{color:#fff;font-weight:600;font-size:.9rem;line-height:1.45}
+.relcard .rc{color:#62748e;font-size:.72rem;margin-top:.4rem;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:760px){.relgrid{grid-template-columns:1fr}}
+/* grouped index */
+.gcat{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.7rem;font-weight:700;
+ letter-spacing:.18em;color:#9de500;margin:2.5rem 0 .9rem}
+.gcat span{color:#62748e}
 .sitebar{position:sticky;top:0;z-index:10;background:rgba(5,6,8,.92);backdrop-filter:blur(8px);
  border-bottom:1px solid #1d293d;padding:1rem 1.5rem}
 .sitebar-in{max-width:72rem;margin:0 auto;display:flex;align-items:center;gap:1rem}
@@ -94,8 +109,9 @@ PAGE = """<!doctype html>
  <a class="backlink" href="../index.html">All solutions</a>
 </div></nav>
 <article><div class="container">
-<div class="meta"><span>{cat}</span><span>{cust}</span></div>
+<div class="meta"><span>{cat}</span><span>{cust}</span><span>{mins} min read</span></div>
 {inner}
+{related}
 </div></article>
 </body></html>"""
 
@@ -108,6 +124,16 @@ def main():
     shutil.copytree(os.path.join(ART, "media"), os.path.join(DIST, "media"))
     shutil.copytree(os.path.join(ART, "motion"), os.path.join(DIST, "motion"))
 
+    def related_for(slug, cat):
+        same = [o for o in ORDER if o[3] == cat and o[0] != slug]
+        rest = [o for o in ORDER if o[3] != cat and o[0] != slug]
+        picks = (same + rest)[:3]
+        cards = "".join(
+            f'<a class="relcard" href="{s2}.html"><div class="rt">{htmlmod.escape(t2)}</div>'
+            f'<div class="rc">{htmlmod.escape(c2)}</div></a>'
+            for s2, t2, c2, _ in picks)
+        return f'<div class="related"><div class="related-h">// RELATED SOLUTIONS</div><div class="relgrid">{cards}</div></div>'
+
     built = []
     for i, (slug, title, cust, cat) in enumerate(ORDER, 1):
         p = os.path.join(ART, slug + ".md")
@@ -116,19 +142,29 @@ def main():
         src = open(p, encoding="utf-8").read()
         inner, real_title, desc = brand.render_article(src, slug, asset_prefix="../")
         schema = brand.build_schema(real_title, desc, slug, cust, cat, inner)
+        prose = re.sub(r"<[^>]+>", "", inner)
+        mins = max(3, round(len(prose.split()) / 220))
         out = PAGE.format(title=htmlmod.escape(real_title), desc=htmlmod.escape(desc),
-                          og="../media/%s-poster.jpg" % slug, css=CSS, inner=inner,
+                          og="../og/%s.png" % slug, css=CSS, inner=inner,
                           cust=htmlmod.escape(cust), cat=htmlmod.escape(cat),
-                          schema=schema, slug=slug)
+                          schema=schema, slug=slug, mins=mins,
+                          related=related_for(slug, cat))
         open(os.path.join(DIST, "articles", slug + ".html"), "w", encoding="utf-8").write(out)
         built.append((i, slug, title, cust, cat))
 
-    rows = "\n".join(
-        f'<a class="irow" href="articles/{s}.html"><span class="n">{i:02d}</span>'
-        f'<span class="t">{htmlmod.escape(t)}</span>'
-        f'<span class="c">{htmlmod.escape(c)}</span>'
-        f'<span class="g">{htmlmod.escape(g)}</span></a>'
-        for i, s, t, c, g in built)
+    by_cat = {}
+    for i, s2, t, c, g in built:
+        by_cat.setdefault(g, []).append((i, s2, t, c))
+    rows = ""
+    for g in sorted(by_cat):
+        items = by_cat[g]
+        rows += f'<div class="gcat">// {htmlmod.escape(g.upper())} <span>x{len(items)}</span></div>'
+        rows += "\n".join(
+            f'<a class="irow" href="articles/{s2}.html"><span class="n">{i:02d}</span>'
+            f'<span class="t">{htmlmod.escape(t)}</span>'
+            f'<span class="c">{htmlmod.escape(c)}</span>'
+            f'<span class="g">{htmlmod.escape(g)}</span></a>'
+            for i, s2, t, c in items)
     idx = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Brutal.ai — Solution Library</title><style>{CSS}</style></head><body>

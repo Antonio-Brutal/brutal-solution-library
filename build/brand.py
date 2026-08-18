@@ -53,7 +53,7 @@ blockquote{{margin:3rem 0;padding:2rem 0;border-top:2px solid rgba(157,229,0,.3)
 blockquote p{{margin:0;font-size:inherit;color:inherit;line-height:inherit}}
 /* figure: "my-14"; media: "w-full rounded-2xl border border-slate-800 bg-slate-900" */
 figure{{margin:3.5rem 0}}
-figure img,figure video{{width:100%;display:block;border-radius:1rem;
+figure img,figure video{{width:100%;height:auto;display:block;border-radius:1rem;
  border:1px solid var(--s800);background:var(--s900)}}
 /* figcaption: "text-sm text-slate-500 text-center italic mt-3 mb-10" */
 figcaption{{font-size:.875rem;color:var(--s500);text-align:center;font-style:italic;
@@ -66,6 +66,28 @@ li::marker{{color:var(--lime)}}
 strong{{color:#fff;font-weight:700}}
 em{{font-style:italic}}
 a{{color:var(--lime)}}
+::selection{{background:{LIME_400};color:{BG}}}
+/* mono section kickers, echoing the schematic labels */
+.kicker{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.7rem;font-weight:700;
+ letter-spacing:.18em;color:var(--s500);margin:4rem 0 .4rem}}
+.kicker+h2{{margin-top:0}}
+/* definition callout */
+.defcard{{margin:2.75rem 0;border:1px solid rgba(157,229,0,.3);border-left:3px solid var(--lime);
+ border-radius:.75rem;background:rgba(15,23,43,.5);padding:1.4rem 1.6rem}}
+.deflabel{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.65rem;font-weight:700;
+ letter-spacing:.18em;color:var(--lime);margin:0 0 .6rem}}
+.defcard p{{margin:0;font-size:1rem;line-height:1.7;color:#e2e8f0}}
+.defcard strong{{color:#fff}}
+/* FAQ accordions */
+.faq details{{border-top:1px solid var(--s800)}}
+.faq details:last-of-type{{border-bottom:1px solid var(--s800)}}
+.faq summary{{cursor:pointer;list-style:none;display:flex;gap:.9rem;align-items:baseline;
+ padding:1.15rem 0;font-weight:600;color:#fff;font-size:1.05rem}}
+.faq summary::-webkit-details-marker{{display:none}}
+.faq summary::before{{content:"+";color:var(--lime);font-weight:700;flex:0 0 auto;
+ font-family:ui-monospace,Menlo,monospace}}
+.faq details[open] summary::before{{content:"\2212"}}
+.faq details>p{{margin:0 0 1.3rem;color:var(--s300)}}
 /* closing CTA: "mt-20 rounded-2xl border border-lime-400/30 bg-slate-900/60 p-8 md:p-10" */
 .cta{{margin-top:5rem;border-radius:1rem;border:1px solid rgba(157,229,0,.3);
  background:rgba(15,23,43,.6);padding:2rem}}
@@ -106,6 +128,7 @@ def render_article(md_text, slug, asset_prefix=""):
     if asset_prefix:
         src = src.replace("](graphics/", f"]({asset_prefix}graphics/")
         src = src.replace('src="media/', f'src="{asset_prefix}media/')
+        src = src.replace('src="motion/', f'src="{asset_prefix}motion/')
         src = src.replace('poster="media/', f'poster="{asset_prefix}media/')
 
     # closing CTA: last h2 whose text is a question
@@ -138,6 +161,46 @@ def render_article(md_text, slug, asset_prefix=""):
 
     body = figurize(body)
 
+    # definition callout: promote the article's owned definition to a styled card.
+    STOP = {"The","A","An","It","We","That","This","So","But","And","In","On","Under",
+            "One","Every","Nothing","Most","Our","Your","Their","Two","Three","Four","Five",
+            "Because","Underneath","Whatever","Whether","Where","When","Once","While"}
+    VERBS = (" is ", " are ", " was ", " means ", " sits ", " travels ", " comes ", " runs ")
+    def defcard(m):
+        term, rest = m.group(1), m.group(2)
+        if (term.split()[0] in STOP or len(term) > 48 or len(term.split()) > 5
+                or any(v in f" {term} " for v in VERBS)):
+            return m.group(0)
+        defcard.n += 1
+        if defcard.n > 1:
+            return m.group(0)
+        return (f'<div class="defcard"><div class="deflabel">DEFINITION</div>'
+                f'<p><strong>{term}:</strong> {rest}</p></div>')
+    defcard.n = 0
+    # only the body above the FAQ is eligible; FAQ answers are not definitions
+    _split = body.find("<h2>Common questions</h2>")
+    if _split == -1:
+        body = re.sub(r"<p>([A-Z][A-Za-z0-9' -]{2,48}): (.*?)</p>", defcard, body, flags=re.S)
+    else:
+        head, tail = body[:_split], body[_split:]
+        head = re.sub(r"<p>([A-Z][A-Za-z0-9' -]{2,48}): (.*?)</p>", defcard, head, flags=re.S)
+        body = head + tail
+
+    # FAQ accordions: h3/p pairs after the Common questions heading become <details>
+    def faqify(m):
+        block = m.group(1)
+        block = re.sub(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>",
+                       r"<details><summary>\1</summary><p>\2</p></details>", block, flags=re.S)
+        return f'<h2>Common questions</h2><div class="faq">{block}</div>'
+    body = re.sub(r"<h2>Common questions</h2>(.*?)(?=<h2|\Z)", faqify, body, count=1, flags=re.S)
+
+    # mono kickers numbering the sections
+    kick = {"n": 0, "total": len(re.findall(r"<h2>", body))}
+    def kicker(m):
+        kick["n"] += 1
+        return f'<div class="kicker">// {kick["n"]:02d}</div>{m.group(0)}'
+    body = re.sub(r"<h2>", kicker, body)
+
     cta_html = ""
     if cta:
         md.reset()
@@ -160,7 +223,9 @@ def build_schema(title, subtitle, slug, cust, cat, body_html):
     m = _re.search(r"<h2[^>]*>Common questions</h2>(.*?)(?=<h2|\Z)", body_html, _re.S | _re.I)
     if m:
         block = m.group(1)
-        for q, a in _re.findall(r"<h3[^>]*>(.*?)</h3>\s*<p>(.*?)</p>", block, _re.S):
+        pairs = _re.findall(r"<summary>(.*?)</summary>\s*<p>(.*?)</p>", block, _re.S) or \
+                _re.findall(r"<h3[^>]*>(.*?)</h3>\s*<p>(.*?)</p>", block, _re.S)
+        for q, a in pairs:
             faqs.append({
                 "@type": "Question",
                 "name": _re.sub(r"<[^>]+>", "", q).strip(),

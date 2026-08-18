@@ -11,6 +11,7 @@ articles/            30 source articles in Markdown
   graphics/          30 hero schematics (SVG, 1200×630)
   media/             30 demo videos (MP4, 720p, silent) + poster frames
 dist/                built HTML — one page per article plus an index
+  og/                30 branded share cards (1200x630 PNG), one per article
 build/
   build.py           Markdown → styled HTML export
   review.py          single-file review page with everything inlined
